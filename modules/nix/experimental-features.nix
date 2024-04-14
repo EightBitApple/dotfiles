@@ -1,11 +1,11 @@
 { config, lib, pkgs, ... }:
 
 {
-  options.nix-flakes.enable = lib.mkEnableOption ''
+  options.experimental-features.enable = lib.mkEnableOption ''
     Enable Nix's experimental features, such as new nix* commands and flakes.
   '';
 
-  config = lib.mkIf config.nix-flakes.enable {
-    nix.nix-flakes.experimental-features = [ "nix-command" "flakes" ];
+  config = lib.mkIf config.experimental-features.enable {
+    nix.settings.experimental-features = [ "nix-command" "flakes" ];
   };
 }

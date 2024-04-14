@@ -34,6 +34,7 @@
     ./packages/nixpkgs-config.nix
     ./packages/system-packages.nix
 
+    ./programs/git.nix
     ./programs/zsh.nix
     ./programs/steam.nix
     ./programs/wireshark.nix
@@ -70,9 +71,10 @@
   groups.enable = lib.mkDefault true;
   accounts.enable = lib.mkDefault true;
 
-  pkgs-config.enable = lib.mkDefault true;
+  nixpkgs-config.enable = lib.mkDefault true;
   system-packages.enable = lib.mkDefault true;
 
+  git.enable = lib.mkDefault true;
   zsh.enable = lib.mkDefault true;
   steam.enable = lib.mkDefault false;
   wireshark.enable = lib.mkDefault true;
