@@ -1,0 +1,7 @@
+#+title: Wallpaper Sources
+
+These are the sources for all the wallpapers included in this repo.
+To change between these wallpapers, [[../../../scripts/modules/change-wallpaper.nix][use the script titled ~sbg~]].
+
+* Gruvbox
+- [[https://www.artstation.com/artwork/d0vdzK][Car Trip]] by Jonathan Lebrec

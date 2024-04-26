@@ -1,0 +1,505 @@
+#+title: Doom Emacs Configuration
+#+subtitle: My Literate Config for Doom Emacs
+#+author: Stefan Harris
+
+#+PROPERTY: header-args :tangle config.el
+
+* Table of Contents :toc:
+- [[#appearance][Appearance]]
+  - [[#theme][Theme]]
+  - [[#editor][Editor]]
+  - [[#doom-modeline][Doom Modeline]]
+- [[#functionality][Functionality]]
+  - [[#easy-window-resizing][Easy Window Resizing]]
+  - [[#org-mode][Org Mode]]
+  - [[#emacs-web-wowser][Emacs Web Wowser]]
+  - [[#elfeed][Elfeed]]
+  - [[#dired][Dired]]
+  - [[#avy][Avy]]
+  - [[#ace-window][Ace Window]]
+  - [[#minimap][Minimap]]
+  - [[#eradio][Eradio]]
+  - [[#vterm][Vterm]]
+  - [[#debug-adapter-protocol-dap][Debug Adapter Protocol (DAP)]]
+  - [[#macros][Macros]]
+
+* Appearance
+** Theme
+#+begin_src elisp
+(setq doom-theme 'doom-gruvbox)
+(setq doom-font (font-spec :family "FiraCode Nerd Font" :size 12 :weight 'medium))
+(set-frame-parameter nil 'alpha-background 95)
+(add-to-list 'default-frame-alist '(alpha-background . 95))
+
+#+end_src
+
+** Editor
+#+begin_src elisp
+(setq display-line-numbers-type 'relative)
+
+(setq-default tab-width 4)
+(defvaralias 'c-basic-offset 'tab-width)
+(defvaralias 'cperl-indent-level 'tab-width)
+#+end_src
+
+*** Smart Tabs
+#+begin_src elisp
+(smart-tabs-insinuate 'c 'javascript 'java)
+#+end_src
+
+Disable tabs globally (spaces only) and reactivate them for modes with smart tabs handling.
+https://www.emacswiki.org/emacs/SmartTabs
+#+begin_src elisp
+(setq-default indent-tabs-mode nil)
+(add-hook 'c-mode-common-hook
+          (lambda () (setq indent-tabs-mode t)))
+#+end_src
+
+** Doom Modeline
+#+begin_src elisp
+(setq doom-modeline-height 25)
+(setq doom-modeline-icon t)
+(setq doom-modeline-modal-icon nil)
+(setq doom-modeline-major-mode-icon t)
+(setq doom-modeline-enable-word-count t)
+#+end_src
+
+* Functionality
+** Easy Window Resizing
++ Easy resizing of window splits using hydra mode.
+#+begin_src elisp
+(defhydra doom-window-resize (:hint nil)
+        "
+                _k_ increase height
+        _h_ decrease width    _l_ increase width
+                _j_ decrease height
+        "
+        ("h" evil-window-increase-width)
+        ("j" evil-window-increase-height)
+        ("k" evil-window-decrease-height)
+        ("l" evil-window-decrease-width)
+        ("q" nil))
+
+(map!
+ :leader
+ :desc "Resize windows"
+ "r r" #'doom-window-resize/body
+ )
+
+#+end_src
+
+** Org Mode
+*** Basics
+#+begin_src elisp
+(setq org-directory "~/doc/org/")
+(setq org-agenda-files '("~/doc/org/agenda.org"))
+(setq org-log-done 'time)
+#+end_src
+
+*** Appearance
+#+begin_src elisp
+(setq org-image-actual-width nil)
+(setq org-hide-emphasis-markers nil)
+(setq org-ellipsis "⤵")
+#+end_src
+*** Set Faces
++ Make title, info and heading levels different sizes.
+#+begin_src elisp
+(custom-set-faces
+  '(org-document-title ((t (:inherit outline-1 :height 2.7))))
+  '(org-document-info ((t (:inherit outline-1 :height 2.0))))
+  '(org-level-1 ((t (:inherit outline-1 :height 1.7))))
+  '(org-level-2 ((t (:inherit outline-2 :height 1.6))))
+  '(org-level-3 ((t (:inherit outline-3 :height 1.5))))
+  '(org-level-4 ((t (:inherit outline-4 :height 1.4))))
+  '(org-level-5 ((t (:inherit outline-5 :height 1.3))))
+  '(org-level-6 ((t (:inherit outline-5 :height 1.3))))
+  '(org-level-7 ((t (:inherit outline-5 :height 1.2))))
+  '(org-level-8 ((t (:inherit outline-5 :height 1.1)))))
+#+end_src
+*** Org-auto-tangle
++ Tangle code blocks on buffer write.
+#+begin_src elisp
+(use-package! org-auto-tangle
+  :defer t
+  :hook (org-mode . org-auto-tangle-mode)
+  :config
+  (setq org-auto-tangle-default t))
+#+end_src
+
+*** Images
+#+begin_src elisp
+(setq org-startup-with-inline-images t)
+#+end_src
+
+*** Org Export
++ Enable asynchronous export. Good for exporting large documents without blocking Emacs.
+#+begin_src elisp
+(setq org-export-in-background nil)
+#+end_src
+
+**** Latex
++ This provides a class that *won't* include all the default packages in the
+  generated LaTeX file.
+#+begin_src elisp
+(with-eval-after-load 'ox-latex
+(add-to-list 'org-latex-classes
+             '("org-plain-latex"
+               "\\documentclass{article}
+           [NO-DEFAULT-PACKAGES]
+           [PACKAGES]
+           [EXTRA]"
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+               ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+#+end_src
++ Add ~#+LATEX_CLASS: org-plain-latex~ to the top of the buffer to use this.
++ ~SETUPFILE~ allows the addition of more packages and configuration to a LaTeX document.
+  + For example, you can have a ~SETUPFILE~ for each kind of document you
+    typeset and use it using ~#+SETUPFILE <path to file>~.
+
++ ~~LaTeXMK~~ allows the faster compilation of documents with references.
+#+begin_src elisp
+(require 'oc-biblatex)
+(setq org-latex-pdf-process (list "latexmk -pdf %f"))
+#+end_src
+
++ Used for code highlighting.
+#+begin_src elisp
+(setq org-latex-src-block-backend 'listings)
+#+end_src
+
+*** Org-Present
++ A minor mode for minimalist yet editable presentations straight from the buffer.
++ Adjusting how Org-Present looks to better suit presentations.
++ Configuration adapted from [[https://systemcrafters.net/emacs-tips/presentations-with-org-present/][System Crafters.]]
+#+begin_src elisp
+
+(defun personal/org-present-start ()
+  (setq writeroom-width 30)
+  (writeroom-mode 1)
+  (display-line-numbers-mode 0)
+  (doom-big-font-mode 1))
+
+(defun personal/org-present-end ()
+  ;; Stop centering the document
+  (setq writeroom-width 100)
+  (writeroom-mode 0)
+  (doom-modeline-mode 1)
+  (visual-fill-column-mode 0)
+  (display-line-numbers-mode 1)
+  (doom-big-font-mode 0))
+
+(defun personal/org-present-prepare-slide (buffer-name heading)
+  ;; Show only top-level headlines
+  (org-overview)
+
+  ;; Unfold the current entry
+  (org-fold-show-entry)
+
+  ;; Show only direct subheadings of the slide but don't expand them
+  (org-fold-show-children))
+
+#+end_src
+
+**** Hooks
+#+begin_src elisp
+(add-hook 'org-present-mode-hook 'personal/org-present-start)
+(add-hook 'org-present-mode-quit-hook 'personal/org-present-end)
+(add-hook 'org-present-after-navigate-functions 'personal/org-present-prepare-slide)
+#+end_src
+
+**** Custom Bindings
+#+begin_src elisp
+(map! :leader "t p" #'org-present)
+#+end_src
+
+*** PlantUML
++ A Java component used for making Unified Modelling Language (UML) diagrams via
+  an easy to use language.
++ The below snippet integrates this with Org.
+#+begin_src elisp
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((plantuml . t))) ; this line activates plantuml
+
+(setq org-plantuml-exec-mode 'plantuml)
+(setq org-plantuml-executable-path "/usr/bin/plantuml")
+#+end_src
+
+** Emacs Web Wowser
++ Emacs' minimal web browser. Pairs nicely with opening feed entries in Elfeed.
+#+begin_src elisp
+(setq browse-url-browser-function 'eww-browse-url)
+#+end_src
+
+*** Hooks
++ Write-room mode makes it easier to read a webpage in EWW due to its use of a
+  variable pitch font and centred text.
+#+begin_src elisp
+(add-hook 'eww-mode-hook 'writeroom-mode)
+#+end_src
+
+** Elfeed
++ RSS Reader for Emacs
+*** Fetching
+#+begin_src elisp
+(setq elfeed-curl-max-connections 32)
+(after! elfeed
+  (setq elfeed-search-filter "@3-months-ago "))
+#+end_src
+*** Reloading
++ A function to detach and delete the Elfeed database, then generate a new one.
++ Invoke upon feed deletion to avoid headaches.
+#+begin_src elisp
+(defun personal/elfeed-reload ()
+  (interactive)
+  "Unload, Delete and generate a new Elfeed database."
+  (elfeed-db-unload)
+  (let ((default-directory "~/.config/emacs/.local/elfeed/"))
+    (shell-command "rm -r db"))
+  (elfeed-update))
+#+end_src
+
+*** Faster Fetching
++ Clear the search filter before updating entries. This mitigates long thread
+  blocking during updates.
++ Sources:
+  + https://github.com/skeeto/elfeed/issues/293#issuecomment-425627688
+  + https://www.reddit.com/r/emacs/comments/gpoaaa/updating_elfeed_using_seperate_emacs_process/
+  + https://danmehic.com/improving-elfeed-fetch-performance/
+#+begin_src elisp
+(defvar ap/elfeed-update-complete-hook nil
+  "Functions called with no arguments when `elfeed-update' is finished.")
+
+(defvar ap/elfeed-updates-in-progress 0
+  "Number of feed updates in-progress.")
+
+(defvar ap/elfeed-search-update-filter nil
+  "The filter when `elfeed-update' is called.")
+
+(defun ap/elfeed-update-complete-hook (&rest ignore)
+  "When update queue is empty, run `ap/elfeed-update-complete-hook' functions."
+  (when (= 0 ap/elfeed-updates-in-progress)
+    (run-hooks 'ap/elfeed-update-complete-hook)))
+
+(add-hook 'elfeed-update-hooks #'ap/elfeed-update-complete-hook)
+
+(defun ap/elfeed-update-message-completed (&rest _ignore)
+  (message "Feeds updated"))
+
+(add-hook 'ap/elfeed-update-complete-hook #'ap/elfeed-update-message-completed)
+
+(defun ap/elfeed-search-update-restore-filter (&rest ignore)
+  "Restore filter after feeds update."
+  (when ap/elfeed-search-update-filter
+    (elfeed-search-set-filter ap/elfeed-search-update-filter)
+    (setq ap/elfeed-search-update-filter nil)))
+
+(add-hook 'ap/elfeed-update-complete-hook #'ap/elfeed-search-update-restore-filter)
+
+(defun ap/elfeed-search-update-save-filter (&rest ignore)
+  "Save and change the filter while updating."
+  (setq ap/elfeed-search-update-filter elfeed-search-filter)
+  (setq elfeed-search-filter "#0"))
+
+;; NOTE: It would be better if this hook were run before starting the feed updates, but in
+;; `elfeed-update', it happens afterward.
+(add-hook 'elfeed-update-init-hooks #'ap/elfeed-search-update-save-filter)
+
+(defun ap/elfeed-update-counter-inc (&rest ignore)
+  (cl-incf ap/elfeed-updates-in-progress))
+
+(advice-add #'elfeed-update-feed :before #'ap/elfeed-update-counter-inc)
+
+(defun ap/elfeed-update-counter-dec (&rest ignore)
+  (cl-decf ap/elfeed-updates-in-progress)
+  (when (< ap/elfeed-updates-in-progress 0)
+    ;; Just in case
+    (setq ap/elfeed-updates-in-progress 0)))
+
+(add-hook 'elfeed-update-hooks #'ap/elfeed-update-counter-dec)
+#+end_src
+
+*** Elfeed Goodies
++ Some niceties.
+#+begin_src elisp
+(setq elfeed-goodies/entry-pane-size 0.5)
+#+end_src
+
+*** Elfeed Org
++ [[org:elfeed.org][Use org mode to organise feeds]] rather then listing them in this configuration.
++ Elfeed-Org also has the ability to import and export to OPML. Useful for other
+  readers.
+#+begin_src elisp
+(setq rmh-elfeed-org-files (list "~/doc/org/elfeed.org"))
+#+end_src
+
+*** Elfeed Tube
++ YouTube integration with Elfeed.
++ Provides thumbnail, duration, bookmarking and transcript.
+#+begin_src elisp
+(require 'elfeed-tube)
+(elfeed-tube-setup)
+#+end_src
+
++ Setting the executable for MPV to a script that runs the player with a
+  disabled Firejail profile.
+#+begin_src elisp
+(setq mpv-executable "mpv")
+#+end_src
+
+*** Custom Bindings
+#+begin_src elisp
+;; (map! :leader "e f" #'elfeed)
+;; (map! :leader "e u" #'elfeed-update)
+;; (map! :leader "e p" #'elfeed-tube-mpv)
+#+end_src
+
+** Dired
++ Emacs' Directory Editor. A nice and snappy file manager.
+*** Dired Launch
+#+begin_src elisp
+(dired-launch-enable)
+#+end_src
+
+*** Evil-Mode Mappings
++ [[https://gitlab.com/dwt1/dotfiles/-/blob/master/.config/doom/config.org?ref_type=heads#dired][Custom mappings from DistoTube]] to make Dired integrate more with evil mode.
+  + This makes Dired more like vim-motion-based TUI file managers such as [[https://github.com/jarun/nnn][NNN]] or [[https://github.com/gokcehan/lf][LF]].
+#+begin_src elisp
+(evil-define-key 'normal dired-mode-map
+  (kbd "M-RET") 'dired-display-file
+  (kbd "RET") 'dired-launch-with-prompt-command
+  (kbd "h") 'dired-up-directory
+  (kbd "l") 'dired-find-alternate-file
+  (kbd "m") 'dired-mark
+  (kbd "t") 'dired-toggle-marks
+  (kbd "u") 'dired-unmark
+  (kbd "C") 'dired-do-copy
+  (kbd "D") 'dired-do-delete
+  (kbd "J") 'dired-goto-file
+  (kbd "M") 'dired-do-chmod
+  (kbd "O") 'dired-do-chown
+  (kbd "P") 'dired-do-print
+  (kbd "R") 'dired-do-rename
+  (kbd "T") 'dired-do-touch
+  (kbd "Y") 'dired-copy-filenamecopy-filename-as-kill ; copies filename to kill ring.
+  (kbd "Z") 'dired-do-compress
+  (kbd "+") 'dired-create-directory
+  (kbd "-") 'dired-do-kill-lines
+  (kbd "% l") 'dired-downcase
+  (kbd "% m") 'dired-mark-files-regexp
+  (kbd "% u") 'dired-upcase
+  (kbd "* %") 'dired-mark-files-regexp
+  (kbd "* .") 'dired-mark-extension
+  (kbd "* /") 'dired-mark-directories
+  (kbd "; d") 'epa-dired-do-decrypt
+  (kbd "; e") 'epa-dired-do-encrypt)
+#+end_src
+
+*** Trash Bin
++ Trash directory to safeguard accidental deletions.
+#+begin_src elisp
+(setq delete-by-moving-to-trash t
+      trash-directory "~/.local/share/trash/files/")
+#+end_src
+
+symbolic link to the trash directory for convenience.
+#+begin_example
+ln -s ~/.local/share/trash ~
+#+end_example
+
+** Avy
++ Avy allows you to jump to the exact position of visible text by using a
+  character-based decision tree, akin to ~ace-jump-mode~ and ~vim-easymotion~.
++ Part of Doom Emacs.
+#+begin_src elisp
+(setq avy-all-windows 't)
+#+end_src
+
+** Ace Window
+#+begin_src elisp
+(map! :leader "w a" #'ace-window)
+#+end_src
+
+** Minimap
++ A handy minimap.
+#+begin_src elisp
+(setq minimap-window-location 'right)
+(map! :leader "t m" #'minimap-mode)
+#+end_src
+
+** Eradio
++ Internet radio player for Emacs.
+#+begin_src elisp
+(setq eradio-player '("mpv" "--no-video" "--no-terminal"))
+#+end_src
+
+*** Stations
+#+begin_src elisp
+(setq eradio-channels '(("Lofi Girl - Study" . "https://youtu.be/jfKfPfyJRdk")
+                        ("Lofi Girl - Synth" . "https://youtu.be/4xDzrJKXOOY")
+                        ("Lofi Girl - Piano" . "https://youtu.be/vMxYL4Cj85Y")))
+#+end_src
+
+*** Bindings
+#+begin_src elisp
+(map! :leader (:prefix ("r" . "eradio") :desc "Play a radio channel" "p" 'eradio-play))
+(map! :leader (:prefix ("r" . "eradio") :desc "Stop the radio player" "s" 'eradio-stop))
+(map! :leader (:prefix ("r" . "eradio") :desc "Toggle the radio player" "t" 'eradio-toggle))
+#+end_src
+
+** Vterm
++ function to play media playlists using vterm.
++ Adapted from https://www.reddit.com/r/emacs/comments/op4fcm/send_command_to_vterm_and_execute_it/
+#+begin_src elisp
+(defun personal/playlist-mpv ()
+    "Play the media is current directory as a playlist using MPV."
+    (interactive)
+    (require 'vterm)
+    (vterm)
+    (vterm--goto-line -1)
+    (vterm-send-string "mpv .")
+    (vterm-send-return))
+#+end_src
+
+#+begin_src elisp
+(map! :leader "p l" #'personal/playlist-mpv)
+#+end_src
+
+** Debug Adapter Protocol (DAP)
+*** Key Bindings
+#+begin_src elisp
+(map! :leader "d d" #'dap-debug)
+(map! :leader "d c" #'dap-disconnect)
+(map! :leader "d r" #'dap-debug-restart)
+
+(map! :leader "d n" #'dap-next)
+(map! :leader "d i" #'dap-step-in)
+(map! :leader "d o" #'dap-step-out)
+
+(map! :leader "d p" #'dap-breakpoint-toggle)
+
+(map! :leader "d u s" #'dap-ui-sessions)
+(map! :leader "d u p" #'dap-ui-breakpoints)
+#+end_src
+*** Performance
+#+begin_src elisp
+(setq read-process-output-max (* 1024 1024)) ;; 1mb
+(setq lsp-idle-delay 0.500)
+(setq lsp-log-io nil) ; if set to true can cause a performance hit
+#+end_src
+
+** Macros
+*** Elfeed Org
+Used to insert and sort feeds in [[org:elfeed.org][elfeed.org]].
+#+begin_src elisp
+(defalias 'elfeed-before
+   (kmacro "0 $ x d i [ 0 f [ P j 0"))
+(defalias 'elfeed-after
+   (kmacro "0 w d t [ f [ ; p A ] <escape> j 0"))
+(defalias 'elfeed-youtube
+   (kmacro "0 w c t U h t t p s : / / w w w . y o u t u b e . c o m / f e e d s / v i d e o s . x m l ? c h a n n e l _ i d = <escape> 0 w i [ [ <escape> A ] [ <escape>"))
+#+end_src
