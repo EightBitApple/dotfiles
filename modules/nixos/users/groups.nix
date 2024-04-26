@@ -5,5 +5,8 @@
     Define custom user groups.
   '';
 
-  config = lib.mkIf config.groups.enable { users.groups.wireshark = { }; };
+  config = lib.mkIf config.groups.enable {
+    users.groups.wireshark = { };
+    users.groups.gamemode = { };
+  };
 }

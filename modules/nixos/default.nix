@@ -8,6 +8,7 @@
     ./kernel/zram/zram.nix
     ./kernel/zram/swappiness-tweaks.nix
     ./kernel/packages/rtl88xxau-aircrack.nix
+    ./kernel/parameters.nix
 
     ./services/sound/pipewire.nix
     ./services/printing.nix
@@ -16,6 +17,8 @@
     ./services/dnscrypt.nix
     ./services/gvfs.nix
     ./services/tumbler.nix
+    ./services/udev.nix
+    ./services/syncthing.nix
 
     ./networking/network.nix
 
@@ -40,6 +43,7 @@
     ./programs/wireshark.nix
     ./programs/thunar.nix
     ./programs/hyprland.nix
+    ./programs/dconf.nix
   ];
 
   bootloader.enable = lib.mkDefault true;
@@ -48,6 +52,7 @@
   zram.enable = lib.mkDefault true;
   swappiness-tweaks.enable = lib.mkDefault true;
   rtl88xxau-aircrack.enable = lib.mkDefault false;
+  parameters.enable = lib.mkDefault true;
 
   pipewire.enable = lib.mkDefault true;
   printing.enable = lib.mkDefault true;
@@ -56,6 +61,7 @@
   dnscrypt.enable = lib.mkDefault true;
   gvfs.enable = lib.mkDefault true;
   tumbler.enable = lib.mkDefault true;
+  udev.enable = lib.mkDefault true;
 
   network.enable = lib.mkDefault true;
 
@@ -80,6 +86,8 @@
   wireshark.enable = lib.mkDefault true;
   thunar.enable = lib.mkDefault true;
   hyprland.enable = lib.mkDefault true;
+  dconf.enable = lib.mkDefault true;
+  syncthing.enable = lib.mkDefault true;
 
   system.stateVersion = "23.11";
 }

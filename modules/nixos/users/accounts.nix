@@ -8,8 +8,8 @@
   config = lib.mkIf config.accounts.enable {
     users.users.stefan = {
       isNormalUser = true;
-      description = "Stefan Harris";
-      extraGroups = [ "networkmanager" "wheel" "wireshark" ];
+      description = "Stefan";
+      extraGroups = [ "networkmanager" "wheel" "wireshark" "gamemode" ];
       shell = pkgs.zsh;
     };
   };
