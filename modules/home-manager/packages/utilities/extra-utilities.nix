@@ -13,6 +13,7 @@
       nix-output-monitor
       nvd
       gimp
+      ispell
     ];
   };
 }
