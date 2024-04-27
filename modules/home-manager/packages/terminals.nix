@@ -16,7 +16,7 @@
           };
           colors = with config.colorScheme.colors; {
             alpha = "0.95";
-            background = "${base01}";
+            background = "${base00}";
             foreground = "${base07}";
           };
         };
