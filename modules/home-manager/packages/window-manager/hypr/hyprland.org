@@ -46,7 +46,15 @@ let
       text = ''
         waybar &
         hyprpaper &
+<<<<<<< ours
+<<<<<<< Updated upstream
         export LSP_USE_PLISTS=true && emacs --daemon &
+=======
+        export LSP_USE_PLISTS=true &
+>>>>>>> Stashed changes
+=======
+        export LSP_USE_PLISTS=true &
+>>>>>>> theirs
         foot --server &
       '';
     };
@@ -244,7 +252,13 @@ bind = [
 "$mod, Return, exec, footclient"
 
 "$mod, P, exec, foot pulsemixer"
+<<<<<<< ours
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> theirs
 "$mod SHIFT, R, exec, foot htop"
 
 "$mod, X, exec, emc"
@@ -256,8 +270,14 @@ bind = [
 
 "$mod, R, exec, tofi-run | xargs hyprctl dispatch exec --"
 "$mod CTRL, L, exec, physlock -m -s"
+<<<<<<< ours
+<<<<<<< Updated upstream
 
 
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> theirs
 #+end_src
 
 ** Screenshots and Quick Image Edits
@@ -273,7 +293,15 @@ bind = [
 #+end_src
 
 ** Monitor Refresh Rate
+<<<<<<< ours
+<<<<<<< Updated upstream
 Key bindings to change the refresh rate of your monitor. Useful for when your monitor's varaible refresh rate technology is not working.
+=======
+Key bindings to change the refresh rate of your monitor. Useful for when your monitor's variable refresh rate technology is not working.
+>>>>>>> Stashed changes
+=======
+Key bindings to change the refresh rate of your monitor. Useful for when your monitor's variable refresh rate technology is not working.
+>>>>>>> theirs
 #+begin_src nix
 "$mod ALT, W, exec, hyprctl keyword monitor DP-1,1920x1080@75,0x0,1 & notify-send -t 2000 'Refresh Rate: Max'"
 "$mod ALT, S, exec, hyprctl keyword monitor DP-1,1920x1080@60,0x0,1 & notify-send -t 2000 'Refresh Rate: 60hz'"

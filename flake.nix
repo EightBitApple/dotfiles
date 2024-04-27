@@ -36,7 +36,7 @@
         fontPkg = pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; };
 
         editor = "emacsclient";
-        editorPkg = pkgs.emacs29-pgtk;
+        emacsPkg = pkgs.emacs29-pgtk;
       };
 
       pkgs = nixpkgs.legacyPackages.${systemSettings.arch};

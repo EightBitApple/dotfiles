@@ -7,7 +7,15 @@ let
       text = ''
         waybar &
         hyprpaper &
+<<<<<<< ours
+<<<<<<< Updated upstream
         export LSP_USE_PLISTS=true && emacs --daemon &
+=======
+        export LSP_USE_PLISTS=true &
+>>>>>>> Stashed changes
+=======
+        export LSP_USE_PLISTS=true &
+>>>>>>> theirs
         foot --server &
       '';
     };
@@ -151,7 +159,13 @@ bind = [
 "$mod, Return, exec, footclient"
 
 "$mod, P, exec, foot pulsemixer"
+<<<<<<< ours
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> theirs
 "$mod SHIFT, R, exec, foot htop"
 
 "$mod, X, exec, emc"

@@ -19,6 +19,7 @@
     ./services/tumbler.nix
     ./services/udev.nix
     ./services/syncthing.nix
+    ./services/emacs-daemon.nix
 
     ./networking/network.nix
 
@@ -88,6 +89,7 @@
   hyprland.enable = lib.mkDefault true;
   dconf.enable = lib.mkDefault true;
   syncthing.enable = lib.mkDefault true;
+  emacsDaemon.enable = lib.mkDefault true;
 
   system.stateVersion = "23.11";
 }
