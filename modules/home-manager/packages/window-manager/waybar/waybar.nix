@@ -176,6 +176,8 @@
           /* Window Title */
           #window {
               color: #${base07};
+              margin: 0.5em;
+              padding: 0.5em;
           }
 
           window#waybar.empty .modules-center {
