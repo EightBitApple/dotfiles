@@ -3,7 +3,6 @@
 #+PROPERTY: header-args :tangle hyprland.nix
 #+auto_tangle: t
 
-
 * Table of Contents :toc:
 - [[#preamble][Preamble]]
 - [[#monitor][Monitor]]
@@ -48,6 +47,7 @@ let
         hyprpaper &
         export LSP_USE_PLISTS=true &
         foot --server &
+        xrdb ~/.Xresources
       '';
     };
   in
