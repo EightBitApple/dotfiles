@@ -14,6 +14,10 @@
       nvd
       gimp
       ispell
+      imagemagick
+      thunderbird
+      texliveMedium
+      unzip
     ];
   };
 }
