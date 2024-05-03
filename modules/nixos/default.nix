@@ -88,7 +88,7 @@
   thunar.enable = lib.mkDefault true;
   hyprland.enable = lib.mkDefault true;
   dconf.enable = lib.mkDefault true;
-  syncthing.enable = lib.mkDefault true;
+  syncthing.enable = lib.mkDefault false;
   emacsDaemon.enable = lib.mkDefault true;
 
   system.stateVersion = "23.11";

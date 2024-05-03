@@ -6,11 +6,8 @@
   '';
 
   config = lib.mkIf config.syncthing.enable {
-    services = {
-      syncthing = {
-        enable = true;
-        tray = true;
-      };
-    };
+    # services.syncthing.enable = true;
+
+    home.packages = with pkgs; [ syncthing ];
   };
 }
