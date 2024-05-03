@@ -12,6 +12,14 @@ let
         xrdb ~/.Xresources
       '';
     };
+
+    batteryNotif = pkgs.writeShellApplication {
+      name = "battery-notif";
+      runtimeInputs = with pkgs; [ dunst ];
+      text = ''
+        notify-send "Batteries:" "$(batteries)"
+      '';
+    };
   in
 {
   options.hyprland.enable = lib.mkEnableOption ''
@@ -34,6 +42,7 @@ exec-once = ''${startupScript}/bin/startup'';
 
 env = [ "XCURSOR_SIZE,24"
         "LSP_USE_PLISTS,true"
+        "WLR_DRM_NO_ATOMIC,1"
       ];
 
 general = with config.colorScheme.colors; {
@@ -41,7 +50,7 @@ general = with config.colorScheme.colors; {
   gaps_out = 10;
   cursor_inactive_timeout = 4;
   layout = "master";
-  allow_tearing = false;
+  allow_tearing = true;
 
   "col.active_border" = "rgba(${base09}ff) rgba(${base0E}ff) 60deg";
   "col.inactive_border" = "rgba(${base00}ff)";
@@ -107,6 +116,7 @@ misc = {
 
   new_window_takes_over_fullscreen = 1;
   animate_manual_resizes = true;
+  no_direct_scanout = true;
 };
 
 "$animation_speed" = 2;
@@ -128,6 +138,7 @@ windowrulev2 = [
   "noanim,class:^(Gimp)$"
   "stayfocused, title:^()$,class:^(steam)$"
   "minsize 1 1, title:^()$,class:^(steam)$"
+  "immediate, class:^(.*)$"
 ];
 
 layerrule = [ "blur, launcher" "blur, notifications" ];
@@ -167,6 +178,8 @@ bind = [
 
 "$mod, C, exec, screenshot"
 "$mod, V, exec, img-edit"
+
+"$mod, B, exec, ${batteryNotif}/bin/battery-notif"
 
 "$mod, M, exit,"
 "$mod, Backspace, exec, sysact"

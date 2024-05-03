@@ -25,6 +25,7 @@
   - [[#window-management][Window Management]]
   - [[#program-startup][Program Startup]]
   - [[#screenshots-and-quick-image-edits][Screenshots and Quick Image Edits]]
+  - [[#scripts][Scripts]]
   - [[#system-exit][System Exit]]
   - [[#monitor-refresh-rate][Monitor Refresh Rate]]
   - [[#volume-mute][Volume Mute]]
@@ -48,6 +49,14 @@ let
         export LSP_USE_PLISTS=true &
         foot --server &
         xrdb ~/.Xresources
+      '';
+    };
+
+    batteryNotif = pkgs.writeShellApplication {
+      name = "battery-notif";
+      runtimeInputs = with pkgs; [ dunst ];
+      text = ''
+        notify-send "Batteries:" "$(batteries)"
       '';
     };
   in
@@ -81,6 +90,7 @@ exec-once = ''${startupScript}/bin/startup'';
 #+begin_src nix
 env = [ "XCURSOR_SIZE,24"
         "LSP_USE_PLISTS,true"
+        "WLR_DRM_NO_ATOMIC,1"
       ];
 #+end_src
 
@@ -92,7 +102,7 @@ general = with config.colorScheme.colors; {
   gaps_out = 10;
   cursor_inactive_timeout = 4;
   layout = "master";
-  allow_tearing = false;
+  allow_tearing = true;
 
   "col.active_border" = "rgba(${base09}ff) rgba(${base0E}ff) 60deg";
   "col.inactive_border" = "rgba(${base00}ff)";
@@ -181,6 +191,7 @@ misc = {
 
   new_window_takes_over_fullscreen = 1;
   animate_manual_resizes = true;
+  no_direct_scanout = true;
 };
 #+end_src
 
@@ -209,6 +220,7 @@ windowrulev2 = [
   "noanim,class:^(Gimp)$"
   "stayfocused, title:^()$,class:^(steam)$"
   "minsize 1 1, title:^()$,class:^(steam)$"
+  "immediate, class:^(.*)$"
 ];
 #+end_src
 ** Layer
@@ -256,14 +268,17 @@ bind = [
 
 "$mod, R, exec, tofi-run | xargs hyprctl dispatch exec --"
 "$mod CTRL, L, exec, physlock -m -s"
-
-
 #+end_src
 
 ** Screenshots and Quick Image Edits
 #+begin_src nix
 "$mod, C, exec, screenshot"
 "$mod, V, exec, img-edit"
+#+end_src
+
+** Scripts
+#+begin_src nix
+"$mod, B, exec, ${batteryNotif}/bin/battery-notif"
 #+end_src
 
 ** System Exit
@@ -273,7 +288,8 @@ bind = [
 #+end_src
 
 ** Monitor Refresh Rate
-Key bindings to change the refresh rate of your monitor. Useful for when your monitor's variable refresh rate technology is not working.
+Key bindings to change the refresh rate of your monitor. Useful for when your
+monitor's variable refresh rate technology is not working.
 #+begin_src nix
 "$mod ALT, W, exec, hyprctl keyword monitor DP-1,1920x1080@75,0x0,1 & notify-send -t 2000 'Refresh Rate: Max'"
 "$mod ALT, S, exec, hyprctl keyword monitor DP-1,1920x1080@60,0x0,1 & notify-send -t 2000 'Refresh Rate: 60hz'"
