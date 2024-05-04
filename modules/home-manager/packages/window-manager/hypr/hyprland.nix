@@ -9,7 +9,7 @@ let
         hyprpaper &
         export LSP_USE_PLISTS=true &
         foot --server &
-        xrdb ~/.Xresources
+        xrdb -load ~/.Xresources
       '';
     };
 
