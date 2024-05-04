@@ -160,7 +160,7 @@
             };
           };
         };
-        style = with config.colorScheme.colors; ''
+        style = with config.colorScheme.palette; ''
           * {
               /* `otf-font-awesome` is required to be installed for icons */
               font-family: FiraCode Nerd Font;

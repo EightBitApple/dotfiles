@@ -45,7 +45,7 @@ env = [ "XCURSOR_SIZE,24"
         "WLR_DRM_NO_ATOMIC,1"
       ];
 
-general = with config.colorScheme.colors; {
+general = with config.colorScheme.palette; {
   border_size = 4;
   gaps_out = 10;
   cursor_inactive_timeout = 4;

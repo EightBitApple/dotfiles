@@ -8,7 +8,7 @@
   config = lib.mkIf config.appLauncher.enable {
     home.packages = with pkgs; [ tofi ];
 
-    home.file.".config/tofi/config".text = with config.colorScheme.colors; ''
+    home.file.".config/tofi/config".text = with config.colorScheme.palette; ''
       text-color = #${base07}
       selection-color = #${base0B}
 

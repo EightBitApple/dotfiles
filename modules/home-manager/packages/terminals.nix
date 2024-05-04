@@ -14,7 +14,7 @@
             font = "FiraCode Nerd Font:size=10";
             pad = "5x5";
           };
-          colors = with config.colorScheme.colors; {
+          colors = with config.colorScheme.palette; {
             alpha = "0.95";
             background = "${base00}";
             foreground = "${base07}";
