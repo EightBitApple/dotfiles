@@ -1,4 +1,4 @@
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, pkgs-unstable, inputs, userSettings, ... }:
 
 {
   options.textEditors.enable = lib.mkEnableOption ''
@@ -6,12 +6,10 @@
   '';
 
   config = lib.mkIf config.textEditors.enable {
-    programs = {
-      emacs = {
-        enable = true;
-        package = pkgs.emacs29-pgtk;
-      };
-      neovim.enable = true;
+    programs.emacs = {
+      enable = true;
+      package = userSettings.emacsPkg;
     };
+    programs.neovim.enable = true;
   };
 }
