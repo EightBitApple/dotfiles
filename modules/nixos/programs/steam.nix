@@ -10,6 +10,10 @@
       steam = {
         enable = true;
         extraCompatPackages = with pkgs; [ proton-ge-bin ];
+        gamescopeSession = {
+          enable = true;
+          args = [ "-r 75" "--adaptive-sync" ];
+        };
       };
       gamemode = {
         enable = true;
