@@ -6,8 +6,8 @@
 * Table of Contents :toc:
 - [[#preamble][Preamble]]
 - [[#monitor][Monitor]]
-- [[#startups][Startups]]
-- [[#enviornment-variables][Enviornment Variables]]
+- [[#startup][Startup]]
+- [[#environment-variables][Environment Variables]]
 - [[#variables][Variables]]
   - [[#general][General]]
   - [[#input][Input]]
@@ -16,7 +16,7 @@
   - [[#layouts][Layouts]]
   - [[#gestures][Gestures]]
   - [[#workspaces][Workspaces]]
-  - [[#miscellanious][Miscellanious]]
+  - [[#miscellaneous][Miscellaneous]]
 - [[#animations][Animations]]
 - [[#rules][Rules]]
   - [[#window][Window]]
@@ -75,22 +75,21 @@ let
 * Monitor
 #+begin_src nix
 monitor = [
-        "DP-1,1920x1080@75,0x0,1,vrr,1"
+        "DP-1,1920x1080@75,0x0,1"
         "DP-2,1920x1080@60,1920x0,1,transform,1"
         ",preferred,auto,1"
 ];
 #+end_src
 
-* Startups
+* Startup
 #+begin_src nix
 exec-once = ''${startupScript}/bin/startup'';
 #+end_src
 
-* Enviornment Variables
+* Environment Variables
 #+begin_src nix
 env = [ "XCURSOR_SIZE,24"
         "LSP_USE_PLISTS,true"
-        "WLR_DRM_NO_ATOMIC,1"
       ];
 #+end_src
 
@@ -102,7 +101,6 @@ general = with config.colorScheme.palette; {
   gaps_out = 10;
   cursor_inactive_timeout = 4;
   layout = "master";
-  allow_tearing = true;
 
   "col.active_border" = "rgba(${base09}ff) rgba(${base0E}ff) 60deg";
   "col.inactive_border" = "rgba(${base00}ff)";
@@ -181,7 +179,7 @@ workspace = [
 ];
 #+end_src
 
-** Miscellanious
+** Miscellaneous
 #+begin_src nix
 misc = {
   force_default_wallpaper = 0;
@@ -191,7 +189,7 @@ misc = {
 
   new_window_takes_over_fullscreen = 1;
   animate_manual_resizes = true;
-  no_direct_scanout = true;
+  vrr = 1;
 };
 #+end_src
 
@@ -220,7 +218,6 @@ windowrulev2 = [
   "noanim,class:^(Gimp)$"
   "stayfocused, title:^()$,class:^(steam)$"
   "minsize 1 1, title:^()$,class:^(steam)$"
-  "immediate, class:^(.*)$"
 ];
 #+end_src
 ** Layer
@@ -351,16 +348,13 @@ Swap positions of windows.
 Switch between master and centered master layouts
 #+begin_src nix
 "$mod, I, layoutmsg, orientationcenter"
-"$mod, I, layoutmsg, mfact $mfact_split"
-
-"$mod, T, layoutmsg, mfact $mfact_split"
 "$mod, T, layoutmsg, orientationleft"
 #+end_src
 
 Resize window split windows.
 #+begin_src nix
-"$mod, L, resizeactive, 20 0"
-"$mod, H, resizeactive, -20 0"
+"$mod, L, resizeactive, 25 0"
+"$mod, H, resizeactive, -25 0"
 #+end_src
 
 Moving windows and workspaces between monitors.

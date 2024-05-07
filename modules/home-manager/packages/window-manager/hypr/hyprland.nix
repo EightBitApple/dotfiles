@@ -33,7 +33,7 @@ let
       settings = {
 
 monitor = [
-        "DP-1,1920x1080@75,0x0,1,vrr,1"
+        "DP-1,1920x1080@75,0x0,1"
         "DP-2,1920x1080@60,1920x0,1,transform,1"
         ",preferred,auto,1"
 ];
@@ -42,7 +42,6 @@ exec-once = ''${startupScript}/bin/startup'';
 
 env = [ "XCURSOR_SIZE,24"
         "LSP_USE_PLISTS,true"
-        "WLR_DRM_NO_ATOMIC,1"
       ];
 
 general = with config.colorScheme.palette; {
@@ -50,7 +49,6 @@ general = with config.colorScheme.palette; {
   gaps_out = 10;
   cursor_inactive_timeout = 4;
   layout = "master";
-  allow_tearing = true;
 
   "col.active_border" = "rgba(${base09}ff) rgba(${base0E}ff) 60deg";
   "col.inactive_border" = "rgba(${base00}ff)";
@@ -116,7 +114,7 @@ misc = {
 
   new_window_takes_over_fullscreen = 1;
   animate_manual_resizes = true;
-  no_direct_scanout = true;
+  vrr = 1;
 };
 
 "$animation_speed" = 2;
@@ -138,7 +136,6 @@ windowrulev2 = [
   "noanim,class:^(Gimp)$"
   "stayfocused, title:^()$,class:^(steam)$"
   "minsize 1 1, title:^()$,class:^(steam)$"
-  "immediate, class:^(.*)$"
 ];
 
 layerrule = [ "blur, launcher" "blur, notifications" ];
@@ -224,13 +221,10 @@ bind = [
 "$mod SHIFT, F, layoutmsg, focusmaster"
 
 "$mod, I, layoutmsg, orientationcenter"
-"$mod, I, layoutmsg, mfact $mfact_split"
-
-"$mod, T, layoutmsg, mfact $mfact_split"
 "$mod, T, layoutmsg, orientationleft"
 
-"$mod, L, resizeactive, 20 0"
-"$mod, H, resizeactive, -20 0"
+"$mod, L, resizeactive, 25 0"
+"$mod, H, resizeactive, -25 0"
 
 "$mod, A, movewindow, mon:DP-1"
 "$mod, D, movewindow, mon:DP-2"
