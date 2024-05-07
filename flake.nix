@@ -3,18 +3,18 @@
     "A Nix Flake for both NixOS system configuration and home-manager.";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "nixpkgs/nixos-23.11";
+    nixpkgs.url = "nixpkgs/nixos-23.11";
+    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
     let
       systemSettings = rec {
         arch = "x86_64-linux";
@@ -36,11 +36,11 @@
         fontPkg = pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; };
 
         editor = "emacsclient";
-        emacsPkg = pkgs.emacs29-pgtk;
+        emacsPkg = pkgs.emacs29;
       };
 
       pkgs = nixpkgs.legacyPackages.${systemSettings.arch};
-      pkgs-stable = nixpkgs-stable.legacyPackages.${systemSettings.arch};
+      pkgs-unstable = nixpkgs-unstable.legacyPackages.${systemSettings.arch};
       lib = nixpkgs.lib;
 
     in {
@@ -48,7 +48,7 @@
         nixos = lib.nixosSystem {
           specialArgs = {
             inherit inputs;
-            inherit pkgs-stable;
+            inherit pkgs-unstable;
             inherit systemSettings;
             inherit userSettings;
           };
@@ -61,7 +61,7 @@
           inherit pkgs;
           extraSpecialArgs = {
             inherit inputs;
-            inherit pkgs-stable;
+            inherit pkgs-unstable;
             inherit systemSettings;
             inherit userSettings;
           };

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, pkgs-unstable, ... }:
 
 {
   options.dsda-doom.enable = lib.mkEnableOption ''
@@ -6,7 +6,10 @@
   '';
 
   config = lib.mkIf config.dsda-doom.enable {
-    home.packages = with pkgs; [ dsda-doom dsda-launcher ];
+    home.packages = with pkgs; [
+      pkgs-unstable.dsda-doom
+      pkgs-unstable.dsda-launcher
+    ];
 
     home.file.".dsda-doom/dsda-doom.cfg".text = ''
       # Doom config file

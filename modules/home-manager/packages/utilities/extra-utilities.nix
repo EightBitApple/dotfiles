@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, pkgs-unstable, ... }:
 
 {
   options.extra-utilities.enable = lib.mkEnableOption ''
@@ -9,14 +9,14 @@
       keepassxc
       neofetch
       vrrtest
-      nh
+      pkgs-unstable.nh
       nix-output-monitor
       nvd
       gimp
       ispell
       imagemagick
       thunderbird
-      texliveMedium
+      texliveFull
       unzip
     ];
   };

@@ -10,7 +10,7 @@
       discount # markdown linter and formatter
       shellcheck
       cmakeMinimal
-      nixfmt-classic
+      nixfmt
       glslang
       libclang
       libtool
