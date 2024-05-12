@@ -1,13 +1,12 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, userSettings, ... }:
 
 let
     startupScript = pkgs.writeShellApplication {
       name = "startup";
-      runtimeInputs = with pkgs; [ waybar hyprpaper emacs ];
+      runtimeInputs = with pkgs; [ waybar hyprpaper foot xorg.xrdb ];
       text = ''
         waybar &
         hyprpaper &
-        export LSP_USE_PLISTS=true &
         foot --server &
         xrdb -load ~/.Xresources
       '';
@@ -35,7 +34,7 @@ let
 monitor = [
         "DP-1,1920x1080@75,0x0,1"
         "DP-2,1920x1080@60,1920x0,1,transform,1"
-        ",preferred,auto,1"
+        "HDMI-A-1,1920x1080@60,0x0,1"
 ];
 
 exec-once = ''${startupScript}/bin/startup'';
