@@ -2,7 +2,6 @@
 #+subtitle: My NixOS and Home Manager Configuration.
 
 
-#+ATTR_ORG: :width 512
 [[./desktop.png]]
 
 * What is this?
