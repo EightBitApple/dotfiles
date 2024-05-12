@@ -2,7 +2,7 @@
 
 * Wallpapers
 These are the sources for all the wallpapers included in this repository.
-To change between these wallpapers, [[../../../scripts/modules/change-wallpaper.nix][use the script called ~sbg~]].
+To change between these wallpapers, [[../../../scripts/modules/change-wallpaper.nix][use the script called sbg]].
 
 * Gruvbox
 - [[https://www.artstation.com/artwork/d0vdzK][Car Trip]] by Jonathan Lebrec.
