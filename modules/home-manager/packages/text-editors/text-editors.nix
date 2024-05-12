@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-unstable, inputs, userSettings, ... }:
+{ config, lib, pkgs, inputs, userSettings, ... }:
 
 {
   options.textEditors.enable = lib.mkEnableOption ''
@@ -9,6 +9,7 @@
     programs.emacs = {
       enable = true;
       package = userSettings.emacsPkg;
+      extraPackages = epkgs: [ epkgs.vterm ];
     };
     programs.neovim.enable = true;
   };
