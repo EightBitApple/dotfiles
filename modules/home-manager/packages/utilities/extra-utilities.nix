@@ -13,11 +13,13 @@
       nix-output-monitor
       nvd
       gimp
-      ispell
+      aspell
+      aspellDicts.en
       imagemagick
       thunderbird
       texliveFull
       unzip
+      libreoffice
     ];
   };
 }
