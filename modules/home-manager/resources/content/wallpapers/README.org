@@ -1,7 +1,11 @@
 #+title: Wallpaper Sources
 
-These are the sources for all the wallpapers included in this repo.
-To change between these wallpapers, [[../../../scripts/modules/change-wallpaper.nix][use the script titled ~sbg~]].
+These are the sources for all the wallpapers included in this repository.
+To change between these wallpapers, [[../../../scripts/modules/change-wallpaper.nix][use the script called ~sbg~]].
 
 * Gruvbox
-- [[https://www.artstation.com/artwork/d0vdzK][Car Trip]] by Jonathan Lebrec
+- [[https://www.artstation.com/artwork/d0vdzK][Car Trip]] by Jonathan Lebrec.
+
+** Nature
+- [[https://gruvbox-wallpapers.pages.dev/wallpapers/irl/stairs.jpg][Stairs]]
+- [[https://gruvbox-wallpapers.pages.dev/wallpapers/irl/Colors.png][Colors]]
