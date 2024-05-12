@@ -1,5 +1,6 @@
-#+title: Wallpaper Sources
+#+title: Sources for Resources
 
+* Wallpapers
 These are the sources for all the wallpapers included in this repository.
 To change between these wallpapers, [[../../../scripts/modules/change-wallpaper.nix][use the script called ~sbg~]].
 
@@ -9,3 +10,8 @@ To change between these wallpapers, [[../../../scripts/modules/change-wallpaper.
 ** Nature
 - [[https://gruvbox-wallpapers.pages.dev/wallpapers/irl/stairs.jpg][Stairs]]
 - [[https://gruvbox-wallpapers.pages.dev/wallpapers/irl/Colors.png][Colors]]
+
+* Soundfonts
+These are the sources for all the soundfonts included in this repository.
+
+- [[https://www.doomworld.com/forum/topic/118828-trevor0402s-sc-55-soundfont/][SC-55 soundfont by Trevor0402]]
