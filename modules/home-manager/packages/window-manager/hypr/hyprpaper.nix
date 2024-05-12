@@ -12,6 +12,7 @@
       preload=~/.local/share/active-wallpaper.jpg
       wallpaper = DP-1,~/.local/share/active-wallpaper.jpg
       wallpaper = DP-2,~/.local/share/active-wallpaper.jpg
+      wallpaper = HDMI-A-1,~/.local/share/active-wallpaper.jpg
 
       splash = false
     '';
