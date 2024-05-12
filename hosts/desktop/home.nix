@@ -3,7 +3,7 @@
 {
   home.sessionVariables = {
     EDITOR = "emacs";
-    FLAKE = "/home/stefan/.dotfiles";
+    FLAKE = "~/.dotfiles";
   };
   syncthing.enable = true;
 }

@@ -65,7 +65,7 @@
             inherit systemSettings;
             inherit userSettings;
           };
-          modules = [ ./home.nix ./modules/home-manager ];
+          modules = [ ./hosts/desktop/home.nix ./modules/home-manager ];
         };
       };
     };
