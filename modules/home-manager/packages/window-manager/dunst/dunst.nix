@@ -74,23 +74,23 @@
 
         # Set the background and foreground (text) color for all notifications
         urgency_low = with config.colorScheme.palette; {
-          background = "#${base01}";
-          foreground = "#${base04}";
-          highlight = "#${base0C}";
+          background = "#${base01}BF";
+          foreground = "#${base07}BF";
+          highlight = "#${base0C}BF";
           msg_urgency = "low";
         };
 
         urgency_normal = with config.colorScheme.palette; {
-          background = "#${base01}";
-          foreground = "#${base04}";
-          highlight = "#${base0C}";
+          background = "#${base01}BF";
+          foreground = "#${base07}BF";
+          highlight = "#${base0C}BF";
           msg_urgency = "normal";
         };
 
         urgency_critical = with config.colorScheme.palette; {
-          background = "#${base08}";
-          foreground = "#${base07}";
-          highlight = "#${base09}";
+          background = "#${base08}BF";
+          foreground = "#${base07}BF";
+          highlight = "#${base09}BF";
           msg_urgency = "critical";
         };
       };

@@ -15,7 +15,7 @@
             pad = "5x5";
           };
           colors = with config.colorScheme.palette; {
-            alpha = "0.95";
+            alpha = "0.75";
             background = "${base00}";
             foreground = "${base07}";
           };
