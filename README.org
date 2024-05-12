@@ -38,7 +38,7 @@ Great for both avoiding dynamic linking woes and creating development environmen
 Nixpkgs is the largest software repository in the Linux space.
 The unstable branch of Nixpkgs has [[https://repology.org/repository/nix_unstable][over 100,000 packages]], along with having the [[https://repology.org/repositories/graphs][most packages that are fresh (up to date)]].
 
-* Dotfiles Structure.
+* Dotfiles Structure
 Both my system and home-manager configuration are in this repository and they both follow similar structures.
 Both configurations get managed by a flake in the root.
 The system configuration imports the hosts' configurations and everything under ~./modules/nixos~.
@@ -49,3 +49,10 @@ The activation of these modules can be overridden by each hosts' ~configuration.
 For example, a module to enable a driver for my desktop's WiFi dongle gets disabled by default.
 However the ~configuration.nix~ under ~./hosts/desktop~ overrides the default and enables it instead.
 This modular structure reduces redundancy and improves scalability.
+
+* Credits
+- [[https://www.youtube.com/channel/UC_zBdZ0_H_jn41FDRG7q4Tw][Vimjoyer]] for his NixOS tutorials.
+- [[https://www.youtube.com/channel/UCeZyoDTk0J-UPhd7MUktexw][LibrePhoenix]] for his NixOS tutorials.
+- [[https://nixos.wiki/wiki/Main_Page][The unofficial NixOS Wiki]] for articles on configuring specific software.
+
+Credits to files used in this repository are in [[./modules/home-manager/resources/content/README.org][another README]], as to not make this one too long.
