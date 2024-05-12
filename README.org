@@ -1,0 +1,36 @@
+#+title: Nix Dotfiles
+#+subtitle: My NixOS and Home Manager Configuration.
+
+* What is this?
+This repository houses the files used to build by NixOS system along with accompanying user configuration.
+
+* What is Nix(OS)?
+NixOS is a Linux distribution that uses the Nix language and package manager.
+NixOS applies the benefits of both the Nix Language and package manager to a system level:
+
++ NixOS is *reproducible*.
+  Configuration gets done using Nix, a functional, Turing complete programming language.
+  Like other functional languages it strives for purity: functions must always produce the same output when given the same input, no side effects.
+  The deterministic nature of Nix allows you to use your NixOS configuration to deploy the exact same build across your machines.
+  Nix Flakes are a recent development that improves reproducibility by pinning remote repositories to a commit and storing the pin in a lock file.
+  Pinning guarantees that new builds will always pull the same version of packages until you decide update the lock.
+
++ NixOS is *declarative*.
+  Instead of making changes to the system /imperatively/ (on-the-fly) changes are /declared/ in files.
+  Having a single source of truth for your system's configuration makes troubleshooting easier.
+  The module system standardises configuration, steps taken to modify the system are about the same no matter what part of the system it is.
+
++ NixOS is *reliable*.
+  When you rebuild your system a new generation gets created.
+  NixOS creates a file for this generation, which basically stores a list of pointers to the packages the generation uses.
+  NixOS does not clone packages between generations.
+  System generations and all the packages they use are all stored under ~/nix/store/~.
+  If you rebuild your system and something breaks, simply reboot and choose a previous working generation from the bootloader.
+  Built-in rollbacks offers peace of mind, and the confidence to tweak your system.
+
+Packages inside ~/nix/store/~ get identified with a unique hash.
+This allows multiple versions of packages to get installed simultaneously.
+Great for both avoiding dynamic linking woes and creating development environments.
+
+Nixpkgs is the largest software repository in the Linux space.
+The unstable branch of Nixpkgs has [[https://repology.org/repository/nix_unstable][over 100,000 packages]], along with having the [[https://repology.org/repositories/graphs][most packages that are fresh (up to date)]].
