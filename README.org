@@ -1,6 +1,10 @@
 #+title: Nix Dotfiles
 #+subtitle: My NixOS and Home Manager Configuration.
 
+
+#+ATTR_ORG: :width 512
+[[./desktop.png]]
+
 * What is this?
 This repository houses the files used to build by NixOS system along with accompanying user configuration.
 
@@ -34,3 +38,15 @@ Great for both avoiding dynamic linking woes and creating development environmen
 
 Nixpkgs is the largest software repository in the Linux space.
 The unstable branch of Nixpkgs has [[https://repology.org/repository/nix_unstable][over 100,000 packages]], along with having the [[https://repology.org/repositories/graphs][most packages that are fresh (up to date)]].
+
+* Dotfiles Structure.
+Both my system and home-manager configuration are in this repository and they both follow similar structures.
+Both configurations get managed by a flake in the root.
+The system configuration imports the hosts' configurations and everything under ~./modules/nixos~.
+The home-manager configuration imports everything under ~./modules/home-manager~.
+Each module directory contains its own ~default.nix~, which imports every module in its directory and sub-directories.
+~lib.mkDefault~ used to set the default state of the module: enabled or disabled.
+The activation of these modules can be overridden by each hosts' ~configuration.nix~ and ~home.nix~.
+For example, a module to enable a driver for my desktop's WiFi dongle gets disabled by default.
+However the ~configuration.nix~ under ~./hosts/desktop~ overrides the default and enables it instead.
+This modular structure reduces redundancy and improves scalability.
