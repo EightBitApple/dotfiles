@@ -71,7 +71,7 @@
   home-manager.enable = lib.mkDefault true;
   htop.enable = lib.mkDefault true;
   zsh.enable = lib.mkDefault true;
-  syncthing.enable = lib.mkDefault false;
+  syncthing.enable = lib.mkDefault true;
 
   dsda-doom.enable = lib.mkDefault true;
   gzdoom.enable = lib.mkDefault true;

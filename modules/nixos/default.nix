@@ -51,7 +51,7 @@
   apple-hid.enable = lib.mkDefault true;
   zram.enable = lib.mkDefault true;
   swappiness-tweaks.enable = lib.mkDefault true;
-  rtl88xxau-aircrack.enable = lib.mkDefault false;
+  rtl88xxau-aircrack.enable = lib.mkDefault true;
   parameters.enable = lib.mkDefault true;
 
   pipewire.enable = lib.mkDefault true;
@@ -67,7 +67,7 @@
 
   experimental-features.enable = lib.mkDefault true;
   locale.enable = lib.mkDefault true;
-  mount-drive.enable = lib.mkDefault false;
+  mount-drive.enable = lib.mkDefault true;
 
   bluetooth.enable = lib.mkDefault true;
   microcode-updates.enable = lib.mkDefault true;
@@ -82,7 +82,7 @@
 
   git.enable = lib.mkDefault true;
   zsh.enable = lib.mkDefault true;
-  steam.enable = lib.mkDefault false;
+  steam.enable = lib.mkDefault true;
   wireshark.enable = lib.mkDefault true;
   thunar.enable = lib.mkDefault true;
   hyprland.enable = lib.mkDefault true;
