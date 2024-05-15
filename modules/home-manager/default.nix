@@ -93,4 +93,9 @@
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
   colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
+
+  home.sessionVariables = {
+    EDITOR = "emacs";
+    FLAKE = ".dotfiles";
+  };
 }
