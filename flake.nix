@@ -45,7 +45,7 @@
 
     in {
       nixosConfigurations = {
-        nixos = lib.nixosSystem {
+        desktop = lib.nixosSystem {
           specialArgs = {
             inherit inputs;
             inherit pkgs-unstable;
@@ -54,10 +54,21 @@
           };
           modules = [ ./hosts/desktop/configuration.nix ./modules/nixos ];
         };
+
+        laptop = lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+            inherit pkgs-unstable;
+            inherit systemSettings;
+            inherit userSettings;
+          };
+          modules = [ ./hosts/laptop/configuration.nix ./modules/nixos ];
+        };
+
       };
 
       homeConfigurations = {
-        stefan = home-manager.lib.homeManagerConfiguration {
+        desktop = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {
             inherit inputs;
@@ -66,6 +77,19 @@
             inherit userSettings;
           };
           modules = [ ./hosts/desktop/home.nix ./modules/home-manager ];
+        };
+      };
+
+      homeConfigurations = {
+        laptop = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          extraSpecialArgs = {
+            inherit inputs;
+            inherit pkgs-unstable;
+            inherit systemSettings;
+            inherit userSettings;
+          };
+          modules = [ ./hosts/laptop/home.nix ./modules/home-manager ];
         };
       };
     };
