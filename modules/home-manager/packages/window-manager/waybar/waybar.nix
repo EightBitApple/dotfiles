@@ -1,9 +1,15 @@
 { config, lib, pkgs, ... }:
 
 {
-  options.waybar.enable = lib.mkEnableOption ''
-    Install and configure Waybar.
-  '';
+  options = {
+    waybar.enable = lib.mkEnableOption ''
+      Install and configure Waybar.
+    '';
+
+    waybarDisplay1 = lib.mkOption { default = "DP-1"; };
+    waybarDisplay2 = lib.mkOption { default = "DP-2"; };
+    waybarDisplay3 = lib.mkOption { default = "HDMI-A-1"; };
+  };
 
   config = lib.mkIf config.waybar.enable {
     programs = {
@@ -12,7 +18,7 @@
         settings = {
 
           mainBar = {
-            output = [ "DP-1" "HDMI-A-1" ];
+            output = [ config.waybarDisplay1 config.waybarDisplay3 ];
             layer = "top";
             position = "left";
             modules-left = [ "hyprland/workspaces" ];
@@ -93,7 +99,7 @@
           };
 
           secondaryBar = {
-            output = [ "DP-2" ];
+            output = [ config.waybarDisplay2 ];
             layer = "top";
             position = "bottom";
             modules-left = [ "hyprland/workspaces" ];

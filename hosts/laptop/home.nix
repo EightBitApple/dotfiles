@@ -7,6 +7,10 @@
   mangohud.enable = false;
 
   hyprlandDisplay1 = "eDP-1";
-  hyprlandDisplay2 = "eDP-1";
-  hyprlandDisplay3 = "eDP-1";
+  hyprlandDisplay2 = "N/A";
+  hyprlandDisplay3 = "N/A";
+
+  waybarDisplay1 = "eDP-1";
+  waybarDisplay2 = "N/A";
+  waybarDisplay3 = "N/A";
 }
