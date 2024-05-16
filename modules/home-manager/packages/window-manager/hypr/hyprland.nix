@@ -20,9 +20,15 @@ let
     '';
   };
 in {
-  options.hyprland.enable = lib.mkEnableOption ''
-    Configure the Hyprland window manager.
-  '';
+  options = {
+    hyprland.enable = lib.mkEnableOption ''
+      Configure the Hyprland window manager.
+    '';
+
+    hyprlandDisplay1 = lib.mkOption { default = "DP-1"; };
+    hyprlandDisplay2 = lib.mkOption { default = "DP-2"; };
+    hyprlandDisplay3 = lib.mkOption { default = "HDMI-A-1"; };
+  };
 
   config = lib.mkIf config.hyprland.enable {
     wayland.windowManager.hyprland = {
@@ -30,11 +36,9 @@ in {
 
       settings = {
 
-        monitor = [
-          "DP-1,1920x1080@75,0x0,1"
-          "DP-2,1920x1080@60,1920x0,1,transform,1"
-          "HDMI-A-1,1920x1080@60,0x0,1"
-        ];
+        "$display1" = config.hyprlandDisplay1;
+        "$display2" = config.hyprlandDisplay2;
+        "$display3" = config.hyprlandDisplay3;
 
         exec-once = "${startupScript}/bin/startup";
 
@@ -90,16 +94,16 @@ in {
         gestures.workspace_swipe = "off";
 
         workspace = [
-          "1, monitor:DP-1"
-          "2, monitor:DP-1"
-          "3, monitor:DP-1"
-          "4, monitor:DP-1"
-          "5, monitor:DP-1"
-          "6, monitor:DP-2"
-          "7, monitor:DP-2"
-          "8, monitor:DP-2"
-          "9, monitor:DP-2"
-          "10, monitor:DP-2"
+          "1, monitor:$display1"
+          "2, monitor:$display1"
+          "3, monitor:$display1"
+          "4, monitor:$display1"
+          "5, monitor:$display1"
+          "6, monitor:$display2"
+          "7, monitor:$display2"
+          "8, monitor:$display2"
+          "9, monitor:$display2"
+          "10, monitor:$display2"
         ];
 
         misc = {
@@ -177,9 +181,6 @@ in {
           "$mod, M, exit,"
           "$mod, Backspace, exec, sysact"
 
-          "$mod ALT, W, exec, hyprctl keyword monitor DP-1,1920x1080@75,0x0,1 & notify-send -t 2000 'Refresh Rate: Max'"
-          "$mod ALT, S, exec, hyprctl keyword monitor DP-1,1920x1080@60,0x0,1 & notify-send -t 2000 'Refresh Rate: 60hz'"
-
           "$mod CTRL, H, exec, changevolume mute"
 
           "$mod, 1, workspace, 1"
@@ -222,10 +223,10 @@ in {
           "$mod, L, resizeactive, 25 0"
           "$mod, H, resizeactive, -25 0"
 
-          "$mod, A, movewindow, mon:DP-1"
-          "$mod, D, movewindow, mon:DP-2"
-          "$mod SHIFT, A, movecurrentworkspacetomonitor, DP-1"
-          "$mod SHIFT, D, movecurrentworkspacetomonitor, DP-2"
+          "$mod, A, movewindow, mon:$display1"
+          "$mod, D, movewindow, mon:$display2"
+          "$mod SHIFT, A, movecurrentworkspacetomonitor, $display1"
+          "$mod SHIFT, D, movecurrentworkspacetomonitor, $display2"
 
         ];
 
