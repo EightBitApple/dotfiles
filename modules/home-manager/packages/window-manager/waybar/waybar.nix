@@ -25,7 +25,8 @@
             modules-center = [ "hyprland/window#vert" ];
             modules-right = [
               "wireplumber"
-              "custom/battery"
+              "battery#bat0"
+              "battery#bat1"
               "network"
               "clock#date"
               "clock"
@@ -70,12 +71,28 @@
               on-click = "footclient -e nmtui";
             };
 
-            "custom/battery" = {
-              format = "{}";
-              exec = "~/.local/bin/custom-bar-modules/bm-battery";
+            "battery#bat0" = {
+              bat = "BAT0";
               interval = 60;
-              signal = 10;
-              return-type = "json";
+              states = {
+                warning = 30;
+                critical = 15;
+              };
+              format = ''
+                B0
+                {capacity}'';
+            };
+
+            "battery#bat1" = {
+              bat = "BAT1";
+              interval = 60;
+              states = {
+                warning = 30;
+                critical = 15;
+              };
+              format = ''
+                B1
+                {capacity}'';
             };
 
             "hyprland/workspaces" = {
@@ -273,7 +290,8 @@
           #clock,
           #network,
           #wireplumber,
-          #custom-battery,
+          #battery.bat0,
+          #battery.bat1,
           #tray {
               margin: 0.25em 0.5em;
               padding: 0.25em 0.5em;
