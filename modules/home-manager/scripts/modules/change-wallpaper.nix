@@ -1,9 +1,11 @@
 { config, lib, pkgs, ... }:
 
 {
-  options.changeWallpaper.enable = lib.mkEnableOption ''
-    Enable script to change wallpaper.
-  '';
+  options = {
+    changeWallpaper.enable = lib.mkEnableOption ''
+      Enable script to change wallpaper.
+    '';
+  };
 
   config = lib.mkIf config.changeWallpaper.enable {
     home.packages = with pkgs;
@@ -20,12 +22,12 @@
             [ -z "$wall" ] && notify-send -u low -t 3000 "No Wallpaper Selected" "Aborting..." && exit 1
 
             # Change wallpaper.
+            pkill hyprpaper ; hyprpaper & disown
             hyprctl hyprpaper unload "$sys_wall"
             rm "$sys_wall"
             ln -s "$wall" "$sys_wall"
             hyprctl hyprpaper preload "$sys_wall"
-            hyprctl hyprpaper wallpaper "DP-1,$sys_wall"
-            hyprctl hyprpaper wallpaper "DP-2,$sys_wall"
+            hyprctl hyprpaper wallpaper ",$sys_wall"
 
             notify-send -u low -t 3000 "Changed Wallpaper" &
           '';
