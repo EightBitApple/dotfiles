@@ -15,3 +15,6 @@ To change between these wallpapers, [[../../../scripts/modules/change-wallpaper.
 These are the sources for all the soundfonts included in this repository.
 
 - [[https://www.doomworld.com/forum/topic/118828-trevor0402s-sc-55-soundfont/][SC-55 soundfont by Trevor0402]]
+
+* Easyeffects Presets
+All presets are from [[https://github.com/p-chan5/EasyPulse][EasyPulse]]
