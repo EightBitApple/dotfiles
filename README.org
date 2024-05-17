@@ -46,8 +46,8 @@ The home-manager configuration imports everything under ~./modules/home-manager~
 Each module directory contains its own ~default.nix~, which imports every module in its directory and sub-directories.
 ~lib.mkDefault~ used to set the default state of the module: enabled or disabled.
 The activation of these modules can be overridden by each hosts' ~configuration.nix~ and ~home.nix~.
-For example, a module to enable a driver for my desktop's WiFi dongle gets disabled by default.
-However the ~configuration.nix~ under ~./hosts/desktop~ overrides the default and enables it instead.
+For example, a module to enable a driver for my desktop's WiFi dongle gets enabled by default.
+However the ~configuration.nix~ under ~./hosts/laptop~ overrides the default and disables it instead.
 This modular structure reduces redundancy and improves scalability.
 
 * Credits
