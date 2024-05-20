@@ -50,6 +50,40 @@ For example, a module to enable a driver for my desktop's WiFi dongle gets enabl
 However the ~configuration.nix~ under ~./hosts/laptop~ overrides the default and disables it instead.
 This modular structure reduces redundancy and improves scalability.
 
+* Building
+Here's how to build a system using these dotfiles for the first time.
+1. Install NixOS.
+2. Open a terminal or TTY and enter ~nix-shell -p git~ to temporally install Git.
+   You can also add your text editor of choice to this command for use in the text steps: ~nix-shell -p git neovim~.
+3. ~cd~ into your home directory and clone this repository ~git clone https://github.com/The8BitApple/.dotfiles~.
+4. Open ~/etc/nixos/configuration.nix~ and add this line inside the second pair of curly braces: ~nix.settings.experimental-features = [ "nix-command" "flakes" ];~.
+5. Rebuild the system using ~sudo nixos-rebuild switch~
+6. Now with flakes enabled you can build using the dotfiles.
+   Enter ~sudo nixos-rebuild switch --flake \~/.dotfiles/#HOSTNAME~, replacing ~HOSTNAME~ with a directory name listed under ~\~/.dotfiles/hosts~ (e.g. desktop, laptop, etc.).
+7. After the command finishes run ~home-manager switch --flake \~/.dotfiles/#~ to build the home-manager configuration.
+8. Reboot into the new system by choosing the latest generation in the bootloader.
+
+* Maintenance
+The dotfiles installs these packages to aid in system maintenance:
+
++ [[https://github.com/viperML/nh][nh]] - Reimplements several nix commands with extra functionality.
++ [[https://gitlab.com/khumba/nvd][nvd]] - Summarises the version differences of packages between two nix store paths.
++ [[https://github.com/maralorn/nix-output-monitor][nix-output-monitor]] - Grants additional information while building.
+
+*For the upcoming sections, Replace ~HOSTNAME~ with a directory name listed under ~\~/.dotfiles/hosts~ (e.g. desktop, laptop, etc.).*
+
+** Rebuilding
++ Run ~nh os switch~ to rebuild the system.
++ Run ~nh home switch -c HOSTNAME~ to rebuild the home-manager configuration.
+
+** Upgrading
++ Run ~nh os switch -u~ or ~nh home switch -u -c HOSTNAME~ to update ~flake.lock~ to the latest commits before rebuilding.
+
+** Garbage Collection
++ Run ~nh clean all -k NUMBER~ to garbage collect the Nix Store.
++ Run ~nh clean all -k NUMBER --dry~ to see what will get deleted before performing it for real.
+  Replace ~NUMBER~ with the number of generations you want to keep (e.g. ~-k 4~).
+
 * Credits
 - [[https://www.youtube.com/channel/UC_zBdZ0_H_jn41FDRG7q4Tw][Vimjoyer]] for his NixOS tutorials.
 - [[https://www.youtube.com/channel/UCeZyoDTk0J-UPhd7MUktexw][LibrePhoenix]] for his NixOS tutorials.
