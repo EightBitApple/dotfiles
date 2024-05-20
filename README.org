@@ -59,8 +59,8 @@ Here's how to build a system using these dotfiles for the first time.
 4. Open ~/etc/nixos/configuration.nix~ and add this line inside the second pair of curly braces: ~nix.settings.experimental-features = [ "nix-command" "flakes" ];~.
 5. Rebuild the system using ~sudo nixos-rebuild switch~
 6. Now with flakes enabled you can build using the dotfiles.
-   Enter ~sudo nixos-rebuild switch --flake \~/.dotfiles/#HOSTNAME~, replacing ~HOSTNAME~ with a directory name listed under ~\~/.dotfiles/hosts~ (e.g. desktop, laptop, etc.).
-7. After the command finishes run ~home-manager switch --flake \~/.dotfiles/#~ to build the home-manager configuration.
+   Enter ~sudo nixos-rebuild switch --flake ~/.dotfiles/#HOSTNAME~, replacing ~HOSTNAME~ with a directory name listed under ~~/.dotfiles/hosts~ (e.g. desktop, laptop, etc.).
+7. After the command finishes run ~home-manager switch --flake ~/.dotfiles/#~ to build the home-manager configuration.
 8. Reboot into the new system by choosing the latest generation in the bootloader.
 
 * Maintenance
@@ -70,7 +70,7 @@ The dotfiles installs these packages to aid in system maintenance:
 + [[https://gitlab.com/khumba/nvd][nvd]] - Summarises the version differences of packages between two nix store paths.
 + [[https://github.com/maralorn/nix-output-monitor][nix-output-monitor]] - Grants additional information while building.
 
-*For the upcoming sections, Replace ~HOSTNAME~ with a directory name listed under ~\~/.dotfiles/hosts~ (e.g. desktop, laptop, etc.).*
+*For the upcoming sections, Replace ~HOSTNAME~ with a directory name listed under ~~/.dotfiles/hosts~ (e.g. desktop, laptop, etc.).*
 
 ** Rebuilding
 + Run ~nh os switch~ to rebuild the system.
