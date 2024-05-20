@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   dsda-doom.enable = false;
@@ -13,4 +13,12 @@
   waybarDisplay1 = "eDP-1";
   waybarDisplay2 = "N/A";
   waybarDisplay3 = "N/A";
+
+  wayland.windowManager.hyprland.settings = {
+    decoration = {
+      blur.enabled = lib.mkForce false;
+      drop_shadow = lib.mkForce false;
+    };
+    misc.vfr = lib.mkForce true;
+  };
 }
