@@ -9,7 +9,7 @@
     users.users.stefan = {
       isNormalUser = true;
       description = "Stefan";
-      extraGroups = [ "networkmanager" "wheel" "wireshark" "gamemode" ];
+      extraGroups = [ "networkmanager" "wheel" "wireshark" "gamemode" "video" ];
       shell = pkgs.zsh;
     };
   };

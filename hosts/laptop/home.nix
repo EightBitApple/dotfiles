@@ -20,5 +20,10 @@
       drop_shadow = lib.mkForce false;
     };
     misc.vfr = lib.mkForce true;
+
+    bind = [
+      ", XF86MonBrightnessUp, exec, changebrightness up 10"
+      ", XF86MonBrightnessDown, exec, changebrightness down 10"
+    ];
   };
 }

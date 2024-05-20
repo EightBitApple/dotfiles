@@ -29,6 +29,7 @@
 
     ./hardware/bluetooth.nix
     ./hardware/microcode-updates.nix
+    ./hardware/brillo.nix
 
     ./console/keymap.nix
 
@@ -72,6 +73,7 @@
 
   bluetooth.enable = lib.mkDefault true;
   microcode-updates.enable = lib.mkDefault true;
+  brillo.enable = lib.mkDefault true;
 
   keymap.enable = lib.mkDefault true;
 
