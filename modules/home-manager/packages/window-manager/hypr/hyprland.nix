@@ -182,6 +182,7 @@ in {
           "$mod, Backspace, exec, sysact"
 
           "$mod CTRL, H, exec, changevolume mute"
+          ", XF86AudioMute, exec, changevolume mute"
 
           "$mod, 1, workspace, 1"
           "$mod, 2, workspace, 2"
@@ -232,8 +233,11 @@ in {
 
         binde = [
 
-          "$mod CTRL, J, exec, changevolume down 5"
           "$mod CTRL, K, exec, changevolume up 5"
+          ", XF86AudioRaiseVolume, exec, changevolume up 5"
+
+          "$mod CTRL, J, exec, changevolume down 5"
+          ", XF86AudioLowerVolume, exec, changevolume down 5"
 
         ];
 
