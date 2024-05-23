@@ -5,7 +5,7 @@
     Enable script to perform actions on the system (shutdown, sleep, reboot, etc.)
   '';
 
-  config = lib.mkIf config.mpvLink.enable {
+  config = lib.mkIf config.systemActions.enable {
     home.packages = with pkgs;
       [
         (pkgs.writeShellApplication {

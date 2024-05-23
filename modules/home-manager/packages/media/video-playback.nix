@@ -48,6 +48,23 @@
           ];
       };
     };
-    home.packages = with pkgs; [ freetube yt-dlp ];
+    home.packages = with pkgs; [
+      freetube
+      yt-dlp
+
+      (pkgs.writeShellApplication {
+        name = "mpvl";
+        runtimeInputs = with pkgs; [ wl-clipboard dunst yt-dlp ];
+        text = ''
+          msg_title="MPV Link"
+          msg_attempt="Attempting to play video..."
+          msg_error="Error playing video. Aborting."
+
+          notify-send "$msg_title" "$msg_attempt" &
+          mpv "$(wl-paste)" "$@"
+          [ $? -eq 2 ] && notify-send -t 5000 -u normal "$msg_title Error" "$msg_error" && exit 1;
+        '';
+      })
+    ];
   };
 }
