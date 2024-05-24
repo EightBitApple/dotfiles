@@ -9,7 +9,6 @@
     ./modules/change-volume.nix
     ./modules/change-brightness.nix
     ./modules/change-wallpaper.nix
-    ./modules/emacsclient-starter.nix
     ./modules/system-actions.nix
     ./modules/screenshot.nix
     ./modules/image-edit.nix
@@ -23,6 +22,5 @@
     systemActions.enable = lib.mkDefault true;
     screenshot.enable = lib.mkDefault true;
     imageEdit.enable = lib.mkDefault true;
-    emacsclientStarter.enable = lib.mkDefault true;
   };
 }
