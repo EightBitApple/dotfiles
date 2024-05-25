@@ -20,6 +20,7 @@
       texliveFull
       unzip
       libreoffice
+      lm_sensors
     ];
   };
 }
