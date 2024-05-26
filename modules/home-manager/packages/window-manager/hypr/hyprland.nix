@@ -206,11 +206,11 @@ in {
           "$mod SHIFT, 9, movetoworkspacesilent, 9"
           "$mod SHIFT, 0, movetoworkspacesilent, 10"
 
-          "$mod, J, cyclenext, prev"
-          "$mod SHIFT, J, cyclenext, prev, floating"
+          "$mod, J, layoutmsg, cyclenext"
+          "$mod SHIFT, J, layoutmsg, cyclenext, floating"
 
-          "$mod, K, cyclenext"
-          "$mod SHIFT, K, cyclenext, floating"
+          "$mod, K, layoutmsg, cycleprev"
+          "$mod SHIFT, K, layoutmsg, cycleprev, floating"
 
           "$mod SHIFT, J, layoutmsg, swapnext"
           "$mod SHIFT, K, layoutmsg, swapprev"
@@ -219,10 +219,8 @@ in {
           "$mod SHIFT, F, layoutmsg, focusmaster"
 
           "$mod, I, layoutmsg, orientationcenter"
-          "$mod, T, layoutmsg, orientationleft"
 
-          "$mod, L, resizeactive, 25 0"
-          "$mod, H, resizeactive, -25 0"
+          "$mod, T, layoutmsg, orientationleft"
 
           "$mod, A, movewindow, mon:$display1"
           "$mod, D, movewindow, mon:$display2"
@@ -239,6 +237,8 @@ in {
           "$mod CTRL, J, exec, changevolume down 5"
           ", XF86AudioLowerVolume, exec, changevolume down 5"
 
+          "$mod, L, resizeactive, 25 0"
+          "$mod, H, resizeactive, -25 0"
         ];
 
         bindm = [
