@@ -70,7 +70,7 @@ The dotfiles installs these packages to aid in system maintenance:
 + [[https://gitlab.com/khumba/nvd][nvd]] - Summarises the version differences of packages between two nix store paths.
 + [[https://github.com/maralorn/nix-output-monitor][nix-output-monitor]] - Grants additional information while building.
 
-*For the upcoming sections, Replace ~HOSTNAME~ with a directory name listed under ~~/.dotfiles/hosts~ (e.g. desktop, laptop, etc.).*
+*For the upcoming sections, Replace "HOSTNAME" with a directory name listed under ~/.dotfiles/hosts (e.g. desktop, laptop, etc.).*
 
 ** Rebuilding
 + Run ~nh os switch~ to rebuild the system.
