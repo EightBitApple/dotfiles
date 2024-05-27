@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, pkgs-unstable, ... }:
 
 {
   options.steam.enable = lib.mkEnableOption ''
@@ -9,7 +9,7 @@
     programs = {
       steam = {
         enable = true;
-        extraCompatPackages = with pkgs; [ proton-ge-bin ];
+        extraCompatPackages = with pkgs-unstable; [ proton-ge-bin ];
         gamescopeSession = {
           enable = true;
           args = [ "-r 75" "--adaptive-sync" ];
