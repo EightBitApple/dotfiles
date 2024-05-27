@@ -53,7 +53,7 @@ This modular structure reduces redundancy and improves scalability.
 * Building
 Here's how to build a system using these dotfiles for the first time.
 1. Install NixOS.
-2. Open a terminal or TTY and enter ~nix-shell -p git~ to temporally install Git.
+2. Open a terminal or TTY and enter ~nix-shell -p git~ to temporarily install Git.
    You can also add your text editor of choice to this command for use in the text steps: ~nix-shell -p git neovim~.
 3. ~cd~ into your home directory and clone this repository ~git clone https://github.com/The8BitApple/.dotfiles~.
 4. Open ~/etc/nixos/configuration.nix~ and add this line inside the second pair of curly braces: ~nix.settings.experimental-features = [ "nix-command" "flakes" ];~.
