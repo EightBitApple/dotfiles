@@ -207,10 +207,7 @@ in {
           "$mod SHIFT, 0, movetoworkspacesilent, 10"
 
           "$mod, J, layoutmsg, cyclenext"
-          "$mod SHIFT, J, layoutmsg, cyclenext, floating"
-
           "$mod, K, layoutmsg, cycleprev"
-          "$mod SHIFT, K, layoutmsg, cycleprev, floating"
 
           "$mod SHIFT, J, layoutmsg, swapnext"
           "$mod SHIFT, K, layoutmsg, swapprev"
