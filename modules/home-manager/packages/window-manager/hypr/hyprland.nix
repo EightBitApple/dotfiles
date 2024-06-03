@@ -1,9 +1,20 @@
-{ config, lib, pkgs, userSettings, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  userSettings,
+  ...
+}:
 
 let
   startupScript = pkgs.writeShellApplication {
     name = "startup";
-    runtimeInputs = with pkgs; [ waybar hyprpaper foot xorg.xrdb ];
+    runtimeInputs = with pkgs; [
+      waybar
+      hyprpaper
+      foot
+      xorg.xrdb
+    ];
     text = ''
       waybar &
       hyprpaper &
@@ -19,7 +30,8 @@ let
       notify-send "Batteries:" "$(batteries)"
     '';
   };
-in {
+in
+{
   options = {
     hyprland.enable = lib.mkEnableOption ''
       Configure the Hyprland window manager.
@@ -42,10 +54,13 @@ in {
 
         exec-once = "${startupScript}/bin/startup";
 
-        env = [ "XCURSOR_SIZE,24" "LSP_USE_PLISTS,true" ];
+        env = [
+          "XCURSOR_SIZE,24"
+          "LSP_USE_PLISTS,true"
+        ];
 
         general = with config.colorScheme.palette; {
-          border_size = 4;
+          border_size = 2;
           gaps_out = 10;
           cursor_inactive_timeout = 4;
           layout = "master";
@@ -61,7 +76,9 @@ in {
           follow_mouse = 1;
           mouse_refocus = true;
 
-          touchpad = { natural_scroll = "no"; };
+          touchpad = {
+            natural_scroll = "no";
+          };
 
           repeat_delay = 300;
           repeat_rate = 50;
@@ -72,7 +89,7 @@ in {
           rounding = 2;
 
           blur = {
-            enabled = true;
+            enabled = false;
             size = 2;
           };
         };
@@ -119,7 +136,7 @@ in {
 
         "$animation_speed" = 2;
         animations = {
-          enabled = "yes";
+          enabled = "no";
           bezier = "overshot, 0.05, 0.9, 0.1, 1.05";
         };
 
@@ -138,7 +155,10 @@ in {
           "minsize 1 1, title:^()$,class:^(steam)$"
         ];
 
-        layerrule = [ "blur, launcher" "blur, notifications" ];
+        layerrule = [
+          "blur, launcher"
+          "blur, notifications"
+        ];
 
         "$mod" = "SUPER";
 
@@ -223,7 +243,6 @@ in {
           "$mod, D, movewindow, mon:$display2"
           "$mod SHIFT, A, movecurrentworkspacetomonitor, $display1"
           "$mod SHIFT, D, movecurrentworkspacetomonitor, $display2"
-
         ];
 
         binde = [
@@ -242,9 +261,7 @@ in {
 
           "$mod, mouse:272, movewindow"
           "$mod, mouse:273, resizewindow"
-
         ];
-
       };
     };
   };
