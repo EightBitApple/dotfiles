@@ -138,7 +138,7 @@
           /* Waybar */
           window#waybar {
               background-color: #${base00};
-              border-bottom: 3px solid #${base01};
+              padding-bottom: 3px;
               color: #${base07};
               border-radius: 0;
           }
@@ -153,17 +153,14 @@
               padding: 0 0.4em;
               background-color: transparent;
               color: #${base07};
-              box-shadow: inset 0 -3px transparent;
           }
 
           #workspaces button:hover {
               background-color: #${base03};
-              box-shadow: inset 0 -3px transparent;
           }
 
           #workspaces button.active {
               background-color: #${base07};
-              box-shadow: inset 0 -3px transparent;
               color: #${base00};
           }
 
