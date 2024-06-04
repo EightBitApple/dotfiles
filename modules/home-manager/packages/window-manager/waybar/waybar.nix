@@ -61,7 +61,7 @@
             };
 
             "network" = {
-              format-wifi = " {signalStrength}%";
+              format-wifi = "  {signalStrength}%";
               format-ethernet = "󰈀";
               tooltip-format = ''
                 {ifname}	{ipaddr}/{cidr}
@@ -79,7 +79,7 @@
                 warning = 30;
                 critical = 15;
               };
-              format = "{icon} {capacity}%";
+              format = "{icon}  {capacity}%";
               format-icons = [
                 ""
                 ""
@@ -96,7 +96,7 @@
                 warning = 30;
                 critical = 15;
               };
-              format = "{icon} {capacity}%";
+              format = "{icon}  {capacity}%";
               format-icons = [
                 ""
                 ""
@@ -114,7 +114,7 @@
             };
 
             "wireplumber" = {
-              format = "{icon} {volume}%";
+              format = "{icon}  {volume}%";
               format-muted = "";
               on-click = "footclient pulsemixer";
               format-icons = [
