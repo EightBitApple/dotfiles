@@ -1,4 +1,10 @@
-{ config, lib, pkgs, pkgs-unstable, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  pkgs-unstable,
+  ...
+}:
 
 {
   options.extra-utilities.enable = lib.mkEnableOption ''
@@ -21,6 +27,7 @@
       unzip
       libreoffice
       lm_sensors
+      appimage-run
     ];
   };
 }
