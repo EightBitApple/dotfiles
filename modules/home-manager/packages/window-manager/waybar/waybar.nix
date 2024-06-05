@@ -180,7 +180,7 @@
               box-shadow: 2px 2px;
           }
 
-          #battery.charging, #battery.plugged {
+          #battery.charging {
               color: #${base0B};
           }
 
