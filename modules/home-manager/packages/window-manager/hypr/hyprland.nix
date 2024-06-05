@@ -22,14 +22,6 @@ let
       xrdb -load ~/.Xresources
     '';
   };
-
-  batteryNotif = pkgs.writeShellApplication {
-    name = "battery-notif";
-    runtimeInputs = with pkgs; [ dunst ];
-    text = ''
-      notify-send "Batteries:" "$(batteries)"
-    '';
-  };
 in
 {
   options = {
@@ -196,7 +188,7 @@ in
           "$mod, C, exec, screenshot"
           "$mod, V, exec, img-edit"
 
-          "$mod, B, exec, ${batteryNotif}/bin/battery-notif"
+          "$mod, B, exec, pkill -SIGUSR1 waybar"
 
           "$mod, M, exit,"
           "$mod, Backspace, exec, sysact"
