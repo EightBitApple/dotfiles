@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   options.videoPlayback.enable = lib.mkEnableOption ''
@@ -35,13 +40,15 @@
           keep-open = "yes";
 
           video-sync = "display-resample";
+          profile = "fast";
 
-          ytdl-format =
-            "bestvideo[vcodec^=avc1][height<=1080]+bestaudio[acodec^=opus]/best[vcodec^=avc1][height<=1080]";
+          ytdl-format = "bestvideo[vcodec^=avc1][height<=1080]+bestaudio[acodec^=opus]/best[vcodec^=avc1][height<=1080]";
           ytdl-raw-options = "write-auto-subs=,sub-lang='en.*'";
         };
-        scripts = with pkgs;
-          with mpvScripts; [
+        scripts =
+          with pkgs;
+          with mpvScripts;
+          [
             sponsorblock
             mpv-playlistmanager
             quality-menu
@@ -54,7 +61,11 @@
 
       (pkgs.writeShellApplication {
         name = "mpvl";
-        runtimeInputs = with pkgs; [ wl-clipboard dunst yt-dlp ];
+        runtimeInputs = with pkgs; [
+          wl-clipboard
+          dunst
+          yt-dlp
+        ];
         text = ''
           msg_title="MPV Link"
           msg_attempt="Attempting to play video..."
