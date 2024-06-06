@@ -10,7 +10,7 @@
     Enable script to play notification sound. Intended to be used with notification daemons.
   '';
 
-  config = lib.mkIf config.changeVolume.enable {
+  config = lib.mkIf config.notificationSound.enable {
     home.packages = with pkgs; [
       (pkgs.writeShellApplication {
         name = "notif-sound";
