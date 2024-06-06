@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   options.zsh.enable = lib.mkEnableOption ''
@@ -6,7 +11,10 @@
   '';
 
   config = lib.mkIf config.zsh.enable {
-    home.packages = with pkgs; [ fzf fd ];
+    home.packages = with pkgs; [
+      fzf
+      fd
+    ];
 
     programs.zsh = {
       enable = true;
@@ -68,6 +76,12 @@
                 echo
             }
         }
+      '';
+
+      profileExtra = ''
+        if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
+            exec Hyprland
+        fi
       '';
     };
   };
