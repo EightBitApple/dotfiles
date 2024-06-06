@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   options.scripts.enable = lib.mkEnableOption ''
@@ -12,6 +17,7 @@
     ./modules/system-actions.nix
     ./modules/screenshot.nix
     ./modules/image-edit.nix
+    ./modules/notification-sound.nix
   ];
 
   config = lib.mkIf config.scripts.enable {
@@ -22,5 +28,6 @@
     systemActions.enable = lib.mkDefault true;
     screenshot.enable = lib.mkDefault true;
     imageEdit.enable = lib.mkDefault true;
+    notificationSound.enable = lib.mkDefault true;
   };
 }

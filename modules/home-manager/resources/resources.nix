@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   options.resources.enable = lib.mkEnableOption ''
@@ -9,6 +14,7 @@
     home.file = {
       ".local/share/soundfonts".source = ./content/soundfonts;
       ".local/share/wallpapers".source = ./content/wallpapers;
+      ".local/share/system-sounds".source = ./content/system-sounds;
     };
   };
 }
