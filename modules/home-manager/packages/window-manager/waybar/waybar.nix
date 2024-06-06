@@ -35,7 +35,8 @@
             ];
             modules-right = [
               "wireplumber"
-              "battery"
+              "battery#controller"
+              "battery#bat0"
               "battery#bat1"
               "network"
               "clock"
@@ -72,7 +73,23 @@
               on-click = "footclient -e nmtui";
             };
 
-            "battery" = {
+            "battery#controller" = {
+              bat = "ps-controller-battery-7c:66:ef:40:6f:00";
+              interval = 60;
+              states = {
+                warning = 30;
+                critical = 15;
+              };
+              format = "{icon}  {capacity}%";
+              format-icons = [
+                "󰝌"
+                "󰝎"
+                "󰝏"
+                "󰝍"
+              ];
+            };
+
+            "battery#bat0" = {
               bat = "BAT0";
               interval = 60;
               states = {
@@ -196,7 +213,8 @@
           #clock,
           #network,
           #wireplumber,
-          #battery,
+          #battery.controller,
+          #battery.bat0,
           #battery.bat1,
           #tray {
             padding: 0 10px;
