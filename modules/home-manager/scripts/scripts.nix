@@ -10,7 +10,7 @@
     Enable the use of scripts.
   '';
   imports = [
-    ./modules/batteries.nix
+    ./modules/battery-warning.nix
     ./modules/change-volume.nix
     ./modules/change-brightness.nix
     ./modules/change-wallpaper.nix
@@ -21,7 +21,7 @@
   ];
 
   config = lib.mkIf config.scripts.enable {
-    battery.enable = lib.mkDefault true;
+    batteryWarning.enable = lib.mkDefault true;
     changeVolume.enable = lib.mkDefault true;
     changeBrightness.enable = lib.mkDefault true;
     changeWallpaper.enable = lib.mkDefault true;
