@@ -1,4 +1,10 @@
-{ config, pkgs, inputs, lib, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
 
 {
   networking.hostName = lib.mkForce "desktop";
@@ -6,4 +12,5 @@
   thinkfan.enable = false;
   brillo.enable = false;
   tlp.enable = false;
+  intelHwdec.enable = false;
 }
