@@ -28,6 +28,9 @@
           for battery in /sys/class/power_supply/?*; do
 
               battery_name=$(basename "''${battery}")
+
+              [ "$battery_name" = "AC" ] && continue
+
               notif_lock=/tmp/$battery_name.lock
 
               status=$(cat "$battery/status" 2>&1)
