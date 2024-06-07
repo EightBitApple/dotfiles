@@ -196,6 +196,8 @@ in
           "$mod CTRL, H, exec, changevolume mute"
           ", XF86AudioMute, exec, changevolume mute"
 
+          ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
+
           "$mod, 1, workspace, 1"
           "$mod, 2, workspace, 2"
           "$mod, 3, workspace, 3"
