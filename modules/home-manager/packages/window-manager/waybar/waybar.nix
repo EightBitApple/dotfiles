@@ -76,7 +76,7 @@
 
             "battery#controller" = {
               bat = "ps-controller-battery-7c:66:ef:40:6f:00";
-              interval = 60;
+              interval = 30;
               on-update = "bat-warning";
               states = {
                 warning = 30;
@@ -93,7 +93,7 @@
 
             "battery#bat0" = {
               bat = "BAT0";
-              interval = 60;
+              interval = 30;
               on-update = "bat-warning";
               states = {
                 warning = 30;
@@ -111,7 +111,7 @@
 
             "battery#bat1" = {
               bat = "BAT1";
-              interval = 60;
+              interval = 30;
               on-update = "bat-warning";
               states = {
                 warning = 30;
