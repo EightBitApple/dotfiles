@@ -90,7 +90,7 @@
           foreground = "#${base07}BF";
           highlight = "#${base0C}BF";
           msg_urgency = "normal";
-          script = "notif-sound";
+          script = "~/.nix-profile/bin/notif-sound";
         };
 
         urgency_critical = with config.colorScheme.palette; {
@@ -98,7 +98,7 @@
           foreground = "#${base07}BF";
           highlight = "#${base09}BF";
           msg_urgency = "critical";
-          script = "notif-sound";
+          script = "~/.nix-profile/bin/notif-sound";
         };
       };
     };
