@@ -36,7 +36,7 @@
 
         config = {
           vo = "gpu-next";
-          hwdec = "auto";
+          hwdec = "vaapi";
           keep-open = "yes";
 
           video-sync = "display-resample";

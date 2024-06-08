@@ -20,7 +20,7 @@
       ];
     };
     environment.sessionVariables = {
-      LIBVA_DRIVER_NAME = "iHD";
-    }; # Force intel-media-driver
+      LIBVA_DRIVER_NAME = "i965";
+    }; # Force intel-vaapi-driver
   };
 }
