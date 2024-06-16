@@ -50,7 +50,7 @@
 
         editor = "emacsclient";
         emacsPkg = pkgs.emacs29-pgtk;
-        wallpaper = ./modules/home-manager/resources/content/wallpapers/gruvbox/road-trip.jpg;
+        wallpaper = ./modules/home-manager/resources/content/wallpapers/forest.jpg;
       };
 
       pkgs = nixpkgs.legacyPackages.${systemSettings.arch};

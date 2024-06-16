@@ -1,23 +1,13 @@
 #+title: Sources for Resources
 
 * Wallpapers
-These are the sources for all the wallpapers included in this repository.
-To change between these wallpapers, [[../../../scripts/modules/change-wallpaper.nix][use the script called sbg]].
+- [[https://gitlab.com/plasma-wallpaper-competition/wallpapers/-/raw/master/hexworld/render/forest.jpg?ref_type=heads][Hexworld Forest]] by Arty Buzz.
 
-* Gruvbox
-- [[https://www.artstation.com/artwork/d0vdzK][Car Trip]] by Jonathan Lebrec.
-
-** Nature
-- [[https://gruvbox-wallpapers.pages.dev/wallpapers/irl/stairs.jpg][Stairs]]
-- [[https://gruvbox-wallpapers.pages.dev/wallpapers/irl/Colors.png][Colors]]
-
-* Soundfonts
-These are the sources for all the soundfonts included in this repository.
-
-- [[https://www.doomworld.com/forum/topic/118828-trevor0402s-sc-55-soundfont/][SC-55 soundfont by Trevor0402]]
-
-* Notification Sound
+* Notification Sounds
 - [[https://www.youtube.com/watch?v=6soBlsr1Mx0][Linux Mint]]
 
+* Soundfonts
+- [[https://www.doomworld.com/forum/topic/118828-trevor0402s-sc-55-soundfont/][SC-55 soundfont]] by Trevor0402
+
 * Easyeffects Presets
-All presets are from [[https://github.com/p-chan5/EasyPulse][EasyPulse]]
+- [[https://github.com/p-chan5/EasyPulse][EasyPulse]]
