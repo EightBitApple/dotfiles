@@ -46,9 +46,9 @@
 
     stylix.opacity = {
       applications = 1.0;
-      terminal = 0.9;
+      terminal = 0.95;
       desktop = 1.0;
-      popups = 0.9;
+      popups = 0.95;
     };
 
     gtk = {
