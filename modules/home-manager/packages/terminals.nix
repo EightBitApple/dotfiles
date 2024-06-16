@@ -7,17 +7,16 @@
 
 {
   options.terminals.enable = lib.mkEnableOption ''
-    Install terminals.
+    Install and configure terminal emulators.
   '';
 
   config = lib.mkIf config.terminals.enable {
-    programs = {
-      foot = {
-        enable = true;
-        settings = {
-          main = {
-            pad = "5x5";
-          };
+    programs.alacritty = {
+      enable = true;
+      settings = {
+        window.padding = {
+          x = 4;
+          y = 4;
         };
       };
     };

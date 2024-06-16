@@ -9,13 +9,9 @@
 let
   startupScript = pkgs.writeShellApplication {
     name = "startup";
-    runtimeInputs = with pkgs; [
-      waybar
-      foot
-    ];
+    runtimeInputs = with pkgs; [ waybar ];
     text = ''
       waybar &
-      foot --server &
     '';
   };
 in
@@ -112,7 +108,7 @@ in
           force_default_wallpaper = 0;
 
           enable_swallow = true;
-          swallow_regex = "(footclient)";
+          swallow_regex = "(Alacritty)";
 
           new_window_takes_over_fullscreen = 1;
           animate_manual_resizes = true;
@@ -162,11 +158,11 @@ in
           "$mod CTRL, Space, movewindow, r"
           "$mod CTRL, Space, pin"
 
-          "$mod, Return, exec, footclient"
+          "$mod, Return, exec, alacritty"
 
-          "$mod, P, exec, foot pulsemixer"
+          "$mod, P, exec, alacritty -e pulsemixer"
 
-          "$mod SHIFT, R, exec, foot htop"
+          "$mod SHIFT, R, exec, alacritty -e htop"
 
           "$mod, X, exec, emc"
           "$mod SHIFT, X, exec, emc -r"
