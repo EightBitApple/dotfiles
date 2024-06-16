@@ -71,7 +71,7 @@
                 	{essid}
                 {icon}  ⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}'';
               format-disconnected = "󰅛";
-              on-click = "footclient -e nmtui";
+              on-click = "alacritty -e nmtui";
             };
 
             "battery#controller" = {
@@ -137,7 +137,7 @@
             "wireplumber" = {
               format = "{icon}  {volume}%";
               format-muted = "";
-              on-click = "footclient pulsemixer";
+              on-click = "alacritty -e pulsemixer";
               format-icons = [
                 ""
                 ""
