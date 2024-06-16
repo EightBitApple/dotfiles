@@ -42,10 +42,7 @@ in
 
         exec-once = "${startupScript}/bin/startup";
 
-        env = [
-          "XCURSOR_SIZE,24"
-          "LSP_USE_PLISTS,true"
-        ];
+        env = [ "LSP_USE_PLISTS,true" ];
 
         general = with config.colorScheme.palette; {
           border_size = 2;
