@@ -11,15 +11,11 @@ let
     name = "startup";
     runtimeInputs = with pkgs; [
       waybar
-      hyprpaper
       foot
-      xorg.xrdb
     ];
     text = ''
       waybar &
-      hyprpaper &
       foot --server &
-      xrdb -load ~/.Xresources
     '';
   };
 in
@@ -57,8 +53,8 @@ in
           cursor_inactive_timeout = 4;
           layout = "master";
 
-          "col.active_border" = "rgba(${base09}ff) rgba(${base0E}ff) 60deg";
-          "col.inactive_border" = "rgba(${base00}ff)";
+          "col.active_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base07})";
+          "col.inactive_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base00})";
         };
 
         input = {

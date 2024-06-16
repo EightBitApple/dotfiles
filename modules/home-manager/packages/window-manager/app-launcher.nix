@@ -13,7 +13,7 @@
   config = lib.mkIf config.appLauncher.enable {
     home.packages = with pkgs; [ tofi ];
 
-    home.file.".config/tofi/config".text = with config.colorScheme.palette; ''
+    home.file.".config/tofi/config".text = with config.stylix.base16Scheme; ''
       text-color = #${base07}
       selection-color = #${base0B}
 

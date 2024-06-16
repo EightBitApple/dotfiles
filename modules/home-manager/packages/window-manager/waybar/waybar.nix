@@ -154,7 +154,7 @@
             };
           };
         };
-        style = with config.colorScheme.palette; ''
+        style = with config.stylix.base16Scheme; ''
           * {
               border: none;
               border-radius: 2px;

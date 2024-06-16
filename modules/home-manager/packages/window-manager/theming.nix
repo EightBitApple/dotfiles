@@ -1,4 +1,10 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  userSettings,
+  ...
+}:
 
 {
   options.theming.enable = lib.mkEnableOption ''
@@ -6,23 +12,52 @@
   '';
 
   config = lib.mkIf config.theming.enable {
-    home.pointerCursor = {
-      name = "Bibata-Modern-Ice";
-      package = pkgs.bibata-cursors;
+    stylix = {
+      enable = true;
+      image = userSettings.wallpaper;
+      cursor.package = pkgs.bibata-cursors;
+      cursor.name = "Bibata-Modern-Ice";
+      polarity = "dark"; # "light" or "either"
+    };
+
+    stylix.fonts = with userSettings; {
+      monospace = {
+        name = monospaceFont;
+        package = monospaceFontPkg;
+      };
+
+      sansSerif = {
+        name = sansSerifFont;
+        package = sansSerifFontPkg;
+      };
+
+      serif = {
+        name = serifFont;
+        package = serifFontPkg;
+      };
+
+      sizes = {
+        applications = 12;
+        terminal = 11;
+        desktop = 10;
+        popups = 12;
+      };
+    };
+
+    stylix.opacity = {
+      applications = 1.0;
+      terminal = 0.9;
+      desktop = 1.0;
+      popups = 0.9;
     };
 
     gtk = {
       enable = true;
-      theme = {
-        name = "Materia-dark";
-        package = pkgs.materia-theme;
-      };
       iconTheme = {
         name = "Papirus-Dark";
         package = pkgs.papirus-icon-theme;
       };
     };
-
-    qt = { enable = true; };
+    qt.enable = true;
   };
 }

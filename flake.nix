@@ -1,6 +1,5 @@
 {
-  description =
-    "A Nix Flake for both NixOS system configuration and home-manager.";
+  description = "A Nix Flake for both NixOS system configuration and home-manager.";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.05";
@@ -11,10 +10,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-colors.url = "github:misterio77/nix-colors";
+    stylix.url = "github:danth/stylix";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixpkgs-unstable,
+      home-manager,
+      stylix,
+      ...
+    }@inputs:
     let
       systemSettings = rec {
         arch = "x86_64-linux";
@@ -32,18 +39,25 @@
         browser = "firefox";
         terminal = "foot";
 
-        font = "FiraCode Nerd Font";
-        fontPkg = pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; };
+        monospaceFont = "FiraCode Nerd Font";
+        monospaceFontPkg = pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; };
+
+        sansSerifFont = "Libertinus Sans";
+        sansSerifFontPkg = pkgs.libertinus;
+
+        serifFont = "Libertinus Serif";
+        serifFontPkg = pkgs.libertinus;
 
         editor = "emacsclient";
         emacsPkg = pkgs.emacs29-pgtk;
+        wallpaper = ./modules/home-manager/resources/content/wallpapers/gruvbox/road-trip.jpg;
       };
 
       pkgs = nixpkgs.legacyPackages.${systemSettings.arch};
       pkgs-unstable = nixpkgs-unstable.legacyPackages.${systemSettings.arch};
       lib = nixpkgs.lib;
-
-    in {
+    in
+    {
       nixosConfigurations = {
         desktop = lib.nixosSystem {
           specialArgs = {
@@ -52,7 +66,10 @@
             inherit systemSettings;
             inherit userSettings;
           };
-          modules = [ ./hosts/desktop/configuration.nix ./modules/nixos ];
+          modules = [
+            ./hosts/desktop/configuration.nix
+            ./modules/nixos
+          ];
         };
 
         laptop = lib.nixosSystem {
@@ -62,9 +79,11 @@
             inherit systemSettings;
             inherit userSettings;
           };
-          modules = [ ./hosts/laptop/configuration.nix ./modules/nixos ];
+          modules = [
+            ./hosts/laptop/configuration.nix
+            ./modules/nixos
+          ];
         };
-
       };
 
       homeConfigurations = {
@@ -76,7 +95,11 @@
             inherit systemSettings;
             inherit userSettings;
           };
-          modules = [ ./hosts/desktop/home.nix ./modules/home-manager ];
+          modules = [
+            ./hosts/desktop/home.nix
+            ./modules/home-manager
+            stylix.homeManagerModules.stylix
+          ];
         };
       };
 
@@ -89,7 +112,11 @@
             inherit systemSettings;
             inherit userSettings;
           };
-          modules = [ ./hosts/laptop/home.nix ./modules/home-manager ];
+          modules = [
+            ./hosts/laptop/home.nix
+            ./modules/home-manager
+            stylix.homeManagerModules.stylix
+          ];
         };
       };
     };

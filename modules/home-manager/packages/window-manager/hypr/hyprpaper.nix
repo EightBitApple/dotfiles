@@ -1,4 +1,10 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  userSettings,
+  ...
+}:
 
 {
   options.hyprpaper.enable = lib.mkEnableOption ''
@@ -6,12 +12,14 @@
   '';
 
   config = lib.mkIf config.hyprpaper.enable {
-    home.packages = with pkgs; [ hyprpaper ];
+    services.hyprpaper = {
+      enable = true;
 
-    home.file.".config/hypr/hyprpaper.conf".text = ''
-      preload=~/.local/share/active-wallpaper.jpg
-      wallpaper = ,~/.local/share/active-wallpaper.jpg
-      splash = false
-    '';
+      settings = with userSettings; {
+        splash = false;
+        preload = [ "${wallpaper}" ];
+        wallpaper = [ ",${wallpaper}" ];
+      };
+    };
   };
 }

@@ -34,9 +34,7 @@
           text_icon_padding = 0;
           frame_width = 3;
           gap_size = 0;
-          separator_color = "frame";
           sort = "yes";
-          font = "FiraCode Nerd Font 12";
           idle_threshold = 120;
           line_height = 10;
           markup = "full";
@@ -77,29 +75,9 @@
           history = "ctrl+grave";
         };
 
-        # Set the background and foreground (text) color for all notifications
-        urgency_low = with config.colorScheme.palette; {
-          background = "#${base01}BF";
-          foreground = "#${base07}BF";
-          highlight = "#${base0C}BF";
-          msg_urgency = "low";
-        };
-
-        urgency_normal = with config.colorScheme.palette; {
-          background = "#${base01}BF";
-          foreground = "#${base07}BF";
-          highlight = "#${base0C}BF";
-          msg_urgency = "normal";
-          script = "~/.nix-profile/bin/notif-sound";
-        };
-
-        urgency_critical = with config.colorScheme.palette; {
-          background = "#${base08}BF";
-          foreground = "#${base07}BF";
-          highlight = "#${base09}BF";
-          msg_urgency = "critical";
-          script = "~/.nix-profile/bin/notif-sound";
-        };
+        # Set sounds
+        urgency_normal.script = "~/.nix-profile/bin/notif-sound";
+        urgency_critical.script = "~/.nix-profile/bin/notif-sound";
       };
     };
     home.packages = with pkgs; [ libnotify ];

@@ -1,9 +1,13 @@
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
-    inputs.nix-colors.homeManagerModules.default
-
     ./fonts.nix
     ./users/users.nix
 
@@ -41,7 +45,6 @@
 
     ./scripts/scripts.nix
     ./resources/resources.nix
-    ./resources/xresources.nix
   ];
 
   fonts.enable = lib.mkDefault true;
@@ -81,7 +84,6 @@
 
   scripts.enable = lib.mkDefault true;
   resources.enable = lib.mkDefault true;
-  xresources.enable = lib.mkDefault true;
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -91,8 +93,6 @@
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "23.11"; # Please read the comment before changing.
-
-  colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
 
   home.sessionVariables = {
     EDITOR = "emacs";
