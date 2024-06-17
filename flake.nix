@@ -42,11 +42,11 @@
         monospaceFont = "FiraCode Nerd Font";
         monospaceFontPkg = pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; };
 
-        sansSerifFont = "Libertinus Sans";
-        sansSerifFontPkg = pkgs.libertinus;
+        sansSerifFont = "DejaVu Sans";
+        sansSerifFontPkg = pkgs.dejavu_fonts;
 
-        serifFont = "Libertinus Serif";
-        serifFontPkg = pkgs.libertinus;
+        serifFont = "DejaVu Serif";
+        serifFontPkg = pkgs.dejavu_fonts;
 
         editor = "emacsclient";
         emacsPkg = pkgs.emacs29-pgtk;
