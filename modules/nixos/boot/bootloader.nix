@@ -1,7 +1,12 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  options.bootloader.enable = lib.mkEnableOption "Enables systemd-boot.";
+  options.bootloader.enable = lib.mkEnableOption "Enable systemd-boot and add a boot animation.";
 
   config = lib.mkIf config.bootloader.enable {
     boot = {
@@ -9,6 +14,31 @@
         systemd-boot.enable = true;
         efi.canTouchEfiVariables = true;
       };
+
+      plymouth = {
+        enable = true;
+        theme = "circuit";
+        themePackages = with pkgs; [
+          # By default we would install all themes
+          (adi1090x-plymouth-themes.override { selected_themes = [ "circuit" ]; })
+        ];
+      };
+      # Enable "Silent Boot"
+      consoleLogLevel = 0;
+      initrd.verbose = false;
+      kernelParams = [
+        "quiet"
+        "splash"
+        "boot.shell_on_fail"
+        "loglevel=3"
+        "rd.systemd.show_status=false"
+        "rd.udev.log_level=3"
+        "udev.log_priority=3"
+      ];
+      # Hide the OS choice for bootloaders.
+      # It's still possible to open the bootloader list by pressing any key
+      # It will just not appear on screen unless a key is pressed
+      loader.timeout = 0;
     };
   };
 }
