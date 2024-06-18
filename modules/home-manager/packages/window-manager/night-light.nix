@@ -1,4 +1,10 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  systemSettings,
+  ...
+}:
 
 {
   options.nightLight.enable = lib.mkEnableOption ''
@@ -6,11 +12,11 @@
   '';
 
   config = lib.mkIf config.nightLight.enable {
-    services.gammastep = {
+    services.gammastep = with systemSettings; {
       enable = true;
       provider = "manual";
-      latitude = 50.059444;
-      longitude = -1.155556;
+      latitude = latitude;
+      longitude = longitude;
     };
   };
 }

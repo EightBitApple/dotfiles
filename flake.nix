@@ -26,7 +26,11 @@
       systemSettings = rec {
         arch = "x86_64-linux";
         homename = "nixos";
+
         timezone = "Europe/London";
+        latitude = "51.50853";
+        longitude = "-0.12574";
+
         locale = "en_GB.UTF-8";
       };
 
