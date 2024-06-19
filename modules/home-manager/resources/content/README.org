@@ -1,7 +1,9 @@
 #+title: Sources for Resources
 
 * Wallpapers
-- [[https://gitlab.com/plasma-wallpaper-competition/wallpapers/-/raw/master/hexworld/render/forest.jpg?ref_type=heads][Hexworld Forest]] by Arty Buzz.
+- [[./wallpapers/sun.jpg][Sun]] from [[https://discuss.kde.org/t/winner-announcement/9608][KDE Plasma 6 Wallpapers competition winner]].
+- [[./wallpapers/comet.jpg][Comet]] from [[https://discuss.kde.org/t/winner-announcement/9608][KDE Plasma 6 Wallpapers competition winner]].
+- [[./wallpapers/sun-grey.jpg][Sun Greyscale]] adapted from [[https://discuss.kde.org/t/winner-announcement/9608][KDE Plasma 6 Wallpapers competition winner]].
 
 * Notification Sounds
 - [[https://www.youtube.com/watch?v=6soBlsr1Mx0][Linux Mint]]

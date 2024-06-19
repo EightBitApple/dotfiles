@@ -12,6 +12,11 @@ let
     runtimeInputs = with pkgs; [ waybar ];
     text = ''
       waybar &
+
+      # Sleep to make sure that Hyprpaper socket is opened before wallpaper
+      # script runs!
+      sleep 3
+      wall-time-of-day
     '';
   };
 in

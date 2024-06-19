@@ -14,7 +14,7 @@
   config = lib.mkIf config.theming.enable {
     stylix = {
       enable = true;
-      image = userSettings.wallpaper;
+      image = userSettings.wallpaperDay;
 
       # scheme: "Tomorrow Night"
       # author: "Chris Kempson (http://chriskempson.com)"

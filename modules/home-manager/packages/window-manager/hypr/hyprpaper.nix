@@ -1,7 +1,7 @@
 {
   config,
   lib,
-  pkgs,
+  pkgs-unstable,
   userSettings,
   ...
 }:
@@ -14,11 +14,17 @@
   config = lib.mkIf config.hyprpaper.enable {
     services.hyprpaper = {
       enable = true;
+      package = pkgs-unstable.hyprpaper;
 
       settings = with userSettings; {
         splash = false;
-        preload = [ "${wallpaper}" ];
-        wallpaper = [ ",${wallpaper}" ];
+        ipc = true;
+        preload = [
+          "${wallpaperDay}"
+          "${wallpaperNight}"
+          "${wallpaperGrey}"
+        ];
+        wallpaper = [ ",${wallpaperGrey}" ];
       };
     };
   };

@@ -17,6 +17,7 @@
     ./modules/screenshot.nix
     ./modules/image-edit.nix
     ./modules/notification-sound.nix
+    ./modules/wallpaper-tod.nix
   ];
 
   config = lib.mkIf config.scripts.enable {
@@ -27,5 +28,6 @@
     screenshot.enable = lib.mkDefault true;
     imageEdit.enable = lib.mkDefault true;
     notificationSound.enable = lib.mkDefault true;
+    wallpaperTod.enable = lib.mkDefault true;
   };
 }
