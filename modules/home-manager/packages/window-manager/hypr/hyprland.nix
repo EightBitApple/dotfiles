@@ -122,7 +122,7 @@ in
 
         "$animation_speed" = 2;
         animations = {
-          enabled = "no";
+          enabled = "yes";
           bezier = "overshot, 0.05, 0.9, 0.1, 1.05";
         };
 
@@ -130,7 +130,7 @@ in
           "windows, 1, $animation_speed, overshot, popin 80%"
           "border, 1, $animation_speed, overshot"
           "fade, 1, $animation_speed, overshot"
-          "workspaces, 1, $animation_speed, overshot, slidevert"
+          "workspaces, 1, $animation_speed, overshot, slide"
         ];
 
         windowrulev2 = [
