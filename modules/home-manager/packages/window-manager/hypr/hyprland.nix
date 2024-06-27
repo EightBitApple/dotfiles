@@ -25,10 +25,6 @@ in
     hyprland.enable = lib.mkEnableOption ''
       Configure the Hyprland window manager.
     '';
-
-    hyprlandDisplay1 = lib.mkOption { default = "DP-1"; };
-    hyprlandDisplay2 = lib.mkOption { default = "DP-2"; };
-    hyprlandDisplay3 = lib.mkOption { default = "HDMI-A-1"; };
   };
 
   config = lib.mkIf config.hyprland.enable {
@@ -36,10 +32,6 @@ in
       enable = true;
 
       settings = {
-
-        "$display1" = config.hyprlandDisplay1;
-        "$display2" = config.hyprlandDisplay2;
-        "$display3" = config.hyprlandDisplay3;
 
         exec-once = "${startupScript}/bin/startup";
 
@@ -95,19 +87,6 @@ in
         };
 
         gestures.workspace_swipe = "off";
-
-        workspace = [
-          "1, monitor:$display1"
-          "2, monitor:$display1"
-          "3, monitor:$display1"
-          "4, monitor:$display1"
-          "5, monitor:$display1"
-          "6, monitor:$display2"
-          "7, monitor:$display2"
-          "8, monitor:$display2"
-          "9, monitor:$display2"
-          "10, monitor:$display2"
-        ];
 
         misc = {
           force_default_wallpaper = 0;
@@ -226,11 +205,6 @@ in
           "$mod, I, layoutmsg, orientationcenter"
 
           "$mod, T, layoutmsg, orientationleft"
-
-          "$mod, A, movewindow, mon:$display1"
-          "$mod, D, movewindow, mon:$display2"
-          "$mod SHIFT, A, movecurrentworkspacetomonitor, $display1"
-          "$mod SHIFT, D, movecurrentworkspacetomonitor, $display2"
         ];
 
         binde = [

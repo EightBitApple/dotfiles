@@ -10,10 +10,6 @@
     waybar.enable = lib.mkEnableOption ''
       Install and configure Waybar.
     '';
-
-    waybarDisplay1 = lib.mkOption { default = "DP-1"; };
-    waybarDisplay2 = lib.mkOption { default = "DP-2"; };
-    waybarDisplay3 = lib.mkOption { default = "HDMI-A-1"; };
   };
 
   config = lib.mkIf config.waybar.enable {
@@ -23,10 +19,7 @@
         settings = {
 
           mainBar = {
-            output = [
-              config.waybarDisplay1
-              config.waybarDisplay3
-            ];
+            output = [ "*" ];
             layer = "top";
             position = "top";
             modules-left = [
