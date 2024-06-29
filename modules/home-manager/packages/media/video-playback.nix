@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  pkgs-unstable,
   ...
 }:
 
@@ -55,9 +56,9 @@
           ];
       };
     };
-    home.packages = with pkgs; [
-      freetube
-      yt-dlp
+    home.packages = [
+      pkgs-unstable.freetube
+      pkgs.yt-dlp
 
       (pkgs.writeShellApplication {
         name = "mpvl";
