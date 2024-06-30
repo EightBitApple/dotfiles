@@ -40,7 +40,6 @@ in
         general = with config.colorScheme.palette; {
           border_size = 2;
           gaps_out = 10;
-          cursor_inactive_timeout = 4;
           layout = "master";
 
           "col.active_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base07})";
@@ -76,7 +75,7 @@ in
 
         "$mfact_split" = "0.55";
         master = {
-          new_is_master = true;
+          new_status = "master";
           new_on_top = true;
           mfact = "$mfact_split";
         };
@@ -96,7 +95,12 @@ in
 
           new_window_takes_over_fullscreen = 1;
           animate_manual_resizes = true;
+
           vrr = 1;
+        };
+
+        cursor = {
+          inactive_timeout = 4;
         };
 
         "$animation_speed" = 2;

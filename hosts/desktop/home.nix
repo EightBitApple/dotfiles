@@ -10,5 +10,11 @@
       "DP-1,1920x1080@75,0x0,1"
       "HDMI-A-1,1920x1080@60,0x0,1"
     ];
+
+    cursor = {
+      no_break_fs_vrr = true;
+      min_refresh_rate = 48;
+      no_hardware_cursors = true;
+    };
   };
 }
