@@ -17,4 +17,12 @@
       no_hardware_cursors = true;
     };
   };
+
+  home.file.".config/pipewire/pipewire.conf.d/custom.conf".text = ''
+    context.properties = {
+      default.clock.quantum = 2048
+      default.clock.min-quantum = 2048
+      default.clock.max-quantum = 2048
+    }
+  '';
 }
