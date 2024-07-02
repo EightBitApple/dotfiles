@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  pkgs-unstable,
   ...
 }:
 
@@ -15,7 +14,7 @@
       keepassxc
       neofetch
       vrrtest
-      pkgs-unstable.nh
+      nh
       nix-output-monitor
       nvd
       gimp
