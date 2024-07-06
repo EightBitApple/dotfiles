@@ -66,23 +66,18 @@ in
           rounding = 2;
 
           blur = {
-            enabled = false;
+            enabled = true;
             size = 2;
           };
         };
 
         xwayland.force_zero_scaling = true;
 
-        "$mfact_split" = "0.55";
+        "$mfact_split" = "0.6";
         master = {
           new_status = "master";
           new_on_top = true;
           mfact = "$mfact_split";
-        };
-
-        dwindle = {
-          pseudotile = "yes";
-          preserve_split = "yes";
         };
 
         gestures.workspace_swipe = "off";
@@ -132,7 +127,6 @@ in
         "$mod" = "SUPER";
 
         bind = [
-
           "$mod, Q, killactive"
           "$mod, F, fullscreen, 0"
 
@@ -140,11 +134,13 @@ in
           "$mod SHIFT, Space, resizeactive, exact 50% 50%"
           "$mod SHIFT, Space, centerwindow, 1"
 
+          # Place a pinned floating window to the bottom right of screen.
           "$mod CTRL, Space, togglefloating"
           "$mod CTRL, Space, resizeactive, exact 33% 33%"
           "$mod CTRL, Space, movewindow, d"
           "$mod CTRL, Space, movewindow, r"
           "$mod CTRL, Space, pin"
+          "$mod CTRL, Space, layoutmsg, mfact exact $mfact_split"
 
           "$mod, Return, exec, alacritty"
 
@@ -154,6 +150,7 @@ in
 
           "$mod, X, exec, emc"
           "$mod SHIFT, X, exec, emc -r"
+
           "$mod, W, exec, firefox"
           "$mod CTRL, W, exec, brave"
 
@@ -167,7 +164,7 @@ in
 
           "$mod, B, exec, pkill -SIGUSR1 waybar"
 
-          "$mod, M, exit,"
+          "$mod, M, exit"
           "$mod, Backspace, exec, sysact"
 
           "$mod CTRL, H, exec, changevolume mute"
@@ -197,22 +194,21 @@ in
           "$mod SHIFT, 9, movetoworkspacesilent, 9"
           "$mod SHIFT, 0, movetoworkspacesilent, 10"
 
-          "$mod, J, layoutmsg, cyclenext"
-          "$mod, K, layoutmsg, cycleprev"
+          "$mod, J, cyclenext"
+          "$mod, K, cyclenext, prev"
 
-          "$mod SHIFT, J, layoutmsg, swapnext"
-          "$mod SHIFT, K, layoutmsg, swapprev"
+          "$mod SHIFT, J, swapnext"
+          "$mod SHIFT, K, swapnext, prev"
 
           "$mod, Space, layoutmsg, swapwithmaster"
           "$mod SHIFT, F, layoutmsg, focusmaster"
 
           "$mod, I, layoutmsg, orientationcenter"
-
           "$mod, T, layoutmsg, orientationleft"
+          "$mod, T, layoutmsg, mfact exact $mfact_split"
         ];
 
         binde = [
-
           "$mod CTRL, K, exec, changevolume up 5"
           ", XF86AudioRaiseVolume, exec, changevolume up 5"
 
@@ -221,10 +217,12 @@ in
 
           "$mod, L, resizeactive, 25 0"
           "$mod, H, resizeactive, -25 0"
+
+          "$mod SHIFT, L, movecurrentworkspacetomonitor, +1"
+          "$mod SHIFT, H, movecurrentworkspacetomonitor, -1"
         ];
 
         bindm = [
-
           "$mod, mouse:272, movewindow"
           "$mod, mouse:273, resizewindow"
         ];
