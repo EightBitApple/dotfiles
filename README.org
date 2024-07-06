@@ -44,7 +44,7 @@ Both configurations get managed by a flake in the root.
 The system configuration imports the hosts' configurations and everything under ~./modules/nixos~.
 The home-manager configuration imports everything under ~./modules/home-manager~.
 Each module directory contains its own ~default.nix~, which imports every module in its directory and sub-directories.
-~lib.mkDefault~ used to set the default state of the module: enabled or disabled.
+~lib.mkDefault~ gets used to set the default state of the module: enabled or disabled.
 The activation of these modules can be overridden by each hosts' ~configuration.nix~ and ~home.nix~.
 For example, a module to enable a driver for my desktop's WiFi dongle gets enabled by default.
 However the ~configuration.nix~ under ~./hosts/laptop~ overrides the default and disables it instead.
@@ -60,7 +60,7 @@ Here's how to build a system using these dotfiles for the first time.
 5. Rebuild the system using ~sudo nixos-rebuild switch~
 6. Now with flakes enabled you can build using the dotfiles.
    Enter ~sudo nixos-rebuild switch --flake ~/.dotfiles/#HOSTNAME~, replacing ~HOSTNAME~ with a directory name listed under ~~/.dotfiles/hosts~ (e.g. desktop, laptop, etc.).
-7. After the command finishes run ~home-manager switch --flake ~/.dotfiles/#~ to build the home-manager configuration.
+7. After the command finishes run ~home-manager switch --flake ~/.dotfiles/#HOSTNAME~ to build the home-manager configuration.
 8. Reboot into the new system by choosing the latest generation in the bootloader.
 
 * Maintenance
