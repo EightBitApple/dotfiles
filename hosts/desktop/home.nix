@@ -11,6 +11,8 @@
       "HDMI-A-1,1920x1080@60,0x0,1"
     ];
 
+    env = [ "WLR_DRM_NO_ATOMIC,1" ];
+
     cursor = {
       no_break_fs_vrr = true;
       min_refresh_rate = 48;
