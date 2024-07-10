@@ -10,16 +10,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    stylix.url = "github:danth/stylix";
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
   outputs =
     {
-      self,
       nixpkgs,
       nixpkgs-unstable,
       home-manager,
-      stylix,
       ...
     }@inputs:
     let
@@ -105,7 +107,7 @@
           modules = [
             ./hosts/desktop/home.nix
             ./modules/home-manager
-            stylix.homeManagerModules.stylix
+            inputs.stylix.homeManagerModules.stylix
           ];
         };
       };
@@ -122,7 +124,7 @@
           modules = [
             ./hosts/laptop/home.nix
             ./modules/home-manager
-            stylix.homeManagerModules.stylix
+            inputs.stylix.homeManagerModules.stylix
           ];
         };
       };
