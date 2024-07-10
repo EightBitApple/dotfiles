@@ -43,7 +43,7 @@
           video-sync = "display-resample";
           profile = "fast";
 
-          ytdl-format = "bestvideo[vcodec^=avc1][height<=1080]+bestaudio[acodec^=opus]/best[vcodec^=avc1][height<=1080]";
+          ytdl-format = "bestvideo[vcodec^=avc1][height<=1080]+bestaudio";
           ytdl-raw-options = "write-auto-subs=,sub-lang='en.*'";
         };
         scripts =
