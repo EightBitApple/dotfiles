@@ -159,7 +159,7 @@ in
           "$mod, R, exec, tofi-run | xargs hyprctl dispatch exec --"
           "$mod CTRL, L, exec, physlock -m -s"
 
-          "$mod, C, exec, screenshot"
+          "$mod, C, exec, pgrep screenshot || screenshot"
           "$mod, V, exec, img-edit"
 
           "$mod, B, exec, pkill -SIGUSR1 waybar"
