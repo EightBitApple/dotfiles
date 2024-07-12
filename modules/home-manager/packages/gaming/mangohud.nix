@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   options.mangohud.enable = lib.mkEnableOption ''
@@ -9,7 +14,7 @@
     programs.mangohud = {
       enable = true;
       settings = {
-        horizontal = true;
+        horizontal = false;
         cpu_stats = true;
         cpu_temp = true;
         gpu_stats = true;

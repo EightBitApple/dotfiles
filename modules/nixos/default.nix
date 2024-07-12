@@ -50,7 +50,7 @@
 
     ./programs/git.nix
     ./programs/zsh.nix
-    ./programs/steam.nix
+    ./programs/gaming.nix
     ./programs/wireshark.nix
     ./programs/thunar.nix
     ./programs/hyprland.nix
@@ -96,7 +96,7 @@
 
   git.enable = lib.mkDefault true;
   zsh.enable = lib.mkDefault true;
-  steam.enable = lib.mkDefault true;
+  gaming.enable = lib.mkDefault true;
   wireshark.enable = lib.mkDefault true;
   thunar.enable = lib.mkDefault true;
   hyprland.enable = lib.mkDefault true;
