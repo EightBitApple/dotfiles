@@ -1,9 +1,8 @@
 #+title: Sources for Resources
 
 * Wallpapers
-- [[./wallpapers/sun.jpg][Sun]] from [[https://discuss.kde.org/t/winner-announcement/9608][KDE Plasma 6 Wallpapers competition winner]].
-- [[./wallpapers/comet.jpg][Comet]] from [[https://discuss.kde.org/t/winner-announcement/9608][KDE Plasma 6 Wallpapers competition winner]].
-- [[./wallpapers/sun-grey.jpg][Sun Greyscale]] adapted from [[https://discuss.kde.org/t/winner-announcement/9608][KDE Plasma 6 Wallpapers competition winner]].
+- [[./wallpapers/board.jpg][Board]] from [[https://gruvbox-wallpapers.pages.dev/wallpapers/irl/board.jpg][Gruvbox Wallpapers]].
+- [[./wallpaper/bulbs.jpg][Bulbs]] form [[https://gruvbox-wallpapers.pages.dev/wallpapers/irl/bulbs.jpg][Gruvbox wallpapers]].
 
 * Notification Sounds
 - [[https://www.youtube.com/watch?v=6soBlsr1Mx0][Linux Mint]]

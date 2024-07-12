@@ -14,7 +14,7 @@
   config = lib.mkIf config.theming.enable {
     stylix = {
       enable = true;
-      image = userSettings.wallpaperDay;
+      image = userSettings.wallpaperNeutral;
 
       # scheme: "Gruvbox dark, medium"
       # author: "Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)"

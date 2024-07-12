@@ -22,9 +22,9 @@
         preload = [
           "${wallpaperDay}"
           "${wallpaperNight}"
-          "${wallpaperGrey}"
+          "${wallpaperNeutral}"
         ];
-        wallpaper = [ ",${wallpaperGrey}" ];
+        wallpaper = [ ",${wallpaperNeutral}" ];
       };
     };
   };
