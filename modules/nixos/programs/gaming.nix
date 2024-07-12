@@ -16,13 +16,6 @@
       steam = {
         enable = true;
         extraCompatPackages = with pkgs; [ proton-ge-bin ];
-        gamescopeSession = {
-          enable = true;
-          args = [
-            "-r 75"
-            "--adaptive-sync"
-          ];
-        };
       };
 
       gamemode = {
@@ -39,11 +32,6 @@
             end = "${pkgs.libnotify}/bin/notify-send -t 3000 'GameMode ended.'";
           };
         };
-      };
-
-      gamescope = {
-        enable = true;
-        capSysNice = true;
       };
     };
   };
