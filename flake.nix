@@ -65,16 +65,17 @@
       pkgs = nixpkgs.legacyPackages.${systemSettings.arch};
       pkgs-unstable = nixpkgs-unstable.legacyPackages.${systemSettings.arch};
       lib = nixpkgs.lib;
+
+      hostArgs = {
+        inherit pkgs-unstable;
+        inherit systemSettings;
+        inherit userSettings;
+      };
     in
     {
       nixosConfigurations = {
         desktop = lib.nixosSystem {
-          specialArgs = {
-            inherit inputs;
-            inherit pkgs-unstable;
-            inherit systemSettings;
-            inherit userSettings;
-          };
+          specialArgs = hostArgs;
           modules = [
             ./hosts/desktop/configuration.nix
             ./modules/nixos
@@ -82,12 +83,7 @@
         };
 
         laptop = lib.nixosSystem {
-          specialArgs = {
-            inherit inputs;
-            inherit pkgs-unstable;
-            inherit systemSettings;
-            inherit userSettings;
-          };
+          specialArgs = hostArgs;
           modules = [
             ./hosts/laptop/configuration.nix
             ./modules/nixos
@@ -98,12 +94,8 @@
       homeConfigurations = {
         desktop = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = {
-            inherit inputs;
-            inherit pkgs-unstable;
-            inherit systemSettings;
-            inherit userSettings;
-          };
+          extraSpecialArgs = hostArgs;
+
           modules = [
             ./hosts/desktop/home.nix
             ./modules/home-manager
@@ -115,12 +107,7 @@
       homeConfigurations = {
         laptop = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = {
-            inherit inputs;
-            inherit pkgs-unstable;
-            inherit systemSettings;
-            inherit userSettings;
-          };
+          extraSpecialArgs = hostArgs;
           modules = [
             ./hosts/laptop/home.nix
             ./modules/home-manager
