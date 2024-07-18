@@ -1,4 +1,10 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  userSettings,
+  ...
+}:
 
 {
   options.users.enable = lib.mkEnableOption ''
@@ -7,8 +13,8 @@
 
   config = lib.mkIf config.users.enable {
     home = {
-      username = "stefan";
-      homeDirectory = "/home/stefan";
+      username = "${userSettings.username}";
+      homeDirectory = "/home/${userSettings.username}";
     };
   };
 }

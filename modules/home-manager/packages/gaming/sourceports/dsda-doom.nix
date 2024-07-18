@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  userSettings,
   ...
 }:
 
@@ -61,7 +62,7 @@
       snd_channels                    32
       snd_midiplayer                  "fluidsynth"
       snd_mididev                     ""
-      snd_soundfont                   "/home/stefan/.local/share/soundfonts/SC-55.SoundFont.v1.2b.sf2"
+      snd_soundfont                   "/home/${userSettings.username}/.local/share/soundfonts/SC-55.SoundFont.v1.2b.sf2"
       mus_fluidsynth_chorus           0
       mus_fluidsynth_reverb           0
       mus_fluidsynth_gain             50

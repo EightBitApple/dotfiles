@@ -2,6 +2,8 @@
   config,
   lib,
   pkgs,
+  systemSettings,
+  userSettings,
   ...
 }:
 
@@ -49,7 +51,7 @@
 
             "clock" = {
               format = "{:%a %b %d %H:%M}";
-              timezone = "Europe/London";
+              timezone = "${systemSettings.timezone}";
               tooltip-format = ''
                 <big>{:%Y %B}</big>
                 <tt><small>{calendar}</small></tt>'';
@@ -64,7 +66,7 @@
                 	{essid}
                 {icon}  ⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}'';
               format-disconnected = "󰅛";
-              on-click = "alacritty -e nmtui";
+              on-click = "${userSettings.terminal} -e nmtui";
             };
 
             "battery#controller" = {
@@ -130,7 +132,7 @@
             "wireplumber" = {
               format = "{icon}  {volume}%";
               format-muted = "";
-              on-click = "alacritty -e pulsemixer";
+              on-click = "${userSettings.terminal} -e pulsemixer";
               format-icons = [
                 ""
                 ""
@@ -151,7 +153,7 @@
           * {
               border: none;
               border-radius: 2px;
-              font-family: FiraCode Nerd Font;
+              font-family: ${userSettings.monospaceFont};
               font-size: 11px;
               font-weight: 500;
               min-height: 0;

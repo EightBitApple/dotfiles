@@ -86,7 +86,7 @@ in
           force_default_wallpaper = 0;
 
           enable_swallow = true;
-          swallow_regex = "(Alacritty)";
+          swallow_regex = "${userSettings.terminalTitle}";
 
           new_window_takes_over_fullscreen = 1;
           animate_manual_resizes = true;
@@ -142,17 +142,16 @@ in
           "$mod CTRL, Space, pin"
           "$mod CTRL, Space, layoutmsg, mfact exact $mfact_split"
 
-          "$mod, Return, exec, alacritty"
+          "$mod, Return, exec, ${userSettings.terminal}"
 
-          "$mod, P, exec, alacritty -e pulsemixer"
+          "$mod, P, exec, ${userSettings.terminal} -e pulsemixer"
 
-          "$mod SHIFT, R, exec, alacritty -e htop"
+          "$mod SHIFT, R, exec, ${userSettings.terminal} -e htop"
 
           "$mod, X, exec, emc"
           "$mod SHIFT, X, exec, emc -r"
 
-          "$mod, W, exec, firefox"
-          "$mod CTRL, W, exec, brave"
+          "$mod, W, exec, ${userSettings.browser}"
 
           "$mod, E, exec, Thunar"
 

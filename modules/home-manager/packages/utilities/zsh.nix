@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  userSettings,
   ...
 }:
 
@@ -22,10 +23,10 @@
       syntaxHighlighting.enable = true;
       envExtra = ''
         path=('/usr/local/bin' $path)
-        path+=('/home/stefan/.local/bin')
-        path+=('/home/stefan/.local/bin/arkenfox')
-        path+=('/home/stefan/dotnet/tools')
-        path+=('/home/stefan/.config/emacs/bin')
+        path+=('/home/${userSettings.username}/.local/bin')
+        path+=('/home/${userSettings.username}/.local/bin/arkenfox')
+        path+=('/home/${userSettings.username}/dotnet/tools')
+        path+=('/home/${userSettings.username}/.config/emacs/bin')
         export PATH
 
         export FZF_DEFAULT_COMMAND="fd --full-path -E $HOME/hdd $HOME"

@@ -1,4 +1,10 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  userSettings,
+  ...
+}:
 
 {
   options.gzdoom.enable = lib.mkEnableOption ''
@@ -55,19 +61,19 @@
       # Each file should be on its own line, preceded by Path=
 
       [Doom.AutoExec]
-      Path=/home/stefan/.config/gzdoom/autoexec.cfg
+      Path=/home/${userSettings.username}/.config/gzdoom/autoexec.cfg
 
       [Heretic.AutoExec]
-      Path=/home/stefan/.config/gzdoom/autoexec.cfg
+      Path=/home/${userSettings.username}/.config/gzdoom/autoexec.cfg
 
       [Hexen.AutoExec]
-      Path=/home/stefan/.config/gzdoom/autoexec.cfg
+      Path=/home/${userSettings.username}/.config/gzdoom/autoexec.cfg
 
       [Strife.AutoExec]
-      Path=/home/stefan/.config/gzdoom/autoexec.cfg
+      Path=/home/${userSettings.username}/.config/gzdoom/autoexec.cfg
 
       [Chex.AutoExec]
-      Path=/home/stefan/.config/gzdoom/autoexec.cfg
+      Path=/home/${userSettings.username}/.config/gzdoom/autoexec.cfg
 
       # WAD files to always load. These are loaded after the IWAD but before
       # any files added with -file. Place each file on its own line, preceded
@@ -849,7 +855,6 @@
       MWheelDown=am_zoom -1.2
     '';
 
-    home.file.".config/gzdoom/soundfonts/SC-55".source =
-      ../../../resources/content/soundfonts/SC-55.SoundFont.v1.2b.sf2;
+    home.file.".config/gzdoom/soundfonts/SC-55".source = ../../../resources/content/soundfonts/SC-55.SoundFont.v1.2b.sf2;
   };
 }

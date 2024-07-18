@@ -27,7 +27,7 @@
     let
       systemSettings = rec {
         arch = "x86_64-linux";
-        homename = "nixos";
+        hostname = "nixos";
 
         timezone = "Europe/London";
         latitude = "51.50853";
@@ -43,7 +43,8 @@
 
         windowManager = "hyprland";
         browser = "firefox";
-        terminal = "foot";
+        terminal = "alacritty";
+        terminalTitle = "Alacritty";
 
         monospaceFont = "FiraCode Nerd Font";
         monospaceFontPkg = pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; };
@@ -54,7 +55,6 @@
         serifFont = "DejaVu Serif";
         serifFontPkg = pkgs.dejavu_fonts;
 
-        editor = "emacsclient";
         emacsPkg = pkgs.emacs29-pgtk;
 
         wallpaperDay = ./modules/home-manager/resources/content/wallpapers/board.jpg;

@@ -1,4 +1,10 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  userSettings,
+  ...
+}:
 
 {
   options.accounts.enable = lib.mkEnableOption ''
@@ -6,10 +12,16 @@
   '';
 
   config = lib.mkIf config.accounts.enable {
-    users.users.stefan = {
+    users.users."${userSettings.username}" = {
       isNormalUser = true;
-      description = "Stefan";
-      extraGroups = [ "networkmanager" "wheel" "wireshark" "gamemode" "video" ];
+      description = "${userSettings.name}";
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "wireshark"
+        "gamemode"
+        "video"
+      ];
       shell = pkgs.zsh;
     };
   };
