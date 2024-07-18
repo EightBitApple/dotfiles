@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   options.git.enable = lib.mkEnableOption ''
@@ -7,7 +12,7 @@
   config = lib.mkIf config.git.enable {
     programs.git = {
       enable = true;
-      userName = "The8BitApple";
+      userName = "EightBitApple";
       userEmail = "stefanharris16@gmail.com";
       aliases = {
         pu = "push";
