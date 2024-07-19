@@ -43,7 +43,7 @@ in
           layout = "master";
 
           "col.active_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base07})";
-          "col.inactive_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base00})";
+          "col.inactive_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base03})";
         };
 
         input = {
