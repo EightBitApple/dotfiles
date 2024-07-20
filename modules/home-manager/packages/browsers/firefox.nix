@@ -2,9 +2,9 @@
   config,
   lib,
   pkgs,
+  userSettings,
   ...
 }:
-
 let
   lock-false = {
     Value = false;
@@ -16,76 +16,61 @@ let
   };
 in
 {
-
   options.firefox.enable = lib.mkEnableOption ''
     Install and configure firefox.
   '';
 
   config = lib.mkIf config.firefox.enable {
-    programs = {
-      firefox = {
-        enable = true;
+    programs.firefox = {
+      enable = true;
 
-        # ---- POLICIES ----
-        # Check about:policies#documentation for options.
-        policies = {
-          DisableTelemetry = true;
-          DisableFirefoxStudies = true;
-          EnableTrackingProtection = {
-            Value = true;
-            Locked = true;
-            Cryptomining = true;
-            Fingerprinting = true;
+      policies = {
+        DisableTelemetry = true;
+        DisableFirefoxStudies = true;
+        EnableTrackingProtection = {
+          Value = true;
+          Locked = true;
+          Cryptomining = true;
+          Fingerprinting = true;
+        };
+        DisablePocket = true;
+        DisableFirefoxAccounts = true;
+        DisableAccounts = true;
+        DisableFirefoxScreenshots = true;
+        OverrideFirstRunPage = "";
+        OverridePostUpdatePage = "";
+        DontCheckDefaultBrowser = true;
+        DisplayBookmarksToolbar = "never"; # alternatives: "always" or "newtab"
+        DisplayMenuBar = "default-off"; # alternatives: "always", "never" or "default-on"
+        SearchBar = "unified"; # alternative: "separate"
+
+        # ---- EXTENSIONS ----
+        # Check about:support for extension/add-on ID strings.
+        # Valid strings for installation_mode are "allowed", "blocked",
+        # "force_installed" and "normal_installed".
+        ExtensionSettings = {
+          "*".installation_mode = "blocked"; # blocks all addons except the ones specified below
+          # uBlock Origin:
+          "uBlock0@raymondhill.net" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+            installation_mode = "force_installed";
           };
-          DisablePocket = true;
-          DisableFirefoxAccounts = true;
-          DisableAccounts = true;
-          DisableFirefoxScreenshots = true;
-          OverrideFirstRunPage = "";
-          OverridePostUpdatePage = "";
-          DontCheckDefaultBrowser = true;
-          DisplayBookmarksToolbar = "never"; # alternatives: "always" or "newtab"
-          DisplayMenuBar = "default-off"; # alternatives: "always", "never" or "default-on"
-          SearchBar = "unified"; # alternative: "separate"
-
-          # ---- EXTENSIONS ----
-          # Check about:support for extension/add-on ID strings.
-          # Valid strings for installation_mode are "allowed", "blocked",
-          # "force_installed" and "normal_installed".
-          ExtensionSettings = {
-            "*".installation_mode = "blocked"; # blocks all addons except the ones specified below
-
-            # uBlock Origin:
-            "uBlock0@raymondhill.net" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
-              installation_mode = "force_installed";
-
-              adminSettings = {
-                userSettings = rec {
-                  uiTheme = "dark";
-                  uiAccentCustom = true;
-                  uiAccentCustom0 = "#8300ff";
-                  cloudStorageEnabled = lib.mkForce false; # Security liability?
-                };
-                selectedFilterLists = [
-                  "adguard-generic"
-                  "adguard-annoyance"
-                  "adguard-social"
-                  "adguard-spyware-url"
-                ];
-              };
-            };
-
-            # Vimium:
-            "{d7742d87-e61d-4b78-b8a1-b469842139fa}" = {
-              install_url = "https://addons.mozilla.org/firefox/downloads/latest/vimium-ff/latest.xpi";
-              installation_mode = "force_installed";
-            };
+          # vimium
+          "{d7742d87-e61d-4b78-b8a1-b469842139fa}" = {
+            install_url = "https://addons.mozilla.org/firefox/downloads/latest/vimium-ff/latest.xpi";
+            installation_mode = "force_installed";
           };
+        };
+      };
 
-          # ---- PREFERENCES ----
-          # Check about:config for options.
-          Preferences = {
+      profiles = {
+        "${userSettings.username}" = {
+          id = 0;
+          isDefault = true;
+
+          settings = {
+            # specify profile-specific preferences here; check about:config for options
+            "browser.newtabpage.activity-stream.feeds.section.highlights" = lock-false;
             "browser.contentblocking.category" = {
               Value = "strict";
               Status = "locked";
@@ -107,37 +92,41 @@ in
             "browser.newtabpage.activity-stream.showSponsored" = lock-false;
             "browser.newtabpage.activity-stream.system.showSponsored" = lock-false;
             "browser.newtabpage.activity-stream.showSponsoredTopSites" = lock-false;
+          };
 
-            "browser.startup.homepage" = "about:blank";
-
-            "browser.urlbar.quicksuggest.enabled" = lock-false;
-            "browser.urlbar.suggest.topsites" = lock-false;
-
-            "browser.urlbar.suggest.history" = lock-false;
-
-            "signon.prefillForms" = lock-false;
-
-            "browser.urlbar.autoFill" = lock-false;
-
-            "keyword.enabled" = lock-true;
-
-            "dom.security.https_only_mode" = lock-false;
-
-            "network.cookie.lifetimePolicy" = 0;
-
-            "dom.webnotifications.serviceworker.enabled" = lock-false;
-
-            "dom.push.enabled" = lock-false;
-
-            "privacy.clearOnShutdown.cookies" = lock-false;
-
-            "toolkit.legacyUserProfileCustomizations.stylesheets" = lock-true;
-
-            "network.http.referer.XOriginPolicy" = 0;
-
-            "identity.fxaccounts.enabled" = lock-false;
-
-            "ui.context_menus.after_mouseup" = lock-true;
+          search = {
+            default = "DuckDuckGo";
+            engines = {
+              "Nix Packages" = {
+                urls = [
+                  {
+                    template = "https://search.nixos.org/packages";
+                    params = [
+                      {
+                        name = "query";
+                        value = "{searchTerms}";
+                      }
+                    ];
+                  }
+                ];
+                icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+                definedAliases = [ "@np" ];
+              };
+              "Nix Options" = {
+                definedAliases = [ "@no" ];
+                urls = [
+                  {
+                    template = "https://search.nixos.org/options";
+                    params = [
+                      {
+                        name = "query";
+                        value = "{searchTerms}";
+                      }
+                    ];
+                  }
+                ];
+              };
+            };
           };
         };
       };
