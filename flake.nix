@@ -25,7 +25,7 @@
       ...
     }@inputs:
     let
-      systemSettings = rec {
+      systemSettings = {
         arch = "x86_64-linux";
         hostname = "nixos";
 
