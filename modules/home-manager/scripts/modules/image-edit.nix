@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
   options.imageEdit.enable = lib.mkEnableOption ''
@@ -6,15 +11,17 @@
   '';
 
   config = lib.mkIf config.imageEdit.enable {
-    home.packages = with pkgs;
-      [
-        (pkgs.writeShellApplication {
-          name = "img-edit";
-          runtimeInputs = with pkgs; [ swappy wl-clipboard ];
-          text = ''
-            wl-paste | swappy -f -
-          '';
-        })
-      ];
+    home.packages = with pkgs; [
+      (writeShellApplication {
+        name = "img-edit";
+        runtimeInputs = [
+          swappy
+          wl-clipboard
+        ];
+        text = ''
+          wl-paste | swappy -f -
+        '';
+      })
+    ];
   };
 }
