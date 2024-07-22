@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 {
   options.dnscrypt.enable = lib.mkEnableOption ''
@@ -6,6 +6,8 @@
   '';
 
   config = lib.mkIf config.dnscrypt.enable {
-    services.dnscrypt-proxy2 = { enable = true; };
+    services.dnscrypt-proxy2 = {
+      enable = true;
+    };
   };
 }

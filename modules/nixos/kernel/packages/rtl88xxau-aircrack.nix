@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 {
   options.rtl88xxau-aircrack.enable = lib.mkEnableOption ''
@@ -6,7 +6,6 @@
   '';
 
   config = lib.mkIf config.rtl88xxau-aircrack.enable {
-    boot.extraModulePackages = with config.boot.kernelPackages;
-      [ rtl88xxau-aircrack ];
+    boot.extraModulePackages = with config.boot.kernelPackages; [ rtl88xxau-aircrack ];
   };
 }

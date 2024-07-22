@@ -1,4 +1,9 @@
-{ config, lib, pkgs, userSettings, ... }:
+{
+  config,
+  lib,
+  userSettings,
+  ...
+}:
 
 {
   options.emacsDaemon.enable = lib.mkEnableOption ''
