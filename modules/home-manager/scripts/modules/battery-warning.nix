@@ -19,7 +19,7 @@
 
   config = lib.mkIf config.batteryWarning.enable {
     home.packages = with pkgs; [
-      (pkgs.writeShellApplication {
+      (writeShellApplication {
         name = "bat-warning";
         text = ''
           low_bat_thrsh=15
@@ -50,7 +50,6 @@
                 else
                   rm "$notif_lock"
                 fi
-
               fi
           done
         '';

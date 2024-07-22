@@ -1,10 +1,4 @@
-{
-  config,
-  pkgs,
-  inputs,
-  lib,
-  ...
-}:
+{ lib, ... }:
 
 {
   networking.hostName = lib.mkForce "desktop";

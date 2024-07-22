@@ -12,9 +12,9 @@
 
   config = lib.mkIf config.notificationSound.enable {
     home.packages = with pkgs; [
-      (pkgs.writeShellApplication {
+      (writeShellApplication {
         name = "notif-sound";
-        runtimeInputs = with pkgs; [ pipewire ];
+        runtimeInputs = [ pipewire ];
         text = ''
           pw-play --volume 4 ~/.local/share/system-sounds/notification.ogg
         '';

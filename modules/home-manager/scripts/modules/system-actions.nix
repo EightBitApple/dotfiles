@@ -12,9 +12,9 @@
 
   config = lib.mkIf config.systemActions.enable {
     home.packages = with pkgs; [
-      (pkgs.writeShellApplication {
+      (writeShellApplication {
         name = "sysact";
-        runtimeInputs = with pkgs; [ tofi ];
+        runtimeInputs = [ tofi ];
         text = ''
           if [ $# -eq 0 ]
             then

@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, ... }:
 
 {
   options.experimental-features.enable = lib.mkEnableOption ''
@@ -6,6 +6,9 @@
   '';
 
   config = lib.mkIf config.experimental-features.enable {
-    nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    nix.settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
 }

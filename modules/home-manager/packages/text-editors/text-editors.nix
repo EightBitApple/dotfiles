@@ -23,7 +23,7 @@
 
     home.packages = with pkgs; [
       python3
-      nixd
+      nil
 
       (writeShellApplication {
         name = "emc";

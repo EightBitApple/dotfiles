@@ -27,7 +27,7 @@ in
   '';
 
   config = lib.mkIf config.wallpaperTod.enable {
-    home.packages = with pkgs; [ wallTimeOfDay ];
+    home.packages = [ wallTimeOfDay ];
 
     systemd.user.services."wallpaper-time-of-day" = {
       Unit.Description = "Run script to change wallpaper based on whether it's day or night.";

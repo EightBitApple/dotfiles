@@ -1,10 +1,4 @@
-{
-  config,
-  pkgs,
-  inputs,
-  lib,
-  ...
-}:
+{ lib, ... }:
 
 {
   networking.hostName = lib.mkForce "laptop";
@@ -12,5 +6,4 @@
   rtl88xxau-aircrack.enable = false;
   gaming.enable = false;
   mount-drive.enable = false;
-  thinkfan.enable = false;
 }
