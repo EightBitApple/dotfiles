@@ -20,6 +20,7 @@
     ./services/device/tlp.nix
 
     ./networking/network.nix
+    ./networking/firewall.nix
 
     ./nix/experimental-features.nix
 
@@ -63,6 +64,7 @@
   udev.enable = lib.mkDefault true;
 
   network.enable = lib.mkDefault true;
+  firewall.enable = lib.mkDefault true;
 
   experimental-features.enable = lib.mkDefault true;
   locale.enable = lib.mkDefault true;
