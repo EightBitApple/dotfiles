@@ -37,7 +37,7 @@ in
 
         env = [ "LSP_USE_PLISTS,true" ];
 
-        general = with config.colorScheme.palette; {
+        general = {
           border_size = 2;
           gaps_out = 10;
           layout = "master";
