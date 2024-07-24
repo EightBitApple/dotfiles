@@ -68,7 +68,7 @@
           yt-dlp
         ];
         text = ''
-          ${userSettings.terminal} -e  mpv "$(wl-paste)"
+          ${userSettings.terminal} --hold -e mpv "$(wl-paste)"
         '';
       })
     ];
