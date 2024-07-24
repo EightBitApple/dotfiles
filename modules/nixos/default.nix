@@ -26,6 +26,7 @@
 
     ./system/locale.nix
     ./system/mount-drive.nix
+    ./system/virtualisation.nix
 
     ./hardware/bluetooth.nix
     ./hardware/microcode-updates.nix
@@ -69,6 +70,7 @@
   experimental-features.enable = lib.mkDefault true;
   locale.enable = lib.mkDefault true;
   mount-drive.enable = lib.mkDefault true;
+  virtualisation.enable = lib.mkDefault true;
 
   bluetooth.enable = lib.mkDefault true;
   microcode-updates.enable = lib.mkDefault true;
