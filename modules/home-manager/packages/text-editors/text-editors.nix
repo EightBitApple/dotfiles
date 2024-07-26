@@ -24,6 +24,8 @@
     home.packages = with pkgs; [
       python3
       nil
+      ripgrep
+      gnumake
 
       (writeShellApplication {
         name = "emc";
