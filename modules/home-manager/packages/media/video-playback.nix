@@ -2,9 +2,11 @@
   config,
   lib,
   pkgs,
+  pkgs-unstable,
   userSettings,
   ...
 }:
+
 {
   options.videoPlayback.enable = lib.mkEnableOption ''
     Install software to view videos.
@@ -55,11 +57,11 @@
           ];
       };
     };
-    home.packages = with pkgs; [
-      freetube
-      yt-dlp
+    home.packages = [
+      pkgs-unstable.freetube
+      pkgs.yt-dlp
 
-      (writeShellApplication {
+      (pkgs.writeShellApplication {
         name = "mpvl";
         runtimeInputs = with pkgs; [
           wl-clipboard
