@@ -57,16 +57,13 @@
           ];
       };
     };
-    home.packages = [
+    home.packages = with pkgs; [
       pkgs-unstable.freetube
-      pkgs.yt-dlp
+      yt-dlp
 
-      (pkgs.writeShellApplication {
+      (writeShellApplication {
         name = "mpvl";
-        runtimeInputs = with pkgs; [
-          wl-clipboard
-          yt-dlp
-        ];
+        runtimeInputs = with pkgs; [ wl-clipboard ];
         text = ''
           ${userSettings.terminal} --hold -e mpv "$(wl-paste)"
         '';
