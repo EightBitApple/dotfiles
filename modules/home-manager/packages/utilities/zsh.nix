@@ -37,9 +37,17 @@
 
       initExtra = ''
         NEWLINE=$'\n'
-        zstyle ':vcs_info:*' formats ' %s(%F{yellow}%b%f)'
-        PROMPT="%B%{$fg[magenta]%}%~%b
+        SHELL_LEVEL_STRING=""
+        NIX_SHELL_STRING=""
+
+        # check sub shell depth
+        [ "$SHLVL" -ne 1 ] && SHELL_LEVEL_STRING="[lvl %B$SHLVL%b] "
+
+        PROMPT=''${NIX_SHELL_STRING}''${SHELL_LEVEL_STRING}"%B%~%b
         ❯ "
+
+        unset SHELL_LEVEL_STRING
+        unset NIX_SHELL_STRING
 
         if [ -n "$commands [ fzf-share ]" ]; then
           source "$(fzf-share)/key-bindings.zsh"
