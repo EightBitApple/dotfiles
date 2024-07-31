@@ -26,6 +26,9 @@
       ripgrep
       gnumake
 
+      # lsp
+      ruff-lsp
+
       (writeShellApplication {
         name = "emc";
         runtimeInputs = [ dunst ];
