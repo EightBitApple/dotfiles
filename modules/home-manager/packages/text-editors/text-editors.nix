@@ -27,6 +27,7 @@
       gnumake
 
       # lsp
+      jdk22
       ruff-lsp
 
       (writeShellApplication {
