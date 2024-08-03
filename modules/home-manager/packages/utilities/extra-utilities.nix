@@ -27,7 +27,7 @@
       libreoffice
       lm_sensors
       appimage-run
-      gnome.file-roller
+      file-roller
     ];
   };
 }

@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  pkgs-unstable,
   userSettings,
   ...
 }:
@@ -58,7 +57,7 @@
       };
     };
     home.packages = with pkgs; [
-      pkgs-unstable.freetube
+      freetube
       yt-dlp
 
       (writeShellApplication {
