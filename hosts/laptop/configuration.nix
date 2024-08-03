@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 
 {
   networking.hostName = lib.mkForce "laptop";
@@ -6,4 +6,5 @@
   rtl88xxau-aircrack.enable = false;
   gaming.enable = false;
   mount-drive.enable = false;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 }
