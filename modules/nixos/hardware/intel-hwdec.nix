@@ -11,7 +11,7 @@
   '';
 
   config = lib.mkIf config.intelHwdec.enable {
-    hardware.opengl = {
+    hardware.graphics = {
       enable = true;
       extraPackages = with pkgs; [
         intel-media-driver # LIBVA_DRIVER_NAME=iHD
