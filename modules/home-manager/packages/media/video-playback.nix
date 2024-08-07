@@ -15,6 +15,17 @@
     programs = {
       mpv = {
         enable = true;
+
+        package = (
+          pkgs.mpv-unwrapped.wrapper {
+            scripts = with pkgs.mpvScripts; [
+              sponsorblock
+              mpv-playlistmanager
+              quality-menu
+            ];
+            mpv = pkgs.mpv-unwrapped.override { ffmpeg = pkgs.ffmpeg-full; };
+          }
+        );
         bindings = {
           # seeking
           l = "seek 5";
@@ -46,14 +57,6 @@
           ytdl-format = "bestvideo[vcodec^=avc1][height<=1080]+bestaudio";
           ytdl-raw-options = "write-auto-subs=,sub-lang='en.*'";
         };
-        scripts =
-          with pkgs;
-          with mpvScripts;
-          [
-            sponsorblock
-            mpv-playlistmanager
-            quality-menu
-          ];
       };
     };
     home.packages = with pkgs; [
