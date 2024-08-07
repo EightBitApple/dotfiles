@@ -30,6 +30,14 @@
       jdk22
       ruff-lsp
 
+      # python
+      black
+      pipenv
+      python312Packages.pyflakes
+      python312Packages.isort
+      python312Packages.nose
+      python312Packages.pytest_7
+
       (writeShellApplication {
         name = "emc";
         runtimeInputs = [ dunst ];
