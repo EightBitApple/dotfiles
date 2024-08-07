@@ -6,4 +6,5 @@
   brillo.enable = false;
   tlp.enable = false;
   intelHwdec.enable = false;
+  thinkfan.enable = false;
 }
