@@ -5,7 +5,8 @@
     Enable the use of scripts.
   '';
   imports = [
-    ./modules/battery-warning.nix
+    ./modules/battery-status.nix
+    ./modules/battery-info.nix
     ./modules/change-volume.nix
     ./modules/change-brightness.nix
     ./modules/system-actions.nix
@@ -16,7 +17,6 @@
   ];
 
   config = lib.mkIf config.scripts.enable {
-    batteryWarning.enable = lib.mkDefault true;
     changeVolume.enable = lib.mkDefault true;
     changeBrightness.enable = lib.mkDefault true;
     systemActions.enable = lib.mkDefault true;
@@ -24,5 +24,7 @@
     imageEdit.enable = lib.mkDefault true;
     notificationSound.enable = lib.mkDefault true;
     wallpaperTod.enable = lib.mkDefault true;
+    batteryStatus.enable = lib.mkDefault true;
+    batteryInfo.enable = lib.mkDefault true;
   };
 }

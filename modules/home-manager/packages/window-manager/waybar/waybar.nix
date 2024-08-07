@@ -30,9 +30,7 @@
             ];
             modules-right = [
               "wireplumber"
-              "battery#controller"
-              "battery#bat0"
-              "battery#bat1"
+              "custom/battery"
               "bluetooth"
               "network"
               "clock"
@@ -69,59 +67,6 @@
               on-click = "${userSettings.terminal} -e nmtui";
             };
 
-            "battery#controller" = {
-              bat = "ps-controller-battery-7c:66:ef:40:6f:00";
-              interval = 30;
-              on-update = "bat-warning";
-              states = {
-                warning = 30;
-                critical = 15;
-              };
-              format = "{icon}  {capacity}%";
-              format-icons = [
-                "󰝌"
-                "󰝎"
-                "󰝏"
-                "󰝍"
-              ];
-            };
-
-            "battery#bat0" = {
-              bat = "BAT0";
-              interval = 30;
-              on-update = "bat-warning";
-              states = {
-                warning = 30;
-                critical = 15;
-              };
-              format = "{icon}  {capacity}%";
-              format-icons = [
-                ""
-                ""
-                ""
-                ""
-                ""
-              ];
-            };
-
-            "battery#bat1" = {
-              bat = "BAT1";
-              interval = 30;
-              on-update = "bat-warning";
-              states = {
-                warning = 30;
-                critical = 15;
-              };
-              format = "{icon}  {capacity}%";
-              format-icons = [
-                ""
-                ""
-                ""
-                ""
-                ""
-              ];
-            };
-
             "hyprland/workspaces" = {
               format = "{}";
               on-scroll-up = "hyprctl dispatch workspace e+1";
@@ -139,6 +84,16 @@
                 ""
               ];
             };
+
+            "custom/battery" = {
+              format = "{}";
+              interval = 10;
+              exec = "battery-status";
+              on-click = ''
+                notify-send "Battery Information:" "$(battery-info)"
+              '';
+            };
+
             "bluetooth" = {
               format = "󰂯 {status}";
               format-off = ""; # an empty format will hide the module
@@ -204,25 +159,12 @@
               box-shadow: 2px 2px;
           }
 
-          #battery.charging {
-              color: #${base0B};
-          }
-
-          #battery.warning {
-              color: #${base0A};
-          }
-
-          #battery.critical:not(.charging) {
-              color: #${base08};
-          }
 
           #clock.date,
           #clock,
           #network,
           #wireplumber,
-          #battery.controller,
-          #battery.bat0,
-          #battery.bat1,
+          #custom-battery,
           #bluetooth,
           #tray {
             padding: 0 10px;
