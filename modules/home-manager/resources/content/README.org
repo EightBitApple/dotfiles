@@ -1,8 +1,9 @@
 #+title: Sources for Resources
 
 * Wallpapers
-- [[./wallpapers/board.jpg][Board]] from [[https://gruvbox-wallpapers.pages.dev/wallpapers/irl/board.jpg][Gruvbox Wallpapers]].
-- [[./wallpaper/bulbs.jpg][Bulbs]] form [[https://gruvbox-wallpapers.pages.dev/wallpapers/irl/bulbs.jpg][Gruvbox wallpapers]].
+- Clearday from [[https://github.com/zhichaoh/catppuccin-wallpapers/blob/main/landscapes/Clearday.jpg][Catppuccin Wallpapers]]
+- Clearnight from [[https://github.com/zhichaoh/catppuccin-wallpapers/blob/main/landscapes/Clearnight.jpg][Catppuccin Wallpapers]]
+- nix-magenta from [[https://github.com/zhichaoh/catppuccin-wallpapers/blob/main/os/nix-magenta-blue-1920x1080.png][Catppuccin Wallpapers]]
 
 * Notification Sounds
 - [[https://www.youtube.com/watch?v=6soBlsr1Mx0][Linux Mint]]
