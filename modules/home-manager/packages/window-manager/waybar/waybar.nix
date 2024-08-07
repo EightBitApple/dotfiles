@@ -170,7 +170,7 @@
           #window {
               padding-left: 10px;
               padding-right: 10px;
-              color: #${base04};
+              color: #${base06};
           }
 
           #workspaces button {
@@ -227,7 +227,7 @@
           #tray {
             padding: 0 10px;
             margin: 6px 2px;
-            color: #${base04};
+            color: #${base07};
           }
 
           #wireplumber.muted,
