@@ -40,6 +40,11 @@ in
     };
     misc.vfr = lib.mkForce true;
 
+    monitor = [
+      "HDMI-A-1, preferred, auto, 1"
+      "eDP-1, preferred, auto-right, 1"
+    ];
+
     bind = [
       ", XF86MonBrightnessUp, exec, changebrightness up 10"
       ", XF86MonBrightnessDown, exec, changebrightness down 10"
