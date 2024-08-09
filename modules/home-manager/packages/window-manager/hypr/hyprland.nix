@@ -42,7 +42,7 @@ in
           gaps_out = 10;
           layout = "master";
 
-          "col.active_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base07})";
+          "col.active_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base08})";
           "col.inactive_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base03})";
         };
 
