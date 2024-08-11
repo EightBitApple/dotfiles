@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "nixpkgs/24.05";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -17,7 +18,12 @@
   };
 
   outputs =
-    { nixpkgs, home-manager, ... }@inputs:
+    {
+      nixpkgs,
+      nixpkgs-stable,
+      home-manager,
+      ...
+    }@inputs:
     let
       systemSettings = {
         arch = "x86_64-linux";
@@ -57,6 +63,7 @@
       };
 
       pkgs = nixpkgs.legacyPackages.${systemSettings.arch};
+      pkgs-stable = nixpkgs-stable.legacyPackages.${systemSettings.arch};
       lib = nixpkgs.lib;
 
       hostArgs = {
