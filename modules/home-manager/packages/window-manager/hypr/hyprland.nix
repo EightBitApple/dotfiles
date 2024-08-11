@@ -15,7 +15,7 @@ let
 
       # Sleep to make sure that Hyprpaper socket is opened before wallpaper
       # script runs!
-      sleep 3
+      sleep 6
       wall-time-of-day
     '';
   };
