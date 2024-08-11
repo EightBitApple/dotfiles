@@ -58,8 +58,8 @@
         emacsPkg = pkgs.emacs29-pgtk;
 
         wallpaperDay = ./modules/home-manager/resources/content/wallpapers/Clearday.jpg;
-        wallpaperNight = ./modules/home-manager/resources/content/wallpapers/Clearnight.jpg;
-        wallpaperNeutral = ./modules/home-manager/resources/content/wallpapers/nix-magenta-blue-1920x1080.jpg;
+        wallpaperNight = ./modules/home-manager/resources/content/wallpapers/Cloudsnight.jpg;
+        wallpaperNeutral = ./modules/home-manager/resources/content/wallpapers/nix-black-4k.png;
       };
 
       pkgs = nixpkgs.legacyPackages.${systemSettings.arch};
