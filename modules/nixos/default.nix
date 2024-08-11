@@ -18,7 +18,6 @@
     ./services/device/udev.nix
     ./services/daemon/emacs-daemon.nix
     ./services/device/tlp.nix
-    ./services/device/thinkfan.nix
 
     ./networking/network.nix
     ./networking/firewall.nix
@@ -94,7 +93,6 @@
   dconf.enable = lib.mkDefault true;
   emacsDaemon.enable = lib.mkDefault true;
   tlp.enable = lib.mkDefault true;
-  thinkfan.enable = lib.mkDefault true;
 
   system.stateVersion = "23.11";
 }
