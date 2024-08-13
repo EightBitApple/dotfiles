@@ -15,8 +15,9 @@ let
 
       # Sleep to make sure that Hyprpaper socket is opened before wallpaper
       # script runs!
-      sleep 6
-      wall-time-of-day
+      systemctl --user restart hyprpaper.service
+      sleep 3
+      systemctl --user restart wallpaper-time-of-day.service
     '';
   };
 in
