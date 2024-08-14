@@ -55,7 +55,8 @@
           profile = "fast";
 
           ytdl-format = "bestvideo[vcodec^=avc1][height<=1080]+bestaudio";
-          ytdl-raw-options = "write-auto-subs=,sub-lang='en.*'";
+          sub-auto = "fuzzy";
+          ytdl-raw-options = "ignore-config=,sub-format='^en.*',write-sub=";
         };
       };
     };
