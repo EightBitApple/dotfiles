@@ -20,6 +20,14 @@ let
       systemctl --user restart wallpaper-time-of-day.service
     '';
   };
+
+  alacrittyStart = pkgs.writeShellApplication {
+    name = "alacritty-start";
+    text = ''
+      alacritty msg --socket "$XDG_RUNTIME_DIR/alacritty.sock" create-window "$@" \
+          || alacritty --socket "$XDG_RUNTIME_DIR/alacritty.sock" "$@"
+    '';
+  };
 in
 {
   options = {
@@ -143,11 +151,11 @@ in
           "$mod CTRL, Space, pin"
           "$mod CTRL, Space, layoutmsg, mfact exact $mfact_split"
 
-          "$mod, Return, exec, ${userSettings.terminal}"
+          "$mod, Return, exec, ${alacrittyStart}/bin/alacritty-start"
 
-          "$mod, P, exec, ${userSettings.terminal} -e pulsemixer"
+          "$mod, P, exec, ${alacrittyStart}/bin/alacritty-start -e pulsemixer"
 
-          "$mod SHIFT, R, exec, ${userSettings.terminal} -e htop"
+          "$mod SHIFT, R, exec, ${alacrittyStart}/bin/alacritty-start -e htop"
 
           "$mod, X, exec, emc"
           "$mod SHIFT, X, exec, emc -r"
