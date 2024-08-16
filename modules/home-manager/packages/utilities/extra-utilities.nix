@@ -28,6 +28,7 @@
       lm_sensors
       appimage-run
       file-roller
+      home-manager
     ];
   };
 }
