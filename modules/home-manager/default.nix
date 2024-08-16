@@ -23,6 +23,8 @@
 
     ./packages/window-manager/hypr/hyprpaper.nix
     ./packages/window-manager/hypr/hyprland.nix
+    ./packages/window-manager/hypr/hyprlock.nix
+    ./packages/window-manager/hypr/hypridle.nix
 
     ./packages/utilities/extra-utilities.nix
     ./packages/utilities/git.nix
@@ -62,6 +64,8 @@
 
   hyprpaper.enable = lib.mkDefault true;
   hyprland.enable = lib.mkDefault true;
+  hyprlock.enable = lib.mkDefault true;
+  hypridle.enable = lib.mkDefault true;
 
   extra-utilities.enable = lib.mkDefault true;
   git.enable = lib.mkDefault true;

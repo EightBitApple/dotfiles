@@ -10,7 +10,7 @@
 
     ./services/sound/pipewire.nix
     ./services/device/printing.nix
-    ./services/security/physlock.nix
+    ./services/security/pam.nix
     ./services/device/fstrim.nix
     ./services/networking/dnscrypt.nix
     ./services/filesystem/gvfs.nix
@@ -58,7 +58,7 @@
 
   pipewire.enable = lib.mkDefault true;
   printing.enable = lib.mkDefault true;
-  physlock.enable = lib.mkDefault true;
+  pam.enable = lib.mkDefault true;
   fstrim.enable = lib.mkDefault true;
   dnscrypt.enable = lib.mkDefault true;
   gvfs.enable = lib.mkDefault true;
