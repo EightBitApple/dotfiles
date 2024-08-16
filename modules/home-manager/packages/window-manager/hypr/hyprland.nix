@@ -157,7 +157,7 @@ in
           "$mod, E, exec, Thunar"
 
           "$mod, R, exec, tofi-run | xargs hyprctl dispatch exec --"
-          "$mod CTRL, L, exec, physlock -m -s"
+          "$mod CTRL, L, exec, hyprlock -q"
 
           "$mod, C, exec, pgrep screenshot || screenshot"
           "$mod, V, exec, img-edit"
