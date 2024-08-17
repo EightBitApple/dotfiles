@@ -8,14 +8,15 @@ let
       dunst
     ];
     text = ''
-      display_json=$(hyprctl -j monitors | jq '.[0]')
+      display_json=$(hyprctl -j monitors)
 
       sleep_delay=1
       notif_time=2000
 
       # Get monitor info as JSON and parse it.
-      display_status=$(printf "%s" "$display_json" | jq '.dpmsStatus')
-      display_name=$(printf "%s" "$display_json" | jq -r '.name')
+      laptop_display=$(printf "%s" "$display_json" | jq '.[] | select(.id == 0)')
+      display_status=$(printf "%s" "$laptop_display" | jq '.dpmsStatus')
+      display_name=$(printf "%s" "$laptop_display" | jq -r '.name')
 
       new_status=""
       [ "$display_status" = "true" ] && new_status="off" || new_status="on"
