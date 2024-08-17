@@ -60,6 +60,7 @@
         wallpaperDay = ./modules/home-manager/resources/content/wallpapers/Clearday.jpg;
         wallpaperNight = ./modules/home-manager/resources/content/wallpapers/Cloudsnight.jpg;
         wallpaperNeutral = ./modules/home-manager/resources/content/wallpapers/nix-black-4k.png;
+        wallpaperLock = ./modules/home-manager/resources/content/wallpapers/line_icons.png;
       };
 
       pkgs = nixpkgs.legacyPackages.${systemSettings.arch};
