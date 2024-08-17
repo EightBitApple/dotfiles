@@ -11,6 +11,7 @@ let
     name = "startup";
     runtimeInputs = with pkgs; [ waybar ];
     text = ''
+      systemctl --user restart hypridle.service
       waybar &
 
       # Sleep to make sure that Hyprpaper socket is opened before wallpaper
