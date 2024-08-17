@@ -69,6 +69,7 @@
       hostArgs = {
         inherit systemSettings;
         inherit userSettings;
+        inherit pkgs-stable;
       };
     in
     {
