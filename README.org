@@ -1,77 +1,72 @@
-#+title: Nix Dotfiles
+#+title: Dotfiles
 #+subtitle: My NixOS and Home Manager Configuration.
-
 
 [[./desktop.png]]
 
 * What is this?
-This repository houses the files used to build by NixOS system along with accompanying user configuration.
+This repository houses the files used to build both my system and user configuration on NixOS.
 
 * What is Nix(OS)?
-NixOS is a Linux distribution that uses the Nix language and package manager.
-NixOS applies the benefits of both the Nix Language and package manager to a system level:
++ NixOS is a Linux distribution that uses the Nix language and its package manager, Nixpkgs.
++ NixOS brings the benefits of both Nix and Nixpkgs to an entire operating system:
 
-+ NixOS is *reproducible*.
-  Configuration gets done using Nix, a functional, Turing complete programming language.
-  Like other functional languages it strives for purity: functions must always produce the same output when given the same input, no side effects.
-  The deterministic nature of Nix allows you to use your NixOS configuration to deploy the exact same build across your machines.
-  Nix Flakes are a recent development that improves reproducibility by pinning remote repositories to a commit and storing the pin in a lock file.
-  Pinning guarantees that new builds will always pull the same version of packages until you decide update the lock.
+** Reproduceable Builds
+Nix is a functional, Turing complete programming language.
+Nix strives for purity; functions produce the same output when given the same input.
+Nix's deterministic nature allows the same configuration to produce the same build.
+*Nix Flakes* are a recent development that aims to improve reprodicibility.
+Flakes allow inputs (e.g. nixpkgs) to get pinned to a specific commit in a ~flake.lock~ file.
+Pinning for example guarantees builds will always pull the exact same versions of packages.
 
-+ NixOS is *declarative*.
-  Instead of making changes to the system /imperatively/ (on-the-fly) changes are /declared/ in files.
-  Having a single source of truth for your system's configuration makes troubleshooting easier.
-  The module system standardises configuration, steps taken to modify the system are about the same no matter what part of the system it is.
+** Declarative Configuration
+Instead of making changes to the system /imperatively/ (on-the-fly) changes are /declared/ in files.
+For example, instead of adding users with ~useradd~, users get declared with the ~users.users.<username>~ option.
+This single source of truth for configuration can help with troubleshooting.
+Configuration gets standardised, the process to modify the system is about the same no matter what part of the system it is.
 
-+ NixOS is *reliable*.
-  When you rebuild your system a new generation gets created.
-  NixOS creates a file for this generation, which basically stores a list of pointers to the packages the generation uses.
-  NixOS does not clone packages between generations.
-  System generations and all the packages they use are all stored under ~/nix/store/~.
-  If you rebuild your system and something breaks, simply reboot and choose a previous working generation from the bootloader.
-  Built-in rollbacks offers peace of mind, and the confidence to tweak your system.
-
-Packages inside ~/nix/store/~ get identified with a unique hash.
-This allows multiple versions of packages to get installed simultaneously.
+** Robustness
+Each build creates a generation.
+NixOS creates a file for this generation, which stores a list of pointers to the packages the generation uses.
+NixOS does not clone packages between generations.
+Generations and all the packages they use all reside under ~/nix/store/~.
+Packages inside ~/nix/store/~ get identified with a unique hash, allowing multiple versions of packages to exist simultaneously.
 Great for both avoiding dynamic linking woes and creating development environments.
+If you rebuild your system and something breaks, simply reboot and choose a previous working generation from the bootloader.
+Built-in rollbacks offer peace of mind and the confidence to tweak your system.
 
+** Software Availability
 Nixpkgs is the largest software repository in the Linux space.
-The unstable branch of Nixpkgs has [[https://repology.org/repository/nix_unstable][over 100,000 packages]], along with having the [[https://repology.org/repositories/graphs][most packages that are fresh (up to date)]].
+The unstable branch of Nixpkgs has [[https://repology.org/repository/nix_unstable][over 100,000 packages]], with the [[https://repology.org/repositories/graphs][most packages that are fresh (up to date)]].
 
 * Dotfiles Structure
 Both my system and home-manager configuration are in this repository and they both follow similar structures.
 Both configurations get managed by a flake in the root.
 The system configuration imports the hosts' configurations and everything under ~./modules/nixos~.
-The home-manager configuration imports everything under ~./modules/home-manager~.
-Each module directory contains its own ~default.nix~, which imports every module in its directory and sub-directories.
+The home-manager configuration imports the host's configurations and everything under ~./modules/home-manager~.
+Both module directories have their own ~default.nix~, which imports every module in its directory and sub-directories.
 ~lib.mkDefault~ gets used to set the default state of the module: enabled or disabled.
 The activation of these modules can be overridden by each hosts' ~configuration.nix~ and ~home.nix~.
-For example, a module to enable a driver for my desktop's WiFi dongle gets enabled by default.
-However the ~configuration.nix~ under ~./hosts/laptop~ overrides the default and disables it instead.
+For example, a module to enable a driver for a WiFi dongle gets enabled by default, however the laptop host overrides this default and disables it instead.
 This modular structure reduces redundancy and improves scalability.
 
-* Building
-Here's how to build a system using these dotfiles for the first time.
-1. Install NixOS.
-2. Open a terminal or TTY and enter ~nix-shell -p git~ to temporarily install Git.
-   You can also add your text editor of choice to this command for use in the text steps: ~nix-shell -p git neovim~.
-3. ~cd~ into your home directory and clone this repository ~git clone https://github.com/The8BitApple/dotfiles~.
-4. Open ~/etc/nixos/configuration.nix~ and add this line inside the second pair of curly braces: ~nix.settings.experimental-features = [ "nix-command" "flakes" ];~.
-5. Rebuild the system using ~sudo nixos-rebuild switch~
-6. Now with flakes enabled you can build using the dotfiles.
-   Enter ~sudo nixos-rebuild switch --flake ~/.dotfiles/#HOSTNAME~, replacing ~HOSTNAME~ with a directory name listed under ~~/.dotfiles/hosts~ (e.g. desktop, laptop, etc.).
-7. After the command finishes run ~home-manager switch --flake ~/.dotfiles/#HOSTNAME~ to build the home-manager configuration.
-8. Reboot into the new system!
+* Building After a Fresh Install
+1. Open a terminal or TTY and enter ~nix-shell -p git~ to temporarily install Git.
+        You can also add a text editor to this command for the next steps: ~nix-shell -p git neovim~.
+2. ~cd~ into your home directory and run ~git clone https://github.com/EightBitApple/dotfiles~.
+3. Run ~sudo nixos-rebuild switch --flake ~/.dotfiles/#HOSTNAME~.
+        Replace ~HOSTNAME~ with a directory name inside ~~/.dotfiles/hosts~.
+4. Then run ~home-manager switch --flake ~/.dotfiles/#HOSTNAME~.
+5. Reboot into the new system!
 
 * Maintenance
-The dotfiles installs these packages to aid in system maintenance:
+These dotfiles install packages to aid in system maintenance:
 
 + [[https://github.com/viperML/nh][nh]] - Reimplements several nix commands with extra functionality.
 + [[https://gitlab.com/khumba/nvd][nvd]] - Summarises the version differences of packages between two nix store paths.
-+ [[https://github.com/maralorn/nix-output-monitor][nix-output-monitor]] - Grants additional information while building.
++ [[https://github.com/maralorn/nix-output-monitor][nix-output-monitor]] - Shows additional information while building.
 
-+ *For the upcoming commands, Replace "HOSTNAME" with a directory name listed under ~/.dotfiles/hosts (e.g. desktop, laptop, etc.).*
-+ *If you get a "No such file or directory" error, ~cd~ into your home directory and try again.*
+*For the upcoming commands, Replace ~HOSTNAME~ with a directory name listed under ~~/.dotfiles/hosts~.*
+*If you get a "No such file or directory" error, ~cd~ into your home directory and try again.*
 
 ** Rebuilding
 + Run ~nh os switch~ to rebuild the system.
@@ -79,19 +74,19 @@ The dotfiles installs these packages to aid in system maintenance:
 
 ** Upgrading
 + Run ~nh os switch -u~ or ~nh home switch -u -c HOSTNAME~ to update ~flake.lock~ to the latest commits before rebuilding.
++ You can also run ~nix flake update~ to update ~flake.lock~ without rebuilding.
 
 ** Garbage Collection
-+ Run ~nh clean all -k NUMBER~ to garbage collect the Nix Store.
-+ Run ~nh clean all -k NUMBER --dry~ to see what will get deleted before performing it for real.
-  Replace ~NUMBER~ with the number of generations you want to keep (e.g. ~-k 4~).
++ Run ~nh clean all -k 4 --dry~ to see what will get deleted before cleaning for real.
+        This command will delete all generations except the four latest system and home manager generations.
++ Run ~nh clean all -k 4~ to delete these generations and garbage collect the Nix Store.
 
 ** Rollbacks
-By default the bootloader will not appear.
+This configuration hides list to choose generations when booting.
 If you need to rollback to a previous generation, press any key when the POST splash screen appears.
 
 * Credits
 + [[https://www.youtube.com/channel/UC_zBdZ0_H_jn41FDRG7q4Tw][Vimjoyer]] for his NixOS tutorials.
 + [[https://www.youtube.com/channel/UCeZyoDTk0J-UPhd7MUktexw][LibrePhoenix]] for his NixOS tutorials.
 + [[https://nixos.wiki/wiki/Main_Page][The unofficial NixOS Wiki]] for articles on configuring specific software.
-
-Credits to files used in this repository are in [[./modules/home-manager/resources/content/README.org][another README]], as to not make this one too long.
++ Credits to files used in this repository are in [[./modules/home-manager/resources/content/README.org][another README]], as to not make this one too long.
