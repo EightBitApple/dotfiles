@@ -67,16 +67,16 @@
 
     stylix.opacity = {
       applications = 1.0;
-      terminal = 0.95;
+      terminal = 0.9;
       desktop = 1.0;
-      popups = 0.95;
+      popups = 0.9;
     };
 
     gtk = {
       enable = true;
       iconTheme = {
-        name = "Papirus-Dark";
-        package = pkgs.papirus-icon-theme;
+        name = "Obsidian";
+        package = pkgs.iconpack-obsidian;
       };
     };
     qt.enable = true;
