@@ -48,7 +48,7 @@ in
         env = [ "LSP_USE_PLISTS,true" ];
 
         general = {
-          border_size = 2;
+          border_size = 3;
           gaps_out = 10;
           layout = "master";
 
