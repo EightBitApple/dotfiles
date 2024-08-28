@@ -116,10 +116,11 @@
 
           /* Waybar */
           window#waybar {
-              background-color: #${base00};
+              background: linear-gradient(0deg, #${base00} 0%, #${base02} 66%);
               padding-bottom: 3px;
               color: #${base07};
               border-radius: 0;
+              opacity: 0.9;
           }
 
           #window {
@@ -140,6 +141,7 @@
 
           #workspaces button.active {
               background-color: #${base07};
+              background: linear-gradient(0deg, #${base07} 0%, #${base0C} 66%);
               color: #${base00};
           }
 
