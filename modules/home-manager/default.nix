@@ -10,7 +10,6 @@
     ./packages/gaming/sourceports/ironwail.nix
     ./packages/media/audio-tools.nix
     ./packages/media/video-playback.nix
-    ./packages/programming-tools.nix
     ./packages/terminals.nix
     ./packages/text-editors/doom-emacs/doom-emacs.nix
     ./packages/text-editors/neovim.nix
@@ -56,7 +55,6 @@
   mangohud.enable = lib.mkDefault true;
   neoVim.enable = lib.mkDefault true;
   nightLight.enable = lib.mkDefault true;
-  programmingTools.enable = lib.mkDefault true;
   resources.enable = lib.mkDefault true;
   scripts.enable = lib.mkDefault true;
   syncthing.enable = lib.mkDefault true;

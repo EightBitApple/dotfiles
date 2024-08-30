@@ -55,15 +55,23 @@
     };
 
     home.packages = with pkgs; [
+      discount # markdown linter and formatter
+      shellcheck
+      cmakeMinimal
+      nixfmt-rfc-style
+      glslang
+      libclang
+      libtool
+      shfmt
       python3
       ripgrep
       gnumake
 
-      # lsp
+      # java lsp
       jdk22
-      ruff-lsp
 
-      # python
+      # python lsp
+      ruff-lsp
       black
       pipenv
       python312Packages.pyflakes
