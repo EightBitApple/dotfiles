@@ -70,27 +70,6 @@ Disable tabs globally (spaces only) and reactivate them for modes with smart tab
 
 * Functionality
 ** Editor
-*** Easy Window Resizing
-Easy resizing of window splits using hydra mode.
-#+begin_src elisp
-(defhydra doom-window-resize (:hint nil)
-  "
-                _k_ increase height
-        _h_ decrease width    _l_ increase width
-                _j_ decrease height
-        "
-  ("h" evil-window-increase-width)
-  ("j" evil-window-increase-height)
-  ("k" evil-window-decrease-height)
-  ("l" evil-window-decrease-width)
-  ("q" nil))
-
-(map!
- :leader
- :desc "Resize windows"
- "r r" #'doom-window-resize/body)
-#+end_src
-
 ** Org Mode
 *** Basics
 #+begin_src elisp

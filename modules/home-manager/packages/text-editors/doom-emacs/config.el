@@ -24,23 +24,6 @@
         doom-modeline-major-mode-icon t
         doom-modeline-enable-word-count t))
 
-(defhydra doom-window-resize (:hint nil)
-  "
-                _k_ increase height
-        _h_ decrease width    _l_ increase width
-                _j_ decrease height
-        "
-  ("h" evil-window-increase-width)
-  ("j" evil-window-increase-height)
-  ("k" evil-window-decrease-height)
-  ("l" evil-window-decrease-width)
-  ("q" nil))
-
-(map!
- :leader
- :desc "Resize windows"
- "r r" #'doom-window-resize/body)
-
 (after! org
   (setq org-directory "~/documents/org/"
         org-agenda-files '("~/documents/org/agenda/")
@@ -77,9 +60,13 @@
 (after! eww
   (add-hook 'eww-mode-hook 'doom-modeline-mode))
 
+(map! :leader "e f" #'elfeed)
 (after! elfeed
   (setq elfeed-curl-max-connections 32
         elfeed-search-filter "@1-week-ago ")
+
+(map! :leader "e u" #'elfeed-update
+      :leader "e t" #'elfeed-tube-mpv)
 
 (defun sk/elfeed-db-remove-entry (id)
   "Removes the entry for ID"
