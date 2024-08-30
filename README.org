@@ -85,6 +85,10 @@ These dotfiles install packages to aid in system maintenance:
 This configuration hides list to choose generations when booting.
 If you need to rollback to a previous generation, press any key when the POST splash screen appears.
 
+* Doom Emacs
+This repository also contains my configuration for Doom Emacs.
+More info in [[./modules/home-manager/packages/text-editors/doom-emacs/README.org][another README]].
+
 * Credits
 + [[https://www.youtube.com/channel/UC_zBdZ0_H_jn41FDRG7q4Tw][Vimjoyer]] for his NixOS tutorials.
 + [[https://www.youtube.com/channel/UCeZyoDTk0J-UPhd7MUktexw][LibrePhoenix]] for his NixOS tutorials.
