@@ -44,6 +44,7 @@
             export DOOMDIR="${config.home.sessionVariables.DOOMDIR}"
             export DOOMLOCALDIR="${config.home.sessionVariables.DOOMLOCALDIR}"
             export DOOMPROFILELOADFILE="${config.home.sessionVariables.DOOMPROFILELOADFILE}";
+
             if [ ! -d "$DOOMLOCALDIR" ]; then
               ${config.xdg.configHome}/emacs/bin/doom -y install
             else
@@ -66,6 +67,7 @@
       python3
       ripgrep
       gnumake
+      nodejs
 
       # java lsp
       jdk22
