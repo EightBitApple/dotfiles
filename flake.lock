@@ -114,6 +114,22 @@
         "type": "github"
       }
     },
+    "doom-emacs": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1725008249,
+        "narHash": "sha256-nqOqarin6WG7Dxb4dXKrSC0pJcLTElI1mcl9ROfH6n0=",
+        "owner": "doomemacs",
+        "repo": "doomemacs",
+        "rev": "79910fba42d8ec45c2960d855377af0f7a8d09d9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "doomemacs",
+        "repo": "doomemacs",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -236,6 +252,7 @@
     },
     "root": {
       "inputs": {
+        "doom-emacs": "doom-emacs",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",

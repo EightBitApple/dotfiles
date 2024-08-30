@@ -1,0 +1,404 @@
+#+title: Doom Emacs Configuration
+#+subtitle: My Literate Config for Doom Emacs
+
+#+PROPERTY: header-args :tangle config.el
+
+* Table of Contents :toc:
+- [[#appearance][Appearance]]
+  - [[#theme][Theme]]
+  - [[#editor][Editor]]
+  - [[#doom-modeline][Doom Modeline]]
+- [[#functionality][Functionality]]
+  - [[#editor-1][Editor]]
+  - [[#org-mode][Org Mode]]
+  - [[#emacs-web-wowser][Emacs Web Wowser]]
+  - [[#elfeed][Elfeed]]
+  - [[#dired][Dired]]
+  - [[#avy][Avy]]
+  - [[#ace-window][Ace Window]]
+  - [[#minimap][Minimap]]
+  - [[#vterm][Vterm]]
+  - [[#speed-type][Speed Type]]
+  - [[#debug-adaptor-protocol-dap][Debug Adaptor Protocol (DAP)]]
+  - [[#macros][Macros]]
+
+* Appearance
+** Theme
+#+begin_src elisp
+(setq doom-theme 'catppuccin
+      doom-font (font-spec :family "FiraCode Nerd Font" :size 12 :weight 'medium)
+      doom-variable-pitch-font (font-spec :family "DejaVu Sans" :size 12 :weight 'medium))
+
+(set-frame-parameter nil 'alpha-background 95)
+(add-to-list 'default-frame-alist '(alpha-background . 95))
+#+end_src
+
+** Editor
+#+begin_src elisp
+(setq display-line-numbers-type 'relative
+      tab-width 4)
+#+end_src
+
+*** Smart Tabs
+Package to indent with tabs and align with spaces.
+https://www.emacswiki.org/emacs/SmartTabs
+#+begin_src elisp
+(after! smart-tabs-mode
+  (smart-tabs-insinuate 'c 'c++ 'javascript 'java 'python)
+#+end_src
+
+Disable tabs globally (spaces only) and reactivate them for modes with smart tabs handling.
+#+begin_src elisp
+(setq-default indent-tabs-mode nil)
+(add-hook 'c-mode-common-hook
+          (lambda () (setq indent-tabs-mode t))))
+#+end_src
+
+#+begin_src elisp
+(map! :leader "i d" #'indent-region)
+#+end_src
+
+** Doom Modeline
+#+begin_src elisp
+(after! doom-modeline-core
+  (setq doom-modeline-height 25
+        doom-modeline-icon t
+        doom-modeline-modal-icon nil
+        doom-modeline-major-mode-icon t
+        doom-modeline-enable-word-count t))
+#+end_src
+
+* Functionality
+** Editor
+*** Easy Window Resizing
+Easy resizing of window splits using hydra mode.
+#+begin_src elisp
+(defhydra doom-window-resize (:hint nil)
+  "
+                _k_ increase height
+        _h_ decrease width    _l_ increase width
+                _j_ decrease height
+        "
+  ("h" evil-window-increase-width)
+  ("j" evil-window-increase-height)
+  ("k" evil-window-decrease-height)
+  ("l" evil-window-decrease-width)
+  ("q" nil))
+
+(map!
+ :leader
+ :desc "Resize windows"
+ "r r" #'doom-window-resize/body)
+#+end_src
+
+** Org Mode
+*** Basics
+#+begin_src elisp
+(after! org
+  (setq org-directory "~/documents/org/"
+        org-agenda-files '("~/documents/org/agenda/")
+        org-log-done 'time
+        tab-width 4)
+#+end_src
+
+*** Images
+#+begin_src elisp
+(setq org-startup-with-inline-images t
+      org-image-actual-width 512)
+#+end_src
+
+*** Bindings
+#+begin_src elisp
+(map! :leader "t o" #'org-table-toggle-column-width))
+#+end_src
+
+*** Org-auto-tangle
+Package to automatically tangle code blocks on buffer write.
+#+begin_src elisp
+(add-hook 'org-mode 'org-auto-tangle-mode)
+(after! org-auto-tangle
+  (setq org-auto-tangle-default t))
+#+end_src
+
+*** PlantUML
+A Java component used for making Unified Modelling Language (UML) diagrams via an easy to use language.
+The snippet below integrates this with Org Mode.
+#+begin_src elisp
+(after! plant-uml-mode
+  (setq org-plantuml-exec-mode 'plantuml
+        org-plantuml-executable-path "/usr/bin/plantuml"))
+#+end_src
+
+*** Org Export
+**** Latex
+#+begin_src elisp
+(with-eval-after-load 'ox-latex
+  (add-to-list 'org-latex-classes
+               '("org-plain-latex"
+                 "\\documentclass{article}
+                  [NO-DEFAULT-PACKAGES]
+                  [PACKAGES]
+                  [EXTRA]"
+                 ("\\section{%s}" . "\\section*{%s}")
+                 ("\\subsection{%s}" . "\\subsection*{%s}")
+                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
+#+end_src
+
+** Emacs Web Wowser
+Emacs' minimal web browser.
+#+begin_src elisp
+(setq browse-url-browser-function 'eww-browse-url)
+(after! eww
+  (add-hook 'eww-mode-hook 'doom-modeline-mode))
+#+end_src
+
+** Elfeed
+*** Fetching
+#+begin_src elisp
+(map! :leader "e f" #'elfeed)
+(after! elfeed
+  (setq elfeed-curl-max-connections 32
+        elfeed-search-filter "@1-week-ago ")
+#+end_src
+
+*** Bindings
+#+begin_src elisp
+(map! :leader "e u" #'elfeed-update
+      :leader "e t" #'elfeed-tube-mpv)
+#+end_src
+
+*** Reloading
+A function to detach and delete the Elfeed database, then generate a new one.
+Invoke upon feed deletion to avoid headaches.
+#+begin_src elisp
+(defun sk/elfeed-db-remove-entry (id)
+  "Removes the entry for ID"
+  (avl-tree-delete elfeed-db-index id)
+  (remhash id elfeed-db-entries))
+
+(defun sk/elfeed-search-remove-selected ()
+  "Remove selected entries from database"
+  (interactive)
+  (let* ((entries (elfeed-search-selected))
+	 (count (length entries)))
+    (when (y-or-n-p (format "Delete %d entires?" count))
+      (cl-loop for entry in entries
+	       do (sk/elfeed-db-remove-entry (elfeed-entry-id entry)))))
+  (elfeed-search-update--force))
+#+end_src
+
+*** Faster Fetching
+Clear the search filter before updating entries. This mitigates long thread blocking during updates.
++ Sources:
+  + https://github.com/skeeto/elfeed/issues/293#issuecomment-425627688
+  + https://www.reddit.com/r/emacs/comments/gpoaaa/comment/frr82fa/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+
+#+begin_src elisp
+(defvar ap/elfeed-update-complete-hook nil
+  "Functions called with no arguments when `elfeed-update' is finished.")
+
+(defvar ap/elfeed-updates-in-progress 0
+  "Number of feed updates in-progress.")
+
+(defvar ap/elfeed-search-update-filter nil
+  "The filter when `elfeed-update' is called.")
+
+(defun ap/elfeed-update-complete-hook (&rest ignore)
+  "When update queue is empty, run `ap/elfeed-update-complete-hook' functions."
+  (when (= 0 ap/elfeed-updates-in-progress)
+    (run-hooks 'ap/elfeed-update-complete-hook)))
+
+(add-hook 'elfeed-update-hooks #'ap/elfeed-update-complete-hook)
+
+(defun ap/elfeed-update-message-completed (&rest _ignore)
+  (message "Feeds updated"))
+
+(add-hook 'ap/elfeed-update-complete-hook #'ap/elfeed-update-message-completed)
+
+(defun ap/elfeed-search-update-restore-filter (&rest ignore)
+  "Restore filter after feeds update."
+  (when ap/elfeed-search-update-filter
+    (elfeed-search-set-filter ap/elfeed-search-update-filter)
+    (setq ap/elfeed-search-update-filter nil)))
+
+(add-hook 'ap/elfeed-update-complete-hook #'ap/elfeed-search-update-restore-filter)
+
+(defun ap/elfeed-search-update-save-filter (&rest ignore)
+  "Save and change the filter while updating."
+  (setq ap/elfeed-search-update-filter elfeed-search-filter)
+  (setq elfeed-search-filter "#0"))
+
+;; NOTE: It would be better if this hook were run before starting the feed updates, but in
+;; `elfeed-update', it happens afterward.
+(add-hook 'elfeed-update-init-hooks #'ap/elfeed-search-update-save-filter)
+
+(defun ap/elfeed-update-counter-inc (&rest ignore)
+  (cl-incf ap/elfeed-updates-in-progress))
+
+(advice-add #'elfeed-update-feed :before #'ap/elfeed-update-counter-inc)
+
+(defun ap/elfeed-update-counter-dec (&rest ignore)
+  (cl-decf ap/elfeed-updates-in-progress)
+  (when (< ap/elfeed-updates-in-progress 0)
+    ;; Just in case
+    (setq ap/elfeed-updates-in-progress 0)))
+
+(add-hook 'elfeed-update-hooks #'ap/elfeed-update-counter-dec))
+ #+end_src
+
+*** Packages
+**** Elfeed Goodies
+#+begin_src elisp
+(after! elfeed-goodies
+  (setq elfeed-goodies/entry-pane-size 0.5))
+#+end_src
+
+**** Elfeed Org
+Use Org Mode to organise feeds rather then listing them in this configuration.
+Elfeed-Org also has the ability to import and export to OPML. Useful for other readers.
+#+begin_src elisp
+(after! elfeed-org
+  (setq rmh-elfeed-org-files (list "~/documents/org/elfeed/elfeed.org")))
+#+end_src
+
+**** Elfeed Tube
+YouTube integration with Elfeed.
+Provides thumbnail, duration, bookmarking and transcript.
+#+begin_src elisp
+(require 'elfeed-tube)
+(after! elfeed-tube
+(elfeed-tube-setup)
+  (setq mpv-executable "mpv"))
+#+end_src
+
+
+** Dired
+*** Evil-Mode Mappings
+[[https://gitlab.com/dwt1/dotfiles/-/blob/master/.config/doom/config.org?ref_type=heads#dired][Custom mappings from DistoTube]] to make Dired integrate more with evil mode.
+This makes Dired more like vim-motion-based TUI file managers like [[https://github.com/jarun/nnn][NNN]] and [[https://github.com/gokcehan/lf][LF]].
+
+#+begin_src elisp
+(after! dired
+  (evil-define-key 'normal dired-mode-map
+    (kbd "M-RET") 'dired-display-file
+    (kbd "RET") 'dired-launch-with-prompt-command
+    (kbd "h") 'dired-up-directory
+    (kbd "l") 'dired-find-alternate-file
+    (kbd "m") 'dired-mark
+    (kbd "t") 'dired-toggle-marks
+    (kbd "u") 'dired-unmark
+    (kbd "C") 'dired-do-copy
+    (kbd "D") 'dired-do-delete
+    (kbd "J") 'dired-goto-file
+    (kbd "M") 'dired-do-chmod
+    (kbd "O") 'dired-do-chown
+    (kbd "P") 'dired-do-print
+    (kbd "R") 'dired-do-rename
+    (kbd "T") 'dired-do-touch
+    (kbd "Y") 'dired-copy-filenamecopy-filename-as-kill ; copies filename to kill ring.
+    (kbd "Z") 'dired-do-compress
+    (kbd "+") 'dired-create-directory
+    (kbd "-") 'dired-do-kill-lines
+    (kbd "% l") 'dired-downcase
+    (kbd "% m") 'dired-mark-files-regexp
+    (kbd "% u") 'dired-upcase
+    (kbd "* %") 'dired-mark-files-regexp
+    (kbd "* .") 'dired-mark-extension
+    (kbd "* /") 'dired-mark-directories
+    (kbd "; d") 'epa-dired-do-decrypt
+    (kbd "; e") 'epa-dired-do-encrypt)
+#+end_src
+
+*** Trash Bin
+Trash directory to safeguard accidental deletions.
+#+begin_src elisp
+(setq delete-by-moving-to-trash t
+      trash-directory "~/.local/share/trash/files/")
+#+end_src
+
+*** Dired Launch
+#+begin_src elisp
+(dired-launch-enable))
+#+end_src
+
+** Avy
+Avy allows you to jump to the exact position of visible text by using a character-based decision tree, akin to ~ace-jump-mode~ and ~vim-easymotion~.
+Part of Doom Emacs.
+#+begin_src elisp
+(setq avy-all-windows 't)
+#+end_src
+
+** Ace Window
+#+begin_src elisp
+(map! :leader "w a" #'ace-window)
+#+end_src
+
+** Minimap
+A handy minimap.
+#+begin_src elisp
+(setq minimap-window-location 'right)
+(map! :leader "t m" #'minimap-mode)
+#+end_src
+
+** Vterm
+Function to play media playlists using vterm.
+Adapted from https://www.reddit.com/r/emacs/comments/op4fcm/send_command_to_vterm_and_execute_it/.
+#+begin_src elisp
+(defun personal/playlist-mpv ()
+  "Play the media is current directory as a playlist using MPV."
+  (interactive)
+  (vterm)
+  (vterm--goto-line -1)
+  (vterm-send-string "mpv .")
+  (vterm-send-return))
+#+end_src
+
+#+begin_src elisp
+(map! :leader "p l" #'personal/playlist-mpv)
+#+end_src
+
+** Speed Type
+*** Hooks
+#+begin_src elisp
+(after! speed-type
+  (add-hook 'speed-type-mode-hook 'writeroom-mode))
+#+end_src
+
+** Debug Adaptor Protocol (DAP)
+*** Configuration
+#+begin_src elisp
+(after! dap-mode
+  (setq dap-python-debugger 'debugpy)
+#+end_src
+
+*** Key Bindings
+#+begin_src elisp
+(map! :leader "d d" #'dap-debug
+      :leader "d c" #'dap-disconnect
+      :leader "d r" #'dap-debug-restart
+      :leader "d n" #'dap-next
+      :leader "d i" #'dap-step-in
+      :leader "d o" #'dap-step-out
+      :leader "d p" #'dap-breakpoint-toggle
+      :leader "d u s" #'dap-ui-sessions
+      :leader "d u p" #'dap-ui-breakpoints)
+#+end_src
+*** Performance
+#+begin_src elisp
+(setq read-process-output-max (* 1024 1024) ; 1mb
+      lsp-idle-delay 0.500
+      lsp-log-io nil))                      ; if set to true can cause a performance hit
+#+end_src
+
+** Macros
+#+begin_src elisp
+(defalias 'elfeed-youtube
+  (kmacro "0 / c h a n n e l <return> c f / f e e d s / v i d e o s . x m l ? c h a n n e l _ i d - <backspace> = <escape> 0 w i [ <escape> A ] [ <escape>"))
+#+end_src
+
+*** Bindings
+#+begin_src elisp
+(map! :leader "m a c y t" #'elfeed-youtube)
+#+end_src

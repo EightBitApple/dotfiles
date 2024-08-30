@@ -3,7 +3,6 @@
 {
   imports = [
     ./fonts.nix
-
     ./packages/browsers/firefox.nix
     ./packages/gaming/mangohud.nix
     ./packages/gaming/sourceports/dsda-doom.nix
@@ -13,7 +12,8 @@
     ./packages/media/video-playback.nix
     ./packages/programming-tools.nix
     ./packages/terminals.nix
-    ./packages/text-editors/text-editors.nix
+    ./packages/text-editors/doom-emacs/doom-emacs.nix
+    ./packages/text-editors/neovim.nix
     ./packages/utilities/extra-utilities.nix
     ./packages/utilities/git.nix
     ./packages/utilities/home-manager.nix
@@ -30,17 +30,15 @@
     ./packages/window-manager/night-light.nix
     ./packages/window-manager/theming.nix
     ./packages/window-manager/waybar/waybar.nix
-
     ./resources/resources.nix
-
     ./scripts/scripts.nix
-
     ./users/users.nix
   ];
 
   appLauncher.enable = lib.mkDefault true;
   audioTools.enable = lib.mkDefault true;
   clipboard.enable = lib.mkDefault true;
+  doomEmacs.enable = lib.mkDefault true;
   dsda-doom.enable = lib.mkDefault true;
   dunst.enable = lib.mkDefault true;
   extra-utilities.enable = lib.mkDefault true;
@@ -56,13 +54,13 @@
   hyprpaper.enable = lib.mkDefault true;
   ironwail.enable = lib.mkDefault true;
   mangohud.enable = lib.mkDefault true;
+  neoVim.enable = lib.mkDefault true;
   nightLight.enable = lib.mkDefault true;
   programmingTools.enable = lib.mkDefault true;
   resources.enable = lib.mkDefault true;
   scripts.enable = lib.mkDefault true;
   syncthing.enable = lib.mkDefault true;
   terminals.enable = lib.mkDefault true;
-  textEditors.enable = lib.mkDefault true;
   theming.enable = lib.mkDefault true;
   users.enable = lib.mkDefault true;
   videoPlayback.enable = lib.mkDefault true;
