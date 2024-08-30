@@ -19,6 +19,8 @@ let
       systemctl --user restart hyprpaper.service
       sleep 3
       systemctl --user restart wallpaper-time-of-day.service
+
+      emacs --daemon && notify-send "Emacs server running."
     '';
   };
 
@@ -158,8 +160,7 @@ in
 
           "$mod SHIFT, R, exec, ${alacrittyStart}/bin/alacritty-start -e htop"
 
-          "$mod, X, exec, emc"
-          "$mod SHIFT, X, exec, emc -r"
+          "$mod, X, exec, emacsclient -c"
 
           "$mod, W, exec, ${userSettings.browser}"
 
