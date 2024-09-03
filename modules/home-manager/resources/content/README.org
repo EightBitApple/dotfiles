@@ -13,9 +13,6 @@
 * Soundfonts
 - [[https://www.doomworld.com/forum/topic/118828-trevor0402s-sc-55-soundfont/][SC-55 soundfont]] by Trevor0402
 
-* Easyeffects Presets
-- [[https://github.com/p-chan5/EasyPulse][EasyPulse]]
-
 * Footnotes
 
 [fn:1] I reduced the brightness of this wallpaper to give better contrast in the lock screen.

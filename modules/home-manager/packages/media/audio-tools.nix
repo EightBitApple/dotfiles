@@ -11,9 +11,6 @@
   '';
 
   config = lib.mkIf config.audioTools.enable {
-    services.easyeffects.enable = true;
-    home.file.".config/easyeffects/output".source = ../../resources/content/easyeffects-presets/output;
-
     home.packages = with pkgs; [
       pulsemixer
       pamixer
