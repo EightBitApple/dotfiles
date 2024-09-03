@@ -3,25 +3,18 @@
 {
   imports = [
     ./boot/bootloader.nix
-
     ./console/keymap.nix
-
     ./hardware/bluetooth.nix
     ./hardware/brillo.nix
     ./hardware/intel-hwdec.nix
     ./hardware/microcode-updates.nix
-
     ./kernel/hid/apple-hid.nix
     ./kernel/memory/zram.nix
     ./kernel/packages/rtl88xxau-aircrack.nix
-
     ./networking/firewall.nix
     ./networking/network.nix
-
     ./nix/experimental-features.nix
-
     ./packages/pkgs-unfree.nix
-
     ./programs/dconf.nix
     ./programs/gaming.nix
     ./programs/git.nix
@@ -29,8 +22,6 @@
     ./programs/thunar.nix
     ./programs/wireshark.nix
     ./programs/zsh.nix
-
-    ./services/daemon/emacs-daemon.nix
     ./services/device/fstrim.nix
     ./services/device/logind.nix
     ./services/device/printing.nix
@@ -42,11 +33,9 @@
     ./services/networking/dnscrypt.nix
     ./services/security/pam.nix
     ./services/sound/pipewire.nix
-
     ./system/locale.nix
     ./system/mount-drive.nix
     ./system/virtualisation.nix
-
     ./users/accounts.nix
     ./users/groups.nix
   ];
@@ -58,7 +47,6 @@
   brillo.enable = lib.mkDefault true;
   dconf.enable = lib.mkDefault true;
   dnscrypt.enable = lib.mkDefault true;
-  emacsDaemon.enable = lib.mkDefault true;
   experimental-features.enable = lib.mkDefault true;
   firewall.enable = lib.mkDefault true;
   fstrim.enable = lib.mkDefault true;
