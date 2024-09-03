@@ -2,6 +2,7 @@
   config,
   lib,
   userSettings,
+  pkgs-stable,
   ...
 }:
 
@@ -13,6 +14,7 @@
   config = lib.mkIf config.hyprpaper.enable {
     services.hyprpaper = {
       enable = true;
+      package = pkgs-stable.hyprpaper;
 
       settings = with userSettings; {
         splash = false;
