@@ -11,7 +11,6 @@
     ./kernel/hid/apple-hid.nix
     ./kernel/memory/zram.nix
     ./kernel/packages/rtl88xxau-aircrack.nix
-    ./networking/firewall.nix
     ./networking/network.nix
     ./nix/experimental-features.nix
     ./packages/pkgs-unfree.nix
@@ -48,7 +47,6 @@
   dconf.enable = lib.mkDefault true;
   dnscrypt.enable = lib.mkDefault true;
   experimental-features.enable = lib.mkDefault true;
-  firewall.enable = lib.mkDefault true;
   fstrim.enable = lib.mkDefault true;
   gaming.enable = lib.mkDefault true;
   git.enable = lib.mkDefault true;
