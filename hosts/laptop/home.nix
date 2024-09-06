@@ -48,7 +48,10 @@ in
 
     bind = [
       ", XF86MonBrightnessUp, exec, changebrightness up 10"
+      "ALT, XF86MonBrightnessUp, exec, changebrightness up 1"
+
       ", XF86MonBrightnessDown, exec, changebrightness down 10"
+      "ALT, XF86MonBrightnessDown, exec, changebrightness down 1"
 
       "$mod, O, exec, ${toggleLaptopDisplay}/bin/toggle-display"
     ];
