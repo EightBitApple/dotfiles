@@ -116,11 +116,11 @@
 
           /* Waybar */
           window#waybar {
-              background: linear-gradient(0deg, #${base00} 0%, #${base02} 66%);
+              background: linear-gradient(to bottom, #${base00} 0%,#${base03} 100%);
               padding-bottom: 3px;
               color: #${base07};
               border-radius: 0;
-              opacity: 0.9;
+              opacity: 0.8;
           }
 
           #window {
@@ -141,12 +141,13 @@
 
           #workspaces button.active {
               background-color: #${base07};
-              background: linear-gradient(0deg, #${base07} 0%, #${base0C} 66%);
+              background: linear-gradient(to bottom, #${base07} 0%,#${base0C} 100%);
               color: #${base00};
           }
 
           #workspaces button.urgent {
               background-color: #${base09};
+              background: linear-gradient(to bottom, #${base08} 0%,#${base09} 100%);
               color: #${base00};
           }
 
