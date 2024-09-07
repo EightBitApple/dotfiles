@@ -43,7 +43,7 @@ in
     wayland.windowManager.hyprland = {
       enable = true;
 
-      settings = {
+      settings = with config.stylix.base16Scheme; {
 
         exec-once = "${startupScript}/bin/startup";
 
@@ -54,8 +54,8 @@ in
           gaps_out = 10;
           layout = "master";
 
-          "col.active_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base08})";
-          "col.inactive_border" = lib.mkForce "rgb(${config.stylix.base16Scheme.base03})";
+          "col.active_border" = lib.mkForce "rgb(${base08}) rgb(${base0A}) rgb(${base09}) 60deg";
+          "col.inactive_border" = lib.mkForce "rgb(${base03})";
         };
 
         input = {
