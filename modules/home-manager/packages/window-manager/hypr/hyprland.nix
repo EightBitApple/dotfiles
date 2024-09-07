@@ -20,7 +20,7 @@ let
       sleep 3
       systemctl --user restart wallpaper-time-of-day.service
 
-      emacs --daemon && notify-send "Emacs server running."
+      emacs --daemon && notify-send -u low "Emacs server running."
     '';
   };
 
