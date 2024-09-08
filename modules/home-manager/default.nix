@@ -10,6 +10,7 @@
     ./packages/gaming/sourceports/ironwail.nix
     ./packages/media/audio-tools.nix
     ./packages/media/video-playback.nix
+    ./packages/mime.nix
     ./packages/terminals.nix
     ./packages/text-editors/doom-emacs/doom-emacs.nix
     ./packages/text-editors/neovim.nix
@@ -53,6 +54,7 @@
   hyprpaper.enable = lib.mkDefault true;
   ironwail.enable = lib.mkDefault true;
   mangohud.enable = lib.mkDefault true;
+  mime.enable = lib.mkDefault true;
   neoVim.enable = lib.mkDefault true;
   nightLight.enable = lib.mkDefault true;
   resources.enable = lib.mkDefault true;

@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 {
-  options.mine.enable = lib.mkEnableOption ''
+  options.mime.enable = lib.mkEnableOption ''
     Configure MIME.
   '';
 
