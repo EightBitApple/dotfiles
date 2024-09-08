@@ -30,6 +30,7 @@
     ./packages/window-manager/night-light.nix
     ./packages/window-manager/theming.nix
     ./packages/window-manager/waybar/waybar.nix
+    ./packages/xdg-user-dirs.nix
     ./resources/resources.nix
     ./scripts/scripts.nix
     ./users/users.nix
@@ -65,6 +66,7 @@
   users.enable = lib.mkDefault true;
   videoPlayback.enable = lib.mkDefault true;
   waybar.enable = lib.mkDefault true;
+  xdgUserDirs.enable = lib.mkDefault true;
   zsh.enable = lib.mkDefault true;
 
   home = {
