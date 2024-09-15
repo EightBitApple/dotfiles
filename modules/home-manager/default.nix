@@ -12,7 +12,7 @@
     ./packages/media/video-playback.nix
     ./packages/mime.nix
     ./packages/terminals.nix
-    ./packages/text-editors/doom-emacs/doom-emacs.nix
+    ./packages/text-editors/emacs.nix
     ./packages/text-editors/neovim.nix
     ./packages/utilities/extra-utilities.nix
     ./packages/utilities/git.nix
@@ -39,7 +39,7 @@
   appLauncher.enable = lib.mkDefault true;
   audioTools.enable = lib.mkDefault true;
   clipboard.enable = lib.mkDefault true;
-  doomEmacs.enable = lib.mkDefault true;
+  emacs.enable = lib.mkDefault true;
   dsda-doom.enable = lib.mkDefault true;
   dunst.enable = lib.mkDefault true;
   extra-utilities.enable = lib.mkDefault true;
@@ -56,7 +56,7 @@
   ironwail.enable = lib.mkDefault true;
   mangohud.enable = lib.mkDefault true;
   mime.enable = lib.mkDefault true;
-  neoVim.enable = lib.mkDefault true;
+  neovim.enable = lib.mkDefault true;
   nightLight.enable = lib.mkDefault true;
   resources.enable = lib.mkDefault true;
   scripts.enable = lib.mkDefault true;

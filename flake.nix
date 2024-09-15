@@ -15,11 +15,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-
-    doom-emacs = {
-      url = "github:doomemacs/doomemacs";
-      flake = false;
-    };
   };
 
   outputs =

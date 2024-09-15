@@ -6,11 +6,9 @@
 }:
 
 {
-  options.neoVim.enable = lib.mkEnableOption ''
+  options.neovim.enable = lib.mkEnableOption ''
     Install neoVim.
   '';
 
-  config = lib.mkIf config.doomEmacs.enable {
-    programs.neovim.enable = true;
-  };
+  config = lib.mkIf config.neovim.enable { programs.neovim.enable = true; };
 }
