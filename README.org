@@ -46,7 +46,8 @@ The home-manager configuration imports the host's configurations and everything 
 Both module directories have their own ~default.nix~, which imports every module in its directory and sub-directories.
 ~lib.mkDefault~ gets used to set the default state of the module: enabled or disabled.
 The activation of these modules can be overridden by each hosts' ~configuration.nix~ and ~home.nix~.
-For example, a module to enable a driver for a WiFi dongle gets enabled by default, however the laptop host overrides this default and disables it instead.
+For example, my desktop has a Wi-Fi dongle that uses drivers in nixpkgs, but my laptop's Wi-Fi interface can use drivers already in the kernel.
+So a module to install the Wi-Fi dongle driver gets enabled by default, but the laptop host overrides this default and disables it instead.
 This modular structure reduces redundancy and improves scalability.
 
 * Building a Fresh Installation
