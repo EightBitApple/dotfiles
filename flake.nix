@@ -10,6 +10,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -89,6 +94,7 @@
           modules = [
             ./hosts/laptop/configuration.nix
             ./modules/nixos
+            inputs.disko.nixosModules.disko
           ];
         };
       };

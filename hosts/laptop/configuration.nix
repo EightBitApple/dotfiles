@@ -2,7 +2,10 @@
 
 {
   networking.hostName = lib.mkForce "laptop";
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ./disko.nix
+  ];
 
   rtl88xxau-aircrack.enable = false;
   gaming.enable = false;
