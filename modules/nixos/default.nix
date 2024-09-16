@@ -77,5 +77,5 @@
   zram.enable = lib.mkDefault true;
   zsh.enable = lib.mkDefault true;
 
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.05";
 }
