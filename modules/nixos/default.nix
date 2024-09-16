@@ -30,6 +30,7 @@
     ./services/filesystem/gvfs.nix
     ./services/filesystem/tumbler.nix
     ./services/networking/dnscrypt.nix
+    ./services/networking/ssh-agent.nix
     ./services/security/pam.nix
     ./services/sound/pipewire.nix
     ./system/locale.nix
@@ -66,6 +67,7 @@
   pkgs-unfree.enable = lib.mkDefault true;
   printing.enable = lib.mkDefault true;
   rtl88xxau-aircrack.enable = lib.mkDefault true;
+  sshAgent.enable = lib.mkDefault true;
   thunar.enable = lib.mkDefault true;
   tlp.enable = lib.mkDefault true;
   tumbler.enable = lib.mkDefault true;
