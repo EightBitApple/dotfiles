@@ -25,5 +25,6 @@
         WIFI_PWR_ON_BAT = "on";
       };
     };
+    services.power-profiles-daemon.enable = false;
   };
 }

@@ -18,6 +18,7 @@
     ./programs/gaming.nix
     ./programs/git.nix
     ./programs/hyprland.nix
+    ./programs/plasma-six.nix
     ./programs/thunar.nix
     ./programs/wireshark.nix
     ./programs/zsh.nix
@@ -65,6 +66,7 @@
   pam.enable = lib.mkDefault true;
   pipewire.enable = lib.mkDefault true;
   pkgs-unfree.enable = lib.mkDefault true;
+  plasma6.enable = lib.mkDefault true;
   printing.enable = lib.mkDefault true;
   rtl88xxau-aircrack.enable = lib.mkDefault true;
   sshAgent.enable = lib.mkDefault true;
