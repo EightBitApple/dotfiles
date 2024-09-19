@@ -32,6 +32,7 @@
     ./services/filesystem/tumbler.nix
     ./services/networking/dnscrypt.nix
     ./services/networking/ssh-agent.nix
+    ./services/networking/wireguard.nix
     ./services/security/pam.nix
     ./services/sound/pipewire.nix
     ./system/locale.nix
@@ -75,6 +76,7 @@
   tumbler.enable = lib.mkDefault true;
   udev.enable = lib.mkDefault true;
   virtualisation.enable = lib.mkDefault true;
+  wireguard.enable = lib.mkDefault true;
   wireshark.enable = lib.mkDefault true;
   zram.enable = lib.mkDefault true;
   zsh.enable = lib.mkDefault true;
