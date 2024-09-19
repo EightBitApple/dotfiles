@@ -51,6 +51,8 @@
           hwdec = "auto";
           keep-open = "yes";
 
+          geometry = "50%";
+
           video-sync = "display-resample";
           profile = "fast";
 
