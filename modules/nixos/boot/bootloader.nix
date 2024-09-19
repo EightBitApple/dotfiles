@@ -15,14 +15,8 @@
         efi.canTouchEfiVariables = true;
       };
 
-      plymouth = {
-        enable = true;
-        theme = "circuit";
-        themePackages = with pkgs; [
-          # By default we would install all themes
-          (adi1090x-plymouth-themes.override { selected_themes = [ "circuit" ]; })
-        ];
-      };
+      plymouth.enable = true;
+
       # Enable "Silent Boot"
       consoleLogLevel = 0;
       initrd.verbose = false;
