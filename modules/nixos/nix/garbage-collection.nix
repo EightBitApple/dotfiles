@@ -17,7 +17,7 @@
     nix.gc = {
       automatic = true;
       dates = "${systemSettings.maintenanceDay}";
-      options = "--delete-older-than +3";
+      options = "--delete-older-than 14d";
     };
   };
 }
