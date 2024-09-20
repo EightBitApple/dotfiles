@@ -37,8 +37,9 @@
         timezone = "Europe/London";
         latitude = "51.50853";
         longitude = "-0.12574";
-
         locale = "en_GB.UTF-8";
+
+        maintenanceDay = "Tue";
       };
 
       userSettings = {
