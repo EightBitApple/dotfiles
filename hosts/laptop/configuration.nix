@@ -1,4 +1,9 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  userSettings,
+  ...
+}:
 
 {
   networking.hostName = lib.mkForce "laptop";
@@ -13,4 +18,8 @@
   ly.enable = false;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  system.autoUpgrade = {
+    flags = [ "--flake /home/${userSettings.username}/.dotfiles#laptop" ];
+  };
 }

@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, userSettings, ... }:
 
 {
   networking.hostName = lib.mkForce "desktop";
@@ -6,4 +6,8 @@
   brillo.enable = false;
   tlp.enable = false;
   intelHwdec.enable = false;
+
+  system.autoUpgrade = {
+    flags = [ "--flake /home/${userSettings.username}/.dotfiles#desktop" ];
+  };
 }
