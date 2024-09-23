@@ -12,7 +12,7 @@
   config = lib.mkIf config.extra-utilities.enable {
     home.packages = with pkgs; [
       keepassxc
-      neofetch
+      fastfetch
       vrrtest
       nh
       nix-output-monitor
