@@ -12,6 +12,7 @@
     ./kernel/memory/zram.nix
     ./kernel/packages/rtl88xxau-aircrack.nix
     ./networking/network.nix
+    ./nix/auto-upgrade.nix
     ./nix/experimental-features.nix
     ./nix/garbage-collection.nix
     ./packages/pkgs-unfree.nix
@@ -44,6 +45,7 @@
 
   accounts.enable = lib.mkDefault true;
   apple-hid.enable = lib.mkDefault true;
+  autoUpgrade.enable = lib.mkDefault true;
   bluetooth.enable = lib.mkDefault true;
   bootloader.enable = lib.mkDefault true;
   brillo.enable = lib.mkDefault true;

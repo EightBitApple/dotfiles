@@ -14,6 +14,7 @@
     ./packages/terminals.nix
     ./packages/text-editors/emacs.nix
     ./packages/text-editors/neovim.nix
+    ./packages/utilities/direnv.nix
     ./packages/utilities/extra-utilities.nix
     ./packages/utilities/git.nix
     ./packages/utilities/home-manager.nix
@@ -39,9 +40,10 @@
   appLauncher.enable = lib.mkDefault true;
   audioTools.enable = lib.mkDefault true;
   clipboard.enable = lib.mkDefault true;
-  emacs.enable = lib.mkDefault true;
+  direnv.enable = lib.mkDefault true;
   dsda-doom.enable = lib.mkDefault true;
   dunst.enable = lib.mkDefault true;
+  emacs.enable = lib.mkDefault true;
   extra-utilities.enable = lib.mkDefault true;
   firefox.enable = lib.mkDefault true;
   fonts.enable = lib.mkDefault true;
