@@ -12,7 +12,6 @@
     ./kernel/memory/zram.nix
     ./kernel/packages/rtl88xxau-aircrack.nix
     ./networking/network.nix
-    ./nix/auto-upgrade.nix
     ./nix/experimental-features.nix
     ./nix/garbage-collection.nix
     ./packages/pkgs-unfree.nix
@@ -73,7 +72,6 @@
   printing.enable = lib.mkDefault true;
   rtl88xxau-aircrack.enable = lib.mkDefault true;
   sshAgent.enable = lib.mkDefault true;
-  autoUpgrade.enable = lib.mkDefault true;
   thunar.enable = lib.mkDefault true;
   tlp.enable = lib.mkDefault true;
   tumbler.enable = lib.mkDefault true;
