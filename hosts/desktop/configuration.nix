@@ -6,8 +6,5 @@
   brillo.enable = false;
   tlp.enable = false;
   intelHwdec.enable = false;
-
-  system.autoUpgrade = {
-    flags = [ "--flake /home/${userSettings.username}/.dotfiles#desktop" ];
-  };
+  plasma6.enable = false;
 }

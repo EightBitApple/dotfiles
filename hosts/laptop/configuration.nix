@@ -15,11 +15,7 @@
   rtl88xxau-aircrack.enable = false;
   gaming.enable = false;
   mount-drive.enable = false;
-  ly.enable = false;
+  plasma6.enable = false;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  system.autoUpgrade = {
-    flags = [ "--flake /home/${userSettings.username}/.dotfiles#laptop" ];
-  };
 }

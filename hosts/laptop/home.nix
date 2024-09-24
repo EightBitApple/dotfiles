@@ -29,6 +29,8 @@ let
   };
 in
 {
+  imports = [ ../../modules/home-manager ];
+
   dsda-doom.enable = false;
   gzdoom.enable = false;
   ironwail.enable = false;

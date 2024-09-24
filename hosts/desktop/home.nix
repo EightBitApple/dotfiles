@@ -1,6 +1,8 @@
 { ... }:
 
 {
+  imports = [ ../../modules/home-manager ];
+
   wayland.windowManager.hyprland.settings = {
     bind = [
       "$mod ALT, W, exec, hyprctl keyword monitor DP-1,1920x1080@75,0x0,1 & notify-send -t 2000 'Refresh Rate: Max'"

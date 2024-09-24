@@ -21,6 +21,7 @@
     ./programs/git.nix
     ./programs/hyprland.nix
     ./programs/plasma-six.nix
+    ./programs/theming.nix
     ./programs/thunar.nix
     ./programs/wireshark.nix
     ./programs/zsh.nix
@@ -74,6 +75,7 @@
   printing.enable = lib.mkDefault true;
   rtl88xxau-aircrack.enable = lib.mkDefault true;
   sshAgent.enable = lib.mkDefault true;
+  theming.enable = lib.mkDefault true;
   thunar.enable = lib.mkDefault true;
   tlp.enable = lib.mkDefault true;
   tumbler.enable = lib.mkDefault true;

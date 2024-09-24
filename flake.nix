@@ -67,6 +67,7 @@
         wallpaperNight = ./modules/home-manager/resources/content/wallpapers/Cloudsnight.jpg;
         wallpaperNeutral = ./modules/home-manager/resources/content/wallpapers/nix-black-4k.png;
         wallpaperLock = ./modules/home-manager/resources/content/wallpapers/line_icons.png;
+
       };
 
       pkgs = nixpkgs.legacyPackages.${systemSettings.arch};
@@ -82,45 +83,43 @@
     in
     {
       nixosConfigurations = {
-        desktop = lib.nixosSystem {
-          specialArgs = hostArgs;
-          modules = [
-            ./hosts/desktop/configuration.nix
-            ./modules/nixos
-          ];
-        };
-
         laptop = lib.nixosSystem {
           specialArgs = hostArgs;
           modules = [
             ./hosts/laptop/configuration.nix
             ./modules/nixos
             inputs.disko.nixosModules.disko
+            inputs.stylix.nixosModules.stylix
+
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = hostArgs;
+                users.${userSettings.username} = import ./hosts/laptop/home.nix;
+              };
+            }
           ];
         };
-      };
 
-      homeConfigurations = {
-        desktop = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = hostArgs;
-
+        desktop = lib.nixosSystem {
+          specialArgs = hostArgs;
           modules = [
-            ./hosts/desktop/home.nix
-            ./modules/home-manager
-            inputs.stylix.homeManagerModules.stylix
-          ];
-        };
-      };
+            ./hosts/desktop/configuration.nix
+            ./modules/nixos
+            inputs.disko.nixosModules.disko
+            inputs.stylix.nixosModules.stylix
 
-      homeConfigurations = {
-        laptop = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = hostArgs;
-          modules = [
-            ./hosts/laptop/home.nix
-            ./modules/home-manager
-            inputs.stylix.homeManagerModules.stylix
+            home-manager.nixosModules.home-manager
+            {
+              home-mamager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = hostArgs;
+                users.${userSettings.username} = import ./hosts/desktop/home.nix;
+              };
+            }
           ];
         };
       };
