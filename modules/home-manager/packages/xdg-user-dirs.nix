@@ -15,9 +15,9 @@
       videos = "${config.home.homeDirectory}/videos";
       music = "${config.home.homeDirectory}/music";
       pictures = "${config.home.homeDirectory}/pictures";
-      desktop = "";
-      templates = "";
-      publicShare = "";
+      desktop = null;
+      templates = null;
+      publicShare = null;
 
       extraConfig = {
         XDG_MISC_DIR = "${config.home.homeDirectory}/misc";
