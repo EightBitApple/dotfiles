@@ -16,6 +16,7 @@
   gaming.enable = false;
   mount-drive.enable = false;
   plasma6.enable = false;
+  printing.enable = false;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 }
