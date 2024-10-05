@@ -74,12 +74,12 @@ in
         };
 
         decoration = {
-          drop_shadow = false;
-          rounding = 2;
+          drop_shadow = true;
+          rounding = 8;
 
           blur = {
             enabled = true;
-            size = 2;
+            size = 4;
           };
         };
 
@@ -112,7 +112,7 @@ in
 
         "$animation_speed" = 2;
         animations = {
-          enabled = "no";
+          enabled = "yes";
           bezier = "overshot, 0.05, 0.9, 0.1, 1.05";
         };
 
