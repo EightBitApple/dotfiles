@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "nixpkgs/24.05";
+    nixpkgs-emacs293.url = "nixpkgs/d9c0b9d611277e42e6db055636ba0409c59db6d2";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -26,6 +27,7 @@
     {
       nixpkgs,
       nixpkgs-stable,
+      nixpkgs-emacs293,
       home-manager,
       ...
     }@inputs:
@@ -61,7 +63,7 @@
         serifFont = "DejaVu Serif";
         serifFontPkg = pkgs.dejavu_fonts;
 
-        emacsPkg = pkgs.emacs29-pgtk;
+        emacsPkg = pkgs-emacs293.emacs29-pgtk;
 
         wallpaperDay = ./modules/home-manager/resources/content/wallpapers/Clearday.jpg;
         wallpaperNight = ./modules/home-manager/resources/content/wallpapers/Cloudsnight.jpg;
@@ -72,6 +74,7 @@
 
       pkgs = nixpkgs.legacyPackages.${systemSettings.arch};
       pkgs-stable = nixpkgs-stable.legacyPackages.${systemSettings.arch};
+      pkgs-emacs293 = nixpkgs-stable.legacyPackages.${systemSettings.arch};
       lib = nixpkgs.lib;
 
       hostArgs = {
