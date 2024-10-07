@@ -65,10 +65,11 @@
 
         emacsPkg = pkgs-emacs293.emacs29-pgtk;
 
-        wallpaperDay = ./modules/home-manager/resources/content/wallpapers/Clearday.jpg;
-        wallpaperNight = ./modules/home-manager/resources/content/wallpapers/Cloudsnight.jpg;
+        wallpaperDay = ./modules/home-manager/resources/content/wallpapers/gruvbox-day.jpg;
+        wallpaperNight = ./modules/home-manager/resources/content/wallpapers/gruvbox-night.jpg;
         wallpaperNeutral = ./modules/home-manager/resources/content/wallpapers/nix-black-4k.png;
         wallpaperLock = ./modules/home-manager/resources/content/wallpapers/line_icons.png;
+        splashLogo = ./modules/home-manager/resources/content/nix-logo.png;
 
       };
 

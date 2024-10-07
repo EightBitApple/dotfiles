@@ -1,11 +1,10 @@
 #+title: Sources for Resources
 
 * Wallpapers
-- The following are from [[https://github.com/zhichaoh/catppuccin-wallpapers][Catppuccin Wallpapers]].
-  + [[https://github.com/zhichaoh/catppuccin-wallpapers/blob/main/os/nix-magenta-blue-1920x1080.png][nix-magenta]]
-  + [[https://github.com/zhichaoh/catppuccin-wallpapers/blob/main/landscapes/Clearday.jpg][Clearday]]
-  + [[https://github.com/zhichaoh/catppuccin-wallpapers/blob/main/landscapes/Clearnight.jpg][Clearnight]]
-  + [[https://github.com/zhichaoh/catppuccin-wallpapers/blob/main/patterns/line_icons.png][line_icons]] [fn:1]
+  - [[https://github.com/zhichaoh/catppuccin-wallpapers/blob/main/os/nix-black-4k.png][nix-black-4k]] [fn:1]
+  - [[https://gruvbox-wallpapers.pages.dev/wallpapers/irl/explore-with-joshua-oI6EJabIYYQ.jpg][gruvbox-day]]
+  - [[https://gruvbox-wallpapers.pages.dev/wallpapers/irl/bulbs.jpg][gruvbox-night]]
+  - [[https://github.com/zhichaoh/catppuccin-wallpapers/blob/main/patterns/line_icons.png][line_icons]] [fn:2]
 
 * Notification Sounds
 - [[https://www.youtube.com/watch?v=6soBlsr1Mx0][Linux Mint]]
@@ -14,5 +13,5 @@
 - [[https://www.doomworld.com/forum/topic/118828-trevor0402s-sc-55-soundfont/][SC-55 soundfont]] by Trevor0402
 
 * Footnotes
-
-[fn:1] I reduced the brightness of this wallpaper to give better contrast in the lock screen.
+[fn:1] I Pallate swapped the image so it matchs the Gruvbox colorscheme.
+[fn:2] I reduced the brightness of this wallpaper to give better contrast in the lock screen.
