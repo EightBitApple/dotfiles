@@ -13,5 +13,5 @@
 - [[https://www.doomworld.com/forum/topic/118828-trevor0402s-sc-55-soundfont/][SC-55 soundfont]] by Trevor0402
 
 * Footnotes
-[fn:1] I Pallate swapped the image so it matchs the Gruvbox colorscheme.
+[fn:1] I Pallate swapped the image so it matches the Gruvbox colorscheme.
 [fn:2] I reduced the brightness of this wallpaper to give better contrast in the lock screen.
