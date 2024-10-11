@@ -23,6 +23,9 @@
           mainBar = {
             output = [ "*" ];
             layer = "top";
+            margin-top = 5;
+            margin-left = 10;
+            margin-right = 10;
             position = "top";
             modules-left = [
               "hyprland/workspaces"
@@ -56,7 +59,7 @@
             };
 
             "network" = {
-              format-wifi = "  {signalStrength}%";
+              format-wifi = " {signalStrength}%";
               format-ethernet = "󰈀";
               tooltip-format = ''
                 {ifname}	{ipaddr}/{cidr}
@@ -106,8 +109,6 @@
         };
         style = with config.stylix.base16Scheme; ''
           * {
-              border: none;
-              border-radius: 2px;
               font-family: ${userSettings.monospaceFont};
               font-size: 11px;
               font-weight: 500;
@@ -117,10 +118,9 @@
           /* Waybar */
           window#waybar {
               background: linear-gradient(to bottom, #${base00} 0%,#${base03} 100%);
-              padding-bottom: 3px;
               color: #${base07};
-              border-radius: 0;
-              opacity: 0.8;
+              border-radius: 8px;
+              opacity: 0.9;
           }
 
           #window {
@@ -133,6 +133,7 @@
               padding: 0 0.4em;
               background-color: transparent;
               color: #${base07};
+              border-radius: 8px;
           }
 
           #workspaces button:hover {
@@ -151,17 +152,11 @@
               color: #${base00};
           }
 
-          /* If workspaces is the leftmost module, omit top margin */
-          .modules-left > widget:first-child > #workspaces {
-              margin-top: 0.25em;
-          }
-
           tooltip {
               color: #${base07};
               background-color: #${base00};
               box-shadow: 2px 2px;
           }
-
 
           #clock.date,
           #clock,

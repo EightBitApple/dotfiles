@@ -20,5 +20,7 @@
       };
     };
     qt.enable = true;
+
+    stylix.targets.waybar.enable = false;
   };
 }
