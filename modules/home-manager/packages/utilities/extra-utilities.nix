@@ -29,6 +29,8 @@
       appimage-run
       file-roller
       home-manager
+      kdePackages.okular
+      tldr
     ];
   };
 }
