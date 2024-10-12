@@ -47,7 +47,10 @@ in
 
         exec-once = "${startupScript}/bin/startup";
 
-        env = [ "LSP_USE_PLISTS,true" ];
+        env = [
+          "LSP_USE_PLISTS,true"
+          "XDG_CURRENT_DESKTOP,Hyprland"
+        ];
 
         general = {
           border_size = 3;
