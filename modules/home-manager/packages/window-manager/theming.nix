@@ -21,6 +21,9 @@
     };
     qt.enable = true;
 
-    stylix.targets.waybar.enable = false;
+    stylix.targets = {
+      waybar.enable = false;
+      emacs.enable = false;
+    };
   };
 }
