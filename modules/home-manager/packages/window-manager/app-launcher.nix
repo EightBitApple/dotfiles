@@ -14,20 +14,15 @@
     programs.tofi = {
       enable = true;
       settings = with config.stylix.base16Scheme; {
-        anchor = "top";
         width = "100%";
-        height = 27;
-        horizontal = true;
-        font-size = lib.mkForce 11;
-        prompt-text = " run: ";
-        outline-width = 0;
+        height = "100%";
         border-width = 0;
-        min-input-width = 120;
-        result-spacing = 15;
-        padding-top = 3;
-        padding-bottom = 0;
-        padding-left = 0;
-        padding-right = 0;
+        outline-width = 0;
+        padding-left = "35%";
+        padding-top = "35%";
+        result-spacing = 25;
+        num-results = 5;
+        font = "FiraCode Nerd Font";
 
         selection-background = lib.mkForce "#${base07}";
         selection-background-padding = 1;
