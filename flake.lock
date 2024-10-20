@@ -172,18 +172,18 @@
         "type": "github"
       }
     },
-    "home-manager": {
+    "homeManager": {
       "inputs": {
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1728903686,
-        "narHash": "sha256-ZHFrGNWDDriZ4m8CA/5kDa250SG1LiiLPApv1p/JF0o=",
+        "lastModified": 1729414726,
+        "narHash": "sha256-Dtmm1OU8Ymiy9hVWn/a2B8DhRYo9Eoyx9veERdOBR4o=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "e1aec543f5caf643ca0d94b6a633101942fd065f",
+        "rev": "fe56302339bb28e3471632379d733547caec8103",
         "type": "github"
       },
       "original": {
@@ -207,7 +207,7 @@
         "type": "indirect"
       }
     },
-    "nixpkgs-emacs293": {
+    "nixpkgsEmacs293": {
       "locked": {
         "lastModified": 1720149507,
         "narHash": "sha256-OFJoD1jjxzFlY1tAsehEWVA88DbU5smzDPQuu9SmnXY=",
@@ -222,7 +222,7 @@
         "type": "indirect"
       }
     },
-    "nixpkgs-stable": {
+    "nixpkgsStable": {
       "locked": {
         "lastModified": 1717179513,
         "narHash": "sha256-vboIEwIQojofItm2xGCdZCzW96U85l9nDW3ifMuAIdM=",
@@ -241,10 +241,10 @@
       "inputs": {
         "arkenfox": "arkenfox",
         "disko": "disko",
-        "home-manager": "home-manager",
+        "homeManager": "homeManager",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-emacs293": "nixpkgs-emacs293",
-        "nixpkgs-stable": "nixpkgs-stable",
+        "nixpkgsEmacs293": "nixpkgsEmacs293",
+        "nixpkgsStable": "nixpkgsStable",
         "stylix": "stylix"
       }
     },
@@ -258,7 +258,7 @@
         "flake-utils": "flake-utils",
         "gnome-shell": "gnome-shell",
         "home-manager": [
-          "home-manager"
+          "homeManager"
         ],
         "nixpkgs": [
           "nixpkgs"

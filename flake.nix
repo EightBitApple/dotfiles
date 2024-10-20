@@ -3,10 +3,10 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "nixpkgs/24.05";
-    nixpkgs-emacs293.url = "nixpkgs/d9c0b9d611277e42e6db055636ba0409c59db6d2";
+    nixpkgsStable.url = "nixpkgs/24.05";
+    nixpkgsEmacs293.url = "nixpkgs/d9c0b9d611277e42e6db055636ba0409c59db6d2";
 
-    home-manager = {
+    homeManager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -19,16 +19,16 @@
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
+      inputs.home-manager.follows = "homeManager";
     };
   };
 
   outputs =
     {
       nixpkgs,
-      nixpkgs-stable,
-      nixpkgs-emacs293,
-      home-manager,
+      nixpkgsStable,
+      nixpkgsEmacs293,
+      homeManager,
       ...
     }@inputs:
     let
@@ -63,7 +63,7 @@
         serifFont = "DejaVu Serif";
         serifFontPkg = pkgs.dejavu_fonts;
 
-        emacsPkg = pkgs-emacs293.emacs29-pgtk;
+        emacsPkg = pkgsEmacs293.emacs29-pgtk;
 
         wallpaperDay = ./modules/home-manager/resources/content/wallpapers/gruvbox-day.jpg;
         wallpaperNight = ./modules/home-manager/resources/content/wallpapers/gruvbox-night.jpg;
@@ -74,8 +74,8 @@
       };
 
       pkgs = nixpkgs.legacyPackages.${systemSettings.arch};
-      pkgs-stable = nixpkgs-stable.legacyPackages.${systemSettings.arch};
-      pkgs-emacs293 = nixpkgs-stable.legacyPackages.${systemSettings.arch};
+      pkgsStable = nixpkgsStable.legacyPackages.${systemSettings.arch};
+      pkgsEmacs293 = nixpkgsStable.legacyPackages.${systemSettings.arch};
 
       pkgsOverlay = import nixpkgs {
         system = "${systemSettings.arch}";
@@ -98,7 +98,7 @@
       hostArgs = {
         inherit systemSettings;
         inherit userSettings;
-        inherit pkgs-stable;
+        inherit pkgsStable;
         inherit pkgsOverlay;
         inherit inputs;
       };
@@ -113,7 +113,7 @@
             inputs.disko.nixosModules.disko
             inputs.stylix.nixosModules.stylix
 
-            home-manager.nixosModules.home-manager
+            homeManager.nixosModules.home-manager
             {
               home-manager = {
                 useGlobalPkgs = true;
@@ -133,9 +133,9 @@
             inputs.disko.nixosModules.disko
             inputs.stylix.nixosModules.stylix
 
-            home-manager.nixosModules.home-manager
+            homeManager.nixosModules.home-manager
             {
-              home-mamager = {
+              home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
                 extraSpecialArgs = hostArgs;
