@@ -77,29 +77,12 @@
       pkgsStable = nixpkgsStable.legacyPackages.${systemSettings.arch};
       pkgsEmacs293 = nixpkgsStable.legacyPackages.${systemSettings.arch};
 
-      pkgsOverlay = import nixpkgs {
-        system = "${systemSettings.arch}";
-        overlays = [
-          (final: prev: {
-            intel-vaapi-driver = prev.intel-vaapi-driver.overrideAttrs (old: {
-              patches = (old.patches or [ ]) ++ [
-                (prev.fetchpatch {
-                  url = "https://patch-diff.githubusercontent.com/raw/intel/intel-vaapi-driver/pull/566.patch";
-                  hash = "sha256-unCnAGM36sRcW4inaN21IqVOhHY9YB+iJYGgdFCxWQ0=";
-                })
-              ];
-            });
-          })
-        ];
-      };
-
       lib = nixpkgs.lib;
 
       hostArgs = {
         inherit systemSettings;
         inherit userSettings;
         inherit pkgsStable;
-        inherit pkgsOverlay;
         inherit inputs;
       };
     in
@@ -110,6 +93,8 @@
           modules = [
             ./hosts/laptop/configuration.nix
             ./modules/nixos
+            (import ./overlays)
+
             inputs.disko.nixosModules.disko
             inputs.stylix.nixosModules.stylix
 
@@ -130,6 +115,8 @@
           modules = [
             ./hosts/desktop/configuration.nix
             ./modules/nixos
+            (import ./overlays)
+
             inputs.disko.nixosModules.disko
             inputs.stylix.nixosModules.stylix
 
