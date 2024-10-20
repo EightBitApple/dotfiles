@@ -24,6 +24,12 @@
     stylix.targets = {
       waybar.enable = false;
       emacs.enable = false;
+      fish.enable = false;
+      helix.enable = false;
+      vim.enable = false;
+      foot.enable = false;
+      kitty.enable = false;
+      tmux.enable = false;
     };
   };
 }
