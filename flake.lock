@@ -207,21 +207,6 @@
         "type": "indirect"
       }
     },
-    "nixpkgsEmacs293": {
-      "locked": {
-        "lastModified": 1720149507,
-        "narHash": "sha256-OFJoD1jjxzFlY1tAsehEWVA88DbU5smzDPQuu9SmnXY=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "d9c0b9d611277e42e6db055636ba0409c59db6d2",
-        "type": "github"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "rev": "d9c0b9d611277e42e6db055636ba0409c59db6d2",
-        "type": "indirect"
-      }
-    },
     "nixpkgsStable": {
       "locked": {
         "lastModified": 1717179513,
@@ -243,7 +228,6 @@
         "disko": "disko",
         "homeManager": "homeManager",
         "nixpkgs": "nixpkgs",
-        "nixpkgsEmacs293": "nixpkgsEmacs293",
         "nixpkgsStable": "nixpkgsStable",
         "stylix": "stylix"
       }
