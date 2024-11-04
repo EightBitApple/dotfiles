@@ -24,7 +24,7 @@
           fi
 
           case "$choice" in
-            'lock') physlock -m -s ;;
+            'lock') hyprlock -q ;;
             'logout') hyprctl dispatch exit ;;
             'reload') hyprctl reload ;;
             'reboot') systemctl reboot -i ;;
