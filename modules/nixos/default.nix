@@ -35,6 +35,7 @@
     ./services/filesystem/tumbler.nix
     ./services/networking/dnscrypt.nix
     ./services/networking/ssh-agent.nix
+    ./services/security/firejail.nix
     ./services/security/pam.nix
     ./services/sound/pipewire.nix
     ./system/locale.nix
@@ -53,6 +54,7 @@
   dconf.enable = lib.mkDefault true;
   dnscrypt.enable = lib.mkDefault true;
   experimental-features.enable = lib.mkDefault true;
+  firejail.enable = lib.mkDefault true;
   fstrim.enable = lib.mkDefault true;
   gaming.enable = lib.mkDefault true;
   garbageCollection.enable = lib.mkDefault true;
