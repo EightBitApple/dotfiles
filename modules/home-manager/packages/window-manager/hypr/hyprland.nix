@@ -169,7 +169,7 @@ in
 
           "$mod, E, exec, Thunar"
 
-          "$mod, R, exec, tofi-run | xargs hyprctl dispatch exec --"
+          "$mod, R, exec, tofi-run --prompt-text='Launch: ' | xargs hyprctl dispatch exec --"
           "$mod CTRL, L, exec, hyprlock -q"
 
           "$mod, C, exec, pgrep screenshot || screenshot"

@@ -18,7 +18,7 @@
         text = ''
           if [ $# -eq 0 ]
             then
-              choice=$(printf "lock\nlogout\nreload\nreboot\nsleep\nshutdown" | tofi)
+              choice=$(printf "lock\nlogout\nreload\nreboot\nsleep\nshutdown" | tofi --prompt-text="System: ")
             else
             choice=$1
           fi
