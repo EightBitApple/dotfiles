@@ -1,7 +1,7 @@
 {
   config,
   lib,
-  pkgsOverlay,
+  pkgs,
   ...
 }:
 
@@ -13,7 +13,7 @@
   config = lib.mkIf config.intelHwdec.enable {
     hardware.graphics = {
       enable = true;
-      extraPackages = [ pkgsOverlay.intel-vaapi-driver ];
+      extraPackages = with pkgs; [ pkgs.intel-vaapi-driver ];
     };
 
     environment.sessionVariables = {
