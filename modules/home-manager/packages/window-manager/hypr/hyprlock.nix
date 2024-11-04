@@ -20,7 +20,8 @@
         general = {
           disable_loading_bar = true;
           hide_cursor = true;
-          no_fade_in = false;
+          no_fade_in = true;
+          no_fade_out = true;
         };
 
         background = [ { path = "${userSettings.wallpaperLock}"; } ];
@@ -53,7 +54,7 @@
             fail_color = "rgb(204, 34, 34)";
             outline_thickness = 5;
             placeholder_text = "<span foreground='##cad3f5'>Password...</span>";
-            shadow_passes = 2;
+            shadow_passes = 0;
           }
         ];
       };
