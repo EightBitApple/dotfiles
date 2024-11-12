@@ -6,7 +6,7 @@
 }:
 
 {
-  nixpkgs.overlays = [
-    (import ./intel-vaapi-driver.nix)
-  ];
+  nixpkgs.overlays =
+    [
+    ];
 }
