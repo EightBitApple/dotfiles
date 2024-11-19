@@ -24,8 +24,6 @@
           no_fade_out = true;
         };
 
-        background = [ { path = "${userSettings.wallpaperLock}"; } ];
-
         label = [
           {
             text = "$TIME";
@@ -42,7 +40,7 @@
           }
         ];
 
-        input-field = [
+        input-field = lib.mkForce [
           {
             monitor = "";
             size = "250, 50";
