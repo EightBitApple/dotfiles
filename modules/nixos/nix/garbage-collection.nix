@@ -11,9 +11,6 @@
   '';
 
   config = lib.mkIf config.garbageCollection.enable {
-    nix.optimise.automatic = true;
-    nix.optimise.dates = [ "${systemSettings.maintenanceDay}" ];
-
     nix.gc = {
       automatic = true;
       dates = "${systemSettings.maintenanceDay}";

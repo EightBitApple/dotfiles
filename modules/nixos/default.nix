@@ -12,6 +12,7 @@
     ./kernel/memory/zram.nix
     ./kernel/packages/rtl88xxau-aircrack.nix
     ./networking/network.nix
+    ./nix/auto-optimise.nix
     ./nix/auto-upgrade.nix
     ./nix/experimental-features.nix
     ./nix/garbage-collection.nix
@@ -47,6 +48,7 @@
 
   accounts.enable = lib.mkDefault true;
   apple-hid.enable = lib.mkDefault true;
+  autoOptimise.enable = lib.mkDefault true;
   autoUpgrade.enable = lib.mkDefault true;
   bluetooth.enable = lib.mkDefault true;
   bootloader.enable = lib.mkDefault true;
