@@ -53,7 +53,7 @@
         terminalTitle = "Alacritty";
 
         monospaceFont = "FiraCode Nerd Font";
-        monospaceFontPkg = pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; };
+        monospaceFontPkg = pkgs.nerd-fonts.fira-code;
 
         sansSerifFont = "DejaVu Sans";
         sansSerifFontPkg = pkgs.dejavu_fonts;
