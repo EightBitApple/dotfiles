@@ -36,7 +36,9 @@
                   *) exit 1 ;;
               esac
 
+              [ ! -f "$battery/capacity" ] && continue
               capacity="$(cat "$battery/capacity" 2>&1)"
+
               warn=""
               [ "$status" = "" ] && [ "$capacity" -le 25 ] && warn=""
 

@@ -20,6 +20,7 @@
               battery_name=$(basename "''${battery}")
               [ "$battery_name" = "AC" ] && continue
 
+              [ ! -f "$battery/capacity" ] && continue
               capacity="$(cat "$battery/capacity" 2>&1)"
               status=$(cat "$battery/status" 2>&1)
 
