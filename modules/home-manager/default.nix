@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, userSettings, ... }:
 
 {
   imports = [
@@ -80,9 +80,10 @@
     # want to update the value, then make sure to first check the Home Manager
     # release notes.
     stateVersion = "24.05"; # Please read the comment before changing.
+
     sessionVariables = {
-      EDITOR = "emacs";
-      FLAKE = ".dotfiles";
+      EDITOR = "${userSettings.editor}";
+      FLAKE = "${userSettings.dotfilesDir}";
     };
   };
 }

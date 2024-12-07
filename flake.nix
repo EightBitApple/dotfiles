@@ -42,11 +42,12 @@
         maintenanceDay = "Tue";
       };
 
-      userSettings = {
+      userSettings = rec {
         username = "stefan";
         name = "Stefan";
-        dotfilesDir = "~/.dotfiles";
+        dotfilesDir = "home/${username}/dotfiles";
 
+        editor = "emacs";
         windowManager = "hyprland";
         browser = "firefox";
         terminal = "alacritty";
