@@ -27,8 +27,7 @@
         path+=('/home/${userSettings.username}/.config/emacs/bin')
         export PATH
 
-        export FZF_DEFAULT_COMMAND="fd --full-path -E $HOME/hdd $HOME"
-        export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+        export FZF_CTRL_T_COMMAND="fd --full-path"
         export FZF_ALT_C_COMMAND="fd -t d"
         export DOTNET_CLI_TELEMETRY_OPTOUT=1
       '';
