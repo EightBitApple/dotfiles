@@ -74,7 +74,10 @@
         popups = 0.95;
       };
 
-      targets.plymouth.logo = userSettings.splashLogo;
+      targets = {
+        plymouth.enable = false;
+        console.enable = false;
+      };
     };
   };
 }
