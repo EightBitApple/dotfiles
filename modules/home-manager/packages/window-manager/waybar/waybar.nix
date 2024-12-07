@@ -127,12 +127,8 @@
 
           #workspaces button {
               padding: 0px;
-              margin-top: 0.2em;
-              margin-bottom: 0.2em;
-              margin-left: 0.2em;
               background-color: transparent;
               color: #${base07};
-              border-radius: 8px;
           }
 
           #workspaces button:hover {
