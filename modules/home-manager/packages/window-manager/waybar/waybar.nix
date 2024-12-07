@@ -115,7 +115,7 @@
           window#waybar {
               background: linear-gradient(to bottom, #${base00} 0%,#${base03} 100%);
               color: #${base07};
-              border-radius: 8px;
+              border-radius: 0px;
               opacity: 0.9;
           }
 
@@ -128,6 +128,7 @@
           #workspaces button {
               padding: 0px;
               background-color: transparent;
+              border-radius: 8px;
               color: #${base07};
           }
 
