@@ -33,6 +33,30 @@
           "cp *"
         ];
       };
+
+      shellAliases = {
+        ll = "ls -l";
+        ".." = "cd ..";
+        c = "clear";
+        bc = "${pkgs.bc}/bin/bc - l";
+        mkdir = "mkdir -pv";
+        diff = "${pkgs.colordiff}/bin/colordiff";
+        ping = "ping -c 5";
+        fastping = "ping -c 100 -s.2";
+        ports = "netstat -tulanp";
+
+        # safety nets
+        mv = "mv -i";
+        cp = "cp -i";
+        ln = "ln -i";
+
+        # become root
+        root = "sudo -i";
+
+        df = "df -H";
+        du = "du -ch";
+      };
+
       envExtra = ''
         path=('/usr/local/bin' $path)
         path+=('/home/${userSettings.username}/.local/bin')
