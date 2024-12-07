@@ -132,6 +132,7 @@ in
           "noanim,class:^(Gimp)$"
           "stayfocused, title:^()$,class:^(steam)$"
           "minsize 1 1, title:^()$,class:^(steam)$"
+          "idleinhibit fullscreen, class:.*"
         ];
 
         layerrule = [
