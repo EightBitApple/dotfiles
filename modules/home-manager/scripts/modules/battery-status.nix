@@ -23,7 +23,10 @@
         name = "battery-status";
         text = ''
           final_str=""
+          first_battery=true
+          delim=""
           for battery in /sys/class/power_supply/?*; do
+
               battery_name=$(basename "''${battery}")
               [ "$battery_name" = "AC" ] && continue
 
@@ -45,7 +48,13 @@
               # assemble battery_str and concatinate into final_str
               battery_str="$status$warn $capacity%"
 
+              if [ "$first_battery" = false ]
+                then
+                delim=" | "
+              fi
+
               final_str="''${final_str}$delim$battery_str"
+              first_battery=false
             done
 
             # https://stackoverflow.com/a/3352015
