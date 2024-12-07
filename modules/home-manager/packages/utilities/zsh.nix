@@ -21,33 +21,55 @@
       enable = true;
       enableCompletion = true;
       syntaxHighlighting.enable = true;
+
+      history = {
+        size = 10000;
+        ignoreAllDups = true;
+        path = "$HOME/.zsh_history";
+
+        ignorePatterns = [
+          "rm *"
+          "pkill *"
+          "cp *"
+        ];
+      };
+
+      shellAliases = {
+        ll = "ls -l";
+        ".." = "cd ..";
+        c = "clear";
+        bc = "${pkgs.bc}/bin/bc - l";
+        mkdir = "mkdir -pv";
+        diff = "${pkgs.colordiff}/bin/colordiff";
+        ping = "ping -c 5";
+        fastping = "ping -c 100 -s.2";
+        ports = "netstat -tulanp";
+
+        # safety nets
+        mv = "mv -i";
+        cp = "cp -i";
+        ln = "ln -i";
+
+        # become root
+        root = "sudo -i";
+
+        df = "df -H";
+        du = "du -ch";
+      };
+
       envExtra = ''
         path=('/usr/local/bin' $path)
         path+=('/home/${userSettings.username}/.local/bin')
-        path+=('/home/${userSettings.username}/.local/bin/arkenfox')
-        path+=('/home/${userSettings.username}/dotnet/tools')
         path+=('/home/${userSettings.username}/.config/emacs/bin')
         export PATH
 
-        export FZF_DEFAULT_COMMAND="fd --full-path -E $HOME/hdd $HOME"
-        export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+        export FZF_CTRL_T_COMMAND="fd --full-path"
         export FZF_ALT_C_COMMAND="fd -t d"
-        export DOTNET_CLI_TELEMETRY_OPTOUT=1
       '';
 
       initExtra = ''
-        NEWLINE=$'\n'
-        SHELL_LEVEL_STRING=""
-        NIX_SHELL_STRING=""
-
-        # check sub shell depth
-        [ "$SHLVL" -ne 1 ] && SHELL_LEVEL_STRING="[lvl %B$SHLVL%b] "
-
-        PROMPT=''${NIX_SHELL_STRING}''${SHELL_LEVEL_STRING}"%B%~%b
+        PROMPT="%B%~%b
         ❯ "
-
-        unset SHELL_LEVEL_STRING
-        unset NIX_SHELL_STRING
 
         if [ -n "$commands [ fzf-share ]" ]; then
           source "$(fzf-share)/key-bindings.zsh"
@@ -78,13 +100,6 @@
         zle -N zle-line-init
         echo -ne '\e[5 q' # Use beam shape cursor on startup.
         preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
-
-        # Print a newline before prompt renders, expect for the first line of the shell.
-        precmd() {
-            precmd() {
-                echo
-            }
-        }
       '';
     };
   };
