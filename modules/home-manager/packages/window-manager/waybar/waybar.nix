@@ -86,7 +86,7 @@
 
             "custom/battery" = {
               format = "{}";
-              interval = 10;
+              interval = 15;
               exec = "battery-status";
               on-click = ''
                 notify-send "Battery Information:" "$(battery-info)"
