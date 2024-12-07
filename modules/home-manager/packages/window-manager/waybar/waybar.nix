@@ -55,7 +55,7 @@
             };
 
             "network" = {
-              format-wifi = " {signalStrength}%";
+              format-wifi = "  {signalStrength}%";
               format-ethernet = "󰈀";
               tooltip-format = ''
                 {ifname}	{ipaddr}/{cidr}
