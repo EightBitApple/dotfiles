@@ -23,9 +23,6 @@
           mainBar = {
             output = [ "*" ];
             layer = "top";
-            margin-top = 5;
-            margin-left = 10;
-            margin-right = 10;
             position = "top";
             modules-left = [
               "hyprland/workspaces"
@@ -34,7 +31,6 @@
             modules-right = [
               "wireplumber"
               "custom/battery"
-              "bluetooth"
               "network"
               "clock"
               "tray"
@@ -59,7 +55,7 @@
             };
 
             "network" = {
-              format-wifi = " {signalStrength}%";
+              format-wifi = "  {signalStrength}%";
               format-ethernet = "󰈀";
               tooltip-format = ''
                 {ifname}	{ipaddr}/{cidr}
@@ -90,7 +86,7 @@
 
             "custom/battery" = {
               format = "{}";
-              interval = 10;
+              interval = 15;
               exec = "battery-status";
               on-click = ''
                 notify-send "Battery Information:" "$(battery-info)"
@@ -131,12 +127,8 @@
 
           #workspaces button {
               padding: 0px;
-              margin-top: 0.2em;
-              margin-bottom: 0.2em;
-              margin-left: 0.2em;
               background-color: transparent;
               color: #${base07};
-              border-radius: 8px;
           }
 
           #workspaces button:hover {
@@ -166,7 +158,6 @@
           #network,
           #wireplumber,
           #custom-battery,
-          #bluetooth,
           #tray {
             padding: 0 10px;
             margin: 6px 2px;
