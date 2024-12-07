@@ -21,6 +21,18 @@
       enable = true;
       enableCompletion = true;
       syntaxHighlighting.enable = true;
+
+      history = {
+        size = 10000;
+        ignoreAllDups = true;
+        path = "$HOME/.zsh_history";
+
+        ignorePatterns = [
+          "rm *"
+          "pkill *"
+          "cp *"
+        ];
+      };
       envExtra = ''
         path=('/usr/local/bin' $path)
         path+=('/home/${userSettings.username}/.local/bin')
