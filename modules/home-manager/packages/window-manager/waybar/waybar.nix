@@ -31,7 +31,6 @@
             modules-right = [
               "wireplumber"
               "custom/battery"
-              "bluetooth"
               "network"
               "clock"
               "tray"
@@ -163,7 +162,6 @@
           #network,
           #wireplumber,
           #custom-battery,
-          #bluetooth,
           #tray {
             padding: 0 10px;
             margin: 6px 2px;
