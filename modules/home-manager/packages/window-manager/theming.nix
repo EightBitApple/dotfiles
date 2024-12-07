@@ -15,7 +15,7 @@
     gtk = {
       enable = true;
       iconTheme = {
-        name = "Obsidian-Mint";
+        name = "Obsidian-Green";
         package = pkgs.iconpack-obsidian;
       };
     };
