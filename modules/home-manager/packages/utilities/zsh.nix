@@ -24,8 +24,6 @@
       envExtra = ''
         path=('/usr/local/bin' $path)
         path+=('/home/${userSettings.username}/.local/bin')
-        path+=('/home/${userSettings.username}/.local/bin/arkenfox')
-        path+=('/home/${userSettings.username}/dotnet/tools')
         path+=('/home/${userSettings.username}/.config/emacs/bin')
         export PATH
 
