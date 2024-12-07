@@ -29,7 +29,6 @@
 
         export FZF_CTRL_T_COMMAND="fd --full-path"
         export FZF_ALT_C_COMMAND="fd -t d"
-        export DOTNET_CLI_TELEMETRY_OPTOUT=1
       '';
 
       initExtra = ''
