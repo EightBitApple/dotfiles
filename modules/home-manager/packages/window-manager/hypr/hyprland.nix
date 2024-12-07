@@ -140,6 +140,11 @@ in
           "blur, notifications"
         ];
 
+        device = {
+          name = "wacom-one-by-wacom-s-pen";
+          left_handed = true;
+        };
+
         "$mod" = "SUPER";
 
         bind = [
