@@ -58,7 +58,7 @@
           always_run_script = true;
           title = "Dunst";
           class = "Dunst";
-          corner_radius = 2;
+          corner_radius = 8;
           progress_bar_corner_radius = 2;
           ignore_dbusclose = false;
           force_xwayland = false;
