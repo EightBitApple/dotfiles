@@ -44,10 +44,17 @@
 
               # assemble battery_str and concatinate into final_str
               battery_str="$status$warn $capacity%"
-              final_str="''${final_str} $battery_str"
-          done
 
-          printf "%b\n" "$final_str"
+              final_str="''${final_str}$delim$battery_str"
+            done
+
+            # https://stackoverflow.com/a/3352015
+            # remove leading whitespace characters
+            final_str="''${final_str#"''${final_str%%[![:space:]]*}"}"
+            # remove trailing whitespace characters
+            final_str="''${final_str%"''${final_str##*[![:space:]]}"}"
+
+            printf "%b\n" "$final_str"
         '';
       })
     ];
