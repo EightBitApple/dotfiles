@@ -50,7 +50,7 @@
       userSettings = rec {
         username = "stefan";
         name = "Stefan";
-        dotfilesDir = "home/${username}/dotfiles";
+        dotfilesDir = "/home/${username}/dotfiles/";
 
         editor = "emacs";
         windowManager = "hyprland";
