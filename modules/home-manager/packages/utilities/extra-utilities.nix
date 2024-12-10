@@ -14,7 +14,6 @@
       keepassxc
       fastfetch
       vrrtest
-      nh
       nix-output-monitor
       nvd
       gimp

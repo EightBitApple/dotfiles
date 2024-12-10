@@ -15,7 +15,7 @@
     ./nix/auto-optimise.nix
     ./nix/auto-upgrade.nix
     ./nix/experimental-features.nix
-    ./nix/garbage-collection.nix
+    ./nix/nix-helpers.nix
     ./packages/pkgs-unfree.nix
     ./programs/dconf.nix
     ./programs/gaming.nix
@@ -59,7 +59,6 @@
   firejail.enable = lib.mkDefault true;
   fstrim.enable = lib.mkDefault true;
   gaming.enable = lib.mkDefault true;
-  garbageCollection.enable = lib.mkDefault true;
   git.enable = lib.mkDefault true;
   groups.enable = lib.mkDefault true;
   gvfs.enable = lib.mkDefault true;
@@ -72,6 +71,7 @@
   microcode-updates.enable = lib.mkDefault true;
   mount-drive.enable = lib.mkDefault true;
   network.enable = lib.mkDefault true;
+  nixHelpers.enable = lib.mkDefault true;
   pam.enable = lib.mkDefault true;
   pipewire.enable = lib.mkDefault true;
   pkgs-unfree.enable = lib.mkDefault true;
