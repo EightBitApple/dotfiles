@@ -7,18 +7,14 @@
 }:
 
 {
-  options.nixHelpers.enable = lib.mkEnableOption ''
-    Install Nix helpers.
-  '';
+  # Install Nix helpers.
 
-  config = lib.mkIf config.nixHelpers.enable {
-    programs.nh = {
+  programs.nh = {
+    enable = true;
+    flake = "${userSettings.dotfilesDir}";
+    clean = {
       enable = true;
-      flake = "${userSettings.dotfilesDir}";
-      clean = {
-        enable = true;
-        extraArgs = "--keep 4";
-      };
+      extraArgs = "--keep 4";
     };
   };
 }

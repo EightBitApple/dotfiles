@@ -1,9 +1,7 @@
 { config, lib, ... }:
 
 {
-  options.zsh.enable = lib.mkEnableOption ''
-    Enable the use of ZSH. It's configuration should be done with Home Manager.
-  '';
+  # ZSH's configuration is performed with home-manager.
 
-  config = lib.mkIf config.zsh.enable { programs.zsh.enable = true; };
+  programs.zsh.enable = true;
 }
