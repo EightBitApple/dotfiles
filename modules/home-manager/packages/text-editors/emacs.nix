@@ -36,7 +36,7 @@
       nodejs
 
       # java lsp
-      jdk22
+      jdk
 
       # python lsp
       ruff-lsp
