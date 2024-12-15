@@ -32,7 +32,7 @@
           separator_height = 2;
           padding = 10;
           text_icon_padding = 0;
-          frame_width = 3;
+          frame_width = 2;
           gap_size = 0;
           sort = "yes";
           idle_threshold = 120;
@@ -58,8 +58,8 @@
           always_run_script = true;
           title = "Dunst";
           class = "Dunst";
-          corner_radius = 8;
-          progress_bar_corner_radius = 2;
+          corner_radius = 4;
+          progress_bar_corner_radius = 4;
           ignore_dbusclose = false;
           force_xwayland = false;
           force_xinerama = false;

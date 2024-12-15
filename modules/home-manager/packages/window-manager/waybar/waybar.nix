@@ -24,10 +24,12 @@
             output = [ "*" ];
             layer = "top";
             position = "top";
+
             modules-left = [
               "hyprland/workspaces"
               "hyprland/window"
             ];
+
             modules-right = [
               "wireplumber"
               "custom/battery"
@@ -128,7 +130,6 @@
           #workspaces button {
               padding: 0px;
               background-color: transparent;
-              border-radius: 8px;
               color: #${base07};
           }
 

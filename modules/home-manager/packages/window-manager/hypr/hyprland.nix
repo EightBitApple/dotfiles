@@ -53,8 +53,9 @@ in
         ];
 
         general = {
-          border_size = 3;
-          gaps_out = 10;
+          border_size = 2;
+          gaps_out = 4;
+          gaps_in = 4;
           layout = "master";
 
           "col.active_border" = lib.mkForce "rgb(${base08}) rgb(${base0A}) rgb(${base09}) 60deg";
@@ -78,12 +79,9 @@ in
 
         decoration = {
           shadow.enabled = false;
-          rounding = 8;
+          rounding = 4;
 
-          blur = {
-            enabled = false;
-            size = 4;
-          };
+          blur.enabled = false;
         };
 
         xwayland.force_zero_scaling = true;

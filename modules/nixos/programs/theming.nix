@@ -16,8 +16,10 @@
       enable = true;
       image = userSettings.wallpaperNeutral;
 
-      # scheme: "Gruber Darker"
+      # system: "base16"
+      # name: "Gruber"
       # author: "Patel, Nimai <nimai.m.patel@gmail.com>, colors from www.github.com/rexim/gruber-darker-theme"
+      # variant: "dark"
       base16Scheme = {
         base00 = "181818";
         base01 = "453d41";
@@ -60,10 +62,10 @@
         };
 
         sizes = {
-          applications = 12;
+          applications = 10;
           terminal = 10;
           desktop = 10;
-          popups = 12;
+          popups = 10;
         };
       };
 
