@@ -17,7 +17,6 @@
     ./packages/utilities/direnv.nix
     ./packages/utilities/extra-utilities.nix
     ./packages/utilities/git.nix
-    ./packages/utilities/home-manager.nix
     ./packages/utilities/htop.nix
     ./packages/utilities/syncthing.nix
     ./packages/utilities/zsh.nix
