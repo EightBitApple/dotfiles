@@ -32,7 +32,7 @@
     ./packages/window-manager/theming.nix
     ./packages/xdg-user-dirs.nix
     ./resources/resources.nix
-    ./scripts/scripts.nix
+    ./scripts/default.nix
     ./users/users.nix
   ];
 
