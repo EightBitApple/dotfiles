@@ -69,12 +69,7 @@
 
         emacsPkg = pkgs.emacs29-pgtk;
 
-        wallpaperDay = ./modules/home-manager/resources/content/wallpapers/gruvbox-day.jpg;
-        wallpaperNight = ./modules/home-manager/resources/content/wallpapers/gruvbox-night.jpg;
-        wallpaperNeutral = ./modules/home-manager/resources/content/wallpapers/nix-black-4k.png;
-        wallpaperLock = ./modules/home-manager/resources/content/wallpapers/line_icons.png;
-        splashLogo = ./modules/home-manager/resources/content/nix-logo.png;
-
+        wallpaper = ./modules/home-manager/resources/content/wallpapers/gruvbox-day.jpg;
       };
 
       pkgs = nixpkgs.legacyPackages.${systemSettings.arch};

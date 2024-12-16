@@ -11,15 +11,9 @@ let
     name = "startup";
     runtimeInputs = with pkgs; [ waybar ];
     text = ''
-      systemctl --user restart hypridle.service
       waybar &
-
-      # Sleep to make sure that Hyprpaper socket is opened before wallpaper
-      # script runs!
+      systemctl --user restart hypridle.service
       systemctl --user restart hyprpaper.service
-      sleep 3
-      systemctl --user restart wallpaper-time-of-day.service
-
       emacs --daemon && notify-send -u low "Emacs server running."
     '';
   };

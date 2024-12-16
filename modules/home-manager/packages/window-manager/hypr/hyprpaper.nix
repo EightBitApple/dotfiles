@@ -8,11 +8,9 @@
       splash = false;
       ipc = true;
       preload = [
-        "${wallpaperDay}"
-        "${wallpaperNight}"
-        "${wallpaperNeutral}"
+        "${wallpaper}"
       ];
-      wallpaper = [ ",${wallpaperNeutral}" ];
+      wallpaper = [ ",${wallpaper}" ];
     };
   };
 }

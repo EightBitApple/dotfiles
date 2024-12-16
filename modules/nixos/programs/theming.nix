@@ -3,7 +3,7 @@
 {
   stylix = {
     enable = true;
-    image = userSettings.wallpaperNeutral;
+    image = userSettings.wallpaper;
 
     # system: "base16"
     # name: "Gruber"
