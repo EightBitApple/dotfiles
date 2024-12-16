@@ -96,7 +96,6 @@
           modules = [
             ./hosts/laptop/configuration.nix
             ./modules/nixos
-            (import ./overlays)
 
             inputs.disko.nixosModules.disko
             inputs.stylix.nixosModules.stylix
@@ -118,7 +117,6 @@
           modules = [
             ./hosts/desktop/configuration.nix
             ./modules/nixos
-            (import ./overlays)
 
             inputs.disko.nixosModules.disko
             inputs.stylix.nixosModules.stylix
