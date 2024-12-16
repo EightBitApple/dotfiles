@@ -1,12 +1,6 @@
-{ config, lib, ... }:
-
 {
-  options.tlp.enable = lib.mkEnableOption ''
-    Enable and configure the tlp power management service.
-  '';
-
-  config = lib.mkIf config.tlp.enable {
-    services.tlp = {
+  services = {
+    tlp = {
       enable = true;
       settings = {
         START_CHARGE_THRESH_BAT0 = 75;
@@ -25,6 +19,7 @@
         WIFI_PWR_ON_BAT = "on";
       };
     };
-    services.power-profiles-daemon.enable = false;
+
+    power-profiles-daemon.enable = false;
   };
 }

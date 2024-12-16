@@ -1,17 +1,5 @@
-{
-  config,
-  lib,
-  pkgs,
-  userSettings,
-  ...
-}:
+{ pkgs, ... }:
 
 {
-  options.gzdoom.enable = lib.mkEnableOption ''
-    Install and configire gzdoom.
-  '';
-
-  config = lib.mkIf config.gzdoom.enable {
-    home.packages = with pkgs; [ gzdoom ];
-  };
+  home.packages = with pkgs; [ gzdoom ];
 }

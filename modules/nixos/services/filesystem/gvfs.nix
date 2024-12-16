@@ -1,10 +1,5 @@
-{ config, lib, ... }:
-
 {
-  options.gvfs.enable = lib.mkEnableOption ''
-    Enable GVFS for automatic drive partition mounting and trashcan
-    functionality.
-  '';
+  # For automatic drive partition mounting and trashcan functionality.
 
-  config = lib.mkIf config.gvfs.enable { services.gvfs.enable = true; };
+  services.gvfs.enable = true;
 }

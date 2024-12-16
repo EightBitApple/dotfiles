@@ -12,11 +12,12 @@
     ./disko.nix
   ];
 
-  rtl88xxau-aircrack.enable = false;
-  gaming.enable = false;
-  mount-drive.enable = false;
-  plasma6.enable = false;
-  printing.enable = false;
+  disabledModules = [
+    ../../modules/nixos/kernel/drivers/rtl88xxau-aircrack.nix
+    ../../modules/nixos/programs/gaming.nix
+    ../../modules/nixos/system/mount-drive.nix
+    ../../modules/nixos/services/device/printing.nix
+  ];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
