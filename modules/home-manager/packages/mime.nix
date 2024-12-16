@@ -1,5 +1,3 @@
-{ config, lib, ... }:
-
 {
   xdg.mimeApps.defaultApplications = {
     "text/plain" = [ "emacsclient.desktop" ];

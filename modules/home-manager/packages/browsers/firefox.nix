@@ -1,11 +1,5 @@
-{
-  config,
-  lib,
-  pkgs,
-  inputs,
-  userSettings,
-  ...
-}:
+{ inputs, userSettings, ... }:
+
 let
   lock-false = {
     Value = false;

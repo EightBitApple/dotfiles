@@ -1,11 +1,4 @@
-{
-  pkgs,
-  config,
-  lib,
-  userSettings,
-  inputs,
-  ...
-}:
+{ pkgs, userSettings, ... }:
 
 {
   programs = {

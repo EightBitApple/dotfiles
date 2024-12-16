@@ -1,10 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  userSettings,
-  ...
-}:
+{ pkgs, ... }:
 
 {
   home.packages = with pkgs; [ gzdoom ];
