@@ -1,5 +1,3 @@
-{ config, lib, ... }:
-
 {
   # Enable Nix's experimental features, such as new nix* commands and flakes.
 

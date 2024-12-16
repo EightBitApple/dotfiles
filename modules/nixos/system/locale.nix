@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  systemSettings,
-  ...
-}:
+{ systemSettings, ... }:
 
 {
   time.timeZone = "${systemSettings.timezone}";

@@ -1,10 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  userSettings,
-  ...
-}:
+{ userSettings, ... }:
 
 {
   # Install Nix helpers.

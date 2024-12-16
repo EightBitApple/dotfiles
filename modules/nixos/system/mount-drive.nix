@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  userSettings,
-  ...
-}:
+{ userSettings, ... }:
 
 {
   fileSystems."/home/${userSettings.username}/hdd" = {

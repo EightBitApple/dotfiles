@@ -1,5 +1,3 @@
-{ config, lib, ... }:
-
 {
   # Set configuration for logind.
 

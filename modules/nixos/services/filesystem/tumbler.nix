@@ -1,5 +1,3 @@
-{ config, lib, ... }:
-
 {
   # Enable thumbnails for XFCE Thunar.
 

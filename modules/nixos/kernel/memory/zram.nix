@@ -1,5 +1,3 @@
-{ config, lib, ... }:
-
 {
   # Enables zram and sets it to double that of physical RAM
 

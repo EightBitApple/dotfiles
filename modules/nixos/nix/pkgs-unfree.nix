@@ -1,7 +1,5 @@
-{ config, lib, ... }:
-
 {
-  # Configure Nixpkgs to allow unfree software.
+  # Configure nixpkgs to allow the installation of unfree software.
 
   nixpkgs.config.allowUnfree = true;
 }

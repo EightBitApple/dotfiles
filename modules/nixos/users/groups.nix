@@ -1,5 +1,3 @@
-{ config, lib, ... }:
-
 {
   users.groups.wireshark = { };
   users.groups.gamemode = { };

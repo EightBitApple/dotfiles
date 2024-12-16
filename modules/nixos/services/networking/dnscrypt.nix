@@ -1,5 +1,3 @@
-{ config, lib, ... }:
-
 {
   # Encrypted DNS queries via dnscrypt-proxy2.
 

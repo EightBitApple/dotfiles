@@ -1,5 +1,3 @@
-{ config, lib, ... }:
-
 {
   security.rtkit.enable = true; # for realtime piority
 
