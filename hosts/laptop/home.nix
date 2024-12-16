@@ -31,12 +31,15 @@ in
 {
   imports = [ ../../modules/home-manager ];
 
-  dsda-doom.enable = false;
-  gzdoom.enable = false;
-  ironwail.enable = false;
-  mangohud.enable = false;
+  disabledModules = [
+    ../../modules/home-manager/packages/gaming/sourceports/dsda-doom.nix
+    ../../modules/home-manager/packages/gaming/sourceports/gzdoom.nix
+    ../../modules/home-manager/packages/gaming/sourceports/ironwail.nix
+    ../../modules/home-manager/packages/gaming/mangohud.nix
+  ];
 
   wayland.windowManager.hyprland.settings = {
+
     monitor = [
       "HDMI-A-1, preferred, auto, 1"
       "eDP-1, preferred, auto-right, 1"
