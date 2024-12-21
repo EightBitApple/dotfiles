@@ -14,12 +14,21 @@
     ./packages/terminals.nix
     ./packages/text-editors/emacs.nix
     ./packages/text-editors/neovim.nix
-    ./packages/utilities/direnv.nix
-    ./packages/utilities/extra-utilities.nix
-    ./packages/utilities/git.nix
-    ./packages/utilities/htop.nix
-    ./packages/utilities/syncthing.nix
-    ./packages/utilities/zsh.nix
+    ./packages/utilities/development/direnv.nix
+    ./packages/utilities/development/git.nix
+    ./packages/utilities/display.nix
+    ./packages/utilities/editing/documents.nix
+    ./packages/utilities/editing/image.nix
+    ./packages/utilities/editing/text.nix
+    ./packages/utilities/file-management.nix
+    ./packages/utilities/network/email.nix
+    ./packages/utilities/network/syncthing.nix
+    ./packages/utilities/security.nix
+    ./packages/utilities/terminal/fhs.nix
+    ./packages/utilities/terminal/misc.nix
+    ./packages/utilities/terminal/nix-helpers.nix
+    ./packages/utilities/terminal/system-health.nix
+    ./packages/utilities/terminal/zsh.nix
     ./packages/window-manager/app-launcher.nix
     ./packages/window-manager/clipboard.nix
     ./packages/window-manager/dunst/dunst.nix
