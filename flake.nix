@@ -69,7 +69,7 @@
 
         emacsPkg = pkgs.emacs29-pgtk;
 
-        wallpaper = ./modules/home-manager/resources/content/wallpapers/gruvbox-day.jpg;
+        wallpaper = ./modules/home-manager/resources/wallpapers/gruvbox-day.jpg;
       };
 
       pkgs = nixpkgs.legacyPackages.${systemSettings.arch};
