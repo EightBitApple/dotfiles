@@ -16,6 +16,7 @@
     ./packages/text-editors/neovim.nix
     ./packages/utilities/development/direnv.nix
     ./packages/utilities/development/git.nix
+    ./packages/utilities/development/virtualisation.nix
     ./packages/utilities/display.nix
     ./packages/utilities/editing/documents.nix
     ./packages/utilities/editing/image.nix
