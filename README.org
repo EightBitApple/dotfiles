@@ -99,6 +99,12 @@ These dotfiles install packages to aid in system maintenance:
 This configuration hides list to choose generations when booting.
 If you need to rollback to a previous generation, press any key when the POST splash screen appears.
 
+* Roadmap
+- [ ] Add secret management.
+- [ ] Add home server configuration (requires secret management).
+- [ ] Add Wireguard VPN configuration for home server and select hosts (requires secret management).
+- [ ] Add notebook host.
+
 * Credits
 + [[https://www.youtube.com/channel/UC_zBdZ0_H_jn41FDRG7q4Tw][Vimjoyer]] for his NixOS tutorials.
 + [[https://www.youtube.com/channel/UCeZyoDTk0J-UPhd7MUktexw][LibrePhoenix]] for his NixOS tutorials.
