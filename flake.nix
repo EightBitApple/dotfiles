@@ -127,6 +127,27 @@
             }
           ];
         };
+
+        notebook = lib.nixosSystem {
+          specialArgs = hostArgs;
+          modules = [
+            ./hosts/notebook/configuration.nix
+            ./modules/nixos
+
+            inputs.disko.nixosModules.disko
+            inputs.stylix.nixosModules.stylix
+
+            homeManager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = hostArgs;
+                users.${userSettings.username} = import ./hosts/notebook/home.nix;
+              };
+            }
+          ];
+        };
       };
     };
 }
