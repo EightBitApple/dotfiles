@@ -1,5 +1,8 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [ vrrtest ];
+  home.packages = with pkgs; [
+    vrrtest
+    wdisplays
+  ];
 }
