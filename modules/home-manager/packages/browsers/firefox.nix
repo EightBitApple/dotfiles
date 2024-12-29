@@ -60,6 +60,4 @@ in
       };
     };
   };
-
-  home.file.".mozilla/firefox/${userSettings.username}/user.js".source = "${inputs.arkenfox}/user.js";
 }
