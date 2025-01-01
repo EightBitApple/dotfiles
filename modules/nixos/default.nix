@@ -23,7 +23,6 @@
     ./programs/wireshark.nix
     ./programs/zsh.nix
     ./services/device/fstrim.nix
-    ./services/device/logind.nix
     ./services/device/printing.nix
     ./services/device/tlp.nix
     ./services/device/udev.nix
