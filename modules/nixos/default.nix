@@ -35,7 +35,7 @@
     ./services/networking/ssh-agent.nix
     ./services/security/firejail.nix
     ./services/security/gnupg.nix
-    ./services/security/pam.nix
+    ./services/security/physlock.nix
     ./services/sound/pipewire.nix
     ./system/bootloader.nix
     ./system/keymap.nix

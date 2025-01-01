@@ -161,7 +161,7 @@ in
         "$mod, E, exec, Thunar"
 
         "$mod, R, exec, tofi-run --prompt-text='Launch: ' | xargs hyprctl dispatch exec --"
-        "$mod CTRL, L, exec, hyprlock -q"
+        "$mod CTRL, L, exec, ${pkgs.physlock}/bin/physlock -msp 'Machine locked.'"
 
         "$mod, C, exec, pgrep screenshot || screenshot"
         "$mod, V, exec, img-edit"
