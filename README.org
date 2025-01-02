@@ -23,7 +23,7 @@ If Wi-Fi does not work due to missing drivers, and Ethernet is too inconvenient 
 5. Run ~sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./dotfiles/hosts/<HOSTNAME>/disko.nix~ to partition, format and mount the drive using [[https://github.com/nix-community/disko][disko]].
 6. Open ~flake.nix~ and change ~username~ and ~name~ to that of your choice.
 7. Run ~nixos-install --flake ./dotfiles#<HOSTNAME>~ to build and install both the system and home-manager configurations.
-8. Run ~nixos-enter --root /mnt'~ to chroot into the new install.
+8. Run ~nixos-enter --root /mnt~ to chroot into the new install.
 9. Run ~useradd -m <USER> && passwd <USER>~ to create a password protected user.
    Replace ~<USER>~ with the username defined in ~flake.nix~ (default ~stefan~).
 10. Run ~exit~ to exit the chroot.
