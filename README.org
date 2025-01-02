@@ -57,7 +57,7 @@ These dotfiles install packages that aid in system maintenance:
 This configuration hides the list to choose generations while booting.
 If you need to rollback to a previous generation, press any key when the POST splash screen appears.
 
-* TODO [0/4]
+* Things to Do [0/4]
 - [ ] Add secret management.
 - [ ] Add home server configuration (requires secret management).
 - [ ] Add Wireguard VPN configuration for home server and select hosts (requires secret management).
