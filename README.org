@@ -31,30 +31,30 @@ If Wi-Fi does not work due to missing drivers, and Ethernet is too inconvenient 
 12. Run ~reboot~ to reboot into your new system.
 
 * Maintenance
-These dotfiles install packages to aid in system maintenance:
+These dotfiles install packages that aid in system maintenance:
 
-+ [[https://github.com/viperML/nh][nh]] - Reimplements several nix commands with extra functionality.
-+ [[https://gitlab.com/khumba/nvd][nvd]] - Summarises the version differences of packages between two nix store paths.
-+ [[https://github.com/maralorn/nix-output-monitor][nix-output-monitor]] - Shows additional information while building.
-
-*For the upcoming commands, Replace ~HOSTNAME~ with a directory name listed under ~~/.dotfiles/hosts~.*
-*If you get a "No such file or directory" error, ~cd~ into your home directory and try again.*
++ [[https://github.com/viperML/nh][nh]] - Reimplements several Nix commands with extra functionality.
++ [[https://gitlab.com/khumba/nvd][nvd]] - Summarises the version differences of packages between two Nix Store paths.
++ [[https://github.com/maralorn/nix-output-monitor][nix-output-monitor]] - Shows additional information while building, such as a dependency graph.
 
 ** Rebuilding
 + Run ~nh os switch~ to rebuild the system.
-+ Run ~nh home switch -c HOSTNAME~ to rebuild the home-manager configuration.
 
 ** Upgrading
-+ Run ~nh os switch -u~ or ~nh home switch -u -c HOSTNAME~ to update ~flake.lock~ to the latest commits before rebuilding.
-+ You can also run ~nix flake update~ to update ~flake.lock~ without rebuilding.
++ Run ~nh os switch -u~ to update ~flake.lock~ before rebuilding.
++ You can also run ~nix flake update~ while inside ~dotfiles/~ to update ~flake.lock~ without rebuilding.
++ ~nixos-upgrade.service~ is ran every Tuesday.
+  It will update a ~flake.lock~ in the Nix Store and not the one in this repository.
 
-** Garbage Collection
-+ Run ~nh clean all -k 4 --dry~ to see what will get deleted before cleaning for real.
-        This command will delete all generations except the four latest system and home manager generations.
+** Garbage Collection and Optimisation
++ Run ~nh clean all -k 4 --dry~ to see what will get deleted before performing an actual clean.
+  This command will delete all generations except the four latest ones.
 + Run ~nh clean all -k 4~ to delete these generations and garbage collect the Nix Store.
++ ~nh-clean.service~ will run the above command every Monday.
++ ~nix.settings.auto-optimise-store~ is enabled by default to save drive space at the cost of longer build times.
 
 ** Rollbacks
-This configuration hides list to choose generations when booting.
+This configuration hides the list to choose generations while booting.
 If you need to rollback to a previous generation, press any key when the POST splash screen appears.
 
 * Roadmap
