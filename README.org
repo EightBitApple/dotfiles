@@ -67,4 +67,4 @@ If you need to rollback to a previous generation, press any key when the POST sp
 + [[https://www.youtube.com/channel/UC_zBdZ0_H_jn41FDRG7q4Tw][Vimjoyer]] for his NixOS tutorials.
 + [[https://www.youtube.com/channel/UCeZyoDTk0J-UPhd7MUktexw][LibrePhoenix]] for his NixOS tutorials.
 + [[https://nixos.wiki/wiki/Main_Page][The unofficial NixOS Wiki]] for articles on configuring specific software.
-+ Credits to files used in this repository are in [[./modules/home-manager/resources/content/README.org][another README]], as to not make this one too long.
++ Credits to external resources used in this repository are in [[./modules/home-manager/resources/content/README.org][another README]].
