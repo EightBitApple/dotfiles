@@ -11,7 +11,7 @@ The home-manager configuration imports the host's configurations and everything 
 Each module can be disabled on a host-by-host bases by using the ~disabledModules~ list inside each hosts' ~configuration.nix~ and ~home.nix~.
 
 * Installing
-**Installation requires an Internet connection.**
+*Installation requires an Internet connection.*
 If Wi-Fi does not work due to missing drivers, and Ethernet is too inconvenient in your scenario, use a mobile device's USB or Bluetooth tethering.
 *Replace ~<HOSTNAME>~ with a valid host name under ~/dotfiles/hosts/~ (e.g. ~desktop~, ~laptop~, etc.).*
 
