@@ -3,40 +3,6 @@
 
 [[./desktop.png]]
 
-* What is this?
-This repository houses the files used to build both my system and user configuration on NixOS.
-
-* What is Nix(OS)?
-+ NixOS is a Linux distribution that uses the Nix language and its package manager, Nixpkgs.
-+ NixOS brings the benefits of both Nix and Nixpkgs to an entire operating system:
-
-** Reproduceable Builds
-Nix is a functional, Turing complete programming language.
-Nix strives for purity; functions produce the same output when given the same input.
-Nix's deterministic nature allows the same configuration to produce the same build.
-*Nix Flakes* are a recent development that aims to improve reprodicibility.
-Flakes allow inputs (e.g. nixpkgs) to get pinned to a specific commit in a ~flake.lock~ file.
-Pinning for example guarantees builds will always pull the exact same versions of packages.
-
-** Declarative Configuration
-Instead of making changes to the system /imperatively/ (on-the-fly) changes are /declared/ in files.
-For example, instead of adding users with ~useradd~, users get declared with the ~users.users.<username>~ option.
-This single source of truth for configuration can help with troubleshooting.
-Configuration gets standardised, the process to modify the system is about the same no matter what part of the system it is.
-
-** Robustness
-Each build creates a generation.
-NixOS creates a file for this generation, which stores a list of pointers to the packages the generation uses.
-NixOS does not clone packages between generations.
-Generations and all the packages they use all reside under ~/nix/store/~.
-Packages inside ~/nix/store/~ get identified with a unique hash, allowing multiple versions of packages to exist simultaneously.
-Great for both avoiding dynamic linking woes and creating development environments.
-If you rebuild your system and something breaks, simply reboot and choose a previous working generation from the bootloader.
-Built-in rollbacks offer peace of mind and the confidence to tweak your system.
-
-** Software Availability
-Nixpkgs is the largest software repository in the Linux space.
-The unstable branch of Nixpkgs has [[https://repology.org/repository/nix_unstable][over 100,000 packages]], with the [[https://repology.org/repositories/graphs][most packages that are fresh (up to date)]].
 
 * Dotfiles Structure
 Both my system and home-manager configuration are in this repository and they both follow similar structures.
