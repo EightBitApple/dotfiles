@@ -5,6 +5,5 @@
     pulsemixer
     pamixer
     qpwgraph
-    schismtracker
   ];
 }
