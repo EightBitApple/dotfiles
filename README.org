@@ -3,13 +3,6 @@
 
 [[./desktop.png]]
 
-
-
-* Building a Fresh Installation
-- **Initial Build requires an Internet connection.**
-  If Wi-Fi does not work due to missing drivers, and Ethernet is too inconvenient in your scenario, use your mobile device's USB/Bluetooth tethering.
-- Replace ~<HOSTNAME>~ with a valid host name under ~/dotfiles/hosts/~ e.g. ~desktop~, ~laptop~.
-
 * Structure
 My system and [[https://github.com/nix-community/home-manager][home-manager]] configurations.
 Both configurations are managed by a flake in the root of this repository.
@@ -17,22 +10,25 @@ The system configuration imports the hosts' configurations and everything under 
 The home-manager configuration imports the host's configurations and everything under ~./modules/home-manager/~.
 Each module can be disabled on a host-by-host bases by using the ~disabledModules~ list inside each hosts' ~configuration.nix~ and ~home.nix~.
 
+* Installing
+**Installation requires an Internet connection.**
+If Wi-Fi does not work due to missing drivers, and Ethernet is too inconvenient in your scenario, use a mobile device's USB or Bluetooth tethering.
+*Replace ~<HOSTNAME>~ with a valid host name under ~/dotfiles/hosts/~ (e.g. ~desktop~, ~laptop~, etc.).*
 
 1. Download and flash NixOS onto bootable media.
 2. Boot into media.
-3. Open a terminal or TTY and enter ~nix-shell -p git~ to temporarily install Git.
-   You can also add your text editor of choice to this command: ~nix-shell -p git neovim~.
-4. ~cd~ into ~/etc/nixos/~ and run ~git clone https://github.com/EightBitApple/dotfiles~.
-5. Run ~sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./dotfiles/hosts/<HOSTNAME>/disko.nix~.
-   This will partition, format and mount the drive.
-6. Run ~nixos-install --flake ./dotfiles#<HOSTNAME>~ to install the system configuration.
-7. Run ~nixos-enter --root /mnt'~ to chroot into the install.
-8. Run ~useradd -m stefan && passwd stefan~ to create a password protected user.
-   The username can be changed by modifying the ~username~ attribute in ~flake.nix~.
-9. Run ~home-manager switch --flake /etc/nixos/dotfiles#laptop~ to install the home manager configuration.
-10. Reboot into the new system using ~reboot~.
-
-** TODO Make an installation script.
+3. Open a terminal or TTY and enter ~nix-shell -p git neovim~ to temporarily install Git and Neovim.
+   You can replace ~neovim~ with a text editor of your choice.
+4. Clone this repository using ~git clone https://github.com/EightBitApple/dotfiles~.
+5. Run ~sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./dotfiles/hosts/<HOSTNAME>/disko.nix~ to partition, format and mount the drive using [[https://github.com/nix-community/disko][disko]].
+6. Open ~flake.nix~ and change ~username~ and ~name~ to that of your choice.
+7. Run ~nixos-install --flake ./dotfiles#<HOSTNAME>~ to build and install both the system and home-manager configurations.
+8. Run ~nixos-enter --root /mnt'~ to chroot into the new install.
+9. Run ~useradd -m <USER> && passwd <USER>~ to create a password protected user.
+   Replace ~<USER>~ with the username defined in ~flake.nix~ (default ~stefan~).
+10. Run ~exit~ to exit the chroot.
+11. Run ~mv dotfiles /mnt/home/<USER>~ to move the dotfiles repository into the user's home directory.
+12. Run ~reboot~ to reboot into your new system.
 
 * Maintenance
 These dotfiles install packages to aid in system maintenance:
