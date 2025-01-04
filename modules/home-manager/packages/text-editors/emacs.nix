@@ -33,5 +33,9 @@
     python312Packages.pyflakes
     python312Packages.isort
     python312Packages.pytest_7
+
+    # org babel
+    plantuml
+    graphviz
   ];
 }
