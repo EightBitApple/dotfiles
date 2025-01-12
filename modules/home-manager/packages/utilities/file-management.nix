@@ -1,5 +1,5 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [ file-roller ];
+  home.packages = with pkgs; [ file-roller zip ];
 }
