@@ -100,7 +100,7 @@ in
 
       "$animation_speed" = 2;
       animations = {
-        enabled = false;
+        enabled = true;
         bezier = "overshot, 0.05, 0.9, 0.1, 1.05";
       };
 
