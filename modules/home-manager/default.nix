@@ -33,7 +33,6 @@
     ./packages/window-manager/app-launcher.nix
     ./packages/window-manager/clipboard.nix
     ./packages/window-manager/dunst/dunst.nix
-    ./packages/window-manager/hypr/hypridle.nix
     ./packages/window-manager/hypr/hyprland.nix
     ./packages/window-manager/night-light.nix
     ./packages/window-manager/status-bar.nix
