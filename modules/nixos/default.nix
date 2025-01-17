@@ -26,7 +26,6 @@
     ./services/device/printing.nix
     ./services/device/tlp.nix
     ./services/device/udev.nix
-    ./services/display/ly.nix
     ./services/filesystem/gvfs.nix
     ./services/filesystem/tumbler.nix
     ./services/networking/dnscrypt.nix
