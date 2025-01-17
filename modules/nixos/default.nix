@@ -28,9 +28,9 @@
     ./services/device/udev.nix
     ./services/filesystem/gvfs.nix
     ./services/filesystem/tumbler.nix
-    ./services/networking/dnscrypt.nix
-    ./services/networking/network-manager.nix
-    ./services/networking/ssh-agent.nix
+    ./services/network/dnscrypt.nix
+    ./services/network/networking.nix
+    ./services/network/ssh-agent.nix
     ./services/security/firejail.nix
     ./services/security/gnupg.nix
     ./services/security/physlock.nix
