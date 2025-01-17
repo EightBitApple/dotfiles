@@ -9,12 +9,14 @@
 let
   startupScript = pkgs.writeShellApplication {
     name = "startup";
-    runtimeInputs = with pkgs; [ waybar ];
+    runtimeInputs = with pkgs; [
+      waybar
+      swaybg
+    ];
     text = ''
       waybar &
-      systemctl --user restart hypridle.service
-      systemctl --user restart hyprpaper.service
-      emacs --daemon && notify-send -u low "Emacs server running."
+      swaybg -i ${userSettings.wallpaper} --mode fill &
+      emacs --daemon
     '';
   };
 
