@@ -17,6 +17,9 @@
 
         WIFI_PWR_ON_AC = "on";
         WIFI_PWR_ON_BAT = "on";
+
+        INTEL_GPU_MIN_FREQ_ON_AC = 500;
+        INTEL_GPU_MIN_FREQ_ON_BAT = 500;
       };
     };
 
