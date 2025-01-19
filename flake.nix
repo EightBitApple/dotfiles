@@ -64,7 +64,7 @@
 
         emacsPkg = pkgs.emacs29-pgtk;
 
-        wallpaper = ./modules/home-manager/resources/wallpapers/gruvbox-day.jpg;
+        wallpaper = ./modules/home-manager/resources/wallpapers/nix-wallpaper-nineish-dark-gray.jpg;
       };
 
       pkgs = nixpkgs.legacyPackages.${systemSettings.arch};

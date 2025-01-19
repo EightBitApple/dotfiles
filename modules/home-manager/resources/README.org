@@ -1,7 +1,7 @@
 #+title: Sources for Resources
 
 * Wallpapers
-  - [[https://gruvbox-wallpapers.pages.dev/wallpapers/irl/explore-with-joshua-oI6EJabIYYQ.jpg][gruvbox-day]]
+  - [[https://github.com/NixOS/nixos-artwork/blob/master/wallpapers/nix-wallpaper-nineish-dark-gray.png][nix-wallpaper-nineish-dark-gray]] (Converted to JPG.)
 
 * Notification Sounds
 - [[https://www.youtube.com/watch?v=6soBlsr1Mx0][Linux Mint]]
