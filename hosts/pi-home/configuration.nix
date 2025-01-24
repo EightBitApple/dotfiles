@@ -35,10 +35,5 @@
     ../../modules/nixos/system/mount-drive.nix
   ];
 
-  users.users."${userSettings.username}" = {
-    extraGroups = [ "wheel" ];
-    shell = pkgs.bash;
-  };
-
   system.autoUpgrade.allowReboot = true;
 }
