@@ -12,6 +12,7 @@
     ./nix/experimental-features.nix
     ./nix/nix-helpers.nix
     ./nix/pkgs-unfree.nix
+    ./nix/sops.nix
     ./programs/dconf.nix
     ./programs/gaming.nix
     ./programs/git.nix

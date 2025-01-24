@@ -33,11 +33,9 @@
     ../../modules/nixos/services/sound/pipewire.nix
     ../../modules/nixos/system/bootloader.nix
     ../../modules/nixos/system/mount-drive.nix
-    ../../modules/nixos/users/accounts.nix
   ];
 
-  users.users."pi" = {
-    isNormalUser = true;
+  users.users."${userSettings.username}" = {
     extraGroups = [ "wheel" ];
     shell = pkgs.bash;
   };
