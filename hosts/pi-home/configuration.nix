@@ -30,6 +30,7 @@
     ../../modules/nixos/services/security/gnupg.nix
     ../../modules/nixos/services/security/physlock.nix
     ../../modules/nixos/services/sound/pipewire.nix
+    ../../modules/nixos/system/bootloader.nix
     ../../modules/nixos/system/mount-drive.nix
     ../../modules/nixos/users/accounts.nix
   ];
