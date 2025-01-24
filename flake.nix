@@ -131,7 +131,7 @@
             {
               nixpkgs.config.pkgs = pkgsArm;
             }
-            ./hosts/pi/configuration.nix
+            ./hosts/pi-home/configuration.nix
             ./modules/nixos
           ];
         };
