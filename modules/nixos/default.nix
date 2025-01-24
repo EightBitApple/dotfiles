@@ -1,5 +1,3 @@
-{ lib, ... }:
-
 {
   imports = [
     ./hardware/bluetooth.nix
@@ -28,9 +26,12 @@
     ./services/device/udev.nix
     ./services/filesystem/gvfs.nix
     ./services/filesystem/tumbler.nix
-    ./services/network/dnscrypt.nix
-    ./services/network/networking.nix
-    ./services/network/ssh-agent.nix
+    ./services/networking/access-point.nix
+    ./services/networking/dnscrypt.nix
+    ./services/networking/network-manager.nix
+    ./services/networking/open-ssh.nix
+    ./services/networking/ssh-agent.nix
+    ./services/networking/wpa-supplicant.nix
     ./services/security/firejail.nix
     ./services/security/gnupg.nix
     ./services/security/physlock.nix
@@ -39,6 +40,7 @@
     ./system/keymap.nix
     ./system/locale.nix
     ./system/mount-drive.nix
+    ./system/uboot.nix
     ./system/virtualisation.nix
     ./users/accounts.nix
     ./users/groups.nix

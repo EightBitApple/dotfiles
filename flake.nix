@@ -32,6 +32,7 @@
     let
       systemSettings = {
         arch = "x86_64-linux";
+        archArm = "aarch64-linux";
         hostname = "nixos";
 
         timezone = "Europe/London";
@@ -69,6 +70,7 @@
 
       pkgs = nixpkgs.legacyPackages.${systemSettings.arch};
       pkgsStable = nixpkgsStable.legacyPackages.${systemSettings.arch};
+      pkgsArm = nixpkgsStable.legacyPackages.${systemSettings.archArm};
 
       lib = nixpkgs.lib;
 
@@ -120,6 +122,17 @@
                 users.${userSettings.username} = import ./hosts/desktop/home.nix;
               };
             }
+          ];
+        };
+
+        pi-home = nixpkgsStable.lib.nixosSystem {
+          specialArgs = hostArgs;
+          modules = [
+            {
+              nixpkgs.config.pkgs = pkgsArm;
+            }
+            ./hosts/pi/configuration.nix
+            ./modules/nixos
           ];
         };
       };
