@@ -19,7 +19,6 @@
     ../../modules/nixos/programs/theming.nix
     ../../modules/nixos/programs/thunar.nix
     ../../modules/nixos/programs/wireshark.nix
-    ../../modules/nixos/programs/zsh.nix
     ../../modules/nixos/services/device/printing.nix
     ../../modules/nixos/services/device/tlp.nix
     ../../modules/nixos/services/device/udev.nix
