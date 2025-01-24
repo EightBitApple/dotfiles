@@ -3,7 +3,7 @@
     enable = true;
     # Enforce public key authentication.
     settings = {
-      PaswordAuthentication = false;
+      PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
     };
   };
