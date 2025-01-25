@@ -15,7 +15,11 @@
     publicShare = null;
 
     extraConfig = {
+      XDG_DOTFILES_DIR = "${config.home.homeDirectory}/dotfiles";
       XDG_MISC_DIR = "${config.home.homeDirectory}/misc";
+      XDG_SCREENSHOTS_DIR = "${config.home.homeDirectory}/pictures/screenshots";
+      XDG_CAPTURE_DIR = "${config.home.homeDirectory}/videos/captures";
+      XDG_VM_DIR = "${config.home.homeDirectory}/vm";
     };
   };
 }
