@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   userSettings,
   ...
 }:
@@ -45,6 +46,10 @@
     interfaces = [ "wlan0" ];
     # https://github.com/NixOS/nixpkgs/issues/342140#issuecomment-2365125619
     allowAuxiliaryImperativeNetworks = true;
+  };
+
+  systemd.services.create_ap = {
+    serviceConfig.ExecStart = lib.mkForce "${pkgs.linux-wifi-hotspot}/bin/create_ap --config ${config.sops.templates."create_ap.conf".path}";
   };
 
   system.autoUpgrade.allowReboot = true;
