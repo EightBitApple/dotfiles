@@ -1,5 +1,7 @@
-{ config, lib, pkgs, ... }:
-
 {
-  # TODO
+  networking = {
+    hostname = "nixos";
+    enableIPv6 = true;
+    wireless.enable = true;
+  };
 }

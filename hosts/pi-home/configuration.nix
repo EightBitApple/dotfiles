@@ -1,7 +1,7 @@
 {
+  config,
   lib,
   userSettings,
-  pkgs,
   ...
 }:
 
@@ -34,11 +34,25 @@
     ../../modules/nixos/system/mount-drive.nix
   ];
 
+  # https://wiki.nixos.org/wiki/SSH_public_key_authentication
   users.users."${userSettings.username}".openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMAitZRkQhGULZ4579RVdc0VCQ9S2SEwQ5wHL6V9yplE ${userSettings.username}" # content of authorized_keys file
     # note: ssh-copy-id will add user@your-machine after the public key
     # but we can remove the "@your-machine" part
   ];
+
+  wireless = {
+    interfaces = [ "wlan0" ];
+    networks."${config.sops.wpa.network1.SSID.path}".psk = "${config.sops.wpa.network1.psk}";
+  };
+
+  services.create_ap.settings = {
+    GATEWAY = "192.168.5.1";
+    INTERNET_IFACE = "end0";
+    SSID = "${config.sops.wpa.network2.SSID.path}";
+    PASSPHRASE = "${config.sops.wpa.network2.SSID.path}";
+    WIFI_IFACE = "wlp1s0u1u4";
+  };
 
   system.autoUpgrade.allowReboot = true;
 }

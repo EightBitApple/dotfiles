@@ -1,5 +1,3 @@
-{ config, lib, pkgs, ... }:
-
 {
-  # TODO
+  services.create_ap.enable = true;
 }
