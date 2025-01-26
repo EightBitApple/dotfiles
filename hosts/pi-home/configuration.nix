@@ -41,17 +41,10 @@
     # but we can remove the "@your-machine" part
   ];
 
-  wireless = {
+  networking.wireless = {
     interfaces = [ "wlan0" ];
-    networks."${config.sops.wpa.network1.SSID.path}".psk = "${config.sops.wpa.network1.psk}";
-  };
-
-  services.create_ap.settings = {
-    GATEWAY = "192.168.5.1";
-    INTERNET_IFACE = "end0";
-    SSID = "${config.sops.wpa.network2.SSID.path}";
-    PASSPHRASE = "${config.sops.wpa.network2.SSID.path}";
-    WIFI_IFACE = "wlp1s0u1u4";
+    # https://github.com/NixOS/nixpkgs/issues/342140#issuecomment-2365125619
+    allowAuxiliaryImperativeNetworks = true;
   };
 
   system.autoUpgrade.allowReboot = true;
