@@ -52,9 +52,9 @@
       SSID=${config.sops.placeholder."wpa/network2/SSID"}
       PASSPHRASE=${config.sops.placeholder."wpa/network2/psk"}
     '';
-  };
 
-  templates."searx-secrets".content = ''
-    SEARX_SECRET_KEY=${config.sops.placeholder."keys/searx"}
-  '';
+    templates."searx-secrets".content = ''
+      SEARX_SECRET_KEY=${config.sops.placeholder."keys/searx"}
+    '';
+  };
 }
