@@ -24,6 +24,8 @@
       "passwords/pi-home" = {
         neededForUsers = true;
       };
+
+      "keys/searx" = { };
     };
     templates."wireless.conf".content = ''
       network1_psk=${config.sops.placeholder."wpa/network1/psk"}
@@ -43,7 +45,7 @@
       path = "/etc/wpa_supplicant.conf";
     };
 
-  templates."create_ap.conf".content = ''
+    templates."create_ap.conf".content = ''
       GATEWAY=192.168.5.1
       INTERNET_IFACE=end0
       WIFI_IFACE=wlp1s0u1u4
@@ -51,4 +53,8 @@
       PASSPHRASE=${config.sops.placeholder."wpa/network2/psk"}
     '';
   };
+
+  templates."searx-secrets".content = ''
+    SEARX_SECRET_KEY=${config.sops.placeholder."keys/searx"}
+  '';
 }

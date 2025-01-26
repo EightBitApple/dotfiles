@@ -17,6 +17,7 @@
     ./programs/gaming.nix
     ./programs/git.nix
     ./programs/hyprland.nix
+    ./programs/searx.nix
     ./programs/theming.nix
     ./programs/thunar.nix
     ./programs/wireshark.nix
