@@ -1,6 +1,6 @@
 {
   networking = {
-    hostname = "nixos";
+    hostName = "nixos";
     enableIPv6 = true;
     wireless.enable = true;
   };
