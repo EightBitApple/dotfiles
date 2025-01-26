@@ -21,6 +21,9 @@
       "wpa/network2/SSID" = { };
       "wpa/network2/psk" = { };
 
+      "passwords/pi-home" = {
+        neededForUsers = true;
+      };
     };
     templates."wireless.conf".content = ''
       network1_psk=${config.sops.placeholder."wpa/network1/psk"}
