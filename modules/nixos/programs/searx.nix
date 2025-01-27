@@ -19,16 +19,22 @@
       };
 
       # Search engine settings
-      search.safe_search = 1;
+      search = {
+        safe_search = 1;
+        default_lang = "en-GB";
+      };
 
       # Server configuration
       server = {
         port = 8080;
-        bind_address = "192.168.4.2";
-        secret_key = "@SEARX_SECRET_KEY@";
+        image_proxy = true;
         public_instance = false;
+        secret_key = "@SEARX_SECRET_KEY@";
+        bind_address = "192.168.4.2";
         method = "POST";
       };
+
+      ui.results_on_new_tab = true;
 
       # Enabled plugins
       enabled_plugins = [
