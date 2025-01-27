@@ -53,8 +53,8 @@
       PASSPHRASE=${config.sops.placeholder."wpa/network2/psk"}
     '';
 
-    templates."searx-secrets".content = ''
-      SEARX_SECRET_KEY=${config.sops.placeholder."keys/searx"}
+    templates."searx-secrets.env".content = ''
+      SEARX_SECRET_KEY="${config.sops.placeholder."keys/searx"}"
     '';
   };
 }

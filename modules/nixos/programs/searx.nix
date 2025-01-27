@@ -4,7 +4,7 @@
   services.searx = {
     enable = true;
 
-    environmentFile = config.sops.templates."searx-secrets".path;
+    environmentFile = config.sops.templates."searx-secrets.env".path;
 
     # Searx configuration
     settings = {
