@@ -47,7 +47,7 @@
         name = "Stefan";
         dotfilesDir = "/home/${username}/dotfiles/";
 
-        editor = "emacs";
+        editor = "emacsclient";
         windowManager = "hyprland";
         browser = "firefox";
         terminal = "alacritty";

@@ -16,7 +16,6 @@ let
     text = ''
       waybar &
       swaybg -i ${userSettings.wallpaper} --mode fill &
-      emacs --daemon
     '';
   };
 

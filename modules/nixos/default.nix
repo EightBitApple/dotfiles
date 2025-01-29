@@ -15,6 +15,7 @@
     ./nix/nix-helpers.nix
     ./nix/pkgs-unfree.nix
     ./programs/dconf.nix
+    ./programs/emacs.nix
     ./programs/gaming.nix
     ./programs/git.nix
     ./programs/hyprland.nix
