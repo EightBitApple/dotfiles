@@ -1,6 +1,13 @@
 { config, ... }:
 
 {
+  sops = {
+    secrets.keys.searx = { };
+    templates."searx-secrets.env".content = ''
+      SEARX_SECRET_KEY="${config.sops.placeholder."keys/searx"}"
+    '';
+  };
+
   services.searx = {
     enable = true;
 
