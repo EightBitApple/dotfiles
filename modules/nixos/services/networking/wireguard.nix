@@ -1,6 +1,9 @@
+{ pkgs, ... }:
+
 {
   networking = {
-    wireguard.enable = true;
     firewall.allowedUDPPorts = [ 51820 ];
   };
+
+  environment.systemPackages = [ pkgs.wireguard-tools ];
 }
