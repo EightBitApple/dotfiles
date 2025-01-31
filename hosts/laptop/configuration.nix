@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ lib, ... }:
 
 {
   networking.hostName = lib.mkForce "laptop";
@@ -6,6 +6,7 @@
     ./disko.nix
     ./hardware-configuration.nix
     ./overrides/accounts.nix
+    ./overrides/boot.nix
   ];
 
   disabledModules = [
@@ -19,13 +20,4 @@
     ../../modules/nixos/system/mount-drive.nix
     ../../modules/nixos/system/uboot.nix
   ];
-
-  boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = [
-      "options"
-      "thinkpad_acpi"
-      "fan_control=1"
-    ];
-  };
 }
