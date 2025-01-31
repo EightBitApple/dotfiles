@@ -34,7 +34,6 @@
     ./services/networking/network-manager.nix
     ./services/networking/open-ssh.nix
     ./services/networking/ssh-agent.nix
-    ./services/networking/wireguard.nix
     ./services/networking/wpa-supplicant.nix
     ./services/security/firejail.nix
     ./services/security/gnupg.nix

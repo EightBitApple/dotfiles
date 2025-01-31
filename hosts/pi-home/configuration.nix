@@ -12,7 +12,6 @@
     ./hardware-configuration.nix
     ./overrides/access-point.nix
     ./overrides/accounts.nix
-    ./overrides/wireguard.nix
     ./overrides/wpa-supplicant.nix
   ];
 
