@@ -1,13 +1,13 @@
 { config, userSettings, ... }:
 
 {
-  sops.secrets.passwords.pi-home = {
+  sops.secrets."passwords/pi-home" = {
     neededForUsers = true;
   };
 
   # https://wiki.nixos.org/wiki/SSH_public_key_authentication
   users.users."${userSettings.username}" = {
-    hashedPasswordFile = config.sops.secrets.passwords.pi-home.path;
+    hashedPasswordFile = config.sops.secrets."passwords/pi-home".path;
 
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMAitZRkQhGULZ4579RVdc0VCQ9S2SEwQ5wHL6V9yplE ${userSettings.username}" # content of authorized_keys file

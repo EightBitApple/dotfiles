@@ -2,9 +2,9 @@
 
 {
   sops = {
-    secrets.wpa.network1 = {
-      SSID = { };
-      psk = { };
+    secrets = {
+      "wpa/network1/SSID" = {};
+      "wpa/network1/psk" = {};
     };
 
     # https://discourse.nixos.org/t/sops-nix-templates-in-config-file/40225/2

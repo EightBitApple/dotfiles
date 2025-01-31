@@ -7,9 +7,9 @@
 
 {
   sops = {
-    secrets.wpa.network2 = {
-      SSID = { };
-      psk = { };
+    secrets = {
+      "wpa/network2/SSID" = { };
+      "wpa/network2/psk" = { };
     };
 
     templates."create_ap.conf".content = ''
@@ -17,8 +17,8 @@
       INTERNET_IFACE=end0
       WIFI_IFACE=wlp1s0u1u4
       HIDDEN=1
-      SSID=${config.sops.placeholder.wpa.network2.SSID}
-      PASSPHRASE=${config.sops.placeholder.wpa.network2.psk}
+      SSID=${config.sops.placeholder."wpa/network2/SSID"}
+      PASSPHRASE=${config.sops.placeholder."wpa/network2/psk"}
     '';
   };
 

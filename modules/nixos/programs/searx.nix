@@ -2,7 +2,7 @@
 
 {
   sops = {
-    secrets.keys.searx = { };
+    secrets."keys/searx" = { };
     templates."searx-secrets.env".content = ''
       SEARX_SECRET_KEY="${config.sops.placeholder."keys/searx"}"
     '';
