@@ -1,5 +1,3 @@
-{ lib, ... }:
-
 {
   imports = [
     ./hardware/bluetooth.nix
@@ -14,11 +12,13 @@
     ./nix/experimental-features.nix
     ./nix/nix-helpers.nix
     ./nix/pkgs-unfree.nix
+    ./nix/sops.nix
     ./programs/dconf.nix
     ./programs/emacs.nix
     ./programs/gaming.nix
     ./programs/git.nix
     ./programs/hyprland.nix
+    ./programs/searx.nix
     ./programs/theming.nix
     ./programs/thunar.nix
     ./programs/wireshark.nix
@@ -29,9 +29,13 @@
     ./services/device/udev.nix
     ./services/filesystem/gvfs.nix
     ./services/filesystem/tumbler.nix
-    ./services/network/dnscrypt.nix
-    ./services/network/networking.nix
-    ./services/network/ssh-agent.nix
+    ./services/networking/access-point.nix
+    ./services/networking/dnscrypt.nix
+    ./services/networking/network-manager.nix
+    ./services/networking/open-ssh.nix
+    ./services/networking/ssh-agent.nix
+    ./services/networking/wireguard.nix
+    ./services/networking/wpa-supplicant.nix
     ./services/security/firejail.nix
     ./services/security/gnupg.nix
     ./services/security/physlock.nix
@@ -40,6 +44,7 @@
     ./system/keymap.nix
     ./system/locale.nix
     ./system/mount-drive.nix
+    ./system/uboot.nix
     ./system/virtualisation.nix
     ./users/accounts.nix
     ./users/groups.nix
