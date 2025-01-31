@@ -2,7 +2,10 @@
 
 {
   networking.hostName = lib.mkForce "desktop";
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ./overrides/accounts.nix
+  ];
 
   disabledModules = [
     ../../modules/nixos/hardware/brillo.nix

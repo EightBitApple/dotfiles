@@ -3,8 +3,9 @@
 {
   networking.hostName = lib.mkForce "laptop";
   imports = [
-    ./hardware-configuration.nix
     ./disko.nix
+    ./hardware-configuration.nix
+    ./overrides/accounts.nix
   ];
 
   disabledModules = [
