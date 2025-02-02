@@ -15,20 +15,18 @@ Each module can be disabled on a host-by-host bases by using the ~disabledModule
 If Wi-Fi does not work due to missing drivers, and Ethernet is too inconvenient in your scenario, use a mobile device's USB or Bluetooth tethering.
 *Replace ~<HOSTNAME>~ with a valid host name under ~/dotfiles/hosts/~ (e.g. ~desktop~, ~laptop~, etc.).*
 
+Note that the ~pi-home~ host has yet to get disko support, therefore step 5 should be skipped if installing for that host.
+
 1. Download and flash NixOS onto bootable media.
+   Either the graphical or minimal images can be used.
 2. Boot into media.
 3. Open a terminal or TTY and enter ~nix-shell -p git neovim~ to temporarily install Git and Neovim.
    You can replace ~neovim~ with a text editor of your choice.
 4. Clone this repository using ~git clone https://github.com/EightBitApple/dotfiles~.
 5. Run ~sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko -- --mode disko ./dotfiles/hosts/<HOSTNAME>/disko.nix~ to partition, format and mount the drive using [[https://github.com/nix-community/disko][disko]].
-6. Open ~flake.nix~ and change ~username~ and ~name~ to that of your choice.
-7. Run ~nixos-install --flake ./dotfiles#<HOSTNAME>~ to build and install both the system and home-manager configurations.
-8. Run ~nixos-enter --root /mnt~ to chroot into the new install.
-9. Run ~useradd -m <USER> && passwd <USER>~ to create a password protected user.
-   Replace ~<USER>~ with the username defined in ~flake.nix~ (default ~stefan~).
-10. Run ~exit~ to exit the chroot.
-11. Run ~mv dotfiles /mnt/home/<USER>~ to move the dotfiles repository into the user's home directory.
-12. Run ~reboot~ to reboot into your new system.
+6. Run ~nixos-install --flake ./dotfiles#<HOSTNAME>~ to build and install both the system and home-manager configurations.
+7. Run ~reboot~ to reboot into your new system.
+8. After logging in clone this repository to the top of your home directory; certain helper commands expect the repo to be there.
 
 * Maintenance
 These dotfiles install packages that aid in system maintenance:
@@ -57,11 +55,13 @@ These dotfiles install packages that aid in system maintenance:
 This configuration hides the list to choose generations while booting.
 If you need to rollback to a previous generation, press any key when the POST splash screen appears.
 
-* Things to Do [2/4]
+* Things to Do [2/6]
 - [X] Add secret management.
 - [X] Add home server configuration (requires secret management).
 - [ ] Add Wireguard VPN configuration for home server and select hosts (requires secret management).
-- [ ] Make an installation script.
+- [ ] Add disko to home server configuration.
+- [ ] Create an installation script.
+- [ ] Add impermanence.
 
 * Credits
 + [[https://www.youtube.com/channel/UC_zBdZ0_H_jn41FDRG7q4Tw][Vimjoyer]] for his NixOS tutorials.
