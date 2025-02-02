@@ -1,12 +1,15 @@
 #!/usr/bin/env sh
 
 final_str=""
-first_battery=true
 delim=""
+low_threshold=25
+low_multiple=5
+first_battery=true
+
 for battery in /sys/class/power_supply/?*; do
 
-    battery_name=$(basename "${battery}")
-    [ "$battery_name" = "AC" ] && continue
+    name=$(basename "${battery}")
+    [ "$name" = "AC" ] && continue
 
     case $(cat "$battery/status" 2>&1) in
     "Full") status="" ;;
@@ -21,14 +24,15 @@ for battery in /sys/class/power_supply/?*; do
     capacity="$(cat "$battery/capacity" 2>&1)"
 
     warn=""
-    [ "$status" = "" ] && [ "$capacity" -le 25 ] && warn=""
+    if [ "$status" = "" ] && [ "$capacity" -le "$low_threshold" ]; then
+        warn="!"
+        battery-warning "$name" "$capacity" "$low_threshold" "$low_multiple"
+    fi
 
     # assemble battery_str and concatinate into final_str
     battery_str="$status$warn $capacity%"
 
-    if [ "$first_battery" = false ]; then
-        delim=" | "
-    fi
+    [ "$first_battery" = false ] && delim=" | "
 
     final_str="${final_str}$delim$battery_str"
     first_battery=false
