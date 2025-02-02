@@ -93,24 +93,14 @@ in
         animate_manual_resizes = true;
 
         vrr = 1;
+        vfr = 1;
       };
 
       cursor = {
         inactive_timeout = 4;
       };
 
-      "$animation_speed" = 2;
-      animations = {
-        enabled = true;
-        bezier = "overshot, 0.05, 0.9, 0.1, 1.05";
-      };
-
-      animation = [
-        "windows, 1, $animation_speed, overshot, popin 80%"
-        "border, 1, $animation_speed, overshot"
-        "fade, 1, $animation_speed, overshot"
-        "workspaces, 1, $animation_speed, overshot, slide"
-      ];
+      animations.enabled = false;
 
       windowrulev2 = [
         "float,title:(Authentication Required — PolicyKit1 KDE Agent)$"
@@ -118,12 +108,6 @@ in
         "noanim,class:^(Gimp)$"
         "stayfocused, title:^()$,class:^(steam)$"
         "minsize 1 1, title:^()$,class:^(steam)$"
-        "idleinhibit fullscreen, class:.*"
-      ];
-
-      layerrule = [
-        "blur, launcher"
-        "blur, notifications"
       ];
 
       device = {
