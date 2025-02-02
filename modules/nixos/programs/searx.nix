@@ -18,7 +18,7 @@
       # Instance settings
       general = {
         debug = false;
-        instance_name = "Home Network SearXNG";
+        instance_name = "Local SearXNG";
         donation_url = false;
         contact_url = false;
         privacypolicy_url = false;
@@ -37,7 +37,7 @@
         image_proxy = true;
         public_instance = false;
         secret_key = "@SEARX_SECRET_KEY@";
-        bind_address = "192.168.4.2";
+        bind_address = "localhost";
         method = "POST";
       };
 
@@ -54,10 +54,5 @@
         "Tracker URL remover"
       ];
     };
-  };
-
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [ 8080 ];
   };
 }
