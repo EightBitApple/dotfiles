@@ -15,7 +15,7 @@
     templates."create_ap.conf".content = ''
       GATEWAY=192.168.5.1
       INTERNET_IFACE=end0
-      WIFI_IFACE=wlp1s0u1u4
+      WIFI_IFACE=wlp1s0u1u2
       HIDDEN=1
       SSID=${config.sops.placeholder."wpa/network2/SSID"}
       PASSPHRASE=${config.sops.placeholder."wpa/network2/psk"}
