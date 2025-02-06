@@ -5,6 +5,7 @@
   imports = [
     ./hardware-configuration.nix
     ./overrides/accounts.nix
+    ./overrides/wpa-supplicant.nix
   ];
 
   disabledModules = [
@@ -13,8 +14,8 @@
     ../../modules/nixos/services/device/printing.nix
     ../../modules/nixos/services/device/tlp.nix
     ../../modules/nixos/services/networking/access-point.nix
+    ../../modules/nixos/services/networking/network-manager.nix
     ../../modules/nixos/services/networking/open-ssh.nix
-    ../../modules/nixos/services/networking/wpa-supplicant.nix
     ../../modules/nixos/system/uboot.nix
   ];
 }
