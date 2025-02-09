@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   boot = {
     loader = {
@@ -5,7 +7,15 @@
       efi.canTouchEfiVariables = true;
     };
 
-    plymouth.enable = true;
+    plymouth = {
+      enable = true;
+      theme = "connect";
+      themePackages = with pkgs; [
+        (adi1090x-plymouth-themes.override {
+          selected_themes = [ "connect" ];
+        })
+      ];
+    };
 
     # Enable "Silent Boot"
     consoleLogLevel = 0;
