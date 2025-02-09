@@ -42,8 +42,8 @@ in
 
       general = {
         border_size = 3;
-        gaps_out = 4;
-        gaps_in = 4;
+        gaps_out = 10;
+        gaps_in = 5;
         layout = "master";
 
         "col.active_border" = lib.mkForce "rgb(${base08}) rgb(${base0A}) rgb(${base09}) 60deg";
