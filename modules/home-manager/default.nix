@@ -56,6 +56,7 @@
     sessionVariables = {
       EDITOR = "${userSettings.editor}";
       FLAKE = "${userSettings.dotfilesDir}";
+      NIXOS_OZONE_WL = 1;
     };
   };
 }
