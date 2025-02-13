@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgsStable, ... }:
 
 {
   sops = {
@@ -10,7 +10,7 @@
 
   services.searx = {
     enable = true;
-
+    package = pkgsStable.searxng;
     environmentFile = config.sops.templates."searx-secrets.env".path;
 
     # Searx configuration
