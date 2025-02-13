@@ -5,7 +5,11 @@
     enable = true;
     iconTheme = {
       name = "Obsidian-Green";
-      package = pkgs.iconpack-obsidian;
+      package = pkgs.iconpack-obsidian.overrideAttrs (
+        final: prev: {
+          dontCheckForBrokenSymlinks = true;
+        }
+      );
     };
   };
   qt.enable = true;
