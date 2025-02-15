@@ -7,6 +7,7 @@
     ./hardware-configuration.nix
     ./overrides/accounts.nix
     ./overrides/boot.nix
+    ./overrides/tlp.nix
   ];
 
   disabledModules = [
