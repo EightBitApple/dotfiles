@@ -1,10 +1,12 @@
-{ userSettings, ... }:
+{ userSettings, pkgs, ... }:
 
 {
   services.emacs = {
     install = true;
     enable = true;
     startWithGraphical = true;
-    package = userSettings.emacsPkg;
+    package =
+      with pkgs;
+      ((emacsPackagesFor userSettings.emacsPkg).emacsWithPackages (epkgs: [ epkgs.vterm ]));
   };
 }

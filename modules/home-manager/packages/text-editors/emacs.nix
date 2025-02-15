@@ -1,14 +1,6 @@
 { pkgs, userSettings, ... }:
 
 {
-  programs = {
-    emacs = {
-      enable = true;
-      package = userSettings.emacsPkg;
-      extraPackages = epkgs: [ epkgs.vterm ];
-    };
-  };
-
   home.packages = with pkgs; [
     discount # markdown linter and formatter
     shellcheck
