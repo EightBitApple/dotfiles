@@ -7,8 +7,9 @@ low_multiple=5
 first_battery=true
 
 for battery in /sys/class/power_supply/?*; do
-
     name=$(basename "${battery}")
+    notif_lock=/tmp/$name.lock
+
     [ "$name" = "AC" ] && continue
 
     case $(cat "$battery/status" 2>&1) in
@@ -26,7 +27,14 @@ for battery in /sys/class/power_supply/?*; do
     warn=""
     if [ "$status" = "" ] && [ "$capacity" -le "$low_threshold" ]; then
         warn="!"
-        battery-warning "$name" "$capacity" "$low_threshold" "$low_multiple"
+        if [ $(("$capacity" % "$low_multiple")) -eq 0 ]; then
+            if [ ! -f "$notif_lock" ]; then
+                notify-send -u critical "Low battery!" "$name is at $capacity%."
+                touch "$notif_lock"
+            fi
+        else
+            rm "$notif_lock" 2>/dev/null
+        fi
     fi
 
     # assemble battery_str and concatinate into final_str

@@ -4,7 +4,6 @@
   imports = [
     ./modules/battery-info.nix
     ./modules/battery-status.nix
-    ./modules/battery-warning.nix
     ./modules/change-brightness.nix
     ./modules/change-volume.nix
     ./modules/image-edit.nix
