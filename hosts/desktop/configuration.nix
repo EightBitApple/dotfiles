@@ -5,7 +5,6 @@
   imports = [
     ./hardware-configuration.nix
     ./overrides/accounts.nix
-    ./overrides/boot.nix
   ];
 
   disabledModules = [
