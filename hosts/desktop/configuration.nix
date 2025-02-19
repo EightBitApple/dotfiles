@@ -11,7 +11,6 @@
   disabledModules = [
     ../../modules/nixos/hardware/brillo.nix
     ../../modules/nixos/hardware/intel-hwdec.nix
-    ../../modules/nixos/kernel/drivers/rtl88xxau-aircrack.nix
     ../../modules/nixos/services/device/printing.nix
     ../../modules/nixos/services/device/tlp.nix
     ../../modules/nixos/services/networking/access-point.nix

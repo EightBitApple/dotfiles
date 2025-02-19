@@ -11,7 +11,7 @@
   ];
 
   disabledModules = [
-    ../../modules/nixos/kernel/drivers/rtl88xxau-aircrack.nix
+    ../../modules/nixos/kernel/drivers/rtw88.nix
     ../../modules/nixos/programs/gaming.nix
     ../../modules/nixos/services/device/printing.nix
     ../../modules/nixos/services/networking/access-point.nix
