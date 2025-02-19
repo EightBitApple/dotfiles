@@ -2,7 +2,7 @@
 
 {
   fileSystems."/home/${userSettings.username}/hdd" = {
-    device = "/dev/disk/by-uuid/5a4b6498-53ca-44cc-92ce-f62300e5e010";
+    device = "/dev/disk/by-id/ata-ST2000DM006-2DM164_Z4ZAGJ4R-part1";
     fsType = "ext4";
   };
 }
