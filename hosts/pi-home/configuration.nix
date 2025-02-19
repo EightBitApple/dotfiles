@@ -20,6 +20,7 @@
     ../../modules/nixos/hardware/intel-hwdec.nix
     ../../modules/nixos/hardware/microcode-updates.nix
     ../../modules/nixos/kernel/hid/apple-hid.nix
+    ../../modules/nixos/programs/emacs.nix
     ../../modules/nixos/programs/gaming.nix
     ../../modules/nixos/programs/hyprland.nix
     ../../modules/nixos/programs/searx.nix
