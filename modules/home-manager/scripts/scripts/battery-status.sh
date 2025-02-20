@@ -33,7 +33,7 @@ for battery in /sys/class/power_supply/?*; do
                 touch "$notif_lock"
             fi
         else
-            rm "$notif_lock" 2>/dev/null
+            rm "$notif_lock" 2>/dev/null || true
         fi
     fi
 
