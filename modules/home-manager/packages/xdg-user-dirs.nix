@@ -10,9 +10,9 @@
     videos = "${config.home.homeDirectory}/videos";
     music = "${config.home.homeDirectory}/music";
     pictures = "${config.home.homeDirectory}/pictures";
+    publicShare = "${config.home.homeDirectory}/public";
     desktop = null;
     templates = null;
-    publicShare = null;
 
     extraConfig = {
       XDG_DOTFILES_DIR = "${config.home.homeDirectory}/dotfiles";
