@@ -33,7 +33,11 @@
     ./packages/window-manager/app-launcher.nix
     ./packages/window-manager/clipboard.nix
     ./packages/window-manager/dunst/dunst.nix
-    ./packages/window-manager/hypr/hyprland.nix
+    ./packages/window-manager/hyprland/hyprland.nix
+    ./packages/window-manager/hyprland/keybinds/app-shortcuts.nix
+    ./packages/window-manager/hyprland/keybinds/media.nix
+    ./packages/window-manager/hyprland/keybinds/utilities.nix
+    ./packages/window-manager/hyprland/keybinds/window-management.nix
     ./packages/window-manager/night-light.nix
     ./packages/window-manager/status-bar.nix
     ./packages/window-manager/theming.nix
