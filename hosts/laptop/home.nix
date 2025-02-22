@@ -29,7 +29,10 @@ let
   };
 in
 {
-  imports = [ ../../modules/home-manager ];
+  imports = [
+    ../../modules/home-manager
+    ../../overlays
+  ];
 
   disabledModules = [
     ../../modules/home-manager/packages/gaming/sourceports/dsda-doom.nix

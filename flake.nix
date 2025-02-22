@@ -90,6 +90,7 @@
           modules = [
             ./hosts/laptop/configuration.nix
             ./modules/nixos
+            ./overlays
 
             inputs.disko.nixosModules.disko
             inputs.stylix.nixosModules.stylix
@@ -97,8 +98,6 @@
             homeManager.nixosModules.home-manager
             {
               home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
                 extraSpecialArgs = hostArgs;
                 users.${userSettings.username} = import ./hosts/laptop/home.nix;
               };
@@ -111,6 +110,7 @@
           modules = [
             ./hosts/desktop/configuration.nix
             ./modules/nixos
+            ./overlays
 
             inputs.disko.nixosModules.disko
             inputs.stylix.nixosModules.stylix
@@ -118,8 +118,6 @@
             homeManager.nixosModules.home-manager
             {
               home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
                 extraSpecialArgs = hostArgs;
                 users.${userSettings.username} = import ./hosts/desktop/home.nix;
               };

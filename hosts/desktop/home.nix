@@ -1,7 +1,10 @@
 { ... }:
 
 {
-  imports = [ ../../modules/home-manager ];
+  imports = [
+    ../../modules/home-manager
+    ../../overlays
+  ];
 
   wayland.windowManager.hyprland.settings = {
     bind = [
