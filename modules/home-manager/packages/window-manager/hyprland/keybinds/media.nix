@@ -4,9 +4,7 @@
       "$mod CTRL, H, exec, changevolume mute"
       ", XF86AudioMute, exec, changevolume mute"
       ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_SOURCE@ toggle"
-    ];
 
-    binde = [
       "$mod CTRL, K, exec, changevolume up 5"
       "$mod CTRL ALT, K, exec, changevolume up 1"
       ", XF86AudioRaiseVolume, exec, changevolume up 5"
