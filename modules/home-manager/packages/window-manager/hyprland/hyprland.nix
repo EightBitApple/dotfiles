@@ -102,10 +102,16 @@ in
         "minsize 1 1, title:^()$,class:^(steam)$"
       ];
 
-      device = {
-        name = "wacom-one-by-wacom-s-pen";
-        left_handed = true;
-      };
+      device = [
+        {
+          name = "wacom-one-by-wacom-s-pen";
+          left_handed = true;
+        }
+        {
+          name = "2.4g-composite-devic";
+          kb_layout = "us";
+        }
+      ];
     };
   };
 }
