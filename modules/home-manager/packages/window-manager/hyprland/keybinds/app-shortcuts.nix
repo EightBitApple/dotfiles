@@ -1,19 +1,11 @@
 { userSettings, pkgs, ... }:
-let
-  alacrittyStart = pkgs.writeShellApplication {
-    name = "alacritty-start";
-    text = ''
-      alacritty msg --socket "$XDG_RUNTIME_DIR/alacritty.sock" create-window "$@" \
-          || alacritty --socket "$XDG_RUNTIME_DIR/alacritty.sock" "$@"
-    '';
-  };
-in
+
 {
   wayland.windowManager.hyprland.settings.bind = [
     # terminal
-    "$mod, Return, exec, ${alacrittyStart}/bin/alacritty-start"
-    "$mod, P, exec, ${alacrittyStart}/bin/alacritty-start -e pulsemixer"
-    "$mod SHIFT, R, exec, ${alacrittyStart}/bin/alacritty-start -e htop"
+    "$mod, Return, exec, ${pkgs.alacritty}/bin/alacritty"
+    "$mod, P, exec, ${pkgs.alacritty}/bin/alacritty -e pulsemixer"
+    "$mod SHIFT, R, exec, ${pkgs.alacritty}/bin/alacritty -e htop"
 
     # browsers
     "$mod, W, exec, ${userSettings.browser}"

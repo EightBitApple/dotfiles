@@ -21,6 +21,7 @@
         ];
 
         modules-right = [
+          "hyprland/submap"
           "wireplumber"
           "custom/battery"
           "network"
