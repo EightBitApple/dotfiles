@@ -12,6 +12,7 @@
 
   disabledModules = [
     ../../modules/nixos/kernel/drivers/rtw88.nix
+    ../../modules/nixos/nix/auto-upgrade.nix
     ../../modules/nixos/programs/gaming.nix
     ../../modules/nixos/services/device/printing.nix
     ../../modules/nixos/services/networking/access-point.nix
