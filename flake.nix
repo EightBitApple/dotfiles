@@ -100,6 +100,7 @@
               home-manager = {
                 extraSpecialArgs = hostArgs;
                 users.${userSettings.username} = import ./hosts/laptop/home.nix;
+                useUserPackages = true;
               };
             }
           ];
@@ -120,6 +121,7 @@
               home-manager = {
                 extraSpecialArgs = hostArgs;
                 users.${userSettings.username} = import ./hosts/desktop/home.nix;
+                useUserPackages = true;
               };
             }
           ];
