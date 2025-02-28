@@ -52,7 +52,7 @@
 
         editor = "emacsclient";
         windowManager = "hyprland";
-        browser = "firefox";
+        browser = "librewolf";
         terminal = "alacritty";
         terminalTitle = "Alacritty";
 

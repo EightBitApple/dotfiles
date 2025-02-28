@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, userSettings, ... }:
 
 {
   # Dunst notifcation daemon.
@@ -45,7 +45,7 @@
         enable_recursive_icon_lookup = true;
         sticky_history = "yes";
         history_length = 50;
-        browser = "firefox";
+        browser = "${userSettings.browser}";
         always_run_script = true;
         title = "Dunst";
         class = "Dunst";
