@@ -9,6 +9,7 @@
     ./packages/gaming/sourceports/gzdoom.nix
     ./packages/gaming/sourceports/ironwail.nix
     ./packages/media/audio-tools.nix
+    ./packages/media/obs-studio.nix
     ./packages/media/video-playback.nix
     ./packages/mime.nix
     ./packages/terminals.nix
