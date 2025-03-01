@@ -35,14 +35,14 @@ in
   ];
 
   disabledModules = [
+    ../../modules/home-manager/packages/gaming/mangohud.nix
     ../../modules/home-manager/packages/gaming/sourceports/dsda-doom.nix
     ../../modules/home-manager/packages/gaming/sourceports/gzdoom.nix
     ../../modules/home-manager/packages/gaming/sourceports/ironwail.nix
-    ../../modules/home-manager/packages/gaming/mangohud.nix
+    ../../modules/home-manager/packages/media/obs-studio.nix
   ];
 
   wayland.windowManager.hyprland.settings = {
-
     monitor = [
       "HDMI-A-1, preferred, auto, 1"
       "eDP-1, preferred, auto-right, 1"
