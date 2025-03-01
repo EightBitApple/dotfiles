@@ -59,8 +59,8 @@ in
     ];
 
     decoration = {
-      shadow.enabled = false;
-      blur.enabled = false;
+      shadow.enabled = lib.mkForce false;
+      blur.enabled = lib.mkForce false;
     };
   };
 }
