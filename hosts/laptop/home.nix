@@ -57,5 +57,10 @@ in
 
       "$mod, O, exec, ${toggleLaptopDisplay}/bin/toggle-display"
     ];
+
+    decoration = {
+      shadow.enabled = false;
+      blur.enabled = false;
+    };
   };
 }

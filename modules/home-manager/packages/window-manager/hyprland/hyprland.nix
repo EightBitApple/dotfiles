@@ -58,10 +58,9 @@ in
       };
 
       decoration = {
-        shadow.enabled = false;
+        shadow.enabled = true;
+        blur.enabled = true;
         rounding = 4;
-
-        blur.enabled = false;
       };
 
       xwayland.force_zero_scaling = true;
@@ -92,7 +91,18 @@ in
         inactive_timeout = 4;
       };
 
-      animations.enabled = false;
+      "$animation_speed" = 2;
+      animations = {
+        enabled = true;
+        bezier = "overshot, 0.05, 0.9, 0.1, 1.05";
+      };
+
+      animation = [
+        "windows, 1, $animation_speed, overshot, popin 80%"
+        "border, 1, $animation_speed, overshot"
+        "fade, 1, $animation_speed, overshot"
+        "workspaces, 1, $animation_speed, overshot, slide"
+      ];
 
       windowrulev2 = [
         "float,title:(Authentication Required — PolicyKit1 KDE Agent)$"
