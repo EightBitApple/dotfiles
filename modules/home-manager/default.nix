@@ -31,7 +31,6 @@
     ./packages/utilities/terminal/nix-helpers.nix
     ./packages/utilities/terminal/system-health.nix
     ./packages/utilities/terminal/zsh.nix
-    ./packages/window-manager/app-launcher.nix
     ./packages/window-manager/clipboard.nix
     ./packages/window-manager/dunst/dunst.nix
     ./packages/window-manager/hyprland/hyprland.nix
@@ -41,8 +40,8 @@
     ./packages/window-manager/hyprland/keybinds/utilities.nix
     ./packages/window-manager/hyprland/keybinds/window-management.nix
     ./packages/window-manager/night-light.nix
-    ./packages/window-manager/status-bar.nix
     ./packages/window-manager/theming.nix
+    ./packages/window-manager/taskbar/waybar.nix
     ./packages/xdg-user-dirs.nix
     ./resources/resources.nix
     ./scripts/default.nix
