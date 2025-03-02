@@ -17,7 +17,7 @@
     "$mod, R, exec, wofi --show drun"
 
     # managers
-    "$mod, E, exec, Thunar"
+    "$mod, E, exec, caja"
 
     # misc
     "$mod, B, exec, pkill -SIGUSR1 waybar"
