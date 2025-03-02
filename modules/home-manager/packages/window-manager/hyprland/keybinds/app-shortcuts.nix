@@ -14,7 +14,7 @@
     "$mod, X, exec, emacsclient -c"
 
     # launchers
-    "$mod, R, exec, tofi-run --prompt-text='Launch: ' | xargs hyprctl dispatch exec --"
+    "$mod, R, exec, wofi --show drun"
 
     # managers
     "$mod, E, exec, Thunar"

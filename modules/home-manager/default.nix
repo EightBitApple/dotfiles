@@ -39,6 +39,7 @@
     ./packages/window-manager/hyprland/keybinds/submaps/airmouse.nix
     ./packages/window-manager/hyprland/keybinds/utilities.nix
     ./packages/window-manager/hyprland/keybinds/window-management.nix
+    ./packages/window-manager/launcher/wofi.nix
     ./packages/window-manager/night-light.nix
     ./packages/window-manager/theming.nix
     ./packages/window-manager/taskbar/waybar.nix
