@@ -14,7 +14,7 @@
       "$mod CTRL ALT, J, exec, changevolume down 1"
       ", XF86AudioLowerVolume, exec, changevolume down 5"
       "SHIFT, XF86AudioLowerVolume, exec, changevolume down 1"
-      "SUPER SHIFT, S, pass, class:^(com\.obsproject\.Studio)$"
+      "$mod, S, pass, class:^(com\.obsproject\.Studio)$"
     ];
   };
 }
