@@ -23,8 +23,7 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
 
-    settings = with config.stylix.base16Scheme; {
-
+    settings = {
       exec-once = "${startupScript}/bin/startup";
 
       env = [
@@ -38,8 +37,8 @@ in
         gaps_in = 5;
         layout = "master";
 
-        "col.active_border" = lib.mkForce "rgb(${base08}) rgb(${base0A}) rgb(${base09}) 60deg";
-        "col.inactive_border" = lib.mkForce "rgb(${base03})";
+        "col.active_border" = "rgb(f43841) rgb(ffdd33) rgb(c73c3f) 60deg";
+        "col.inactive_border" = "rgb(52494e)";
       };
 
       input = {
@@ -58,9 +57,24 @@ in
       };
 
       decoration = {
-        shadow.enabled = true;
-        blur.enabled = true;
-        rounding = 4;
+        rounding = 12;
+        active_opacity = 1.0;
+        inactive_opacity = 1;
+
+        shadow = {
+          enabled = true;
+          range = 16;
+          render_power = 5;
+          color = "rgba(0,0,0,0.35)";
+        };
+
+        blur = {
+          enabled = true;
+          new_optimizations = true;
+          size = 2;
+          passes = 3;
+          vibrancy = 0.1696;
+        };
       };
 
       xwayland.force_zero_scaling = true;
@@ -121,6 +135,15 @@ in
           name = "2.4g-composite-devic";
           kb_layout = "us";
         }
+      ];
+
+      layerrule = [
+        "blur, wofi"
+        "ignorealpha 0.01, wofi" # This is so entirely transparent things aren't blurred.
+
+        "blur, waybar"
+        "blurpopups, waybar"
+        "ignorealpha 0.01, waybar" # this is so entirely transparent things aren't blurred.
       ];
     };
   };
