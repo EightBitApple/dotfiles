@@ -19,7 +19,6 @@
     ./programs/git.nix
     ./programs/hyprland.nix
     ./programs/searx.nix
-    ./programs/theming.nix
     ./programs/wireshark.nix
     ./programs/zsh.nix
     ./services/device/fstrim.nix

@@ -16,12 +16,6 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    stylix = {
-      url = "github:danth/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "homeManager";
-    };
   };
 
   outputs =
@@ -93,7 +87,6 @@
             ./overlays
 
             inputs.disko.nixosModules.disko
-            inputs.stylix.nixosModules.stylix
 
             homeManager.nixosModules.home-manager
             {
@@ -114,7 +107,6 @@
             ./overlays
 
             inputs.disko.nixosModules.disko
-            inputs.stylix.nixosModules.stylix
 
             homeManager.nixosModules.home-manager
             {

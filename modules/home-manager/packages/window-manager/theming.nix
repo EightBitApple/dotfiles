@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   gtk = {
@@ -10,14 +10,8 @@
   };
   qt.enable = true;
 
-  stylix.targets = {
-    waybar.enable = false;
-    emacs.enable = false;
-    fish.enable = false;
-    helix.enable = false;
-    vim.enable = false;
-    foot.enable = false;
-    kitty.enable = false;
-    tmux.enable = false;
+  home.pointerCursor = {
+    name = "Bibata-Modern-Ice";
+    package = pkgs.bibata-cursors;
   };
 }
