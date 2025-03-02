@@ -33,7 +33,7 @@
     ./packages/utilities/terminal/zsh.nix
     ./packages/window-manager/app-launcher.nix
     ./packages/window-manager/clipboard.nix
-    ./packages/window-manager/dunst/dunst.nix
+    ./packages/window-manager/dunst.nix
     ./packages/window-manager/hyprland/hyprland.nix
     ./packages/window-manager/hyprland/keybinds/app-shortcuts.nix
     ./packages/window-manager/hyprland/keybinds/media.nix
