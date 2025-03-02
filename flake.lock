@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "diinki-aero": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1740297105,
-        "narHash": "sha256-Fn1rpdDNTl2b6kkdtEB6ZUnbx8g3VdX6v33gTq1Ue4M=",
-        "owner": "diinki",
-        "repo": "diinki-aero",
-        "rev": "26144373230f6b519473d3678d3f71823b43adec",
-        "type": "github"
-      },
-      "original": {
-        "owner": "diinki",
-        "repo": "diinki-aero",
-        "type": "github"
-      }
-    },
     "disko": {
       "inputs": {
         "nixpkgs": [
@@ -104,7 +88,6 @@
     },
     "root": {
       "inputs": {
-        "diinki-aero": "diinki-aero",
         "disko": "disko",
         "homeManager": "homeManager",
         "nixpkgs": "nixpkgs",
