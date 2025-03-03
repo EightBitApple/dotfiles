@@ -14,7 +14,7 @@
     "$mod, X, exec, emacsclient -c"
 
     # launchers
-    "$mod, R, exec, wofi --show drun"
+    "$mod, D, exec, $wofi"
 
     # managers
     "$mod, E, exec, caja"

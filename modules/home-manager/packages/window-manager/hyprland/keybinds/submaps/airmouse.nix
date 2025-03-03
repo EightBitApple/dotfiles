@@ -6,8 +6,9 @@
     submap = airmouse
 
     # app launchings
-    bind = CTRL, r, exec, wofi --show drun
+    bind = CTRL, D, exec, $wofi
     bind = CTRL, End, exec, pkill wofi
+    bind = CTRL, E, exec, caja
 
     bind=CTRL, X, exec, emacsclient -c
     bind=CTRL, Return, exec, ${pkgs.alacritty}/bin/alacritty

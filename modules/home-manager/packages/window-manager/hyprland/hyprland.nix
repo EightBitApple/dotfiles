@@ -145,6 +145,10 @@ in
         "blurpopups, waybar"
         "ignorealpha 0.01, waybar" # this is so entirely transparent things aren't blurred.
       ];
+
+      # varaibles used for keybind modules.
+      "$mod" = "SUPER";
+      "$wofi" = "pkill wofi ; wofi --show drun";
     };
   };
 }
