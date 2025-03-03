@@ -60,7 +60,7 @@
       name = "mpvl";
       runtimeInputs = with pkgs; [ wl-clipboard ];
       text = ''
-        ${userSettings.terminal} --hold -e mpv "$(wl-paste)"
+        mpv "$(wl-paste)"
       '';
     })
   ];
