@@ -59,7 +59,7 @@
         serifFont = "DejaVu Serif";
         serifFontPkg = pkgs.dejavu_fonts;
 
-        emacsPkg = pkgs.emacs29-pgtk;
+        emacsPkg = pkgs.emacs-pgtk;
 
         wallpaper = ./modules/home-manager/resources/wallpapers/vista.jpg;
       };
