@@ -26,11 +26,10 @@
       ll = "ls -l";
       ".." = "cd ..";
       c = "clear";
-      bc = "${pkgs.bc}/bin/bc - l";
+      bc = "${pkgs.bc}/bin/bc -l";
       mkdir = "mkdir -pv";
       diff = "${pkgs.colordiff}/bin/colordiff";
       ping = "ping -c 5";
-      fastping = "ping -c 100 -s.2";
       ports = "netstat -tulanp";
 
       # safety nets
