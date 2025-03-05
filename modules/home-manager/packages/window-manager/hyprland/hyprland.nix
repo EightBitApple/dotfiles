@@ -151,7 +151,7 @@ in
 
       # varaibles used for keybind modules.
       "$mod" = "SUPER";
-      "$wofi" = "pkill wofi ; wofi --show drun";
+      "$wofi" = "pkill wofi ; wofi --show drun -p 'launch:'";
     };
   };
 }
