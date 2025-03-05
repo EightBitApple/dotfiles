@@ -24,7 +24,6 @@
           "hyprland/submap"
           "wireplumber"
           "custom/battery"
-          "network"
           "clock"
           "tray"
         ];
@@ -45,18 +44,6 @@
           tooltip-format = ''
             <big>{:%Y %B}</big>
             <tt><small>{calendar}</small></tt>'';
-        };
-
-        "network" = {
-          format-wifi = "  {signalStrength}%";
-          format-ethernet = "󰈀";
-          tooltip-format = ''
-            {ifname}	{ipaddr}/{cidr}
-            gateway	{gwaddr}
-            	{essid}
-            {icon}  ⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}'';
-          format-disconnected = "󰅛";
-          on-click = "${userSettings.terminal} -e nmtui";
         };
 
         "hyprland/workspaces" = {

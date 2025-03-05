@@ -12,10 +12,12 @@ let
     runtimeInputs = with pkgs; [
       waybar
       swaybg
+      networkmanagerapplet
     ];
     text = ''
       waybar &
       swaybg -i ${userSettings.wallpaper} --mode fill &
+      nm-applet &
     '';
   };
 in
