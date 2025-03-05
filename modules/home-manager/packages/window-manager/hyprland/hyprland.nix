@@ -31,6 +31,7 @@ in
       env = [
         "LSP_USE_PLISTS,true"
         "XDG_CURRENT_DESKTOP,Hyprland"
+        "XCURSOR_SIZE,${builtins.toString userSettings.cursorSize}"
       ];
 
       general = {

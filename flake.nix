@@ -46,6 +46,7 @@
 
         editor = "emacsclient";
         windowManager = "hyprland";
+        cursorSize = 24;
         browser = "librewolf";
         terminal = "alacritty";
         terminalTitle = "Alacritty";

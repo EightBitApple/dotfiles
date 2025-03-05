@@ -1,4 +1,9 @@
-{ pkgs, config, ... }:
+{
+  config,
+  pkgs,
+  userSettings,
+  ...
+}:
 
 {
   gtk = {
@@ -13,5 +18,7 @@
   home.pointerCursor = {
     name = "Bibata-Modern-Ice";
     package = pkgs.bibata-cursors;
+    size = userSettings.cursorSize;
+    gtk.enable = true;
   };
 }
