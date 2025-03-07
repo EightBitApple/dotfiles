@@ -14,10 +14,10 @@
     "$mod, X, exec, emacsclient -c"
 
     # launchers
-    "$mod, R, exec, tofi-run --prompt-text='Launch: ' | xargs hyprctl dispatch exec --"
+    "$mod, D, exec, $wofi"
 
     # managers
-    "$mod, E, exec, Thunar"
+    "$mod, E, exec, caja"
 
     # misc
     "$mod, B, exec, pkill -SIGUSR1 waybar"

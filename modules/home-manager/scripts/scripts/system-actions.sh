@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 if [ $# -eq 0 ]; then
-    choice=$(printf "lock\nlogout\nreload\nreboot\nsleep\nshutdown" | tofi --prompt-text="System: ")
+    choice=$(pkill wofi ; printf "lock\nlogout\nreload\nreboot\nsleep\nshutdown" | wofi -p "system:" --dmenu)
 else
     choice=$1
 fi

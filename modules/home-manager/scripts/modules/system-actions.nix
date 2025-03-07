@@ -4,7 +4,7 @@
   home.packages = with pkgs; [
     (writeShellApplication {
       name = "sysact";
-      runtimeInputs = [ tofi ];
+      runtimeInputs = [ wofi ];
       text = builtins.readFile ../scripts/system-actions.sh;
     })
   ];

@@ -16,12 +16,6 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    stylix = {
-      url = "github:danth/stylix";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "homeManager";
-    };
   };
 
   outputs =
@@ -52,6 +46,7 @@
 
         editor = "emacsclient";
         windowManager = "hyprland";
+        cursorSize = 24;
         browser = "librewolf";
         terminal = "alacritty";
         terminalTitle = "Alacritty";
@@ -65,7 +60,7 @@
         serifFont = "DejaVu Serif";
         serifFontPkg = pkgs.dejavu_fonts;
 
-        emacsPkg = pkgs.emacs29-pgtk;
+        emacsPkg = pkgs.emacs-pgtk;
 
         wallpaper = ./modules/home-manager/resources/wallpapers/vista.jpg;
       };
@@ -93,7 +88,6 @@
             ./overlays
 
             inputs.disko.nixosModules.disko
-            inputs.stylix.nixosModules.stylix
 
             homeManager.nixosModules.home-manager
             {
@@ -114,7 +108,6 @@
             ./overlays
 
             inputs.disko.nixosModules.disko
-            inputs.stylix.nixosModules.stylix
 
             homeManager.nixosModules.home-manager
             {

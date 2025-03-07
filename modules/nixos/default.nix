@@ -19,8 +19,6 @@
     ./programs/git.nix
     ./programs/hyprland.nix
     ./programs/searx.nix
-    ./programs/theming.nix
-    ./programs/thunar.nix
     ./programs/wireshark.nix
     ./programs/zsh.nix
     ./services/device/fstrim.nix
@@ -28,7 +26,6 @@
     ./services/device/tlp.nix
     ./services/device/udev.nix
     ./services/filesystem/gvfs.nix
-    ./services/filesystem/tumbler.nix
     ./services/networking/access-point.nix
     ./services/networking/dnscrypt.nix
     ./services/networking/network-manager.nix

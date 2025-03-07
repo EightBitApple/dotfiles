@@ -3,10 +3,7 @@
 let
   toggleLaptopDisplay = pkgs.writeShellApplication {
     name = "toggle-display";
-    runtimeInputs = with pkgs; [
-      jq
-      dunst
-    ];
+    runtimeInputs = with pkgs; [ libnotify ];
     text = ''
       display_json=$(hyprctl -j monitors)
 

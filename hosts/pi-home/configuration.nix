@@ -25,13 +25,11 @@
     ../../modules/nixos/programs/hyprland.nix
     ../../modules/nixos/programs/searx.nix
     ../../modules/nixos/programs/theming.nix
-    ../../modules/nixos/programs/thunar.nix
     ../../modules/nixos/programs/wireshark.nix
     ../../modules/nixos/services/device/printing.nix
     ../../modules/nixos/services/device/tlp.nix
     ../../modules/nixos/services/device/udev.nix
     ../../modules/nixos/services/filesystem/gvfs.nix
-    ../../modules/nixos/services/filesystem/tumbler.nix
     ../../modules/nixos/services/networking/dnscrypt.nix
     ../../modules/nixos/services/networking/network-manager.nix
     ../../modules/nixos/services/networking/ssh-agent.nix
