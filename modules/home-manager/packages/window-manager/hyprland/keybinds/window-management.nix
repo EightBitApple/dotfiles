@@ -3,7 +3,8 @@
     "$mod" = "SUPER";
     bind = [
       "$mod, Q, killactive"
-      "$mod, F, fullscreen, 0"
+      "$mod, F, fullscreen, 1"
+      "$mod SHIFT, F, fullscreen, 0"
 
       # floating windows
       "$mod SHIFT, Space, togglefloating"
@@ -43,7 +44,6 @@
       # focusing
       "$mod, J, cyclenext"
       "$mod, K, cyclenext, prev"
-      "$mod SHIFT, F, layoutmsg, focusmaster"
 
       # swapping
       "$mod SHIFT, J, swapnext"
