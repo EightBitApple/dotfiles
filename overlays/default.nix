@@ -1,5 +1,11 @@
+{ pkgs, ... }:
+
 {
   nixpkgs.overlays = [
-    (import ./iconpack-obsidian.nix)
+    (final: prev: {
+      myPackages = {
+        diinki-aero = pkgs.callPackage ./diinki-aero.nix { };
+      };
+    })
   ];
 }
