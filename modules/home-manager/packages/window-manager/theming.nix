@@ -9,8 +9,12 @@
   gtk = {
     enable = true;
     iconTheme = {
-      name = "Obsidian-Green";
-      package = pkgs.iconpack-obsidian;
+      name = "crystal-remix-icon-theme-diinki-version";
+      package = pkgs.myPackages.diinki-aero;
+    };
+    theme = {
+      name = "diinki-aero";
+      package = pkgs.myPackages.diinki-aero;
     };
   };
   qt.enable = true;
