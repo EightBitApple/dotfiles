@@ -147,6 +147,9 @@ in
         "blur, waybar"
         "blurpopups, waybar"
         "ignorealpha 0.01, waybar" # this is so entirely transparent things aren't blurred.
+
+        "blur, swaync-notification-window"
+        "ignorealpha 0.01, swaync-notification-window" # this is so entirely transparent things aren't blurred.
       ];
 
       # varaibles used for keybind modules.

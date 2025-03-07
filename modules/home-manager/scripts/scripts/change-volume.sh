@@ -4,7 +4,7 @@ notif_time=750
 
 send_notification() {
     volume=$(pamixer --get-volume)
-    notify-send -a "changevolume" -u low -r "9993" -h int:value:"$volume" "Volume: $volume%" -t $notif_time
+    notify-send -u low "volume:" "$volume%" -h int:value:"$volume" -h string:x-canonical-private-synchronous:volume -t "$notif_time"
 }
 
 case $1 in
@@ -22,7 +22,7 @@ down)
 mute)
     wpctl set-mute @DEFAULT_SINK@ toggle
     if "$(pamixer --get-mute)"; then
-        notify-send -a "changevolume" -t $notif_time -r 9993 -u low "Muted"
+        notify-send -t $notif_time -u low "volume:" "muted" -h string:x-canonical-private-synchronous:volume -t "$notif_time"
     else
         send_notification "$1"
     fi

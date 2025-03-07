@@ -40,7 +40,7 @@
     ./packages/window-manager/hyprland/keybinds/window-management.nix
     ./packages/window-manager/launcher/wofi.nix
     ./packages/window-manager/night-light.nix
-    ./packages/window-manager/notifications.nix
+    ./packages/window-manager/notifications/swaync.nix
     ./packages/window-manager/taskbar/waybar.nix
     ./packages/window-manager/theming.nix
     ./packages/xdg-user-dirs.nix
