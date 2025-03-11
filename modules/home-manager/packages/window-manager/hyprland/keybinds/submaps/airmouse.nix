@@ -48,8 +48,7 @@
     bind=CTRL, K, cyclenext, prev
     bind=CTRL SHIFT, J, swapnext
     bind=CTRL SHIFT, K, swapnext, prev
-    bind=CTRL, F, fullscreen, 1
-    bind=CTRL SHIFT, F, fullscreen, 0
+    bind=CTRL, F, fullscreen, 0
     bind=CTRL, Q, killactive
 
     bind = SHIFT CTRL, Return, submap, reset
