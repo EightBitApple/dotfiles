@@ -4,16 +4,6 @@
   programs = {
     mpv = {
       enable = true;
-
-      package = (
-        pkgs.mpv-unwrapped.wrapper {
-          scripts = with pkgs.mpvScripts; [
-            sponsorblock
-            mpv-playlistmanager
-            quality-menu
-          ];
-        }
-      );
       bindings = {
         # seeking
         l = "seek 5";
