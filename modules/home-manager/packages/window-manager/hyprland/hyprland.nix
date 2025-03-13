@@ -16,8 +16,11 @@ let
     ];
     text = ''
       waybar &
-      swaybg -i ${userSettings.wallpaper} --mode fill &
       nm-applet &
+
+      current_wallpaper=~/.local/share/current-wallpaper
+      [ ! -f "$current_wallpaper" ] && current_wallpaper=${userSettings.wallpaper}
+      swaybg -i "$current_wallpaper" -m fill &
     '';
   };
 in
