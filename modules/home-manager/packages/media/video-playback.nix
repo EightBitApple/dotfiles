@@ -46,14 +46,12 @@
 
         ytdl-format = "bestvideo[vcodec^=avc1][height<=1080]+bestaudio";
         sub-auto = "fuzzy";
-        ytdl-raw-options = "ignore-config=,sub-format='^en.*',write-sub=,downloader=aria2c,downloader-args='-c -j 3 -x 3 -s 3 -k 1M'";
       };
     };
   };
   home.packages = with pkgs; [
     freetube
     yt-dlp
-    aria2
 
     (writeShellApplication {
       name = "mpvl";
