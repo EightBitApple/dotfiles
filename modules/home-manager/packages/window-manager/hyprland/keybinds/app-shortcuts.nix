@@ -15,6 +15,7 @@
 
     # launchers
     "$mod, D, exec, $wofi"
+    "$mod SHIFT, D, exec, $wofi_cmd"
 
     # managers
     "$mod, E, exec, caja"

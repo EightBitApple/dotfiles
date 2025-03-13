@@ -7,6 +7,7 @@
 
     # app launchings
     bind = CTRL, D, exec, $wofi
+    bind = CTRL SHIFT, D, exec, $wofi_cmd
     bind = CTRL, End, exec, pkill wofi
     bind = CTRL, E, exec, caja
 
