@@ -39,7 +39,6 @@
     ./system/bootloader.nix
     ./system/keymap.nix
     ./system/locale.nix
-    ./system/mount-drive.nix
     ./system/uboot.nix
     ./system/virtualisation.nix
     ./users/accounts.nix
