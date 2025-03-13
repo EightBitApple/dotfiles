@@ -5,7 +5,7 @@
   imports = [
     ./hardware-configuration.nix
     ./overrides/accounts.nix
-    ./overrides/drive-mount.nix
+    ./overrides/drive-mounts.nix
   ];
 
   disabledModules = [
