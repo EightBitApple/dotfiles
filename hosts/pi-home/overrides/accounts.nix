@@ -1,4 +1,4 @@
-{ config, userSettings, ... }:
+{ config, lib, userSettings, ... }:
 
 {
   sops.secrets."passwords/pi-home" = {
@@ -15,6 +15,6 @@
       # but we can remove the "@your-machine" part
     ];
 
-    extraGroups = [ "wheel" ];
+    extraGroups = lib.mkForce [ "wheel" ];
   };
 }

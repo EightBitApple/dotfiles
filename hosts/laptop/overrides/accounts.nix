@@ -1,4 +1,4 @@
-{ config, userSettings, ... }:
+{ config, lib, userSettings, ... }:
 
 {
   sops.secrets."passwords/laptop" = {
@@ -8,7 +8,7 @@
   users.users."${userSettings.username}" = {
     hashedPasswordFile = config.sops.secrets."passwords/laptop".path;
 
-    extraGroups = [
+    extraGroups = lib.mkForce [
       "networkmanager"
       "video"
       "wheel"
