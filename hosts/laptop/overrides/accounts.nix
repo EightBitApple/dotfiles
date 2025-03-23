@@ -7,5 +7,12 @@
 
   users.users."${userSettings.username}" = {
     hashedPasswordFile = config.sops.secrets."passwords/laptop".path;
+
+    extraGroups = [
+      "networkmanager"
+      "video"
+      "wheel"
+      "wireshark"
+    ];
   };
 }

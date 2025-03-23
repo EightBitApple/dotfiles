@@ -14,5 +14,7 @@
       # note: ssh-copy-id will add user@your-machine after the public key
       # but we can remove the "@your-machine" part
     ];
+
+    extraGroups = [ "wheel" ];
   };
 }
