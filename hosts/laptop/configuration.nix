@@ -11,7 +11,7 @@
   ];
 
   disabledModules = [
-    ../../modules/nixos/kernel/drivers/rtw88.nix
+    ../../modules/nixos/kernel/drivers/realtek-88xxau.nix
     ../../modules/nixos/nix/auto-upgrade.nix
     ../../modules/nixos/programs/gaming.nix
     ../../modules/nixos/services/device/printing.nix
