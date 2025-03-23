@@ -26,6 +26,8 @@
     ../../modules/nixos/programs/searx.nix
     ../../modules/nixos/programs/theming.nix
     ../../modules/nixos/programs/wireshark.nix
+    ../../modules/nixos/services/device/logind.nix
+    ../../modules/nixos/services/device/pam.nix
     ../../modules/nixos/services/device/printing.nix
     ../../modules/nixos/services/device/tlp.nix
     ../../modules/nixos/services/device/udev.nix
