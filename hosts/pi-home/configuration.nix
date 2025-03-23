@@ -29,7 +29,6 @@
     ../../modules/nixos/programs/theming.nix
     ../../modules/nixos/programs/wireshark.nix
     ../../modules/nixos/services/device/logind.nix
-    ../../modules/nixos/services/device/pam.nix
     ../../modules/nixos/services/device/printing.nix
     ../../modules/nixos/services/device/tlp.nix
     ../../modules/nixos/services/device/udev.nix
@@ -38,6 +37,7 @@
     ../../modules/nixos/services/networking/network-manager.nix
     ../../modules/nixos/services/networking/ssh-agent.nix
     ../../modules/nixos/services/security/gnupg.nix
+    ../../modules/nixos/services/security/pam.nix
     ../../modules/nixos/services/sound/pipewire.nix
     ../../modules/nixos/system/bootloader.nix
     ../../modules/nixos/system/virtualisation.nix
