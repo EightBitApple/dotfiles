@@ -12,6 +12,7 @@
     ./hardware-configuration.nix
     ./overrides/access-point.nix
     ./overrides/accounts.nix
+    ./overrides/realtek-88xxau.nix
     ./overrides/wpa-supplicant.nix
   ];
 
