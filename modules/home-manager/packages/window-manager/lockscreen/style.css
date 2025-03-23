@@ -1,0 +1,41 @@
+@define-color accent_color #20d0fc;
+@define-color button_border_color #8e8f8f;
+@define-color button_highlight #fff;
+@define-color text_color rgb(220,220,220);
+
+window {
+  background-image: url("vista.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black;
+}
+
+#clock-label {
+  font-family: Noto Sans;
+  font-weight: bold;
+  font-size: 72px;
+  color: @text_color;
+  text-shadow: 0px 0px 6px @accent_color;
+}
+
+#date-label {
+  font-family: Noto Sans;
+  font-weight: bold;
+  font-size: 48px;
+  margin-bottom: 150px;
+  color: @text_color;
+  text-shadow: 0px 0px 6px @accent_color;
+}
+
+#input-field {
+  padding: 3px 4px 5px;
+  border: 1px solid #ccc;
+  border-top-color: @button_border_color;
+  border-radius: 2px;
+  background-color: @button_highlight;
+}
+
+#input-label {
+  color: @text_color;
+}

@@ -32,6 +32,7 @@
     ./packages/utilities/terminal/system-health.nix
     ./packages/utilities/terminal/zsh.nix
     ./packages/window-manager/clipboard.nix
+    ./packages/window-manager/hyprland/hypridle.nix
     ./packages/window-manager/hyprland/hyprland.nix
     ./packages/window-manager/hyprland/keybinds/app-shortcuts.nix
     ./packages/window-manager/hyprland/keybinds/media.nix
@@ -39,6 +40,7 @@
     ./packages/window-manager/hyprland/keybinds/utilities.nix
     ./packages/window-manager/hyprland/keybinds/window-management.nix
     ./packages/window-manager/launcher/wofi.nix
+    ./packages/window-manager/lockscreen/gtklock.nix
     ./packages/window-manager/night-light.nix
     ./packages/window-manager/notifications/swaync.nix
     ./packages/window-manager/taskbar/waybar.nix

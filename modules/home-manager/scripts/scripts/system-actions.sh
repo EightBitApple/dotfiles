@@ -7,7 +7,7 @@ else
 fi
 
 case "$choice" in
-'lock') physlock -msp "Machine locked." ;;
+'lock') gtklock ;;
 'logout') hyprctl dispatch exit ;;
 'reload') hyprctl reload ;;
 'reboot') systemctl reboot -i ;;

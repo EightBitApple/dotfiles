@@ -34,7 +34,6 @@
     ../../modules/nixos/services/networking/network-manager.nix
     ../../modules/nixos/services/networking/ssh-agent.nix
     ../../modules/nixos/services/security/gnupg.nix
-    ../../modules/nixos/services/security/physlock.nix
     ../../modules/nixos/services/sound/pipewire.nix
     ../../modules/nixos/system/bootloader.nix
     ../../modules/nixos/system/mount-drive.nix

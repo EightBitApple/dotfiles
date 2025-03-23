@@ -4,7 +4,7 @@
   wayland.windowManager.hyprland.settings.bind = [
     # system state
     "$mod, Backspace, exec, sysact"
-    "$mod CTRL, L, exec, ${pkgs.physlock}/bin/physlock -msp 'Machine locked.'"
+    "$mod CTRL, L, exec, gtklock"
     "$mod, M, exit"
 
     # screenshots

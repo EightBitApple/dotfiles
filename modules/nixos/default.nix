@@ -22,6 +22,7 @@
     ./programs/wireshark.nix
     ./programs/zsh.nix
     ./services/device/fstrim.nix
+    ./services/device/logind.nix
     ./services/device/printing.nix
     ./services/device/tlp.nix
     ./services/device/udev.nix
@@ -34,7 +35,7 @@
     ./services/networking/wpa-supplicant.nix
     ./services/security/firejail.nix
     ./services/security/gnupg.nix
-    ./services/security/physlock.nix
+    ./services/security/pam.nix
     ./services/sound/pipewire.nix
     ./system/bootloader.nix
     ./system/keymap.nix
