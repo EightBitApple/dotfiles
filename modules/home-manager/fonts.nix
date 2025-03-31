@@ -1,5 +1,5 @@
 { userSettings, ... }:
 
 {
-  home.packages = [ userSettings.monospaceFontPkg ];
+  home.packages = [ userSettings.monospaceFont.package ];
 }

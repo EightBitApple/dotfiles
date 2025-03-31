@@ -51,14 +51,20 @@
         terminal = "alacritty";
         terminalTitle = "Alacritty";
 
-        monospaceFont = "FiraCode Nerd Font";
-        monospaceFontPkg = pkgs.nerd-fonts.fira-code;
+        monospaceFont = {
+          name = "FiraCode Nerd Font";
+          package = pkgs.nerd-fonts.fira-code;
+        };
 
-        sansSerifFont = "DejaVu Sans";
-        sansSerifFontPkg = pkgs.dejavu_fonts;
+        serifFont = {
+          name = "DejaVu Serif";
+          package = pkgs.dejavu_fonts;
+        };
 
-        serifFont = "DejaVu Serif";
-        serifFontPkg = pkgs.dejavu_fonts;
+        sansSerifFont = {
+          name = "DejaVu Sans";
+          package = pkgs.dejavu_fonts;
+        };
 
         emacsPkg = pkgs.emacs-pgtk;
 
