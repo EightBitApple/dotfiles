@@ -62,8 +62,8 @@
     stateVersion = "24.05"; # Please read the comment before changing.
 
     sessionVariables = {
-      EDITOR = "${userSettings.editor}";
-      FLAKE = "${userSettings.dotfilesDir}";
+      EDITOR = "${userSettings.emacs.name}";
+      FLAKE = "${userSettings.user.dotfilesDir}";
       NIXOS_OZONE_WL = 1;
     };
   };

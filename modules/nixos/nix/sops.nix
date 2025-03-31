@@ -12,6 +12,6 @@
     defaultSopsFile = ../../../secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
 
-    age.keyFile = "/home/${userSettings.username}/.config/sops/age/keys.txt";
+    age.keyFile = "/home/${userSettings.user.name}/.config/sops/age/keys.txt";
   };
 }

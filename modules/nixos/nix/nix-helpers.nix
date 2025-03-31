@@ -5,7 +5,7 @@
 
   programs.nh = {
     enable = true;
-    flake = "${userSettings.dotfilesDir}";
+    flake = "${userSettings.user.dotfilesDir}";
     clean = {
       enable = true;
       extraArgs = "--keep 4";

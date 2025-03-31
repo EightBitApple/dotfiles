@@ -27,29 +27,47 @@
     }@inputs:
     let
       systemSettings = {
-        arch = "x86_64-linux";
-        archArm = "aarch64-linux";
-        hostname = "nixos";
+        arch = {
+          x86 = "x86_64-linux";
+          arm = "aarch64-linux";
+        };
 
-        timezone = "Europe/London";
-        latitude = "51.50853";
-        longitude = "-0.12574";
-        locale = "en_GB.UTF-8";
+        networking.hostname = "nixos";
 
-        maintenanceDay = "Tue";
+        location = {
+          timezone = "Europe/London";
+          latitude = "51.50853";
+          longitude = "-0.12574";
+          locale = "en_GB.UTF-8";
+        };
+
+        maintenance.day = "Tue";
       };
 
       userSettings = rec {
-        username = "stefan";
-        name = "Stefan";
-        dotfilesDir = "/home/${username}/dotfiles/";
+        user = {
+          name = "stefan";
+          fullName = "Stefan";
+          dotfilesDir = "/home/${user.name}/dotfiles/";
+        };
 
-        editor = "emacsclient";
-        windowManager = "hyprland";
-        cursorSize = 24;
+        emacs = {
+          name = "emacsclient";
+          package = pkgs.emacs-pgtk;
+        };
+
+        windowManager = {
+          name = "hyprland";
+          cursorSize = 24;
+          wallpaper = ./modules/home-manager/resources/wallpapers/vista.jpg;
+        };
+
         browser = "librewolf";
-        terminal = "alacritty";
-        terminalTitle = "Alacritty";
+
+        terminal = {
+          name = "alacritty";
+          title = "Alacritty";
+        };
 
         monospaceFont = {
           name = "FiraCode Nerd Font";
@@ -65,15 +83,11 @@
           name = "DejaVu Sans";
           package = pkgs.dejavu_fonts;
         };
-
-        emacsPkg = pkgs.emacs-pgtk;
-
-        wallpaper = ./modules/home-manager/resources/wallpapers/vista.jpg;
       };
 
-      pkgs = nixpkgs.legacyPackages.${systemSettings.arch};
-      pkgsStable = nixpkgsStable.legacyPackages.${systemSettings.arch};
-      pkgsArm = nixpkgsStable.legacyPackages.${systemSettings.archArm};
+      pkgs = nixpkgs.legacyPackages.${systemSettings.arch.x86};
+      pkgsStable = nixpkgsStable.legacyPackages.${systemSettings.arch.x86};
+      pkgsArm = nixpkgsStable.legacyPackages.${systemSettings.arch.arm};
 
       lib = nixpkgs.lib;
 
@@ -99,7 +113,7 @@
             {
               home-manager = {
                 extraSpecialArgs = hostArgs;
-                users.${userSettings.username} = import ./hosts/laptop/home.nix;
+                users.${userSettings.user.name} = import ./hosts/laptop/home.nix;
                 useUserPackages = true;
               };
             }
@@ -119,7 +133,7 @@
             {
               home-manager = {
                 extraSpecialArgs = hostArgs;
-                users.${userSettings.username} = import ./hosts/desktop/home.nix;
+                users.${userSettings.user.name} = import ./hosts/desktop/home.nix;
                 useUserPackages = true;
               };
             }

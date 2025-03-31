@@ -15,7 +15,7 @@
       "--recreate-lock-file"
       "-L" # print build logs
     ];
-    dates = "${systemSettings.maintenanceDay}";
+    dates = "${systemSettings.maintenance.day}";
     randomizedDelaySec = "45min";
   };
 }

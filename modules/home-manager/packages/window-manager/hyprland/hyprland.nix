@@ -19,7 +19,7 @@ let
       nm-applet &
 
       current_wallpaper=~/.local/share/current-wallpaper
-      [ ! -f "$current_wallpaper" ] && current_wallpaper=${userSettings.wallpaper}
+      [ ! -f "$current_wallpaper" ] && current_wallpaper=${userSettings.windowManager.wallpaper}
       swaybg -i "$current_wallpaper" -m fill &
     '';
   };
@@ -34,7 +34,7 @@ in
       env = [
         "LSP_USE_PLISTS,true"
         "XDG_CURRENT_DESKTOP,Hyprland"
-        "XCURSOR_SIZE,${builtins.toString userSettings.cursorSize}"
+        "XCURSOR_SIZE,${builtins.toString userSettings.windowManager.cursorSize}"
       ];
 
       general = {
@@ -98,7 +98,7 @@ in
         force_default_wallpaper = 0;
 
         enable_swallow = true;
-        swallow_regex = "${userSettings.terminalTitle}";
+        swallow_regex = "${userSettings.terminal.title}";
 
         new_window_takes_over_fullscreen = 1;
         animate_manual_resizes = true;

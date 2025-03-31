@@ -16,4 +16,6 @@
       LC_TIME = "${systemSettings.locale}";
     };
   };
+  time.timeZone = "${systemSettings.location.timezone}";
+  i18n.defaultLocale = "${systemSettings.location.locale}";
 }

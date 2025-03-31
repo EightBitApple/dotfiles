@@ -10,7 +10,7 @@
     enable = true;
     settings = {
       show = "drun";
-      term = "${userSettings.terminal}";
+      term = "${userSettings.terminal.name}";
       show_all = true;
       gtk_dark = false;
       location = "center";

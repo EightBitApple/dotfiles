@@ -3,6 +3,6 @@
 {
   services.fstrim = {
     enable = true;
-    interval = "${systemSettings.maintenanceDay}";
+    interval = "${systemSettings.maintenance.day}";
   };
 }

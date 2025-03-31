@@ -7,6 +7,6 @@
     startWithGraphical = true;
     package =
       with pkgs;
-      ((emacsPackagesFor userSettings.emacsPkg).emacsWithPackages (epkgs: [ epkgs.vterm ]));
+      ((emacsPackagesFor userSettings.emacs.package).emacsWithPackages (epkgs: [ epkgs.vterm ]));
   };
 }

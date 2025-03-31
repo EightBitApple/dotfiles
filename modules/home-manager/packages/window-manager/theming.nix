@@ -22,7 +22,7 @@
   home.pointerCursor = {
     name = "Bibata-Modern-Ice";
     package = pkgs.bibata-cursors;
-    size = userSettings.cursorSize;
+    size = userSettings.windowManager.cursorSize;
     gtk.enable = true;
   };
 }

@@ -1,11 +1,12 @@
 { systemSettings, ... }:
 
 {
-  services.gammastep = with systemSettings; {
+  services.gammastep = {
     enable = true;
     provider = "manual";
-    latitude = latitude;
-    longitude = longitude;
+    latitude = systemSettings.location.latitude;
+    longitude = systemSettings.location.longitude;
+
     temperature = {
       day = 6500;
       night = 2500;

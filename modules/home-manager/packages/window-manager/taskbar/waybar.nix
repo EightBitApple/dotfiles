@@ -40,7 +40,7 @@
 
         "clock" = {
           format = "{:%a %b %d %H:%M}";
-          timezone = "${systemSettings.timezone}";
+          timezone = "${systemSettings.location.timezone}";
           tooltip-format = ''
             <big>{:%Y %B}</big>
             <tt><small>{calendar}</small></tt>'';
@@ -56,7 +56,7 @@
         "wireplumber" = {
           format = "{icon}  {volume}%";
           format-muted = " ";
-          on-click = "${userSettings.terminal} -e pulsemixer";
+          on-click = "${userSettings.terminal.name} -e pulsemixer";
           format-icons = [
             ""
             ""

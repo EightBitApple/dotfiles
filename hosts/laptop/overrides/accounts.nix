@@ -5,7 +5,7 @@
     neededForUsers = true;
   };
 
-  users.users."${userSettings.username}" = {
+  users.users."${userSettings.user.name}" = {
     hashedPasswordFile = config.sops.secrets."passwords/laptop".path;
 
     extraGroups = lib.mkForce [

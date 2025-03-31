@@ -46,8 +46,8 @@
 
     envExtra = ''
       path=('/usr/local/bin' $path)
-      path+=('/home/${userSettings.username}/.local/bin')
-      path+=('/home/${userSettings.username}/.config/emacs/bin')
+      path+=('/home/${userSettings.user.name}/.local/bin')
+      path+=('/home/${userSettings.user.name}/.config/emacs/bin')
       export PATH
 
       export FZF_CTRL_T_COMMAND="fd --full-path"
