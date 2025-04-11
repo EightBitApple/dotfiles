@@ -34,6 +34,7 @@
         video-sync = "display-resample";
         profile = "fast";
 
+        ytdl-raw-options="force-ipv4=";
         ytdl-format = "bestvideo[vcodec^=avc1][height<=1080]+bestaudio";
         sub-auto = "fuzzy";
       };
