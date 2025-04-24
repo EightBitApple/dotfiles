@@ -45,6 +45,8 @@ in
 
         "col.active_border" = "rgb(f43841) rgb(ffdd33) rgb(c73c3f) 60deg";
         "col.inactive_border" = "rgb(52494e)";
+
+        allow_tearing = true;
       };
 
       input = {
@@ -124,12 +126,13 @@ in
         "workspaces, 1, $animation_speed, overshot, slide"
       ];
 
-      windowrulev2 = [
+      windowrule = [
         "float,title:(Authentication Required — PolicyKit1 KDE Agent)$"
         "float,title:^(File Operation Progress)$"
         "noanim,class:^(Gimp)$"
         "stayfocused, title:^()$,class:^(steam)$"
         "minsize 1 1, title:^()$,class:^(steam)$"
+        "immediate, class:^(steam_app_.+)$"
       ];
 
       device = [
