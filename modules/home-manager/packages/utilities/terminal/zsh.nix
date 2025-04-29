@@ -54,7 +54,7 @@
       export FZF_ALT_C_COMMAND="fd -t d"
     '';
 
-    initExtra = ''
+    initContent = ''
       PROMPT="%B%~%b
       ❯ "
 
