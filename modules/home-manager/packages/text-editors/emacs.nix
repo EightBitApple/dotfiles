@@ -19,7 +19,6 @@
     jdk
 
     # python lsp
-    ruff-lsp
     black
     pipenv
     python312Packages.pyflakes
