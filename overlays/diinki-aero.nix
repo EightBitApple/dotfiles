@@ -4,10 +4,10 @@ stdenvNoCC.mkDerivation rec {
   pname = "diinki-aero";
   version = "1.0";
   src = fetchFromGitHub {
-    owner = "diinki";
+    owner = "EightBitApple";
     repo = "${pname}";
-    rev = "${version}";
-    hash = "sha256-sOW8U3kWNThjh8q6Bl3UC02pLPtHmIG+BNZgWlL6Zos=";
+    rev = "e44fe71fa832cc62f39e075f0a4d72d820fbe63e";
+    hash = "sha256-mFgBcfzzDXj8Nz0uX0OJLGFtaEvTuC7/ScIFgNpzqC4=";
   };
 
   installPhase = ''
