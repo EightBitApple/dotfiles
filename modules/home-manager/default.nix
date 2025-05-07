@@ -4,6 +4,7 @@
   imports = [
     ./fonts.nix
     ./packages/browsers/librewolf.nix
+    ./packages/gaming/emulators.nix
     ./packages/gaming/mangohud.nix
     ./packages/gaming/sourceports/dsda-doom.nix
     ./packages/gaming/sourceports/gzdoom.nix

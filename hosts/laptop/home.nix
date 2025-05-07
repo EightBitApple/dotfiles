@@ -32,6 +32,7 @@ in
   ];
 
   disabledModules = [
+    ../../modules/home-manager/packages/gaming/emulators.nix
     ../../modules/home-manager/packages/gaming/mangohud.nix
     ../../modules/home-manager/packages/gaming/sourceports/dsda-doom.nix
     ../../modules/home-manager/packages/gaming/sourceports/gzdoom.nix
