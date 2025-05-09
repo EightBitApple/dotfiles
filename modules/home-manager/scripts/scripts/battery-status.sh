@@ -29,7 +29,7 @@ for battery in /sys/class/power_supply/?*; do
         warn="!"
         if [ $(("$capacity" % "$low_multiple")) -eq 0 ]; then
             if [ ! -f "$notif_lock" ]; then
-                notify-send -u critical "Low battery!" "$name is at $capacity%."
+                notify-send -t 10000 "Low battery!" "$name is at $capacity%."
                 touch "$notif_lock"
             fi
         else
