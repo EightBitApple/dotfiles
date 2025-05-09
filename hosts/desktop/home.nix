@@ -9,7 +9,8 @@
   wayland.windowManager.hyprland.settings = {
     bind = [
       "$mod ALT, W, exec, hyprctl keyword monitor DP-1,1920x1080@75,0x0,1 & notify-send -t 2000 'Refresh Rate: Max'"
-      "$mod ALT, S, exec, hyprctl keyword monitor DP-1,1920x1080@60,0x0,1 & notify-send -t 2000 'Refresh Rate: 60hz'"
+      "$mod ALT, S, exec, hyprctl keyword monitor DP-1,1920x1080@60,0x0,1 & notify-send -t 2000 'Refresh Rate: 60Hz'"
+      "$mod ALT, D, exec, hyprctl keyword monitor DP-1,1920x1080@50,0x0,1 & notify-send -t 2000 'Refresh Rate: 50Hz'"
     ];
     monitor = [
       "DP-1, 1920x1080@75, 0x0, 1"
