@@ -14,6 +14,7 @@
         output = [ "*" ];
         layer = "top";
         position = "top";
+        height = 36;
 
         modules-left = [
           "hyprland/workspaces"
