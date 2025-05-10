@@ -8,7 +8,7 @@
     ./modules/change-brightness.nix
     ./modules/change-volume.nix
     ./modules/image-edit.nix
-    ./modules/notification-sound.nix
+    ./modules/notif-sound.nix
     ./modules/screenshot.nix
     ./modules/system-actions.nix
   ];

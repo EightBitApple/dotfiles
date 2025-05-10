@@ -1,6 +1,14 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [ libnotify swaynotificationcenter ];
-  home.file.".config/swaync/style.css".source = ./style.css;
+  home = {
+    packages = with pkgs; [
+      libnotify
+      swaynotificationcenter
+    ];
+    file = {
+      ".config/swaync/style.css".source = ./style.css;
+      ".config/swaync/config.json".source = ./config.json;
+    };
+  };
 }

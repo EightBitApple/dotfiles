@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "normal-sound": {
+      "exec": "notif-sound --normal",
+      "urgency": "Normal"
+    },
+    "critical-sound": {
+      "exec": "notif-sound --critical",
+      "urgency": "Critical"
+    }
+  }
+}
