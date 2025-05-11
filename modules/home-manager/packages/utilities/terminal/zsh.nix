@@ -87,6 +87,8 @@
       zle -N zle-line-init
       echo -ne '\e[5 q' # Use beam shape cursor on startup.
       preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+
+      [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ] && exec Hyprland
     '';
   };
 }
