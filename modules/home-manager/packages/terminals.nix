@@ -9,6 +9,7 @@
         };
         opacity = 0.75;
       };
+      font.size = 10;
     };
   };
 }
