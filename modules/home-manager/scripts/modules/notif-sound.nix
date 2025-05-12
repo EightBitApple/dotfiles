@@ -5,7 +5,7 @@
     (writeShellApplication {
       name = "notif-sound";
       runtimeInputs = [ pipewire ];
-      text = builtins.readFile ../scripts/notification-sound.sh;
+      text = builtins.readFile ../scripts/notif-sound.sh;
     })
   ];
 }
