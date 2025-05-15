@@ -3,7 +3,7 @@
 notif_time=750
 
 send_notification() {
-    notify-send "brightness:" "$(brillo -G)%" -h string:x-canonical-private-synchronous:brightness -t $notif_time
+    notify-send -u low "brightness:" "$(brillo -G)%" -h string:x-canonical-private-synchronous:brightness -t $notif_time
 }
 
 case $1 in
