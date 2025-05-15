@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-notif_time=750
+notif_time=500
 
 send_notification() {
     volume=$(pamixer --get-volume)
