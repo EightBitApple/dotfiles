@@ -1,5 +1,12 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
+let
+  iface = "wlan0";
+  watchdog = {
+    name = "wpa_watchdog";
+    interval = "5m";
+  };
+in
 {
   sops = {
     secrets = {
@@ -27,8 +34,27 @@
   };
 
   networking.wireless = {
-    interfaces = [ "wlan0" ];
+    interfaces = [ iface ];
     # https://github.com/NixOS/nixpkgs/issues/342140#issuecomment-2365125619
     allowAuxiliaryImperativeNetworks = true;
+  };
+
+  systemd = {
+    timers."${watchdog.name}" = {
+      wantedBy = [ "timers.target" ];
+      timerConfig = {
+        OnBootSec = "${watchdog.interval}";
+        OnUnitActiveSec = "${watchdog.interval}";
+        Unit = "${watchdog.name}.service";
+      };
+    };
+    services."${watchdog.name}" = {
+      script = ''
+        if ${pkgs.systemd}/bin/systemctl status wpa_supplicant-${iface}.service | ${pkgs.gnugrep}/bin/grep ''$(cat "${config.sops.secrets."wpa/network1/BSSID_ignore".path}"); then
+          ${pkgs.systemd}/bin/systemctl restart wpa_supplicant-${iface}.service
+          printf "wpa_supplicant connected to 2.4GHz band, restarted 'wpa_supplicant-${iface}.service'."
+        fi
+      '';
+    };
   };
 }
