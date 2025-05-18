@@ -2,18 +2,24 @@
 
 let
   iface = "wlan0";
+  service = "wpa_supplicant-${iface}.service";
+
   watchdog = {
     name = "wpa_watchdog";
     interval = "5m";
+    bssid_ignore = config.sops.secrets."wpa/network1/BSSID_ignore".path;
   };
+
+  systemctl = "${pkgs.systemd}/bin/systemctl";
+  grep = "${pkgs.gnugrep}/bin/grep";
 in
 {
   sops = {
     secrets = {
-      "wpa/network1/SSID" = {};
-      "wpa/network1/BSSID" = {};
-      "wpa/network1/BSSID_ignore" = {};
-      "wpa/network1/psk" = {};
+      "wpa/network1/SSID" = { };
+      "wpa/network1/BSSID" = { };
+      "wpa/network1/BSSID_ignore" = { };
+      "wpa/network1/psk" = { };
     };
 
     # https://discourse.nixos.org/t/sops-nix-templates-in-config-file/40225/2
@@ -39,22 +45,14 @@ in
     allowAuxiliaryImperativeNetworks = true;
   };
 
-  systemd = {
-    timers."${watchdog.name}" = {
-      wantedBy = [ "timers.target" ];
-      timerConfig = {
-        OnBootSec = "${watchdog.interval}";
-        OnUnitActiveSec = "${watchdog.interval}";
-        Unit = "${watchdog.name}.service";
-      };
-    };
-    services."${watchdog.name}" = {
-      script = ''
-        if ${pkgs.systemd}/bin/systemctl status wpa_supplicant-${iface}.service | ${pkgs.gnugrep}/bin/grep ''$(cat "${config.sops.secrets."wpa/network1/BSSID_ignore".path}"); then
-          ${pkgs.systemd}/bin/systemctl restart wpa_supplicant-${iface}.service
-          printf "wpa_supplicant connected to 2.4GHz band, restarted 'wpa_supplicant-${iface}.service'."
-        fi
-      '';
-    };
-  };
+  systemd.services."${watchdog.name}".script = ''
+    while :
+    do
+      if ${systemctl} status ${service} | ${grep} ''$(cat "${watchdog.bssid_ignore}") > /dev/null; then
+        ${systemctl} restart ${service}
+        printf "${service} connected to 2.4GHz band, restarted it."
+      fi
+      sleep ${watchdog.interval}
+    done
+  '';
 }
