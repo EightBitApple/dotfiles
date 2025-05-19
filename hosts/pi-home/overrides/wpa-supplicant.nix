@@ -45,14 +45,17 @@ in
     allowAuxiliaryImperativeNetworks = true;
   };
 
-  systemd.services."${watchdog.name}".script = ''
-    while :
-    do
-      if ${systemctl} status ${service} | ${grep} ''$(cat "${watchdog.bssid_ignore}") > /dev/null; then
-        ${systemctl} restart ${service}
-        printf "${service} connected to 2.4GHz band, restarted it."
-      fi
-      sleep ${watchdog.interval}
-    done
-  '';
+  systemd.services."${watchdog.name}" = {
+    script = ''
+      while :
+      do
+        if ${systemctl} status ${service} | ${grep} ''$(cat "${watchdog.bssid_ignore}") > /dev/null; then
+          ${systemctl} restart ${service}
+          printf "${service} connected to 2.4GHz band, restarted it."
+        fi
+        sleep ${watchdog.interval}
+      done
+    '';
+    wantedBy = [ "multi-user.target" ];
+  };
 }
