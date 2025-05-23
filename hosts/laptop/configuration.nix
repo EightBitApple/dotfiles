@@ -1,13 +1,11 @@
-{ lib, ... }:
-
 {
-  networking.hostName = lib.mkForce "laptop";
   imports = [
     ./disko.nix
     ./hardware-configuration.nix
-    ./overrides/accounts.nix
-    ./overrides/boot.nix
-    ./overrides/tlp.nix
+    ./nixos/boot.nix
+    ./nixos/services/device/tlp.nix
+    ./nixos/services/networking/network-manager.nix
+    ./nixos/users/accounts.nix
   ];
 
   disabledModules = [
