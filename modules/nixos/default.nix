@@ -13,6 +13,7 @@
     ./nix/nix-helpers.nix
     ./nix/pkgs-unfree.nix
     ./nix/sops.nix
+    ./programs/browsers.nix
     ./programs/dconf.nix
     ./programs/emacs.nix
     ./programs/gaming.nix
