@@ -4,8 +4,8 @@
   networking.hostName = lib.mkForce "desktop";
   imports = [
     ./hardware-configuration.nix
-    ./overrides/accounts.nix
-    ./overrides/drive-mounts.nix
+    ./nixos/drive-mounts.nix
+    ./nixos/users/accounts.nix
   ];
 
   disabledModules = [

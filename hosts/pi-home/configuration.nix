@@ -10,10 +10,10 @@
   networking.hostName = lib.mkForce "pi-home";
   imports = [
     ./hardware-configuration.nix
-    ./overrides/access-point.nix
-    ./overrides/accounts.nix
-    ./overrides/realtek-88xxau.nix
-    ./overrides/wpa-supplicant.nix
+    ./nixos/kernel/drivers/realtek-88xxau.nix
+    ./nixos/services/networking/access-point.nix
+    ./nixos/services/networking/wpa-supplicant.nix
+    ./nixos/users/accounts.nix
   ];
 
   disabledModules = [
