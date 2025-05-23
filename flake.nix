@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
-    nixpkgsStable.url = "nixpkgs/nixos-24.11";
+    nixpkgsStable.url = "nixpkgs/nixos-25.05";
 
     sopsNix.url = "github:Mic92/sops-nix";
 
