@@ -15,10 +15,10 @@
     ../../modules/nixos/kernel/drivers/realtek-88xxau.nix
     ../../modules/nixos/kernel/hid/apple-hid.nix
     ../../modules/nixos/programs/browsers.nix
+    ../../modules/nixos/programs/browsers.nix
     ../../modules/nixos/programs/emacs.nix
     ../../modules/nixos/programs/gaming.nix
     ../../modules/nixos/programs/hyprland.nix
-    ../../modules/nixos/programs/librewolf.nix
     ../../modules/nixos/programs/searx.nix
     ../../modules/nixos/programs/theming.nix
     ../../modules/nixos/programs/wireshark.nix
