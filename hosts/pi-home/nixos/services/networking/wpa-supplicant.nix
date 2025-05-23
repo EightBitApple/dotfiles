@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   iface = "wlan0";
@@ -39,10 +44,13 @@ in
     };
   };
 
-  networking.wireless = {
-    interfaces = [ iface ];
-    # https://github.com/NixOS/nixpkgs/issues/342140#issuecomment-2365125619
-    allowAuxiliaryImperativeNetworks = true;
+  networking = {
+    hostName = lib.mkForce "pi-home";
+    wireless = {
+      interfaces = [ iface ];
+      # https://github.com/NixOS/nixpkgs/issues/342140#issuecomment-2365125619
+      allowAuxiliaryImperativeNetworks = true;
+    };
   };
 
   systemd.services."${watchdog.name}" = {

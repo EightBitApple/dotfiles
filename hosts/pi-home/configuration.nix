@@ -1,13 +1,4 @@
 {
-  config,
-  lib,
-  pkgs,
-  userSettings,
-  ...
-}:
-
-{
-  networking.hostName = lib.mkForce "pi-home";
   imports = [
     ./hardware-configuration.nix
     ./nixos/kernel/drivers/realtek-88xxau.nix
@@ -43,7 +34,6 @@
     ../../modules/nixos/system/bootloader.nix
     ../../modules/nixos/system/virtualisation.nix
   ];
-
 
   system.autoUpgrade.allowReboot = true;
 }

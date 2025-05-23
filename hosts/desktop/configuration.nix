@@ -1,10 +1,8 @@
-{ lib, ... }:
-
 {
-  networking.hostName = lib.mkForce "desktop";
   imports = [
     ./hardware-configuration.nix
     ./nixos/drive-mounts.nix
+    ./nixos/services/networking/network-manager.nix
     ./nixos/users/accounts.nix
   ];
 
