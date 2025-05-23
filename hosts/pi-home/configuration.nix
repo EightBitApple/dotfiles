@@ -2,6 +2,7 @@
   imports = [
     ./hardware-configuration.nix
     ./nixos/kernel/drivers/realtek-88xxau.nix
+    ./nixos/nix/auto-upgrade.nix
     ./nixos/services/networking/access-point.nix
     ./nixos/services/networking/wpa-supplicant.nix
     ./nixos/users/accounts.nix
@@ -34,6 +35,4 @@
     ../../modules/nixos/system/bootloader.nix
     ../../modules/nixos/system/virtualisation.nix
   ];
-
-  system.autoUpgrade.allowReboot = true;
 }
