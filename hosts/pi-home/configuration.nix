@@ -30,6 +30,7 @@
     ../../modules/nixos/services/networking/dnscrypt.nix
     ../../modules/nixos/services/networking/network-manager.nix
     ../../modules/nixos/services/networking/ssh-agent.nix
+    ../../modules/nixos/services/security/firejail.nix
     ../../modules/nixos/services/security/gnupg.nix
     ../../modules/nixos/services/security/pam.nix
     ../../modules/nixos/services/sound/pipewire.nix
