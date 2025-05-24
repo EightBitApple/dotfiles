@@ -7,6 +7,7 @@
     ./kernel/drivers/realtek-88xxau.nix
     ./kernel/hid/apple-hid.nix
     ./kernel/memory/zram.nix
+    ./kernel/version.nix
     ./nix/auto-optimise.nix
     ./nix/auto-upgrade.nix
     ./nix/experimental-features.nix
