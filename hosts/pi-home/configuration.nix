@@ -14,7 +14,7 @@
     ../../modules/nixos/hardware/microcode-updates.nix
     ../../modules/nixos/kernel/drivers/realtek-88xxau.nix
     ../../modules/nixos/kernel/hid/apple-hid.nix
-    ../../modules/nixos/kernel/version.nix
+    ../../modules/nixos/kernel/latest.nix
     ../../modules/nixos/programs/browsers.nix
     ../../modules/nixos/programs/browsers.nix
     ../../modules/nixos/programs/emacs.nix
