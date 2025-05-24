@@ -1,4 +1,10 @@
-{ stdenvNoCC, lib, fetchFromGitHub, ... }:
+{
+  stdenvNoCC,
+  lib,
+  pkgs,
+  fetchFromGitHub,
+  ...
+}:
 
 stdenvNoCC.mkDerivation rec {
   pname = "diinki-aero";
