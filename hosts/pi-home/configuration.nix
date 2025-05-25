@@ -1,7 +1,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./nixos/kernel/drivers/realtek-88xxau.nix
     ./nixos/nix/auto-upgrade.nix
     ./nixos/services/networking/access-point.nix
     ./nixos/services/networking/wpa-supplicant.nix
@@ -12,7 +11,6 @@
     ../../modules/nixos/hardware/brillo.nix
     ../../modules/nixos/hardware/intel-hwdec.nix
     ../../modules/nixos/hardware/microcode-updates.nix
-    ../../modules/nixos/kernel/drivers/realtek-88xxau.nix
     ../../modules/nixos/kernel/hid/apple-hid.nix
     ../../modules/nixos/kernel/latest.nix
     ../../modules/nixos/programs/browsers.nix
