@@ -156,6 +156,7 @@
             }
             ./hosts/pi-home/configuration.nix
             ./modules/nixos
+            ./overlays
           ];
         };
       };
