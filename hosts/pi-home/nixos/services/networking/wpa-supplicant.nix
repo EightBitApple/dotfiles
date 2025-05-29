@@ -11,7 +11,7 @@ let
 
   watchdog = {
     name = "wpa_watchdog";
-    interval = "5m";
+    interval = "1m";
     bssid_ignore = config.sops.secrets."wpa/network1/BSSID_ignore".path;
   };
 
