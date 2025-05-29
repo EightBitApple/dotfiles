@@ -2,9 +2,13 @@
   config,
   systemSettings,
   userSettings,
+  pkgs,
   ...
 }:
 
+let
+  iconBattery = "${pkgs.myPackages.diinki-aero}/share/icons/crystal-remix-icon-theme-diinki-version/128x128/devices/battery.png";
+in
 {
   programs.waybar = {
     enable = true;
@@ -70,7 +74,7 @@
           interval = 15;
           exec = "battery-status";
           on-click = ''
-            notify-send "Battery Information:" "$(battery-info)"
+            notify-send -i ${iconBattery} "Battery Information:" "$(battery-info)"
           '';
         };
 

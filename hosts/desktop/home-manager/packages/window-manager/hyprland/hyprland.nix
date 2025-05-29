@@ -1,9 +1,19 @@
+{ pkgs, ... }:
+let
+  dispIcon = "${pkgs.myPackages.diinki-aero}/share/icons/crystal-remix-icon-theme-diinki-version/128x128/devices/video-display.png";
+  dispRes = "hyprctl keyword monitor DP-1,1920x1080";
+  dispPos = "0x0,1";
+
+  notifCmd = "notify-send -t ${notifTime} -i ${dispIcon}";
+  notifTitle = "notify-send -t ${notifTime} -i ${dispIcon}";
+  notifTime = "2000";
+in
 {
   wayland.windowManager.hyprland.settings = {
     bind = [
-      "$mod ALT, W, exec, hyprctl keyword monitor DP-1,1920x1080@75,0x0,1 & notify-send -t 2000 'Refresh Rate: Max'"
-      "$mod ALT, S, exec, hyprctl keyword monitor DP-1,1920x1080@60,0x0,1 & notify-send -t 2000 'Refresh Rate: 60Hz'"
-      "$mod ALT, D, exec, hyprctl keyword monitor DP-1,1920x1080@50,0x0,1 & notify-send -t 2000 'Refresh Rate: 50Hz'"
+      "$mod ALT, W, exec, ${dispRes}@75,${dispPos} & ${notifCmd} '${notifTitle}' '75Hz'"
+      "$mod ALT, S, exec, ${dispRes}@60,${dispPos} & ${notifCmd} '${notifTitle}' '60Hz'"
+      "$mod ALT, D, exec, ${dispRes}@50,${dispPos} & ${notifCmd} '${notifTitle}' '50Hz'"
     ];
     monitor = [
       "DP-1, 1920x1080@75, 0x0, 1"
