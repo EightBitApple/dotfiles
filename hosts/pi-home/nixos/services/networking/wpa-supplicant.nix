@@ -16,7 +16,7 @@ let
   };
 
   systemctl = "${pkgs.systemd}/bin/systemctl";
-  grep = "${pkgs.gnugrep}/bin/grep";
+  ripgrep = "${pkgs.ripgrep}/bin/rg";
 in
 {
   sops = {
@@ -57,7 +57,7 @@ in
     script = ''
       while :
       do
-        if ${systemctl} status ${service} | ${grep} ''$(cat "${watchdog.bssid_ignore}") > /dev/null; then
+        if ${systemctl} status ${service} | ${ripgrep} ''$(cat "${watchdog.bssid_ignore}") > /dev/null; then
           ${systemctl} restart ${service}
           printf "${service} connected to 2.4GHz band, restarted it."
         fi
