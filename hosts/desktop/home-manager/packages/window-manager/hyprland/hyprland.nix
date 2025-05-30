@@ -5,7 +5,7 @@ let
   dispPos = "0x0,1";
 
   notifCmd = "notify-send -t ${notifTime} -i ${dispIcon}";
-  notifTitle = "notify-send -t ${notifTime} -i ${dispIcon}";
+  notifTitle = "Refresh Rate";
   notifTime = "2000";
 in
 {
