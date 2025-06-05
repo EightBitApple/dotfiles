@@ -3,7 +3,6 @@
     ../../modules/home-manager
     ../../overlays
     ./home-manager/packages/window-manager/hyprland/hyprland.nix
-    ./home-manager/packages/terminals.nix
   ];
 
   disabledModules = [
