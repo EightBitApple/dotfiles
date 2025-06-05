@@ -29,6 +29,7 @@
       config = {
         vo = "gpu-next";
         hwdec = "auto";
+        gpu-api = "opengl";
         keep-open = "yes";
 
         geometry = "50%";
