@@ -12,6 +12,8 @@
         k = "seek 60";
         S = "cycle sub";
 
+        ENTER = "cycle pause";
+
         # sponsorblock
         "alt+h" = "script-binding sponsorblock/upvote_segment,";
         "alt+shift+h" = "script-binding sponsorblock/upvote_segment,";
