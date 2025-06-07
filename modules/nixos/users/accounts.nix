@@ -11,6 +11,6 @@
       "gamemode"
       "video"
     ];
-    shell = pkgs.zsh;
+    shell = pkgs.bash;
   };
 }

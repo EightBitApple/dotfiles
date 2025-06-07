@@ -27,10 +27,10 @@
     ./packages/utilities/network/syncthing.nix
     ./packages/utilities/security.nix
     ./packages/utilities/terminal/fhs.nix
+    ./packages/utilities/terminal/fish.nix
     ./packages/utilities/terminal/misc.nix
     ./packages/utilities/terminal/nix-helpers.nix
     ./packages/utilities/terminal/system-health.nix
-    ./packages/utilities/terminal/zsh.nix
     ./packages/window-manager/clipboard.nix
     ./packages/window-manager/hyprland/hypridle.nix
     ./packages/window-manager/hyprland/hyprland.nix

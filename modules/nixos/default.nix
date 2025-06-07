@@ -17,12 +17,12 @@
     ./programs/browsers.nix
     ./programs/dconf.nix
     ./programs/emacs.nix
+    ./programs/fish.nix
     ./programs/gaming.nix
     ./programs/git.nix
     ./programs/hyprland.nix
     ./programs/searx.nix
     ./programs/wireshark.nix
-    ./programs/zsh.nix
     ./services/device/fstrim.nix
     ./services/device/logind.nix
     ./services/device/printing.nix

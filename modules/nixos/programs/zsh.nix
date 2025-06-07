@@ -1,5 +1,5 @@
-{
-  # zsh's configuration is performed with home-manager.
+{ config, lib, pkgs, ... }:
 
-  programs.zsh.enable = true;
+{
+
 }
