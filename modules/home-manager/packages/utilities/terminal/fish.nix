@@ -13,6 +13,10 @@
       set fish_greeting # Disable greeting
       set fish_user_paths /usr/local/bin /home/${userSettings.user.name}/.local/bin /home/${userSettings.user.name}/.config/emacs/bin
       set fish_vi_key_bindings
+
+      if test (tty) = "/dev/tty1"
+         exec Hyprland
+      end
     '';
 
     shellAliases = {
