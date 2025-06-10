@@ -75,6 +75,7 @@
         terminal = {
           name = "alacritty";
           title = "Alacritty";
+          shell = "fish";
         };
 
         monospaceFont = {

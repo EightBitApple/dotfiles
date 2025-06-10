@@ -17,6 +17,7 @@
     ./programs/browsers.nix
     ./programs/dconf.nix
     ./programs/emacs.nix
+    ./programs/fhs.nix
     ./programs/fish.nix
     ./programs/gaming.nix
     ./programs/git.nix
