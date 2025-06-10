@@ -39,7 +39,8 @@
 
         ytdl-raw-options="force-ipv4=";
         ytdl-format = "bestvideo[vcodec^=avc1][height<=1080]+bestaudio";
-        sub-auto = "fuzzy";
+
+        sub-border-style = "opaque-box";
       };
     };
   };
