@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     fzf
     fd
+    starship
   ];
 
   programs.fish = {
@@ -13,6 +14,7 @@
       set fish_greeting # Disable greeting
       set fish_user_paths /usr/local/bin /home/${userSettings.user.name}/.local/bin /home/${userSettings.user.name}/.config/emacs/bin
       set fish_vi_key_bindings
+      starship init fish | source
 
       if test (tty) = "/dev/tty1"
          exec Hyprland
