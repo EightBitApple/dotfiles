@@ -28,5 +28,10 @@
     # org babel
     plantuml
     graphviz
+
+    # rust
+    cargo
+    rustc
+    rust-analyzer
   ];
 }
