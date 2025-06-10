@@ -29,9 +29,13 @@
     plantuml
     graphviz
 
+    # c/c++
+    gcc
+
     # rust
     cargo
     rustc
     rust-analyzer
+    rustfmt
   ];
 }
