@@ -27,6 +27,7 @@ in
 
         modules-right = [
           "hyprland/submap"
+          "bluetooth"
           "wireplumber"
           "custom/battery"
           "clock"
@@ -79,7 +80,7 @@ in
         };
 
         "bluetooth" = {
-          format = "󰂯 {status}";
+          format = "󰂯";
           format-off = ""; # an empty format will hide the module
           format-connected = "󰂱 {num_connections}";
           tooltip-format = "{controller_alias}\t{controller_address}";
