@@ -13,5 +13,6 @@
 
     # devices
     "$mod SHIFT, B, exec, bt-toggle"
+    "$mod CTRL, B, exec, bt-disconnect"
   ];
 }
