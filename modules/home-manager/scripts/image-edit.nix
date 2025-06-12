@@ -8,7 +8,9 @@
         swappy
         wl-clipboard
       ];
-      text = builtins.readFile ../scripts/image-edit.sh;
+      text = ''
+        wl-paste | swappy -f -;
+      '';
     })
   ];
 }

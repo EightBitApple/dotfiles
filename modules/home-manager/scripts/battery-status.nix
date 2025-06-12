@@ -19,12 +19,12 @@
             [ "$name" = "AC" ] && continue
 
             case $(cat "$battery/status" 2>&1) in
-            "Full") status="" ;;
-            "Discharging") status="" ;;
-            "Charging") status="" ;;
-            "Not charging") status="" ;;
-            "Unknown") status="󰂑" ;;
-            *) exit 1 ;;
+                 "Full") status="" ;;
+                 "Discharging") status="" ;;
+                 "Charging") status="" ;;
+                 "Not charging") status="" ;;
+                 "Unknown") status="󰂑" ;;
+                 *) exit 1 ;;
             esac
 
             [ ! -f "$battery/capacity" ] && continue

@@ -2,16 +2,16 @@
 
 {
   imports = [
-    ./modules/battery-info.nix
-    ./modules/battery-status.nix
-    ./modules/bluetooth-disconnect.nix
-    ./modules/bluetooth-toggle.nix
-    ./modules/change-brightness.nix
-    ./modules/change-volume.nix
-    ./modules/change-wallpaper.nix
-    ./modules/image-edit.nix
-    ./modules/notif-sound.nix
-    ./modules/screenshot.nix
-    ./modules/system-actions.nix
+    ./battery-info.nix
+    ./battery-status.nix
+    ./bluetooth-disconnect.nix
+    ./bluetooth-toggle.nix
+    ./change-brightness.nix
+    ./change-volume.nix
+    ./change-wallpaper.nix
+    ./image-edit.nix
+    ./notif-sound.nix
+    ./screenshot.nix
+    ./system-actions.nix
   ];
 }

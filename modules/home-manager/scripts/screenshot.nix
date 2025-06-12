@@ -10,7 +10,9 @@
         imagemagick
         wl-clipboard
       ];
-      text = builtins.readFile ../scripts/screenshot.sh;
+      text = ''
+        grim -g "$(slurp)" - | convert - -shave 1x1 PNG:- | wl-copy
+      '';
     })
   ];
 }
