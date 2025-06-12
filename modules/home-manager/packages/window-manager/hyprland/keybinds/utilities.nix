@@ -10,5 +10,8 @@
     # screenshots
     "$mod, C, exec, pgrep screenshot || screenshot"
     "$mod, V, exec, img-edit"
+
+    # devices
+    "$mod SHIFT, B, exec, bt-toggle"
   ];
 }
