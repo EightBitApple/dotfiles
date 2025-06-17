@@ -19,6 +19,7 @@
     ./programs/emacs.nix
     ./programs/fhs.nix
     ./programs/fish.nix
+    ./programs/flatpak.nix
     ./programs/gaming.nix
     ./programs/git.nix
     ./programs/hyprland.nix

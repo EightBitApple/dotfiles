@@ -16,6 +16,7 @@
     ../../modules/nixos/programs/browsers.nix
     ../../modules/nixos/programs/browsers.nix
     ../../modules/nixos/programs/emacs.nix
+    ../../modules/nixos/programs/flatpak.nix
     ../../modules/nixos/programs/gaming.nix
     ../../modules/nixos/programs/hyprland.nix
     ../../modules/nixos/programs/searx.nix
