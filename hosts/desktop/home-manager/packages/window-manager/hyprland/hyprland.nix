@@ -2,9 +2,10 @@
 let
   dispIcon = "${pkgs.myPackages.diinki-aero}/share/icons/crystal-remix-icon-theme-diinki-version/128x128/devices/video-display.png";
   dispRes = "hyprctl keyword monitor DP-1,1920x1080";
+  notifHint = "string:x-canonical-private-synchronous:refresh";
   dispPos = "0x0,1";
 
-  notifCmd = "notify-send -t ${notifTime} -i ${dispIcon}";
+  notifCmd = "notify-send -h ${notifHint} -t ${notifTime} -i ${dispIcon}";
   notifTitle = "Refresh Rate";
   notifTime = "2000";
 in
