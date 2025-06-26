@@ -28,6 +28,7 @@
     ./packages/utilities/security.nix
     ./packages/utilities/terminal/fhs.nix
     ./packages/utilities/terminal/fish.nix
+    ./packages/utilities/terminal/man.nix
     ./packages/utilities/terminal/misc.nix
     ./packages/utilities/terminal/nix-helpers.nix
     ./packages/utilities/terminal/system-health.nix

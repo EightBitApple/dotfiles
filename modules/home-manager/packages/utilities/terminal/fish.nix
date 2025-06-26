@@ -13,6 +13,7 @@ in
 
   programs.fish = {
     enable = true;
+    generateCompletions = false;
 
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
