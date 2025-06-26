@@ -3,7 +3,6 @@
     ./disko.nix
     ./hardware-configuration.nix
     ./nixos/boot.nix
-    ./nixos/services/device/tlp.nix
     ./nixos/services/networking/network-manager.nix
     ./nixos/users/accounts.nix
   ];
