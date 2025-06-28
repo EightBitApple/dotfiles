@@ -26,12 +26,12 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-id/ata-TOSHIBA-TR150_66OB470YK8WU-part2";
+    label = "ROOT";
     fsType = "ext4";
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-id/ata-TOSHIBA-TR150_66OB470YK8WU-part1";
+    label = "BOOT";
     fsType = "vfat";
   };
 
