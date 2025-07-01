@@ -15,6 +15,7 @@
     ./packages/terminals.nix
     ./packages/text-editors/emacs.nix
     ./packages/text-editors/neovim.nix
+    ./packages/utilities/bottles.nix
     ./packages/utilities/development/direnv.nix
     ./packages/utilities/development/git.nix
     ./packages/utilities/development/virtualisation.nix
@@ -32,7 +33,6 @@
     ./packages/utilities/terminal/misc.nix
     ./packages/utilities/terminal/nix-helpers.nix
     ./packages/utilities/terminal/system-health.nix
-    ./packages/utilities/wine.nix
     ./packages/window-manager/clipboard.nix
     ./packages/window-manager/hyprland/hypridle.nix
     ./packages/window-manager/hyprland/hyprland.nix
