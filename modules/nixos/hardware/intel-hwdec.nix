@@ -7,6 +7,7 @@
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [ pkgs.intel-vaapi-driver ];
+    enable32Bit = true;
   };
 
   environment.sessionVariables = {
