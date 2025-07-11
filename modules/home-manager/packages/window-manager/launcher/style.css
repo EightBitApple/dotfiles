@@ -2,7 +2,6 @@
   font-family: Noto Sans;
   color: #ffffff;
   background: transparent;
-
 }
 
 #window {
@@ -60,4 +59,11 @@
 }
 #text {
   margin: 2px;
+  color: #000;
+  font-weight: bold;
+  text-shadow: 0 0 0.5em #fff,0 0 0.5em #fff,0 0 0.5em #fff,0 0 0.5em #fff,0 0 0.5em #fff,0 0 0.5em #fff,0 0 0.5em #fff,0 0 0.5em #fff;
+}
+#text:selected {
+    text-shadow: none;
+    text-shadow: 0 0 0.5em #00ffff,0 0 0.5em #00ffff,0 0 0.5em #00ffff,0 0 0.5em #00ffff,0 0 0.5em #00ffff,0 0 0.5em #00ffff,0 0 0.5em #00ffff,0 0 0.5em #00ffff;
 }
