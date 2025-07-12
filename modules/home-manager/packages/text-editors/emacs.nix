@@ -28,5 +28,8 @@
     rustc
     rust-analyzer
     rustfmt
+
+    # dap-gdb
+    gdb
   ];
 }
