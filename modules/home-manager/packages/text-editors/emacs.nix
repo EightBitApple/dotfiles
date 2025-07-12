@@ -7,7 +7,8 @@
     cmakeMinimal
     nixfmt-rfc-style
     glslang
-    libclang
+    clang
+    clang-tools
     libtool
     shfmt
     python3
@@ -28,9 +29,6 @@
     # org babel
     plantuml
     graphviz
-
-    # c/c++
-    gcc
 
     # rust
     cargo
