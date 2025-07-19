@@ -5,7 +5,10 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
     nixpkgsStable.url = "nixpkgs/nixos-25.05";
 
-    sopsNix.url = "github:Mic92/sops-nix";
+    sopsNix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     homeManager = {
       url = "github:nix-community/home-manager";
