@@ -1,14 +1,10 @@
-{
-  config,
-  lib,
-  userSettings,
-  ...
-}:
+{ userSettings, ... }:
 
 {
   programs.wofi = {
     enable = true;
     settings = {
+      normal_window = true;
       show = "drun";
       term = "${userSettings.terminal.name}";
       show_all = true;

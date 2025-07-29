@@ -7,7 +7,6 @@
 #window {
   background: rgba(0,20,20,0.5);
   border-radius: 9px;
-  margin: auto;
   padding: 12px;
 
   border-style: solid;
@@ -28,7 +27,7 @@
 
 #outer-box {
   padding: 0px;
-  box-shadow inset 0px 0px 8px rgba(0,0,0,1);
+  box-shadow: inset 0px 0px 8px rgba(0,0,0,1);
 }
 
 #inner-box {

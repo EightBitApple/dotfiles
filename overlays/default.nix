@@ -1,8 +1,7 @@
 {
   imports = [
     ./custom-pkgs
-    ./hotfixes/clisp.nix
-    ./hotfixes/swaync.nix
+    ./hotfixes/wofi.nix
     ./mpv-scripts.nix
   ];
 }
