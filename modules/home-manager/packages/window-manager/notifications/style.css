@@ -1,25 +1,38 @@
+:root {
+  --border-color: rgba(255,255,255,0.01);
+  --border-highlight-color: rgba(255,255,255,0.25);
+  --gradient-top-color: rgba(255,255,255,0.3);
+  --gradient-middle-color: rgba(0,0,0,0.2);
+  --gradient-bottom-color: rgba(0,0,0,0.3);
+  --bg-selection-color: rgba(32,208,252,0.3);
+}
+
 .notification {
   border-radius: 12px;
   border-width: 1px;
-  border-style: solid;
-  border-color: rgba(255,255,255,0.01);
-  border-bottom-color: rgba(255,255,255,0.25);
-  border-right-color: rgba(255,255,255,0.25);
-
-  margin: 4px;
-  margin-left: 8px;
-  margin-right: 8px;
-  background-image: linear-gradient(to bottom, rgba(255,255,255,0.3)0%, rgba(20,20,20,0.2)50%, rgba(0,0,0,0.3)50%);
+  border-color: var(--border-color);
+  border-bottom-color: var(--border-highlight-color);
+  border-left-color: var(--border-highlight-color);
+  border-right-color: var(--border-highlight-color);
+  background-image: linear-gradient(to bottom, var(--gradient-top-color)0%, var(--gradient-middle-color)50%, var(--gradient-bottom-color)50%);
 }
 
 .notification-default-action:hover {
-  background-image: linear-gradient(to bottom, rgba(0,255,255,0.15), rgba(0,0,0,0.3), rgba(0,255,255,0.15));
-  color: #fff;
-  box-shadow: 0px 0px 4px rgba(0,0,0,0.4);
-  border-radius: 12px;
+  background-image: linear-gradient(to bottom, var(--bg-selection-color)0%, var(--gradient-middle-color)50%, var(--gradient-bottom-color)50%);
   transition: background 0.15s ease-in-out;
 }
 
-.image {
-  border-radius: 0px;
+.body { font-size: 16px; }
+.summary { font-size: 17px; }
+.image { border-radius: 0px; }
+
+.close-button {
+  border-radius: 12px;
+  border-width: 1px;
+  background-image: linear-gradient(to bottom, var(--gradient-top-color)0%, var(--gradient-middle-color)50%, var(--gradient-bottom-color)50%);
+}
+
+.close-button:hover {
+  background-image: linear-gradient(to bottom, var(--bg-selection-color)0%, var(--gradient-middle-color)50%, var(--gradient-bottom-color)50%);
+  transition: background 0.15s ease-in-out;
 }
