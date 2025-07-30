@@ -7,32 +7,23 @@
   --bg-selection-color: rgba(32,208,252,0.3);
 }
 
-.notification {
-  border-radius: 12px;
-  border-width: 1px;
-  border-color: var(--border-color);
-  border-bottom-color: var(--border-highlight-color);
-  border-left-color: var(--border-highlight-color);
-  border-right-color: var(--border-highlight-color);
-  background-image: linear-gradient(to bottom, var(--gradient-top-color)0%, var(--gradient-middle-color)50%, var(--gradient-bottom-color)50%);
-}
-
-.notification-default-action:hover {
-  background-image: linear-gradient(to bottom, var(--bg-selection-color)0%, var(--gradient-middle-color)50%, var(--gradient-bottom-color)50%);
-  transition: background 0.15s ease-in-out;
-}
-
 .body { font-size: 16px; }
 .summary { font-size: 17px; }
 .image { border-radius: 0px; }
 
-.close-button {
-  border-radius: 12px;
-  border-width: 1px;
+.notification, .close-button {
   background-image: linear-gradient(to bottom, var(--gradient-top-color)0%, var(--gradient-middle-color)50%, var(--gradient-bottom-color)50%);
+  border-radius: 12px;
+  border-style: none;
+  border-color: var(--border-color);
+  border-bottom-style: solid;
+  border-top-style: solid;
+  border-bottom-color: var(--border-highlight-color);
+  border-top-color: var(--border-highlight-color);
+  border-width: 1px;
 }
 
-.close-button:hover {
+.notification-default-action:hover, .close-button:hover {
   background-image: linear-gradient(to bottom, var(--bg-selection-color)0%, var(--gradient-middle-color)50%, var(--gradient-bottom-color)50%);
   transition: background 0.15s ease-in-out;
 }
