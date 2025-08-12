@@ -3,7 +3,7 @@
     (final: prev: {
       freetube = prev.freetube.overrideAttrs (old: rec {
         pname = "freetube";
-        version = "0.23.6-hotfix";
+        version = "0.23.6";
 
         src = prev.fetchFromGitHub {
           owner = "FreeTubeApp";
