@@ -44,6 +44,14 @@
           locale = "en_GB.UTF-8";
         };
 
+        overlays.rtw88 = {
+          version = "2025-08-09-hotfix";
+          owner = "lwfinger";
+          repo = "rtw88";
+          rev = "52072d874840f28c247b27f5d799f2c5c88a7e61";
+          hash = "sha256-Lu3ol0iKfM9/SJ5lieh4A28h02Stc971ZypfiB2BWJ0=";
+        };
+
         maintenance.day = "Tue";
       };
 
