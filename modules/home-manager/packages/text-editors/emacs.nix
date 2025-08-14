@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, userSettings, ... }:
 
 {
   home.packages = with pkgs; [
@@ -11,31 +11,13 @@
     clang-tools
     libtool
     shfmt
+    python3
     ripgrep
     gnumake
     nodejs
 
-    (pkgs.python3.withPackages (
-      python-pkgs: with python-pkgs; [
-        # lsp-bridge dependencies
-        epc
-        orjson
-        sexpdata
-        six
-        setuptools
-        paramiko
-        rapidfuzz
-        watchdog
-        packaging
-      ]
-    ))
-
-    # java
+    # java lsp
     jdk
-    jdt-language-server
-
-    #nix
-    nixd
 
     # org babel
     plantuml
@@ -46,7 +28,6 @@
     rustc
     rust-analyzer
     rustfmt
-    clippy
 
     # dap-gdb
     gdb
