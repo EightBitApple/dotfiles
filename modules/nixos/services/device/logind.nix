@@ -1,7 +1,7 @@
 {
   # Limit number of TTYs.
-  services.logind.extraConfig = ''
-    NAutoVTs=2
-    ReserveVT=1
-  '';
+  services.logind.settings.Login = {
+    NAutoVTs = 2;
+    ReserveVT = 1;
+  };
 }

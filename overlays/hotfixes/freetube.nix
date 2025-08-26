@@ -2,14 +2,14 @@
   nixpkgs.overlays = [
     (final: prev: {
       freetube = prev.freetube.overrideAttrs (old: rec {
-        pname = "freetube";
-        version = "0.23.6";
+        pname = "freetube-hotfix";
+        version = "0.23.8";
 
         src = prev.fetchFromGitHub {
           owner = "FreeTubeApp";
           repo = "FreeTube";
           tag = "v${version}-beta";
-          hash = "sha256-Z1L45RHlmylfqKBY37PC5TQ3ubOgH0AHFGM7VkmtkZ0=";
+          hash = "sha256-CHp/6/E/v6UdSe3xoB66Ot24WuZDPdmNyUG1w2w3bX0=";
         };
 
         yarnOfflineCache = prev.fetchYarnDeps {
