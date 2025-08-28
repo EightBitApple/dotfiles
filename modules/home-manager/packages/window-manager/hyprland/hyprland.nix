@@ -22,6 +22,7 @@ let
       [ ! -f "$current_wallpaper" ] && current_wallpaper=${userSettings.windowManager.wallpaper}
       swaybg -i "$current_wallpaper" -m fill &
 
+      sleep 2
       pw-play ~/.local/share/system-sounds/logon.wav &
     '';
   };
