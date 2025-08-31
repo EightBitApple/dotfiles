@@ -105,7 +105,6 @@ in
         animate_manual_resizes = true;
 
         vrr = 1;
-        vfr = 1;
       };
 
       cursor = {

@@ -23,8 +23,9 @@ in
     ];
 
     cursor = {
+      no_break_fs_vrr = 1;
       min_refresh_rate = 48;
-      no_hardware_cursors = true;
+      no_hardware_cursors = 0;
     };
 
     render.direct_scanout = 2; # on with content type 'game'
