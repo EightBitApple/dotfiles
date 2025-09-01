@@ -16,7 +16,6 @@
     ./nix/sops.nix
     ./programs/browsers.nix
     ./programs/dconf.nix
-    ./programs/emacs.nix
     ./programs/fhs.nix
     ./programs/fish.nix
     ./programs/flatpak.nix
