@@ -1,3 +1,9 @@
+{ pkgs, ... }:
+
+let
+  icon = "${pkgs.myPackages.diinki-aero}/share/icons/crystal-remix-icon-theme-diinki-version/128x128/preferences/preferences-desktop-multimedia.png";
+in
+
 {
   wayland.windowManager.hyprland.settings = {
     bind = [
@@ -15,6 +21,7 @@
       ", XF86AudioLowerVolume, exec, changevolume down 5"
       "SHIFT, XF86AudioLowerVolume, exec, changevolume down 1"
       "$mod, S, pass, class:^(com\.obsproject\.Studio)$"
+      "$mod, S, exec, sh obs-clip"
     ];
   };
 }

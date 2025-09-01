@@ -1,5 +1,3 @@
-{ config, lib, ... }:
-
 {
   imports = [
     ./battery-info.nix
@@ -12,6 +10,7 @@
     ./image-edit.nix
     ./nix-shell.nix
     ./notif-sound.nix
+    ./obs-clip.nix
     ./screenshot.nix
     ./system-actions.nix
   ];
