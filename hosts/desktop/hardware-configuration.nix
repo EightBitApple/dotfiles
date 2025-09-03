@@ -33,6 +33,7 @@
   fileSystems."/boot" = {
     label = "BOOT";
     fsType = "vfat";
+    options = [ "x-systemd-automount" ];
   };
 
   swapDevices = [ ];
