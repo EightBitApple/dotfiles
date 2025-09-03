@@ -22,5 +22,6 @@
 
     # misc
     "$mod, B, exec, pkill -SIGUSR1 waybar"
+    "$mod SHIFT, W, exec, change-wallpaper"
   ];
 }
