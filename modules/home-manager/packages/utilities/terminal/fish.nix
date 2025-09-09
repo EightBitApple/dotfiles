@@ -19,7 +19,11 @@ in
       set fish_greeting # Disable greeting
       set fish_user_paths /usr/local/bin /home/${userSettings.user.name}/.local/bin /home/${userSettings.user.name}/.config/emacs/bin
       set fish_vi_key_bindings
+
       starship init fish | source
+
+      # Set up fzf key bindings
+      fzf --fish | source
 
       if test (tty) = "/dev/tty1"
          exec Hyprland
@@ -47,10 +51,6 @@ in
       mus_tracker_chill = "${cmd_mpv} '${ytUrl}eakyEJjSWTrQIH12h512Iw'";
       mus_tracker_chip = "${cmd_mpv} '${ytUrl}eyv5d9zFysHFoMR3PeKAo_'";
       mus_tracker_vg = "${cmd_mpv} '${ytUrl}e645jBv86ivf9w7UjwJ2KE'";
-    };
-
-    functions = {
-      fish_user_key_bindings.body = "fzf_key_bindings";
     };
   };
 }
