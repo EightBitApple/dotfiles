@@ -1,7 +1,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./nixos/nix/auto-upgrade.nix
     ./nixos/services/networking/access-point.nix
     ./nixos/services/networking/wpa-supplicant.nix
     ./nixos/users/accounts.nix

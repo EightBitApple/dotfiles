@@ -9,7 +9,6 @@
     ./kernel/latest.nix
     ./kernel/memory/zram.nix
     ./nix/auto-optimise.nix
-    ./nix/auto-upgrade.nix
     ./nix/experimental-features.nix
     ./nix/nix-helpers.nix
     ./nix/pkgs-unfree.nix

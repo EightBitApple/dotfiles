@@ -41,8 +41,6 @@ These dotfiles install packages that aid in system maintenance:
 ** Upgrading
 + Run ~nh os switch -u~ to update ~flake.lock~ before rebuilding.
 + You can also run ~nix flake update~ while inside ~dotfiles/~ to update ~flake.lock~ without rebuilding.
-+ ~nixos-upgrade.service~ is ran every Tuesday.
-  It will update a ~flake.lock~ in the Nix Store and not the one in this repository.
 
 ** Garbage Collection and Optimisation
 + Run ~nh clean all -k 4 --dry~ to see what will get deleted before performing an actual clean.

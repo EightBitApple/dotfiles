@@ -9,7 +9,6 @@
 
   disabledModules = [
     ../../modules/nixos/kernel/drivers/realtek-88xxau.nix
-    ../../modules/nixos/nix/auto-upgrade.nix
     ../../modules/nixos/programs/gaming.nix
     ../../modules/nixos/services/device/printing.nix
     ../../modules/nixos/services/networking/access-point.nix
