@@ -46,7 +46,6 @@ These dotfiles install packages that aid in system maintenance:
 + Run ~nh clean all -k 4 --dry~ to see what will get deleted before performing an actual clean.
   This command will delete all generations except the four latest ones.
 + Run ~nh clean all -k 4~ to delete these generations and garbage collect the Nix Store.
-+ ~nh-clean.service~ will run the above command every Monday.
 + ~nix.settings.auto-optimise-store~ is enabled by default to save drive space at the cost of longer build times.
 
 ** Rollbacks
