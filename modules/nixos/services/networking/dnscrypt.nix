@@ -1,7 +1,7 @@
 {
   # Encrypted DNS queries via dnscrypt-proxy2.
 
-  services.dnscrypt-proxy2 = {
+  services.dnscrypt-proxy = {
     enable = true;
     settings = {
       server_names = [
