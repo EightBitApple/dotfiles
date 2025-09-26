@@ -84,6 +84,7 @@ tooltip label {
 }
 
 #custom-battery,
+#custom-idle,
 #clock,
 #tray,
 #workspaces,
@@ -104,6 +105,11 @@ tooltip label {
   border-bottom-color: rgba(255,255,255,0.15);
   border-top-color: rgba(255,255,255,0.45);
   border-width: 1px;
+}
+
+#custom-idle {
+    padding-left: 0.8em;
+    padding-right: 1em;
 }
 
 #tray menu {

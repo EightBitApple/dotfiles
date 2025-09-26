@@ -8,6 +8,15 @@
 
 let
   iconBattery = "${pkgs.myPackages.diinki-aero}/share/icons/crystal-remix-icon-theme-diinki-version/128x128/devices/battery.png";
+
+  idleIcon = pkgs.writeShellApplication {
+    name = "idle-icon";
+    text = ''
+      if ! systemctl --user is-active hypridle > /dev/null; then
+          printf "󱡥"
+      fi
+    '';
+  };
 in
 {
   programs.waybar = {
@@ -31,6 +40,7 @@ in
           "wireplumber"
           "custom/battery"
           "clock"
+          "custom/idle"
           "tray"
         ];
 
@@ -77,6 +87,13 @@ in
           on-click = ''
             notify-send -i ${iconBattery} "Battery Information:" "$(battery-info)"
           '';
+        };
+
+        "custom/idle" = {
+          exec = "${idleIcon}/bin/idle-icon";
+          format = "{}";
+          tooltip-format = "Idle inhibitor is on.";
+          signal = 1;
         };
 
         "bluetooth" = {

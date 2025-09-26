@@ -57,6 +57,9 @@
       # multi-monitor
       "$mod SHIFT, L, movecurrentworkspacetomonitor, +1"
       "$mod SHIFT, H, movecurrentworkspacetomonitor, -1"
+
+      # idle inhibitor toggle
+      "$mod SHIFT, I, exec, idle-toggle"
     ];
 
     binde = [

@@ -12,8 +12,8 @@ stdenvNoCC.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "EightBitApple";
     repo = "${pname}";
-    rev = "b4021546e24cc80d8f218318a136b3248d79e793";
-    hash = "sha256-29iPaO2yscIrHtBk+rGIieqU1Fh9+vlRCcFKv0X4H4w";
+    rev = "cde69f77d12618052a49450b9006fdc98d8af25c";
+    hash = "sha256-JT66hBuNzToKQBGJuxlvqJxQ5rRWevgSNQzpOMPqWbE=";
   };
 
   installPhase = ''
