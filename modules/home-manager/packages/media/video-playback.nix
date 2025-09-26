@@ -37,7 +37,7 @@
         video-sync = "display-resample";
         profile = "fast";
 
-        ytdl-raw-options="force-ipv4=";
+        ytdl-raw-options = "force-ipv4=,extractor-args=\"youtube:player-client=default,-tv_simply\"";
         ytdl-format = "bestvideo[vcodec^=avc1][height<=1080]+bestaudio";
 
         sub-border-style = "opaque-box";

@@ -51,6 +51,9 @@ in
       mus_tracker_chill = "${cmd_mpv} '${ytUrl}eakyEJjSWTrQIH12h512Iw'";
       mus_tracker_chip = "${cmd_mpv} '${ytUrl}eyv5d9zFysHFoMR3PeKAo_'";
       mus_tracker_vg = "${cmd_mpv} '${ytUrl}e645jBv86ivf9w7UjwJ2KE'";
+
+      # program options
+      yt-dlp = "${pkgs.yt-dlp}/bin/yt-dlp --extractor-args \"youtube:player-client=default,-tv_simply\"";
     };
   };
 }
