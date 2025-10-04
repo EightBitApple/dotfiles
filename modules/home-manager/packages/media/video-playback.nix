@@ -32,10 +32,8 @@
         gpu-api = "opengl";
         keep-open = "yes";
 
-        geometry = "50%";
-
         video-sync = "display-resample";
-        profile = "fast";
+        interpolation = "yes";
 
         ytdl-raw-options = "force-ipv4=,extractor-args=\"youtube:player-client=default,-tv_simply\"";
         ytdl-format = "bestvideo[vcodec^=avc1][height<=1080]+bestaudio";
