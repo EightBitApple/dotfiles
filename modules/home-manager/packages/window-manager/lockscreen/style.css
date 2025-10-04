@@ -1,41 +1,60 @@
-@define-color accent_color #20d0fc;
-@define-color button_border_color #8e8f8f;
-@define-color button_highlight #fff;
-@define-color text_color rgb(220,220,220);
+@define-color text rgb(238, 238, 238);
+@define-color border rgba(255,255,255,0.01);
+@define-color border_highlight rgba(255,255,255,0.25);
+@define-color gradient_top rgba(255,255,255,0.3);
+@define-color gradient_middle rgba(0,0,0,0.2);
+@define-color gradient_bottom rgba(0,0,0,0.3);
+@define-color highlight rgba(32,208,252,0.3);
 
 window {
-  background-image: url("vista.png");
+  background-image: url("/home/stefan/.local/share/current-wallpaper-lockscreen");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: black;
+  background-color: @gradient_middle
 }
 
-#clock-label {
+#clock-label, #date-label, #input-field {
   font-family: Noto Sans;
   font-weight: bold;
   font-size: 72px;
-  color: @text_color;
-  text-shadow: 0px 0px 6px @accent_color;
+  color: @text;
+  text-shadow: 0px 0px 6px @highlight;
+
+  padding: 0.25em;
+
+  background-image: linear-gradient(to bottom, @gradient_top 0%, @gradient_middle 50%, @gradient_bottom 50%);
+  border-radius: 12px;
+  border-style: none;
+  border-color: @border;
+  border-bottom-style: solid;
+  border-top-style: solid;
+  border-bottom-color: @border_highlight;
+  border-top-color: @border_highlight;
+  border-width: 1px;
+  font-size: 16px;
+}
+
+#clock-label {
+  font-size: 72px;
+  margin-bottom: 10px;
 }
 
 #date-label {
-  font-family: Noto Sans;
-  font-weight: bold;
   font-size: 48px;
   margin-bottom: 150px;
-  color: @text_color;
-  text-shadow: 0px 0px 6px @accent_color;
-}
-
-#input-field {
-  padding: 3px 4px 5px;
-  border: 1px solid #ccc;
-  border-top-color: @button_border_color;
-  border-radius: 2px;
-  background-color: @button_highlight;
 }
 
 #input-label {
-  color: @text_color;
+  font-size: 0px;
+}
+
+#input-field {
+  color: black;
+  border-radius: 2px;
+}
+
+#error-label {
+  color: #ff3333;
+  font-weight: bold;
 }

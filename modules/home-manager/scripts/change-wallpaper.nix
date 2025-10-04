@@ -9,10 +9,22 @@
         sxiv
       ];
       text = ''
+        case "$1" in
+        -d)
+            arg="-d"
+            ;;
+        -l)
+            arg="-l"
+            ;;
+        *)
+            printf "No argument specified...\n"
+            exit 1
+            ;;
+        esac
+
         cd ~/pictures/wallpapers/ || exit
 
-        while true
-        do
+        while true; do
             choice=$(find -- * -type d | wofi -i -p "Select wallpaper type:" --dmenu)
             [ ! "$choice" ] && exit 1
 
@@ -20,10 +32,15 @@
             [ "$selected_wallpaper" != "" ] && break
         done
 
-        pkill swaybg
-        swaybg -m fill -i "$selected_wallpaper" &
+        if [ "$arg" = "-d" ]; then
+            pkill swaybg
+            swaybg -m fill -i "$selected_wallpaper" &
+            wallpaper_link_name="current-wallpaper"
+        else
+            wallpaper_link_name="current-wallpaper-lockscreen"
+        fi
 
-        ln -sf "$selected_wallpaper" ~/.local/share/current-wallpaper
+        ln -sf "$selected_wallpaper" ~/.local/share/"$wallpaper_link_name"
       '';
     })
   ];
