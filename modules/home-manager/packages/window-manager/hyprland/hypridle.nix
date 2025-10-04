@@ -16,7 +16,7 @@
           on-timeout = "${pkgs.gtklock}/bin/gtklock";
         }
         {
-          timeout = 500;
+          timeout = 330;
           on-timeout = "hyprctl dispatch dpms off";
           on-resume = "hyprctl dispatch dpms on";
         }
