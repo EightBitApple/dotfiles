@@ -46,8 +46,8 @@ in
         gaps_in = 5;
         layout = "master";
 
-        "col.active_border" = "rgba(d9d9d9a8) rgba(e6e6e6a8) rgba(f2f2f2a8) 45deg";
-        "col.inactive_border" = "rgba(262626a8) rgba(1a1a1aa8) rgba(0d0d0da8) 45deg";
+        "col.active_border" = "rgb(d9d9d9) rgb(e6e6e6) rgb(f2f2f2) 45deg";
+        "col.inactive_border" = "rgb(262626) rgb(1a1a1a) rgb(0d0d0d) 45deg";
       };
 
       input = {
