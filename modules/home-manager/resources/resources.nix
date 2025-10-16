@@ -4,4 +4,10 @@
     ".local/share/wallpapers".source = ./wallpapers;
     ".local/share/system-sounds".source = ./system-sounds;
   };
+
+  xresources.extraConfig = ''
+    Sxiv.background: #161616
+    Sxiv.foreground: #FFFFFF
+    Sxiv.font: Hack-12
+  '';
 }

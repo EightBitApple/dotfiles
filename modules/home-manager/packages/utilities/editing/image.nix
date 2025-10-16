@@ -5,6 +5,7 @@
     packages = with pkgs; [
       gimp3
       imagemagick
+      sxiv
     ];
 
     file.".config/swappy/config".text = ''
