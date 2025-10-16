@@ -1,45 +1,59 @@
 { pkgs, userSettings, ... }:
 
 {
-  programs = {
-    mpv = {
-      enable = true;
-      bindings = {
-        # seeking
-        l = "seek 5";
-        h = "seek -5";
-        j = "seek -60";
-        k = "seek 60";
-        S = "cycle sub";
-
-        ENTER = "cycle pause";
-
-        # sponsorblock
-        "alt+h" = "script-binding sponsorblock/upvote_segment,";
-        "alt+shift+h" = "script-binding sponsorblock/upvote_segment,";
-
-        # video reload
-        p = "write-watch-later-config ; loadfile '\${path}'";
-
-        # quality menu
-        F = "script-binding quality_menu/video_formats_toggle";
-        "Alt+f" = "script-binding quality_menu/audio_formats_toggle";
+  programs.mpv = {
+    enable = true;
+    package = (
+      pkgs.mpv-unwrapped.wrapper {
+        scripts = with pkgs.mpvScripts; [
+          mpv-playlistmanager
+          quality-menu
+          sponsorblock-minimal
+        ];
+        mpv = pkgs.mpv-unwrapped.override {
+          waylandSupport = true;
+        };
+      }
+    );
+    scriptOpts = {
+      "sponsorblock_minimal" = {
+        categories = "sponsor;selfpromo;interaction";
+        hash = "";
+        server = "https://sponsor.ajay.app/api/skipSegments";
       };
+    };
 
-      config = {
-        vo = "gpu-next";
-        hwdec = "auto";
-        gpu-api = "opengl";
-        keep-open = "yes";
+    bindings = {
+      # seeking
+      l = "seek 5";
+      h = "seek -5";
+      j = "seek -60";
+      k = "seek 60";
+      S = "cycle sub";
 
-        video-sync = "display-resample";
-        interpolation = "yes";
+      ENTER = "cycle pause";
 
-        ytdl-raw-options = "force-ipv4=,extractor-args=\"youtube:player-client=default,-tv_simply\"";
-        ytdl-format = "bestvideo[vcodec^=avc1][height<=1080]+bestaudio";
+      # video reload
+      p = "write-watch-later-config ; loadfile '\${path}'";
 
-        sub-border-style = "opaque-box";
-      };
+      # quality menu
+      F = "script-binding quality_menu/video_formats_toggle";
+      "Alt+f" = "script-binding quality_menu/audio_formats_toggle";
+    };
+
+    config = {
+      vo = "gpu-next";
+      hwdec = "auto";
+      gpu-api = "opengl";
+      keep-open = "yes";
+
+      video-sync = "display-resample";
+      interpolation = "yes";
+
+      ytdl-raw-options = "force-ipv4=,extractor-args=\"youtube:player-client=default,-tv_simply\"";
+      ytdl-format = "bestvideo[vcodec^=avc1][height<=1080]+bestaudio";
+
+      sub-border-style = "opaque-box";
     };
   };
   home.packages = with pkgs; [
