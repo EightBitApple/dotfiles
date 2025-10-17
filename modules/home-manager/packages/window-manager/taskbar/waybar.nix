@@ -26,12 +26,11 @@ in
       mainBar = {
         output = [ "*" ];
         layer = "top";
-        position = "top";
-        height = 36;
+        position = "left";
+        width = 54;
 
         modules-left = [
           "hyprland/workspaces"
-          "hyprland/window"
         ];
 
         modules-right = [
@@ -40,14 +39,10 @@ in
           "wireplumber"
           "custom/battery"
           "clock"
+          "clock#time"
           "custom/idle"
           "tray"
         ];
-
-        "hyprland/window" = {
-          icon = true;
-          icon-size = 21;
-        };
 
         "tray" = {
           icon-size = 16;
@@ -55,11 +50,17 @@ in
         };
 
         "clock" = {
-          format = "{:%a %b %d %H:%M}";
+          justify = "center";
+          format = "{:%a\n%b\n%d}";
           timezone = "${systemSettings.location.timezone}";
           tooltip-format = ''
             <big>{:%Y %B}</big>
             <tt><small>{calendar}</small></tt>'';
+        };
+
+        "clock#time" = {
+          format = "{:%H\n%M}";
+          tooltip = false;
         };
 
         "hyprland/workspaces" = {
@@ -70,20 +71,23 @@ in
         };
 
         "wireplumber" = {
-          format = "{icon}  {volume}%";
+          format = "{icon}\n{volume}";
           format-muted = " ";
+          justify = "center";
           on-click = "${userSettings.terminal.name} -e pulsemixer";
           format-icons = [
             ""
             ""
-            ""
+            " "
           ];
         };
 
         "custom/battery" = {
           format = "{}";
+          justify = "center";
           interval = 15;
           exec = "battery-status";
+          return-type = "json";
           on-click = ''
             notify-send -i ${iconBattery} "Battery Information:" "$(battery-info)"
           '';
@@ -99,7 +103,7 @@ in
         "bluetooth" = {
           format = "󰂯";
           format-off = ""; # an empty format will hide the module
-          format-connected = "󰂱 {num_connections}";
+          format-connected = "󰂱\n{num_connections}";
           tooltip-format = "{controller_alias}\t{controller_address}";
           tooltip-format-connected = "{controller_alias}\t{controller_address}\n\n{device_enumerate}";
           tooltip-format-enumerate-connected = "{device_alias}\t{device_address}";

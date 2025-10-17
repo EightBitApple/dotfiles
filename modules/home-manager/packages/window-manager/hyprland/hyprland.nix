@@ -86,7 +86,7 @@ in
 
       xwayland.force_zero_scaling = true;
 
-      "$mfact_split" = "0.6";
+      "$mfact_split" = "0.55";
       master = {
         new_status = "master";
         new_on_top = true;
@@ -119,7 +119,7 @@ in
         "windows, 1, $animation_speed, overshot, popin 80%"
         "border, 1, $animation_speed, overshot"
         "fade, 1, $animation_speed, overshot"
-        "workspaces, 1, $animation_speed, overshot, slide"
+        "workspaces, 1, $animation_speed, overshot, slidevert"
       ];
 
       windowrule = [
