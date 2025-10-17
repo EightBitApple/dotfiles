@@ -13,6 +13,7 @@ let
       waybar
       swaybg
       networkmanagerapplet
+      xorg.xrdb
     ];
     text = ''
       waybar &
@@ -21,6 +22,7 @@ let
       current_wallpaper=~/.local/share/current-wallpaper
       [ ! -f "$current_wallpaper" ] && current_wallpaper=${userSettings.windowManager.wallpaper}
       swaybg -i "$current_wallpaper" -m fill &
+      xrdb ~/.Xresources &
 
       sleep 2
       pw-play ~/.local/share/system-sounds/logon.wav &
