@@ -28,6 +28,8 @@ in
         layer = "top";
         position = "left";
         width = 54;
+        margin-top = 10;
+        margin-bottom = 10;
 
         modules-left = [
           "hyprland/workspaces"
