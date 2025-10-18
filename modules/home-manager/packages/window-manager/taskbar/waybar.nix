@@ -76,7 +76,7 @@ in
           format = "{icon}\n{volume}";
           format-muted = " ";
           justify = "center";
-          on-click = "${userSettings.terminal.name} -e pulsemixer";
+          on-click = "${userSettings.terminal.name} --class floating -e pulsemixer";
           format-icons = [
             ""
             ""

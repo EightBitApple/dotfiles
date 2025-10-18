@@ -3,9 +3,9 @@
 {
   wayland.windowManager.hyprland.settings.bind = [
     # terminal
-    "$mod, Return, exec, ${pkgs.alacritty}/bin/alacritty"
-    "$mod, P, exec, ${pkgs.alacritty}/bin/alacritty -e pulsemixer"
-    "$mod SHIFT, R, exec, ${pkgs.alacritty}/bin/alacritty -e htop"
+    "$mod, Return, exec, ${userSettings.terminal.name}"
+    "$mod, P, exec, ${userSettings.terminal.name} --class floating -e pulsemixer"
+    "$mod SHIFT, R, exec, [floating] ${userSettings.terminal.name} --class floating -e htop"
 
     # browsers
     "$mod, W, exec, ${userSettings.browser}"

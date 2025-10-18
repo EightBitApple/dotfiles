@@ -128,6 +128,7 @@ in
         "float,title:(Authentication Required — PolicyKit1 KDE Agent)$"
         "float,title:^(File Operation Progress)$"
         "noanim,class:^(Gimp)$"
+        "float,class:^(floating)$"
         "stayfocused, title:^()$,class:^(steam)$"
         "minsize 1 1, title:^()$,class:^(steam)$"
         "immediate, class:^(steam_app_.+)$"
