@@ -47,5 +47,6 @@ in
       shadow.enabled = lib.mkForce false;
       blur.enabled = lib.mkForce false;
     };
+    render.new_render_scheduling = true;
   };
 }
