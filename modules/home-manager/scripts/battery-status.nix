@@ -5,6 +5,9 @@
     (writeShellApplication {
       name = "battery-status";
       text = ''
+        text=""
+        tooltip=""
+
         notif_icon=${pkgs.myPackages.diinki-aero}/share/icons/crystal-remix-icon-theme-diinki-version/128x128/status/dialog-warning.png
         low_threshold=25
         low_multiple=5

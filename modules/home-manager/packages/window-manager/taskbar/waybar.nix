@@ -90,9 +90,6 @@ in
           interval = 15;
           exec = "battery-status";
           return-type = "json";
-          on-click = ''
-            notify-send -i ${iconBattery} "Battery Information:" "$(battery-info)"
-          '';
         };
 
         "custom/idle" = {
