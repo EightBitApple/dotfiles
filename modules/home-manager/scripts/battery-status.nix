@@ -5,37 +5,36 @@
     (writeShellApplication {
       name = "battery-status";
       text = ''
-        icon=${pkgs.myPackages.diinki-aero}/share/icons/crystal-remix-icon-theme-diinki-version/128x128/status/dialog-warning.png
-        final_str=""
-        delim=""
+        notif_icon=${pkgs.myPackages.diinki-aero}/share/icons/crystal-remix-icon-theme-diinki-version/128x128/status/dialog-warning.png
         low_threshold=25
         low_multiple=5
-        first_battery=true
 
         for battery in /sys/class/power_supply/?*; do
             name=$(basename "''${battery}")
             notif_lock=/tmp/$name.lock
 
             [ "$name" = "AC" ] && continue
+            status_name=$(cat "$battery/status" 2>&1)
 
-            case $(cat "$battery/status" 2>&1) in
-                 "Full") status="" ;;
-                 "Discharging") status="" ;;
-                 "Charging") status="" ;;
-                 "Not charging") status="" ;;
-                 "Unknown") status="󰂑" ;;
-                 *) exit 1 ;;
+            case "$status_name" in
+            "Full") status_icon="" ;;
+            "Discharging") status_icon="" ;;
+            "Charging") status_icon="" ;;
+            "Not charging") status_icon="" ;;
+            "Unknown") status_icon="󰂑" ;;
+            *) exit 1 ;;
             esac
 
             [ ! -f "$battery/capacity" ] && continue
             capacity="$(cat "$battery/capacity" 2>&1)"
 
             warn=""
-            if [ "$status" = "" ] && [ "$capacity" -le "$low_threshold" ]; then
+            if [ "$status_icon" = "" ] && [ "$capacity" -le "$low_threshold" ]; then
                 warn="!"
                 if [ $(("$capacity" % "$low_multiple")) -eq 0 ]; then
                     if [ ! -f "$notif_lock" ]; then
-                        notify-send -i "$icon" -t 10000 "Low battery!" "$name is at $capacity%."
+                        notify-send -i "$notif_icon" -t 10000 "Low battery!" "$name is at $capacity%."
+                        notify-send -t 10000 "Low battery!" "$name is at $capacity%."
                         touch "$notif_lock"
                     fi
                 else
@@ -43,22 +42,20 @@
                 fi
             fi
 
-            # assemble battery_str and concatinate into final_str
-            battery_str="$status$warn $capacity%"
+            # assemble text and tooltip substrings
+            text_sub="$status_icon$warn\n$capacity"
+            text="''${text}$text_sub\n"
 
-            [ "$first_battery" = false ] && delim=" | "
-
-            final_str="''${final_str}$delim$battery_str"
-            first_battery=false
+            tooltip_sub="$name | $capacity% $status_name"
+            tooltip="''${tooltip}$tooltip_sub\n"
         done
 
-        # https://stackoverflow.com/a/3352015
-        # remove leading whitespace characters
-        final_str="''${final_str#"''${final_str%%[![:space:]]*}"}"
-        # remove trailing whitespace characters
-        final_str="''${final_str%"''${final_str##*[![:space:]]}"}"
+        # Remove last newline char.
+        # https://unix.stackexchange.com/a/478639
+        text=$(printf "%s" "$text" | sed 's/\(.*\)\\n/\1/')
+        tooltip=$(printf "%s" "$tooltip" | sed 's/\(.*\)\\n/\1/')
 
-        printf "%b\n" "$final_str"
+        printf "{\"text\":\"%s\", \"tooltip\":\"%s\"}\n" "$text" "$tooltip"
       '';
     })
   ];

@@ -1,6 +1,5 @@
 {
   imports = [
-    ./battery-info.nix
     ./battery-status.nix
     ./bluetooth-disconnect.nix
     ./bluetooth-toggle.nix
