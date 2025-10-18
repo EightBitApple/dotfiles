@@ -35,12 +35,12 @@ in
 
         modules-right = [
           "hyprland/submap"
+          "custom/idle"
           "bluetooth"
           "wireplumber"
           "custom/battery"
           "clock"
           "clock#time"
-          "custom/idle"
           "tray"
         ];
 
