@@ -2,8 +2,8 @@
 
 {
   wayland.windowManager.hyprland.extraConfig = ''
-    bind = SHIFT CTRL, Return, submap, airmouse
-    submap = airmouse
+    bind = SHIFT CTRL, Return, submap, AM
+    submap = AM
 
     # app launchings
     bind = CTRL, D, exec, $wofi
