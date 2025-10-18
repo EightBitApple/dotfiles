@@ -12,5 +12,6 @@
     ../../modules/home-manager/packages/gaming/sourceports/gzdoom.nix
     ../../modules/home-manager/packages/gaming/sourceports/ironwail.nix
     ../../modules/home-manager/packages/media/obs-studio.nix
+    ../../modules/home-manager/scripts/obs-clip.nix
   ];
 }
