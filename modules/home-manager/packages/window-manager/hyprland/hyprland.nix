@@ -79,10 +79,9 @@ in
 
         blur = {
           enabled = true;
-          new_optimizations = true;
           size = 2;
-          passes = 3;
-          vibrancy = 0.1696;
+          passes = 1;
+          noise = 0;
         };
       };
 

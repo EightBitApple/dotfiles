@@ -1,178 +1,127 @@
-@define-color text_color #fff;
-@define-color accent_color #00ffff;
+@define-color text_color #262626;
+@define-color text_color_white #d9d9d9;
 
 * {
   border: none;
-  /* For the taskbar, I prefer simple Noto Sans.*/
-  font-family: Noto Sans;
-  font-weight: bold;
+  font-family: DejaVu Sans;
   font-size: 14px;
-  padding: 0px;
-  background: transparent;
 }
 
-window#waybar {
-  background-image: linear-gradient(to bottom, rgba(255,255,255,0.25)0%, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.6)50%);
-  padding: 0px;
+window#waybar, #tray menuitem {
+  background: linear-gradient(to bottom, 
+    rgba(217,217,217,0.75) 0%, 
+    rgba(51, 51, 51, 0.75) 55%,
+    rgba(38, 38, 38, 0.75) 55%,
+    rgba(102, 102, 102, 0.75) 100%
+);
+  margin: 4px;
+  padding: 4px 8px;
 
-  border-radius: 12px;
+  border-radius: 8px;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 
-  border-width: 1px;
-  border-left-width: 0px;
-  border-top-width: 0px;
-  border-bottom-width: 0px;
-
+  border-width: 0px;
+  border-top-width: 1px;
   border-style: solid;
-  border-color: rgba(255,255,255,0.2);
+  border-color: #fff;
 
-  color: rgb(220,220,220);
-}
-
-tooltip {
-  background-image: linear-gradient(to bottom, rgba(22,22,22,0.15)50%, rgba(0,0,0,0.2)50%, rgba(0,0,0,0.3)50%);
-  color: @text_color;
-
-  border-top-style: solid;
-  border-bottom-style: solid;
-  border-width: 1px;
-  border-top-color: rgba(255,255,255,0.4);
-  border-bottom-color: rgba(255,255,255,0.25);
-}
-tooltip label {
-  color: @text_color;
-}
-
-#custom-os_btn {
-  margin-left: 0.5cm;
-}
-
-#taskbar {
-  margin: 4px 8px;
-  margin-left: 0.25cm;
-  color: @text_color;
-}
-#taskbar button {
-  margin-left: 0.2cm;
-  margin-right: 0.2cm;
-  padding: 1px;
-  border-radius: 4px;
-
-  border-style: none;
-  border-bottom-style: solid;
-  border-top-style: solid;
-  border-width: 1px;
-  border-bottom-color: rgba(255,255,255,0.15);
-  border-top-color: rgba(255,255,255,0.3);
-
-  box-shadow: 0px 0px 4px rgba(0,0,0,0.2);
-}
-#taskbar button:hover {
-  background-color: rgba(0,0,0,0);
-  box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
-  background-image: linear-gradient(to bottom, rgba(255,255,255,0.05), rgba(0,0,0,0.4));
-
-  border-style: none;
-  border-bottom-style: solid;
-  border-top-style: solid;
-  border-width: 1px;
-  border-bottom-color: rgba(255,255,255,0.15);
-  border-top-color: rgba(255,255,255,0.3);
-}
-#taskbar button.active {
-  background-image: linear-gradient(to bottom, rgba(0,255,255,0.6), rgba(0,100,100,0.1));
 }
 
 #custom-battery,
 #custom-idle,
 #clock,
-#tray,
-#workspaces,
 #bluetooth,
-#wireplumber {
-  background-image: linear-gradient(to bottom, rgba(255,255,255,0.25), rgba(0,0,0,0.025));
-  box-shadow: 0px 0px 3px rgba(0,0,0,0.34);
+#wireplumber,
+#tray,
+#submap,
+tooltip,
+#tray menu,
+#workspaces button,
+#workspaces button.active {
+  background: linear-gradient(to bottom, 
+      #66cccc 0%, 
+      #339999 55%,
+      #2d8686 55%,
+      #1cb06d 100%
+  );
+  border-radius: 8px;
+  color: @text_color;
+
   margin: 4px;
   padding: 4px 8px;
-  border-radius: 8px;
-  color: rgb(220,220,220);
 
   /* Important style feature in order to give a glassy look! */
   /* I'm using the top and bottom borders to mimic highlights in highly reflective surfaces, looks good with the glassy-look */
   border-style: none;
   border-bottom-style: solid;
   border-top-style: solid;
-  border-bottom-color: rgba(255,255,255,0.15);
-  border-top-color: rgba(255,255,255,0.45);
+  border-top-color: rgba(255,255,255,0.75);
+  border-bottom-color: rgba(255,255,255,0.25);
   border-width: 1px;
-}
-
-#custom-idle {
-    padding-left: 0.8em;
-    padding-right: 1em;
 }
 
 #tray menu {
-  background-color: rgba(255,255,255,0.025);
-  color: rgba(220,220,220, 1);
-  padding: 4px;
+    border-radius: 0px;
 }
 
-#tray menu menuitem {
-  border-radius: 10px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgba(255,255,255,0.01);
-  border-bottom-color: rgba(255,255,255,0.25);
-  border-right-color: rgba(255,255,255,0.25);
-
-  padding: 4px;
-  margin: 4px;
+#tray menuitem {
   margin-left: 8px;
   margin-right: 8px;
-  background-image: linear-gradient(to bottom, rgba(255,255,255,0.3)0%, rgba(20,20,20,0.2)50%, rgba(0,0,0,0.3)50%);
-
-  color: #000;
-  text-shadow: 0 0 0.25em @text_color,0 0 0.25em @text_color,0 0 0.25em @text_color,0 0 0.25em @text_color,0 0 0.25em @text_color,0 0 0.25em @text_color,0 0 0.25em @text_color,0 0 0.25em @text_color;
+  border-radius: 8px;
+  color: @text_color_white;
 }
 
-#tray menu menuitem:hover {
-  background-image: linear-gradient(to bottom, rgba(0,255,255,0.15), rgba(0,0,0,0.3), rgba(0,255,255,0.15));
-  color: #fff;
-  box-shadow: 0px 0px 4px rgba(0,0,0,0.4);
+#tray menuitem:hover {
+  background: linear-gradient(to bottom, 
+    #66cccc 0%, 
+    #339999 55%,
+    #2d8686 55%,
+    #1cb06d 100%
+  );
+  color: @text_color;
+  animation: fadein 0.1s linear;
+}
 
-  text-shadow: 0 0 0.5em @accent_color,0 0 0.5em @accent_color,0 0 0.5em @accent_color,0 0 0.5em @accent_color,0 0 0.5em @accent_color,0 0 0.5em @accent_color,0 0 0.5em @accent_color,0 0 0.5em @accent_color;
-  font-weight: bold;
+tooltip label {
+  color: @text_color;
+}
+
+#custom-idle {
+  padding-left: 0.8em;
+  padding-right: 1em;
 }
 
 #workspaces button {
-  transition-duration: 100ms;
-  all: initial;
-  min-width: 0;
-  color: #000;
-  margin-right: 0.2cm;
-  margin-left: 0.2cm;
-  text-shadow: 0 0 0.5em @text_color,0 0 0.5em @text_color,0 0 0.5em @text_color,0 0 0.5em @text_color,0 0 0.5em @text_color,0 0 0.5em @text_color,0 0 0.5em @text_color,0 0 0.5em @text_color;
+  color: @text_color;
+  background: none;
 }
-
 
 #workspaces button.active {
-  color: @text_color;
-  text-shadow: 0 0 0.5em @accent_color,0 0 0.5em @accent_color,0 0 0.5em @accent_color,0 0 0.5em @accent_color,0 0 0.5em @accent_color,0 0 0.5em @accent_color,0 0 0.5em @accent_color,0 0 0.5em @accent_color;
-}
-
-#workspaces button:hover {
-  transition-duration: 120ms;
-  color:@accent_color;
-  text-shadow: 0px 0px 8px @accent_color;
-}
-
-#workspaces button.current_output {
-  color: @accent_color;;
+  animation: fadein 0.1s linear;
+  border-radius: 8px;
 }
 
 #workspaces button.urgent {
-  color: #e78a4e;
-  text-shadow: 0px 0px 6px #e78a4e;
+  background: linear-gradient(to bottom, 
+    #cc7f66 0%, 
+    #733926 55%,
+    #4d2619 55%,
+    #ad5538 100%
+  );
+  color: @text_color_white;
+  animation: blinker 1.5s linear infinite;
+}
+
+/* https://stackoverflow.com/a/68013180 */
+@keyframes blinker {
+  from { opacity: 0; }
+  50% { opacity: 1.0; }
+  to { opacity: 0; }
+}
+
+/* https://rikkendell.co.uk/fade-in-using-only-css */
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
