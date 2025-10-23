@@ -1,22 +1,31 @@
-@define-color text_color_white #d9d9d9;
+@define-color text_color #282828;
 
-* { color: @text_color_white; }
-
-.body { font-size: 16px; }
+* {
+  color: @text_color;
+  font-weight: 500;
+}
 
 .summary {
   font-size: 20px;
-  font-weight: 500;
 }
-.image { border-radius: 0px; }
 
-.notification, .close-button, .notification-default-action:hover, .close-button:hover {
-  background: linear-gradient(to bottom, 
-    rgba(102, 204, 204, 0.90) 0%, 
-    rgba(51, 153, 153, 0.90) 55%,
-    rgba(45, 134, 134, 0.90) 55%,
-    rgba(28, 176, 109, 0.90) 100%
-);
+.body {
+  font-size: 16px;
+}
+
+.image {
+    border-radius: 0px;
+    margin-right: 15px;
+}
+
+.notification, .close-button {
+   background: linear-gradient(to bottom, 
+      #66cccc 0%, 
+      #339999 55%,
+      #2d8686 55%,
+      #1cb06d 100%
+  );
+  
   /* Important style feature in order to give a glassy look! */
   /* I'm using the top and bottom borders to mimic highlights in highly reflective surfaces, looks good with the glassy-look */
   border-style: none;
@@ -25,6 +34,8 @@
   border-top-color: rgba(255,255,255,0.75);
   border-bottom-color: rgba(255,255,255,0.25);
   border-width: 1px;
+}
 
-  margin: 10px 10px;
+.notification-default-action:hover, .close-button:hover {
+    background: none;
 }

@@ -1,38 +1,42 @@
-@define-color text rgb(238, 238, 238);
-@define-color border rgba(255,255,255,0.01);
-@define-color border_highlight rgba(255,255,255,0.25);
-@define-color gradient_top rgba(255,255,255,0.3);
-@define-color gradient_middle rgba(0,0,0,0.2);
-@define-color gradient_bottom rgba(0,0,0,0.3);
-@define-color highlight rgba(32,208,252,0.3);
+@define-color text_color #262626;
+@define-color text_color_white #d9d9d9;
+
+* { font-family: DejaVu Sans; }
 
 window {
   background-image: url("/home/stefan/.local/share/current-wallpaper-lockscreen");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: @gradient_middle
+  background-color: @text_color
 }
 
 #clock-label, #date-label, #input-field {
-  font-family: Noto Sans;
-  font-weight: bold;
+  font-weight: 300;
   font-size: 72px;
-  color: @text;
-  text-shadow: 0px 0px 6px @highlight;
+  color: @text_color_white;
 
   padding: 0.25em;
 
-  background-image: linear-gradient(to bottom, @gradient_top 0%, @gradient_middle 50%, @gradient_bottom 50%);
-  border-radius: 12px;
+  background: linear-gradient(to bottom, 
+    rgba(217,217,217,0.6) 0%, 
+    rgba(51, 51, 51, 0.6) 55%,
+    rgba(38, 38, 38, 0.6) 55%,
+    rgba(102, 102, 102, 0.6) 100%
+  );
+
+  padding: 10px;
+  margin: 8px;
+
+  /* Important style feature in order to give a glassy look! */
+  /* I'm using the top and bottom borders to mimic highlights in highly reflective surfaces, looks good with the glassy-look */
   border-style: none;
-  border-color: @border;
   border-bottom-style: solid;
   border-top-style: solid;
-  border-bottom-color: @border_highlight;
-  border-top-color: @border_highlight;
+  border-top-color: rgba(255,255,255,0.75);
+  border-bottom-color: rgba(255,255,255,0.25);
   border-width: 1px;
-  font-size: 16px;
+  border-radius: 8px;
 }
 
 #clock-label {
@@ -45,16 +49,18 @@ window {
   margin-bottom: 150px;
 }
 
-#input-label {
+#input-label, #error-label {
   font-size: 0px;
 }
 
 #input-field {
-  color: black;
-  border-radius: 2px;
-}
-
-#error-label {
-  color: #ff3333;
-  font-weight: bold;
+  font-size: 16px;
+  background: linear-gradient(to bottom, 
+      #66cccc 0%, 
+      #339999 55%,
+      #2d8686 55%,
+      #1cb06d 100%
+  );
+  border-radius: 8px;
+  color: @text_color;
 }
