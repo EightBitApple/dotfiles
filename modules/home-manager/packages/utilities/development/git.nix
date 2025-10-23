@@ -1,12 +1,16 @@
 {
   programs.git = {
     enable = true;
-    userName = "EightBitApple";
-    userEmail = "stefanharris16@gmail.com";
-    aliases = {
-      pu = "push";
-      co = "checkout";
-      cm = "commit";
+    settings = {
+      user = {
+        name = "EightBitApple";
+        email = "stefanharris16@gmail.com";
+      };
+      aliases = {
+        pu = "push";
+        co = "checkout";
+        cm = "commit";
+      };
     };
   };
 }
