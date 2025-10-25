@@ -27,7 +27,7 @@
         cd ~/pictures/wallpapers/ || exit
 
         while true; do
-            choice=$(find -- * -type d | wofi -i -p "Select$lockscreen_prompt_msg wallpaper type:" --dmenu)
+            choice=$(find -- * -type d | wofi --columns 2 --lines 3 -i -p "󰉏  select$lockscreen_prompt_msg wallpaper type" --dmenu)
             [ ! "$choice" ] && exit 1
 
             selected_wallpaper=$(sxiv -tor ~/pictures/wallpapers/"$choice" | tail -n 1)

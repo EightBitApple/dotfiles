@@ -6,20 +6,22 @@
       name = "sysact";
       runtimeInputs = [ wofi ];
       text = ''
-        if [ $# -eq 0 ]; then
-            choice=$(pkill wofi ; printf "lock\nlogout\nreload\nreboot\nsleep\nshutdown" | wofi -p "system:" --dmenu)
-        else
-            choice=$1
-        fi
+        lock="  lock"
+        logout="󰗽  logout"
+        reload="  reload"
+        reboot="  reboot"
+        sleep="󰒲  sleep"
+        shutdown="⏻  shutdown"
+
+        choice=$(pkill wofi ; printf "%s\n%s\n%s\n%s\n%s\n%s" "$lock" "$logout" "$reload" "$reboot" "$sleep" "$shutdown" | wofi --columns 2 --lines 3 -p "  system action" --dmenu)
 
         case "$choice" in
-             'lock') gtklock ;;
-             'logout') hyprctl dispatch exit ;;
-             'reload') hyprctl reload ;;
-             'reboot') systemctl reboot -i ;;
-             'sleep') systemctl suspend -i ;;
-             'shutdown') systemctl poweroff -i ;;
-             *) echo "invalid command" && exit 1 ;;
+        "$lock") gtklock ;;
+        "$logout") hyprctl dispatch exit ;;
+        "$reload") hyprctl reload ;;
+        "$reboot") systemctl reboot -i ;;
+        "$sleep") systemctl suspend -i ;;
+        "$shutdown") systemctl poweroff -i ;;
         esac
       '';
     })
