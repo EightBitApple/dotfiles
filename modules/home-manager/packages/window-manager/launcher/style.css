@@ -50,8 +50,15 @@
       #1cb06d 100%
   );
   outline: none;
+  animation: fadein 0.2s linear;
 }
 
 #text { color: @text_color_white; }
 #text:selected { color: @text_color; }
 #img { margin-right: 15px; }
+
+/* https://rikkendell.co.uk/fade-in-using-only-css */
+@keyframes fadein {
+  from { opacity: 0.33; }
+  to { opacity: 1; }
+}
