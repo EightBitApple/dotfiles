@@ -7,6 +7,8 @@
 }:
 
 let
+  runPrompt = "  launch";
+
   startupScript = pkgs.writeShellApplication {
     name = "startup";
     runtimeInputs = with pkgs; [
@@ -158,8 +160,8 @@ in
 
       # varaibles used for keybind modules.
       "$mod" = "SUPER";
-      "$wofi" = "pkill wofi ; wofi -i --show drun -p 'launch:'";
-      "$wofi_cmd" = "pkill wofi ; wofi -i --show run -p 'launch:'";
+      "$wofi" = "pkill wofi ; wofi -i --show drun -p '${runPrompt}'";
+      "$wofi_cmd" = "pkill wofi ; wofi -i --show run -p '${runPrompt} command'";
     };
   };
 }

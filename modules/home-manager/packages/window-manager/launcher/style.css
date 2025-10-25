@@ -26,12 +26,11 @@
   border-bottom-color: rgba(255,255,255,0.25);
   border-width: 1px;
   border-radius: 8px;
-
 }
 
 #window {
   background: rgba(20,20,20,0.5);
-  border-radius: 12px;
+  border-radius: 0px;
   padding: 12px;
 }
 
@@ -42,7 +41,7 @@
   margin-right: 8px;
 }
 
-#entry:selected {
+#entry:selected, #expander-box {
   background: linear-gradient(to bottom, 
       #66cccc 0%, 
       #339999 55%,
@@ -53,9 +52,11 @@
   animation: fadein 0.2s linear;
 }
 
+#expander-box { background: none; }
+#img { margin-right: 15px; }
+
 #text { color: @text_color_white; }
 #text:selected { color: @text_color; }
-#img { margin-right: 15px; }
 
 /* https://rikkendell.co.uk/fade-in-using-only-css */
 @keyframes fadein {

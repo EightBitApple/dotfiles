@@ -17,6 +17,13 @@
       lines = 8;
       width = "30%";
       hide_scroll = true;
+      use_search_box = false;
+
+      key_down = "Alt-j,Down";
+      key_up = "Alt-k,Up";
+      key_left = "Alt-h,Left";
+      key_right = "Alt-l,Right";
+      key_expand = "Tab";
     };
     style = builtins.readFile ./style.css;
   };
