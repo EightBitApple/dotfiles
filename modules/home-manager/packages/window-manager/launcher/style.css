@@ -29,7 +29,7 @@
 }
 
 #window {
-  background: rgba(20,20,20,0.5);
+  background: url("/home/stefan/.local/share/styling/aero_glass.png"), rgba(20, 20, 20, 0.5);
   border-radius: 0px;
   padding: 12px;
 }
