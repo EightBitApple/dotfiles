@@ -9,12 +9,12 @@
   gtk = {
     enable = true;
     iconTheme = {
-      name = "crystal-remix-icon-theme-diinki-version";
-      package = pkgs.myPackages.diinki-aero;
+      name = "Oxylite";
+      package = pkgs.myPackages.oxylite-icon-theme;
     };
     theme = {
-      name = "diinki-aero";
-      package = pkgs.myPackages.diinki-aero;
+      name = "Windows-Vista";
+      package = pkgs.myPackages.windows-vista-theme;
     };
   };
   qt.enable = true;

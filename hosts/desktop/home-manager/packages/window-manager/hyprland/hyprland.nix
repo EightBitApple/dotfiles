@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  dispIcon = "${pkgs.myPackages.diinki-aero}/share/icons/crystal-remix-icon-theme-diinki-version/128x128/devices/video-display.png";
+  dispIcon = "${pkgs.myPackages.oxylite-icon-theme}/share/icons/Oxylite/devices/video-display.svg";
   dispRes = "hyprctl keyword monitor DP-1,1920x1080";
   notifHint = "string:x-canonical-private-synchronous:refresh";
   dispPos = "0x0,1";

@@ -10,7 +10,7 @@
         ripgrep
       ];
       text = ''
-        icon=${pkgs.myPackages.diinki-aero}/share/icons/crystal-remix-icon-theme-diinki-version/128x128/preferences/preferences-system-bluetooth.png
+        icon=${pkgs.myPackages.oxylite-icon-theme}/share/icons/Oxylite/devices/bluetooth.svg
 
         if [ "$(bluetoothctl show | rg "Powered: no")" ]; then
             power_state="on"

@@ -7,8 +7,6 @@
 }:
 
 let
-  iconBattery = "${pkgs.myPackages.diinki-aero}/share/icons/crystal-remix-icon-theme-diinki-version/128x128/devices/battery.png";
-
   idleIcon = pkgs.writeShellApplication {
     name = "idle-icon";
     text = ''

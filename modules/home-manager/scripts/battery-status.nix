@@ -8,7 +8,7 @@
         text=""
         tooltip=""
 
-        notif_icon=${pkgs.myPackages.diinki-aero}/share/icons/crystal-remix-icon-theme-diinki-version/128x128/status/dialog-warning.png
+        notif_icon=${pkgs.myPackages.oxylite-icon-theme}/share/icons/Oxylite/status/battery-caution.svg
         low_threshold=25
         low_multiple=5
 

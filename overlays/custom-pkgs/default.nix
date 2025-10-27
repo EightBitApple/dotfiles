@@ -4,7 +4,8 @@
   nixpkgs.overlays = [
     (final: prev: {
       myPackages = {
-        diinki-aero = pkgs.callPackage ./diinki-aero.nix { };
+        windows-vista-theme = pkgs.callPackage ./windows-vista.nix { };
+        oxylite-icon-theme = pkgs.callPackage ./oxylite.nix { };
       };
     })
   ];

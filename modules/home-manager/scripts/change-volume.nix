@@ -10,9 +10,9 @@
         wireplumber
       ];
       text = ''
-        icon_path=${pkgs.myPackages.diinki-aero}/share/icons/crystal-remix-icon-theme-diinki-version/128x128/status
-        icon=''${icon_path}/audio-volume.png
-        icon_mute=''${icon_path}/audio-volume-muted.png
+        icon_path=${pkgs.myPackages.oxylite-icon-theme}/share/icons/Oxylite
+        icon=''${icon_path}/devices/audio-speakers.svg
+        icon_mute=''${icon_path}/status/audio-volume-muted.svg
         notif_time=500
 
         send_notification() {

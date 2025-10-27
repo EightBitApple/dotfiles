@@ -3,7 +3,7 @@
 let
   notif = {
     title = "Bluetooth Disconnect";
-    icon = "${pkgs.myPackages.diinki-aero}/share/icons/crystal-remix-icon-theme-diinki-version/128x128/apps/blueman.png";
+    icon = "${pkgs.myPackages.oxylite-icon-theme}/share/icons/Oxylite/devices/bluetooth.svg";
     hint = "string:x-canonical-private-synchronous:bluetooth_dev";
     time = "2000";
   };
