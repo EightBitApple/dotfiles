@@ -17,8 +17,8 @@ stdenvNoCC.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "mx-2";
     repo = "${pname}";
-    tag = "v${version}";
-    hash = "sha256-e/aUnF8I/m7MrkRbhQEUstmRq0MURrgs0PsF+ID0SNk=";
+    tag = "${version}";
+    hash = "sha256-nesBMRxhPZkPJiZGjUcMlSYV+TYe/drCJVarzELgNTs=";
   };
 
   preConfigure = ''

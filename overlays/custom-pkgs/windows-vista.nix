@@ -13,7 +13,7 @@ stdenvNoCC.mkDerivation rec {
     owner = "B00merang-Project";
     repo = "${pname}";
     tag = "${version}";
-    hash = "sha256-oOXXEVPNcmqylHXy/JL0fGq+aRpTQ4siQnZMxakhXKY=";
+    hash = "sha256-TeLXIC5SGqBGKudm7vCyFcd+htzB4OOsj0vnonuFURU=";
   };
 
   installPhase = ''
