@@ -27,10 +27,11 @@ in
               $((vol > 100)) ) icon="${icon.over}" ;;
               $((vol >= 70)) ) icon="${icon.high}" ;;
               $((vol >= 30)) ) icon="${icon.mid}" ;;
-              $((vol >= 0)) ) icon="${icon.low}" ;;
+              $((vol > 0)) ) icon="${icon.low}" ;;
+              $((vol == 0)) ) icon="${icon.mute}" ;;
           esac
 
-          notify-send -u low -i "$icon" "volume:" "$vol%" -h string:x-canonical-private-synchronous:volume -t "$notif_time"
+          notify-send -u low -i "$icon" "volume" "$vol%" -h string:x-canonical-private-synchronous:volume -t "$notif_time"
       }
 
       vol_inc=$2
@@ -40,7 +41,7 @@ in
       mute)
           ${pamixer} --toggle-mute
           if "$(${pamixer} --get-mute)"; then
-              notify-send -u low -i "${icon.mute}" "volume:" "muted" -h string:x-canonical-private-synchronous:volume -t "$notif_time"
+              notify-send -u low -i "${icon.mute}" "volume" "muted" -h string:x-canonical-private-synchronous:volume -t "$notif_time"
           else
               notify
           fi
