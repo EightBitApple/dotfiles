@@ -13,8 +13,8 @@
       package = pkgs.myPackages.oxylite-icon-theme;
     };
     theme = {
-      name = "Windows-Vista";
-      package = pkgs.myPackages.windows-vista-theme;
+      name = "Diinki-Aero";
+      package = pkgs.myPackages.diinki-aero;
     };
   };
   qt.enable = true;
