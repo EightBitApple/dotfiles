@@ -1,7 +1,14 @@
 { pkgs, ... }:
 
 let
-  iconPathPrefix = "${pkgs.myPackages.diinki-aero}/share/icons/crystal-remix-icon-theme-diinki-version/128x128/preferences";
+  icon = {
+    path = "${pkgs.myPackages.oxylite-icon-theme}/share/icons/Oxylite/status/";
+
+    timer = {
+      enabled = "${icon.path}timer.svg";
+      disabled = "${icon.path}timer-disabled.svg";
+    };
+  };
 in
 
 {
@@ -9,9 +16,6 @@ in
     (writeShellApplication {
       name = "idle-toggle";
       text = ''
-        icon_timer_on=${iconPathPrefix}/preferences-system-time.png
-        icon_timer_off=${iconPathPrefix}/preferences-system-time-off.png
-
         notify() {
             notify-send -i "$1" -t 2000 -h string:x-canonical-private-synchronous:idle "$2" "$3"
         }
@@ -22,10 +26,10 @@ in
 
         if systemctl --user is-active hypridle; then
             systemctl --user stop hypridle && \
-            notify "$icon_timer_off" "$notif_title" "Off"
+            notify "${icon.timer.disabled}" "$notif_title" "Off"
         else
             systemctl --user start hypridle && \
-            notify "$icon_timer_on" "$notif_title" "On"
+            notify "${icon.timer.enabled}" "$notif_title" "On"
         fi
 
         pkill -SIGRTMIN+1 waybar

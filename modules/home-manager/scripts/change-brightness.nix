@@ -9,7 +9,7 @@
         libnotify
       ];
       text = ''
-        icon=${pkgs.myPackages.diinki-aero}/share/icons/crystal-remix-icon-theme-diinki-version/128x128/apps/ktip.png
+        icon=${pkgs.myPackages.oxylite-icon-theme}/share/icons/Oxylite/status/display-brightness.svg
         notif_time=500
 
         send_notification() {

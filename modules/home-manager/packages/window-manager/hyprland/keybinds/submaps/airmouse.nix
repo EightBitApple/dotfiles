@@ -15,8 +15,8 @@
     bind=CTRL, Return, exec, ${pkgs.alacritty}/bin/alacritty
 
     # media keys
-    bind=, XF86AudioRaiseVolume, exec, changevolume up 5
-    bind=, XF86AudioLowerVolume, exec, changevolume down 5
+    bind=, XF86AudioRaiseVolume, exec, change-volume up 5
+    bind=, XF86AudioLowerVolume, exec, change-volume down 5
 
     # workspaces
     bind = CTRL, 1, workspace, 1

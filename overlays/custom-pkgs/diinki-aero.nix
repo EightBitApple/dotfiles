@@ -1,7 +1,6 @@
 {
   stdenvNoCC,
   lib,
-  pkgs,
   fetchFromGitHub,
   ...
 }:
@@ -12,17 +11,12 @@ stdenvNoCC.mkDerivation rec {
   src = fetchFromGitHub {
     owner = "EightBitApple";
     repo = "${pname}";
-    rev = "3c15b310c781397067e03b64e21cdae58a14bd88";
-    hash = "sha256-eUvqSQYnwvzmj3xZJktusJg5+fbgLjHcot5vUNBQFuw=";
+    rev = "e7acac51a8351352db88830da05de75eeb5d53b7";
+    hash = "sha256-hWXrZuz9XEvKDwskUJdT98o9UqkrLVaCM6SuEUz+glE=";
   };
 
   installPhase = ''
-    runHook preInstall
-    mkdir -p $out/share/themes/diinki-aero
-    cp -a GTKTheme/diinki-aero/* $out/share/themes/diinki-aero
-
-    mkdir -p $out/share/icons/crystal-remix-icon-theme-diinki-version
-    cp -a IconTheme/crystal-remix-icon-theme-diinki-version/* $out/share/icons/crystal-remix-icon-theme-diinki-version
-    runHook postInstall
+    mkdir -p $out/share/themes/Diinki-Aero
+    cp -a * $out/share/themes/Diinki-Aero
   '';
 }
