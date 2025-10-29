@@ -1,7 +1,14 @@
 { pkgs, ... }:
 
 let
-  icon = "${pkgs.myPackages.oxylite-icon-theme}/share/icons/Oxylite/status/timer.svg";
+  icon = {
+    path = "${pkgs.myPackages.oxylite-icon-theme}/share/icons/Oxylite/status/";
+
+    timer = {
+      enabled = "${icon.path}timer.svg";
+      disabled = "${icon.path}timer-disabled.svg";
+    };
+  };
 in
 
 {
@@ -19,10 +26,10 @@ in
 
         if systemctl --user is-active hypridle; then
             systemctl --user stop hypridle && \
-            notify "${icon}" "$notif_title" "Off"
+            notify "${icon.timer.disabled}" "$notif_title" "Off"
         else
             systemctl --user start hypridle && \
-            notify "${icon}" "$notif_title" "On"
+            notify "${icon.timer.enabled}" "$notif_title" "On"
         fi
 
         pkill -SIGRTMIN+1 waybar

@@ -12,13 +12,13 @@ in
 
 stdenvNoCC.mkDerivation rec {
   pname = "oxylite-icon-theme";
-  version = "v1.1.6";
+  version = "dotfiles";
 
   src = fetchFromGitHub {
-    owner = "mx-2";
+    owner = "EightBitApple";
     repo = "${pname}";
-    tag = "${version}";
-    hash = "sha256-nesBMRxhPZkPJiZGjUcMlSYV+TYe/drCJVarzELgNTs=";
+    rev = "19d5f57b06454444dcafe5cabb1586b86dd45865";
+    hash = "sha256-lKQDSNe1cok7hwuZBfG25B2ShCkqi16zhYI3zWPvzGk=";
   };
 
   preConfigure = ''
