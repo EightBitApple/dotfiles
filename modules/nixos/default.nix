@@ -21,6 +21,7 @@
     ./programs/gaming.nix
     ./programs/git.nix
     ./programs/hyprland.nix
+    ./programs/lockscreen/gtklock.nix
     ./programs/searx.nix
     ./programs/wireshark.nix
     ./services/device/fstrim.nix
