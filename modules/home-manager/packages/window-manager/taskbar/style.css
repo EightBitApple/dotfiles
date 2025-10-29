@@ -17,6 +17,8 @@ window#waybar, #tray menuitem {
   border-radius: 8px;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
+
+  color: @text_color_white;
 }
 
 #custom-battery,
