@@ -21,6 +21,8 @@ window#waybar, #tray menuitem {
   color: @text_color_white;
 }
 
+#window { padding-top: 5px; }
+
 #custom-battery,
 #custom-idle,
 #clock,

@@ -110,6 +110,7 @@ in
         "hyprland/window" = {
           icon = true;
           rotate = 90;
+          max-length = 102;
         };
       };
     };
