@@ -31,6 +31,7 @@
     ./services/device/udev.nix
     ./services/filesystem/gvfs.nix
     ./services/networking/access-point.nix
+    ./services/networking/dhcpcd.nix
     ./services/networking/dnscrypt.nix
     ./services/networking/hostname.nix
     ./services/networking/network-manager.nix
