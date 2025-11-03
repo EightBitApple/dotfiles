@@ -2,6 +2,7 @@
   imports = [
     ./hardware-configuration.nix
     ./nixos/services/networking/access-point.nix
+    ./nixos/services/networking/dhcpcd.nix
     ./nixos/services/networking/hostname.nix
     ./nixos/services/networking/wpa-supplicant.nix
     ./nixos/users/accounts.nix
@@ -19,6 +20,7 @@
     ../../modules/nixos/programs/flatpak.nix
     ../../modules/nixos/programs/gaming.nix
     ../../modules/nixos/programs/hyprland.nix
+    ../../modules/nixos/programs/lockscreen/gtklock.nix
     ../../modules/nixos/programs/searx.nix
     ../../modules/nixos/programs/theming.nix
     ../../modules/nixos/programs/wireshark.nix
