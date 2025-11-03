@@ -3,7 +3,7 @@
     ./disko.nix
     ./hardware-configuration.nix
     ./nixos/boot.nix
-    ./nixos/services/networking/network-manager.nix
+    ./nixos/services/networking/hostname.nix
     ./nixos/users/accounts.nix
   ];
 

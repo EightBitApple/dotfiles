@@ -5,7 +5,6 @@
     isNormalUser = true;
     description = "${userSettings.user.fullName}";
     extraGroups = [
-      "networkmanager"
       "wheel"
       "wireshark"
       "gamemode"

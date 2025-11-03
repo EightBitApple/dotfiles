@@ -32,6 +32,7 @@
     ./services/filesystem/gvfs.nix
     ./services/networking/access-point.nix
     ./services/networking/dnscrypt.nix
+    ./services/networking/hostname.nix
     ./services/networking/network-manager.nix
     ./services/networking/open-ssh.nix
     ./services/networking/ssh-agent.nix

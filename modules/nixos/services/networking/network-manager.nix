@@ -1,7 +1,6 @@
 {
   networking = {
     networkmanager.enable = true;
-    hostName = "nixos";
   };
 
   systemd = {

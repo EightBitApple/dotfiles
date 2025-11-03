@@ -25,6 +25,7 @@
     ./packages/utilities/editing/text.nix
     ./packages/utilities/file-management.nix
     ./packages/utilities/network/email.nix
+    ./packages/utilities/network/nm-applet.nix
     ./packages/utilities/network/syncthing.nix
     ./packages/utilities/security.nix
     ./packages/utilities/terminal/fhs.nix

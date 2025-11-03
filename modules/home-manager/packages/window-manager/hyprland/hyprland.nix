@@ -14,7 +14,6 @@ let
     runtimeInputs = with pkgs; [
       waybar
       swaybg
-      networkmanagerapplet
       xorg.xrdb
     ];
     text = ''

@@ -2,7 +2,7 @@
   imports = [
     ./hardware-configuration.nix
     ./nixos/drive-mounts.nix
-    ./nixos/services/networking/network-manager.nix
+    ./nixos/services/networking/hostname.nix
     ./nixos/users/accounts.nix
   ];
 
@@ -13,6 +13,7 @@
     ../../modules/nixos/services/device/printing.nix
     ../../modules/nixos/services/device/tlp.nix
     ../../modules/nixos/services/networking/access-point.nix
+    ../../modules/nixos/services/networking/network-manager.nix
     ../../modules/nixos/services/networking/open-ssh.nix
     ../../modules/nixos/services/networking/wpa-supplicant.nix
     ../../modules/nixos/system/uboot.nix

@@ -27,8 +27,5 @@
     };
   };
 
-  networking = {
-    hostName = lib.mkForce "pi-home";
-    wireless.interfaces = [ "wlan0" ];
-  };
+  networking.wireless.interfaces = [ "wlan0" ];
 }
