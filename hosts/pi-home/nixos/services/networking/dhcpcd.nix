@@ -1,5 +1,5 @@
 { lib, ... }:
 
 {
-  networking.dhcpcd.wait = "any";
+  networking.dhcpcd.wait = lib.mkForce "any";
 }
