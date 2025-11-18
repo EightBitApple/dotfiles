@@ -1,6 +1,3 @@
 {
-  imports = [
-    ./custom-pkgs
-    ./hotfixes/swaync.nix
-  ];
+  imports = [ ./custom-pkgs ];
 }
