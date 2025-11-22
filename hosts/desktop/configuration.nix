@@ -3,6 +3,7 @@
     ./hardware-configuration.nix
     ./nixos/drive-mounts.nix
     ./nixos/services/networking/hostname.nix
+    ./nixos/services/sound/pipewire.nix
     ./nixos/users/accounts.nix
   ];
 
