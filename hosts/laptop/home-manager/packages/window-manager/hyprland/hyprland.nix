@@ -1,16 +1,20 @@
 { lib, pkgs, ... }:
 
 let
+  icon = "${pkgs.myPackages.oxylite-icon-theme}/share/icons/Oxylite/devices/computer-laptop.svg";
   toggleLaptopDisplay = pkgs.writeShellApplication {
     name = "toggle-display";
-    runtimeInputs = with pkgs; [ libnotify ];
+    runtimeInputs = with pkgs; [
+      libnotify
+      jq
+    ];
     text = ''
-      display_json=$(hyprctl -j monitors)
-
       sleep_delay=1
       notif_time=2000
 
       # Get monitor info as JSON and parse it.
+      display_json=$(hyprctl -j monitors)
+
       laptop_display=$(printf "%s" "$display_json" | jq '.[] | select(.id == 0)')
       display_status=$(printf "%s" "$laptop_display" | jq '.dpmsStatus')
       display_name=$(printf "%s" "$laptop_display" | jq -r '.name')
@@ -19,7 +23,7 @@ let
       [ "$display_status" = "true" ] && new_status="off" || new_status="on"
 
       # Turn display on or off based on outcome of branch.
-      notify-send -t "$notif_time" "Turning $new_status laptop display..."
+      notify-send -t "$notif_time" -i "${icon}" "Turning $new_status laptop display..."
       sleep "$sleep_delay"
       hyprctl dispatch dpms "$new_status" "$display_name"
     '';
