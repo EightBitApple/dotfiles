@@ -24,13 +24,15 @@
             ;;
         esac
 
-        cd ~/pictures/wallpapers/ || exit
+        wall_dir="$XDG_PICTURES_DIR/wallpapers"
+
+        cd "$wall_dir" || exit
 
         while true; do
             choice=$(find -- * -type d | wofi --columns 2 --lines 3 -i -p "󰉏  select$lockscreen_prompt_msg wallpaper type" --dmenu)
             [ ! "$choice" ] && exit 1
 
-            selected_wallpaper=$(sxiv -tor ~/pictures/wallpapers/"$choice" | tail -n 1)
+            selected_wallpaper=$(sxiv -tor "$wall_dir"/"$choice" | tail -n 1)
             [ "$selected_wallpaper" != "" ] && break
         done
 
