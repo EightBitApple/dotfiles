@@ -1,5 +1,8 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [ kdePackages.okular ];
+  home.packages = with pkgs; [
+    kdePackages.okular
+    libreoffice
+  ];
 }
