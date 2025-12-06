@@ -13,7 +13,7 @@
         sleep="󰒲  sleep"
         shutdown="⏻  shutdown"
 
-        choice=$(pkill wofi ; printf "%s\n%s\n%s\n%s\n%s\n%s" "$lock" "$logout" "$reload" "$reboot" "$sleep" "$shutdown" | wofi --columns 2 --lines 3 -p "  system action" --dmenu)
+        choice=$(pkill wofi ; printf "%s\n%s\n%s\n%s\n%s\n%s" "$lock" "$logout" "$reload" "$reboot" "$sleep" "$shutdown" | wofi --lines 6 -p "  system action" --dmenu)
 
         case "$choice" in
         "$lock") gtklock ;;

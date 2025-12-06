@@ -29,7 +29,7 @@
         cd "$wall_dir" || exit
 
         while true; do
-            choice=$(find -- * -type d | wofi --columns 2 --lines 3 -i -p "󰉏  select$lockscreen_prompt_msg wallpaper type" --dmenu)
+            choice=$(find -- * -type d | wofi --lines 6 -i -p "󰉏  select$lockscreen_prompt_msg wallpaper type" --dmenu)
             [ ! "$choice" ] && exit 1
 
             selected_wallpaper=$(sxiv -tor "$wall_dir"/"$choice" | tail -n 1)

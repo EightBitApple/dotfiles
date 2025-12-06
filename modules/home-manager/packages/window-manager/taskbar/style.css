@@ -91,11 +91,17 @@ tooltip label {
     rgba(50, 50, 50, 0.66) 55%,
     rgba(20, 20, 20, 0.66) 55%,
     rgba(60, 60, 60, 0.66) 100%);
+
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 #workspaces button.active, #workspaces button:hover {
-  animation: fadein 0.2s linear;
+  animation: expand 0.2s ease-out;
   border-radius: 8px;
+
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 #workspaces button.urgent {
@@ -117,7 +123,15 @@ tooltip label {
 }
 
 /* https://rikkendell.co.uk/fade-in-using-only-css */
-@keyframes fadein {
-  from { opacity: 0.33; }
-  to { opacity: 1; }
+@keyframes expand {
+  from {
+    margin-left: 10px;
+    margin-right: 10px;
+    opacity: 0.33;
+  }
+  to {
+    margin-left: 5px;
+    margin-right: 5px;
+    opacity: 1;
+ }
 }

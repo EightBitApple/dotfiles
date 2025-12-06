@@ -36,8 +36,8 @@
 #entry {
   padding: 4px;
   margin: 4px;
-  margin-left: 8px;
-  margin-right: 8px;
+  margin-left: 16px;
+  margin-right: 16px;
 }
 
 #entry:selected, #expander-box {
@@ -48,7 +48,9 @@
       #1cb06d 100%
   );
   outline: none;
-  animation: fadein 0.2s linear;
+  animation: expand 0.2s ease-out;
+  margin-left: 8px;
+  margin-right: 8px;
 }
 
 #expander-box { background: none; }
@@ -57,8 +59,15 @@
 #text { color: @text_color_white; }
 #text:selected { color: @text_color; }
 
-/* https://rikkendell.co.uk/fade-in-using-only-css */
-@keyframes fadein {
-  from { opacity: 0.33; }
-  to { opacity: 1; }
+@keyframes expand {
+  from {
+    margin-left: 16px;
+    margin-right: 16px;
+    opacity: 0.33;
+  }
+  to {
+    margin-left: 8px;
+    margin-right: 8px;
+    opacity: 1;
+ }
 }
