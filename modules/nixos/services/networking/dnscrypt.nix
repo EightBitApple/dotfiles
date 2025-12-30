@@ -1,94 +1,74 @@
+let
+  hasIPv6Address = true;
+  stateDirectory = "dnscrypt-proxy";
+in
 {
-  # Encrypted DNS queries via dnscrypt-proxy2.
+  networking = {
+    nameservers = [
+      "127.0.0.1"
+      "::1"
+    ];
+    dhcpcd.extraConfig = "nohook resolv.conf";
+    networkmanager.dns = "none";
+  };
 
-  services.dnscrypt-proxy = {
-    enable = true;
-    settings = {
-      server_names = [
-        "cs-belgium"
-        "cs-ireland"
-        "cs-pt"
+  services = {
+    resolved.enable = false;
 
-        "dnscry.pt-geneva-ipv4"
-        "dnscry.pt-geneva-ipv6"
+    # See https://wiki.nixos.org/wiki/Encrypted_DNS
+    dnscrypt-proxy = {
+      enable = true;
+      settings = {
+        # See https://github.com/DNSCrypt/dnscrypt-proxy/blob/master/dnscrypt-proxy/example-dnscrypt-proxy.toml
+        sources.public-resolvers = {
+          # See https://github.com/DNSCrypt/dnscrypt-resolvers/blob/master/v3/public-resolvers.md
+          urls = [
+            "https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md"
+            "https://download.dnscrypt.info/resolvers-list/v3/public-resolvers.md"
+          ];
 
-        "dnscry.pt-london-ipv4"
-        "dnscry.pt-london-ipv6"
+          minisign_key = "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3";
+          cache_file = "/var/lib/${stateDirectory}/public-resolvers.md";
+        };
 
-        "dnscry.pt-munich-ipv4"
-        "dnscry.pt-munich-ipv6"
-      ];
-      # Filters
-      dnscrypt_servers = true;
-      doh_servers = false;
+        ipv6_servers = hasIPv6Address;
+        block_ipv6 = !(hasIPv6Address);
 
-      anonymized_dns = {
-        routes = [
-          {
-            server_name = "cs-belgium";
-            via = [
-              "dnscry.pt-anon-warsaw02-ipv4"
-              "dnscry.pt-anon-warsaw02-ipv6"
-            ];
-          }
-          {
-            server_name = "cs-ireland";
-            via = [
-              "anon-dnscrypt.uk-ipv4"
-              "anon-dnscrypt.uk-ipv6"
-            ];
-          }
+        require_dnssec = true;
+        require_nolog = true;
+        require_nofilter = true;
 
-          {
-            server_name = "cs-pt";
-            via = [
-              "dnscry.pt-anon-madrid-ipv4"
-              "dnscry.pt-anon-madrid-ipv6"
-            ];
-          }
-
-          {
-            server_name = "dnscry.pt-geneva-ipv4";
-            via = [
-              "anon-cs-czech"
-            ];
-          }
-          {
-            server_name = "dnscry.pt-geneva-ipv6";
-            via = [
-              "anon-cs-czech"
-            ];
-          }
-
-          {
-            server_name = "dnscry.pt-london-ipv4";
-            via = [
-              "anon-cs-fr"
-            ];
-          }
-          {
-            server_name = "dnscry.pt-london-ipv6";
-            via = [
-              "anon-cs-fr"
-            ];
-          }
-
-          {
-            server_name = "dnscry.pt-munich-ipv4";
-            via = [
-              "anon-cs-finland"
-            ];
-          }
-          {
-            server_name = "dnscry.pt-munich-ipv6";
-            via = [
-              "anon-cs-finland"
-            ];
-          }
-
+        disabled_server_names = [
+          "dnscrypt.uk-ipv4"
+          "dnscrypt.uk-ipv6"
+          "scaleway-ams"
+          "scaleway-ams-ipv6"
+          "cs-berlin"
+          "cs-berlin6"
+          "cs-belgium"
+          "cs-belgium6"
         ];
-        skip_incompatible = true;
+
+        anonymized_dns = {
+          routes = [
+            {
+              server_name = "*";
+              via = [
+                "anon-dnscrypt.uk-ipv4"
+                "anon-dnscrypt.uk-ipv6"
+                "anon-scaleway-ams"
+                "anon-scaleway-ams-ipv6"
+                "anon-cs-berlin"
+                "anon-cs-berlin6"
+                "anon-cs-belgium"
+                "anon-cs-belgium6"
+              ];
+            }
+          ];
+        };
       };
     };
   };
+
+  systemd.services.dnscrypt-proxy.serviceConfig.StateDirectory = stateDirectory;
 }
