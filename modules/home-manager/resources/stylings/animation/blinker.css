@@ -1,0 +1,6 @@
+/* https://stackoverflow.com/a/68013180 */
+@keyframes blinker {
+  from { opacity: 1.0; }
+  50% { opacity: 0.33; }
+  to { opacity: 1.0; }
+}

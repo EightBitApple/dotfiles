@@ -1,0 +1,13 @@
+/* https://rikkendell.co.uk/fade-in-using-only-css */
+@keyframes expand {
+  from {
+    margin-left: 10px;
+    margin-right: 10px;
+    opacity: 0.33;
+  }
+  to {
+    margin-left: 5px;
+    margin-right: 5px;
+    opacity: 1;
+  }
+}

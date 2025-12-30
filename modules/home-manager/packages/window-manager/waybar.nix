@@ -114,6 +114,108 @@ in
         };
       };
     };
-    style = builtins.readFile ./style.css;
+    style =
+      let
+        readStyle = file: builtins.readFile ../../resources/stylings/${file}.css;
+      in
+      ''
+        ${readStyle "text"}
+
+        * {
+          border: none;
+          font-family: DejaVu Sans;
+          font-size: 14px;
+        }
+
+        window#waybar, #tray menuitem {
+          ${readStyle "aero-glass"}
+          margin: 4px;
+          padding: 4px 8px;
+
+          border: 1px solid #757575;
+          border-left: none;
+          border-radius: 8px;
+          border-top-left-radius: 0px;
+          border-bottom-left-radius: 0px;
+
+          color: @text_color_white;
+        }
+
+        #window { padding-bottom: 5px; }
+
+        #custom-battery,
+        #custom-idle,
+        #clock,
+        #bluetooth,
+        #wireplumber,
+        #tray,
+        #submap,
+        tooltip,
+        #tray menu,
+        #tray menuitem:hover,
+        #workspaces button,
+        #workspaces button.active,
+        #workspaces button:hover {
+          color: @text_color;
+          border-radius: 8px;
+          margin: 4px;
+          padding: 4px 8px;
+
+          ${readStyle "select"}
+          ${readStyle "highlights"}
+        }
+
+        #tray menu { border-radius: 0px; }
+
+        #tray menuitem, #tray menuitem:hover {
+          margin-left: 8px;
+          margin-right: 8px;
+          border-radius: 8px;
+          border: none;
+          color: @text_color_white;
+        }
+
+        #tray menuitem:hover {
+          color: @text_color;
+          animation: fadein 0.2s linear;
+        }
+
+        tooltip label {
+          color: @text_color;
+        }
+
+        #custom-idle {
+          padding-left: 0.8em;
+          padding-right: 1em;
+        }
+
+        #workspaces button, #tray menuitem {
+          color: @text_color_white;
+          background: none;
+
+          margin-left: 10px;
+          margin-right: 10px;
+
+          ${readStyle "button"}
+        }
+
+        #workspaces button.active, #workspaces button:hover {
+          animation: expand 0.2s ease-out;
+          border-radius: 8px;
+
+          margin-left: 5px;
+          margin-right: 5px;
+        }
+
+        #workspaces button.urgent {
+          color: @text_color_white;
+          animation: blinker 1.5s linear infinite;
+
+          ${readStyle "alert"}
+        }
+
+        ${readStyle "animation/blinker"}
+        ${readStyle "animation/expand"}
+      '';
   };
 }
