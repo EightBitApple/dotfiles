@@ -10,6 +10,7 @@
 
     extraGroups = lib.mkForce [
       "networkmanager"
+      "podman"
       "video"
       "wheel"
       "wireshark"

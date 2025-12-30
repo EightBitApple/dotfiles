@@ -5,10 +5,11 @@
     isNormalUser = true;
     description = "${userSettings.user.fullName}";
     extraGroups = [
+      "gamemode"
+      "podman"
+      "video"
       "wheel"
       "wireshark"
-      "gamemode"
-      "video"
     ];
     shell = pkgs.bash;
   };
