@@ -5,6 +5,7 @@
     ./fonts.nix
     ./packages/gaming/emulators.nix
     ./packages/gaming/mangohud.nix
+    ./packages/gaming/shaders.nix
     ./packages/gaming/sourceports/dsda-doom.nix
     ./packages/gaming/sourceports/gzdoom.nix
     ./packages/gaming/sourceports/ironwail.nix
