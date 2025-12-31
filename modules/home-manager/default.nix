@@ -7,8 +7,8 @@
     ./packages/gaming/mangohud.nix
     ./packages/gaming/shaders.nix
     ./packages/gaming/sourceports/dsda-doom.nix
-    ./packages/gaming/sourceports/gzdoom.nix
     ./packages/gaming/sourceports/ironwail.nix
+    ./packages/gaming/sourceports/uzdoom.nix
     ./packages/media/audio-tools.nix
     ./packages/media/obs-studio.nix
     ./packages/media/video-playback.nix
