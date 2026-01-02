@@ -18,6 +18,7 @@ let
     ];
     text = ''
       waybar &
+      swaync &
       nm-applet &
 
       current_wallpaper=~/.local/share/current-wallpaper
