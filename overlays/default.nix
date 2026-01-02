@@ -1,3 +1,6 @@
 {
-  imports = [ ./custom-pkgs ];
+  imports = [
+    ./custom-pkgs
+    ./hotfixes
+  ];
 }
