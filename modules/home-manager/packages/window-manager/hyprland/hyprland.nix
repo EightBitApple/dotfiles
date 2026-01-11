@@ -102,7 +102,7 @@ in
         enable_swallow = true;
         swallow_regex = "${userSettings.terminal.title}";
 
-        new_window_takes_over_fullscreen = 1;
+        on_focus_under_fullscreen = 1;
         animate_manual_resizes = true;
 
         vrr = 1;
@@ -113,26 +113,13 @@ in
       };
 
       "$animation_speed" = 2;
-      animations = {
-        enabled = true;
-        bezier = "overshot, 0.05, 0.9, 0.1, 1.05";
-      };
+      animations.enabled = true;
 
       animation = [
-        "windows, 1, $animation_speed, overshot, popin 80%"
-        "border, 1, $animation_speed, overshot"
-        "fade, 1, $animation_speed, overshot"
-        "workspaces, 1, $animation_speed, overshot, slidevert"
-      ];
-
-      windowrule = [
-        "float,title:(Authentication Required — PolicyKit1 KDE Agent)$"
-        "float,title:^(File Operation Progress)$"
-        "noanim,class:^(Gimp)$"
-        "float,class:^(floating)$"
-        "stayfocused, title:^()$,class:^(steam)$"
-        "minsize 1 1, title:^()$,class:^(steam)$"
-        "immediate, class:^(steam_app_.+)$"
+        "windows, 1, $animation_speed, default, popin 80%"
+        "border, 1, $animation_speed, default"
+        "fade, 1, $animation_speed, default"
+        "workspaces, 1, $animation_speed, default, slidevert"
       ];
 
       device = [
@@ -144,22 +131,6 @@ in
           name = "2.4g-composite-devic";
           kb_layout = "us";
         }
-      ];
-
-      layerrule = [
-        "blur, wofi"
-        "ignorealpha 0.01, wofi" # This is so entirely transparent things aren't blurred.
-
-        "blur, waybar"
-        "blurpopups, waybar"
-        "ignorealpha 0.01, waybar" # this is so entirely transparent things aren't blurred.
-
-        "blur, swaync-control-center"
-        "blur, swaync-notification-window"
-        "ignorezero, swaync-control-center"
-        "ignorezero, swaync-notification-window"
-        "ignorealpha 0.5, swaync-control-center"
-        "ignorealpha 0.5, swaync-notification-window"
       ];
 
       # varaibles used for keybind modules.

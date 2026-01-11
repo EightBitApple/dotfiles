@@ -26,7 +26,7 @@ in
       fzf --fish | source
 
       if test (tty) = "/dev/tty1"
-         exec Hyprland
+         exec start-hyprland
       end
     '';
 

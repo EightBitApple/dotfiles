@@ -3,18 +3,12 @@
 {
   programs.mpv = {
     enable = true;
-    package = (
-      pkgs.mpv-unwrapped.wrapper {
-        scripts = with pkgs.mpvScripts; [
-          mpv-playlistmanager
-          quality-menu
-          sponsorblock-minimal
-        ];
-        mpv = pkgs.mpv-unwrapped.override {
-          waylandSupport = true;
-        };
-      }
-    );
+    scripts = with pkgs.mpvScripts; [
+      mpv-playlistmanager
+      quality-menu
+      sponsorblock-minimal
+    ];
+
     scriptOpts = {
       "sponsorblock_minimal" = {
         categories = "sponsor;selfpromo;interaction";

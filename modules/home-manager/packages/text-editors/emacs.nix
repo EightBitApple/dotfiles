@@ -17,7 +17,7 @@
     discount # markdown linter and formatter
     shellcheck
     cmakeMinimal
-    nixfmt-rfc-style
+    nixfmt
     glslang
     clang
     clang-tools
