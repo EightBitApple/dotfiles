@@ -4,7 +4,6 @@
     ./nixos/services/networking/access-point.nix
     ./nixos/services/networking/dhcpcd.nix
     ./nixos/services/networking/hostname.nix
-    ./nixos/services/networking/wpa-supplicant.nix
     ./nixos/users/accounts.nix
   ];
 

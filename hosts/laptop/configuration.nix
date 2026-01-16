@@ -13,7 +13,6 @@
     ../../modules/nixos/services/device/printing.nix
     ../../modules/nixos/services/networking/access-point.nix
     ../../modules/nixos/services/networking/open-ssh.nix
-    ../../modules/nixos/services/networking/wpa-supplicant.nix
     ../../modules/nixos/system/mount-drive.nix
     ../../modules/nixos/system/uboot.nix
   ];

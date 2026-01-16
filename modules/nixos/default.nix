@@ -37,7 +37,6 @@
     ./services/networking/network-manager.nix
     ./services/networking/open-ssh.nix
     ./services/networking/ssh-agent.nix
-    ./services/networking/wpa-supplicant.nix
     ./services/security/gnupg.nix
     ./services/security/pam.nix
     ./services/sound/pipewire.nix

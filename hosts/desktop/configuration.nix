@@ -16,7 +16,6 @@
     ../../modules/nixos/services/networking/access-point.nix
     ../../modules/nixos/services/networking/network-manager.nix
     ../../modules/nixos/services/networking/open-ssh.nix
-    ../../modules/nixos/services/networking/wpa-supplicant.nix
     ../../modules/nixos/system/uboot.nix
   ];
 }
