@@ -13,7 +13,7 @@
     };
 
     templates."create_ap.conf".content = ''
-      GATEWAY=192.168.5.1
+      GATEWAY=192.168.1.1
       INTERNET_IFACE=end0
       WIFI_IFACE=wlp1s0u1u2
       HIDDEN=1
