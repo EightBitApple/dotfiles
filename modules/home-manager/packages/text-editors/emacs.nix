@@ -2,15 +2,15 @@
 
 {
   programs.emacs = {
-      enable = true;
-      package = userSettings.emacs.package;
-      extraPackages = epkgs: [ epkgs.vterm ];
+    enable = true;
+    package = userSettings.emacs.package;
+    extraPackages = epkgs: [ epkgs.vterm ];
   };
 
   services.emacs = {
-      enable = true;
-      client.enable = true;
-      defaultEditor = true;
+    enable = true;
+    client.enable = true;
+    defaultEditor = true;
   };
 
   home.packages = with pkgs; [
@@ -27,6 +27,7 @@
     ripgrep
     gnumake
     nodejs
+    languagetool
 
     # java lsp
     jdk
