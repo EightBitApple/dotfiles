@@ -23,8 +23,11 @@
   };
 
   systemd.services.create_ap = {
-    serviceConfig.ExecStart = lib.mkForce "${pkgs.linux-wifi-hotspot}/bin/create_ap --config ${
-      config.sops.templates."create_ap.conf".path
-    }";
+    serviceConfig = {
+      ExecStart = lib.mkForce "${pkgs.linux-wifi-hotspot}/bin/create_ap --config ${
+        config.sops.templates."create_ap.conf".path
+      }";
+      Restart = "on-failure";
+    };
   };
 }
