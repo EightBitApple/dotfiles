@@ -17,6 +17,7 @@
     ./packages/text-editors/emacs.nix
     ./packages/text-editors/neovim.nix
     ./packages/utilities/bottles.nix
+    ./packages/utilities/browsers.nix
     ./packages/utilities/development/direnv.nix
     ./packages/utilities/development/git.nix
     ./packages/utilities/development/virtualisation.nix

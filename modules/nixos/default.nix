@@ -13,7 +13,6 @@
     ./nix/nix-helpers.nix
     ./nix/pkgs-unfree.nix
     ./nix/sops.nix
-    ./programs/browsers.nix
     ./programs/dconf.nix
     ./programs/fhs.nix
     ./programs/fish.nix
