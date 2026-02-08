@@ -19,12 +19,12 @@ in
     templates = null;
 
     extraConfig = {
-      XDG_DOTFILES_DIR = "${home}/dotfiles";
-      XDG_MISC_DIR = "${home}/misc";
-      XDG_SCREENSHOTS_DIR = "${home}/pictures/screenshots";
-      XDG_WALLPAPERS_DIR = "${home}/pictures/wallpapers";
-      XDG_CAPTURE_DIR = "${home}/videos/captures";
-      XDG_VM_DIR = "${home}/vm";
+      dotfiles = "${home}/dotfiles";
+      misc = "${home}/misc";
+      screenshots = "${home}/pictures/screenshots";
+      wallpapers = "${home}/pictures/wallpapers";
+      capture = "${home}/videos/captures";
+      vm = "${home}/vm";
     };
   };
 }

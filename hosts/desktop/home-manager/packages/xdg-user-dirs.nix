@@ -12,6 +12,6 @@ in
     pictures = force "${hdd}/pictures";
 
     videos = force "${hdd}/videos";
-    extraConfig.XDG_CAPTURE_DIR = force "${hdd}/videos/captures";
+    extraConfig.capture = force "${hdd}/videos/captures";
   };
 }
