@@ -20,8 +20,8 @@
   qt.enable = true;
 
   home.pointerCursor = {
-    name = "Bibata-Modern-Ice";
-    package = pkgs.bibata-cursors;
+    name = "ModernXP";
+    package = pkgs.myPackages.modern-xp-cursor-theme;
     size = userSettings.windowManager.cursorSize;
     gtk.enable = true;
   };

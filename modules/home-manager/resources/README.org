@@ -1,10 +1,6 @@
 #+title: Sources of Resources
 
-* Wallpapers
-- [[https://frutigeraeroarchive.org/images/wallpapers/windows_vista/windows_vista_59.jpg][Windows Vista Default Wallpaper]].
-
-* Notification Sounds
-- [[https://archive.org/details/windows-7-default-sound-schemes_202101][Windows 7 default sound schemes]].
-
-* Soundfonts
-- [[https://www.doomworld.com/forum/topic/118828-trevor0402s-sc-55-soundfont/][SC-55 soundfont]] by Trevor0402.
+[[https://frutigeraeroarchive.org/images/wallpapers/windows_vista/windows_vista_59.jpg][Windows Vista Default Wallpaper]]
+[[https://archive.org/details/windows-7-default-sound-schemes_202101][Windows 7 default sound schemes]]
+[[https://github.com/na0miluv/modernXP-cursor-theme/][ModernXP cursor theme]] by na0miluv
+[[https://www.doomworld.com/forum/topic/118828-trevor0402s-sc-55-soundfont/][SC-55 soundfont]] by Trevor0402
