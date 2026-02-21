@@ -60,7 +60,7 @@
         };
 
         windowManager = {
-          name = "hyprland";
+          name = "niri";
           cursorSize = 24;
           wallpaper = ./modules/home-manager/resources/wallpapers/vista.jpg;
         };

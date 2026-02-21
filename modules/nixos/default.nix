@@ -20,7 +20,7 @@
     ./programs/gaming.nix
     ./programs/git.nix
     ./programs/gtklock.nix
-    ./programs/hyprland.nix
+    ./programs/niri.nix
     ./programs/searx.nix
     ./programs/wireshark.nix
     ./services/device/fstrim.nix

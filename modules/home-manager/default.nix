@@ -37,14 +37,9 @@
     ./packages/utilities/terminal/nix-helpers.nix
     ./packages/utilities/terminal/system-health.nix
     ./packages/window-manager/clipboard.nix
-    ./packages/window-manager/hyprland/hypridle.nix
-    ./packages/window-manager/hyprland/hyprland.nix
-    ./packages/window-manager/hyprland/keybinds/app-shortcuts.nix
-    ./packages/window-manager/hyprland/keybinds/media.nix
-    ./packages/window-manager/hyprland/keybinds/submaps/airmouse.nix
-    ./packages/window-manager/hyprland/keybinds/utilities.nix
-    ./packages/window-manager/hyprland/keybinds/window-management.nix
+    ./packages/window-manager/hypridle.nix
     ./packages/window-manager/night-light.nix
+    ./packages/window-manager/niri/niri.nix
     ./packages/window-manager/notifications/swaync.nix
     ./packages/window-manager/theming.nix
     ./packages/window-manager/waybar.nix

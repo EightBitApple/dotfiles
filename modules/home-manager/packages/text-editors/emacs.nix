@@ -20,6 +20,7 @@
     nixfmt
     glslang
     clang
+    fd
     clang-tools
     libtool
     shfmt
