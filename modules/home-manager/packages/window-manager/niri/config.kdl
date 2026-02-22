@@ -125,6 +125,12 @@ binds {
 
   XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_SOURCE@" "toggle"; }
 
+  XF86MonBrightnessUp allow-when-locked=true { spawn "changebrightness" "up" "10"; }
+  Shift+XF86MonBrightnessUp allow-when-locked=true { spawn "changebrightness" "up" "1"; }
+
+  XF86MonBrightnessDown allow-when-locked=true { spawn "changebrightness" "down" "10"; }
+  Shift+XF86MonBrightnessDown allow-when-locked=true { spawn "changebrightness" "down" "1"; }
+
   Mod+O repeat=false { toggle-overview; }
 
   Mod+Q { close-window; }
