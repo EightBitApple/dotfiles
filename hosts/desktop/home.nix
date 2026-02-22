@@ -3,7 +3,6 @@
     ../../modules/home-manager
     ../../overlays
     ./home-manager/packages/media/video-playback.nix
-    ./home-manager/packages/window-manager/hyprland/hyprland.nix
     ./home-manager/packages/xdg-user-dirs.nix
   ];
 

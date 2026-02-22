@@ -18,7 +18,7 @@
       fzf --fish | source
 
       if test (tty) = "/dev/tty1"
-         exec start-hyprland
+         exec niri-session
       end
     '';
 

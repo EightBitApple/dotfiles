@@ -30,12 +30,12 @@ in
         margin-bottom = 10;
 
         modules-left = [
-          "hyprland/workspaces"
+          "niri/workspaces"
         ];
 
         modules-right = [
-          "hyprland/window"
-          "hyprland/submap"
+          "niri/window"
+          "niri/submap"
           "custom/idle"
           "bluetooth"
           "wireplumber"
@@ -64,7 +64,7 @@ in
           tooltip = false;
         };
 
-        "hyprland/workspaces" = {
+        "niri/workspaces" = {
           format = "{}";
           on-scroll-up = "hyprctl dispatch workspace e+1";
           on-scroll-down = "hyprctl dispatch workspace e-1";
@@ -107,7 +107,7 @@ in
           tooltip-format-enumerate-connected = "{device_alias}\t{device_address}";
         };
 
-        "hyprland/window" = {
+        "niri/window" = {
           icon = true;
           rotate = 90;
           max-length = 102;
