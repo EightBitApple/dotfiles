@@ -90,46 +90,46 @@ window-rule {
 }
 
 binds {
-  Mod+Shift+Slash                                                         { show-hotkey-overlay; }
-  Mod+Return          hotkey-overlay-title="Terminal"                     { spawn "alacritty"; }
-  Mod+P               hotkey-overlay-title="Pulsemixer"                   { spawn "bash" "-c" "pkill pulsemixer ; alacritty --class floating -e pulsemixer"; }
-  Mod+Shift+R         hotkey-overlay-title="Htop"                         { spawn "bash" "-c" "pkill htop ; alacritty --class floating -e htop"; }
-  Mod+D               hotkey-overlay-title="Program launcher."            { spawn "bash" "-c" "pkill wofi ; wofi -p \"  launch:\""; }
-  Mod+Shift+D         hotkey-overlay-title="Command launcher."            { spawn "bash" "-c" "pkill wofi ; wofi -i --show run -p \"  launch cmd:\""; }
-  Mod+W               hotkey-overlay-title="Browser"                      { spawn "librewolf"; }
-  Mod+X               hotkey-overlay-title="Emacs (Client)"               { spawn "bash" "-c" "emacsclient -c"; }
-  Mod+E               hotkey-overlay-title="File Manager"                 { spawn "caja"; }
-  Mod+B               hotkey-overlay-title="Toggle taskbar."              { spawn "bash" "-c" "pkill -SIGUSR1 waybar"; }
-  Mod+Shift+W         hotkey-overlay-title="Change wallpaper."            { spawn "bash" "-c" "change-wallpaper -d"; }
-  Mod+Ctrl+W          hotkey-overlay-title="Change lockscreen wallpaper." { spawn "bash" "-c" "change-wallpaper -l"; }
-  Mod+BackSpace       hotkey-overlay-title="System actions."              { spawn "sysact"; }
-  Mod+Shift+Backspace hotkey-overlay-title="Lock session."                { spawn "gtklock"; }
+  Mod+Shift+Slash                                                                      { show-hotkey-overlay; }
+  Mod+Return          repeat=false hotkey-overlay-title="Terminal"                     { spawn "alacritty"; }
+  Mod+P               repeat=false hotkey-overlay-title="Pulsemixer"                   { spawn "bash" "-c" "pkill pulsemixer ; alacritty --class floating -e pulsemixer"; }
+  Mod+Shift+R         repeat=false hotkey-overlay-title="Htop"                         { spawn "bash" "-c" "pkill htop ; alacritty --class floating -e htop"; }
+  Mod+D               repeat=false hotkey-overlay-title="Program launcher."            { spawn "bash" "-c" "pkill wofi ; wofi -p \"  launch:\""; }
+  Mod+Shift+D         repeat=false hotkey-overlay-title="Command launcher."            { spawn "bash" "-c" "pkill wofi ; wofi -i --show run -p \"  launch cmd:\""; }
+  Mod+W               repeat=false hotkey-overlay-title="Browser"                      { spawn "librewolf"; }
+  Mod+X               repeat=false hotkey-overlay-title="Emacs (Client)"               { spawn "bash" "-c" "emacsclient -c"; }
+  Mod+E               repeat=false hotkey-overlay-title="File Manager"                 { spawn "caja"; }
+  Mod+B               repeat=false hotkey-overlay-title="Toggle taskbar."              { spawn "bash" "-c" "pkill -SIGUSR1 waybar"; }
+  Mod+Shift+W         repeat=false hotkey-overlay-title="Change wallpaper."            { spawn "bash" "-c" "change-wallpaper -d"; }
+  Mod+Ctrl+W          repeat=false hotkey-overlay-title="Change lockscreen wallpaper." { spawn "bash" "-c" "change-wallpaper -l"; }
+  Mod+BackSpace       repeat=false hotkey-overlay-title="System actions."              { spawn "sysact"; }
+  Mod+Shift+Backspace repeat=false hotkey-overlay-title="Lock session."                { spawn "gtklock"; }
 
-  Mod+Alt+W hotkey-overlay-title="Set refresh rate: 75Hz" { spawn "bash" "-c" "niri msg output DP-1 mode 1920x1080@74.924 & notify-send -t 2000 -h string:x-canonical-private-synchronous:refresh 'Refresh Rate' '75Hz'"; }
-  Mod+Alt+S hotkey-overlay-title="Set refresh rate: 60Hz" { spawn "bash" "-c" "niri msg output DP-1 mode 1920x1080@60.000 & notify-send -t 2000 -h string:x-canonical-private-synchronous:refresh 'Refresh Rate' '60Hz'"; }
-  Mod+Alt+A hotkey-overlay-title="Set refresh rate: 50Hz" { spawn "bash" "-c" "niri msg output DP-1 mode 1920x1080@50.000 & notify-send -t 2000 -h string:x-canonical-private-synchronous:refresh 'Refresh Rate' '50Hz'"; }
+  Mod+Alt+W repeat=false hotkey-overlay-title="Set refresh rate: 75Hz" { spawn "bash" "-c" "niri msg output DP-1 mode 1920x1080@74.924 & notify-send -t 2000 -h string:x-canonical-private-synchronous:refresh 'Refresh Rate' '75Hz'"; }
+  Mod+Alt+S repeat=false hotkey-overlay-title="Set refresh rate: 60Hz" { spawn "bash" "-c" "niri msg output DP-1 mode 1920x1080@60.000 & notify-send -t 2000 -h string:x-canonical-private-synchronous:refresh 'Refresh Rate' '60Hz'"; }
+  Mod+Alt+A repeat=false hotkey-overlay-title="Set refresh rate: 50Hz" { spawn "bash" "-c" "niri msg output DP-1 mode 1920x1080@50.000 & notify-send -t 2000 -h string:x-canonical-private-synchronous:refresh 'Refresh Rate' '50Hz'"; }
 
-  Mod+Shift+B { spawn "bt-toggle"; }
-  Mod+Ctrl+B { spawn "bt-disconnect"; }
+  Mod+Shift+B repeat=false { spawn "bt-toggle"; }
+  Mod+Ctrl+B  repeat=false { spawn "bt-disconnect"; }
 
-  Mod+Ctrl+L { spawn "idle-toggle"; }
+  Mod+Ctrl+L repeat=false { spawn "idle-toggle"; }
 
-  XF86AudioRaiseVolume hotkey-overlay-title="Raise volume." allow-when-locked=true { spawn "change-volume" "up" "5"; }
-  Mod+Ctrl+K           allow-when-locked=true                                      { spawn "change-volume" "up" "5"; }
+  XF86AudioRaiseVolume cooldown-ms=100 hotkey-overlay-title="Raise volume." allow-when-locked=true { spawn "change-volume" "up" "5"; }
+  Mod+Ctrl+K           cooldown-ms=100 allow-when-locked=true                                      { spawn "change-volume" "up" "5"; }
 
-  XF86AudioLowerVolume hotkey-overlay-title="Lower volume." allow-when-locked=true { spawn "change-volume" "down" "5"; }
-  Mod+Ctrl+J           allow-when-locked=true                                      { spawn "change-volume" "down" "5"; }
+  XF86AudioLowerVolume cooldown-ms=100 hotkey-overlay-title="Lower volume." allow-when-locked=true { spawn "change-volume" "down" "5"; }
+  Mod+Ctrl+J           cooldown-ms=100 allow-when-locked=true                                      { spawn "change-volume" "down" "5"; }
 
-  XF86AudioMute        hotkey-overlay-title="Toggle mute." allow-when-locked=true  { spawn "change-volume" "mute"; }
-  Mod+Ctrl+M           allow-when-locked=true                                      { spawn "change-volume" "mute"; }
+  XF86AudioMute        cooldown-ms=100 hotkey-overlay-title="Toggle mute." allow-when-locked=true  { spawn "change-volume" "mute"; }
+  Mod+Ctrl+M           cooldown-ms=100 allow-when-locked=true                                      { spawn "change-volume" "mute"; }
 
-  XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_SOURCE@" "toggle"; }
+  XF86AudioMicMute     cooldown-ms=100 allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_SOURCE@" "toggle"; }
 
-  XF86MonBrightnessUp allow-when-locked=true { spawn "changebrightness" "up" "10"; }
-  Shift+XF86MonBrightnessUp allow-when-locked=true { spawn "changebrightness" "up" "1"; }
+  XF86MonBrightnessUp         cooldown-ms=100 allow-when-locked=true { spawn "changebrightness" "up" "10"; }
+  Shift+XF86MonBrightnessUp   cooldown-ms=100 allow-when-locked=true { spawn "changebrightness" "up" "1"; }
 
-  XF86MonBrightnessDown allow-when-locked=true { spawn "changebrightness" "down" "10"; }
-  Shift+XF86MonBrightnessDown allow-when-locked=true { spawn "changebrightness" "down" "1"; }
+  XF86MonBrightnessDown       cooldown-ms=100 allow-when-locked=true { spawn "changebrightness" "down" "10"; }
+  Shift+XF86MonBrightnessDown cooldown-ms=100 allow-when-locked=true { spawn "changebrightness" "down" "1"; }
 
   Mod+O repeat=false { toggle-overview; }
 
@@ -195,10 +195,10 @@ binds {
   Mod+Shift+Space { toggle-window-floating; }
   Mod+Ctrl+Space  { switch-focus-between-floating-and-tiling; }
 
-  Mod+C                                                      { screenshot; }
-  Mod+Shift+C                                                { screenshot-screen; }
-  Mod+Ctrl+C                                                 { screenshot-window; }
-  Mod+V       hotkey-overlay-title="Edit image in clipboard" { spawn "img-edit"; }
+  Mod+C                                                                   { screenshot; }
+  Mod+Shift+C                                                             { screenshot-screen; }
+  Mod+Ctrl+C                                                              { screenshot-window; }
+  Mod+V       repeat=false hotkey-overlay-title="Edit image in clipboard" { spawn "img-edit"; }
 
   Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
