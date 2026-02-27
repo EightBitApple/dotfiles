@@ -28,6 +28,7 @@
         config.sops.templates."create_ap.conf".path
       }";
       Restart = "on-failure";
+      RestartSec = 5;
     };
   };
 }
