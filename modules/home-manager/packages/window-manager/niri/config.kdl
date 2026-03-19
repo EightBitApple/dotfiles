@@ -28,6 +28,10 @@ input {
   }
 }
 
+animations {
+  slowdown 0.5
+}
+
 output "DP-1" {
   mode "1920x1080@74.924"
   variable-refresh-rate
