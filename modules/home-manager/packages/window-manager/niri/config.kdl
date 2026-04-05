@@ -112,7 +112,7 @@ binds {
   Mod+Return          repeat=false hotkey-overlay-title="Terminal"                     { spawn "alacritty"; }
   Mod+P               repeat=false hotkey-overlay-title="Pulsemixer"                   { spawn "bash" "-c" "pkill pulsemixer ; alacritty --class floating -e pulsemixer"; }
   Mod+Shift+R         repeat=false hotkey-overlay-title="Htop"                         { spawn "bash" "-c" "pkill htop ; alacritty --class floating -e htop"; }
-  Mod+D               repeat=false hotkey-overlay-title="Program launcher."            { spawn "bash" "-c" "pkill wofi ; wofi -p \"  launch:\""; }
+  Mod+D               repeat=false hotkey-overlay-title="Program launcher."            { spawn "bash" "-c" "pkill wofi ; wofi -ip \"  launch:\""; }
   Mod+Shift+D         repeat=false hotkey-overlay-title="Command launcher."            { spawn "bash" "-c" "pkill wofi ; wofi -i --show run -p \"  launch cmd:\""; }
   Mod+W               repeat=false hotkey-overlay-title="Browser"                      { spawn "librewolf"; }
   Mod+X               repeat=false hotkey-overlay-title="Emacs (Client)"               { spawn "bash" "-c" "emacsclient -c"; }
