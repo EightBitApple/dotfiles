@@ -130,7 +130,7 @@ binds {
   Mod+Shift+B repeat=false { spawn "bt-toggle"; }
   Mod+Ctrl+B  repeat=false { spawn "bt-disconnect"; }
 
-  Mod+Ctrl+L repeat=false { spawn "idle-toggle"; }
+  Mod+I repeat=false { spawn "idle-toggle"; }
 
   XF86AudioRaiseVolume cooldown-ms=100 hotkey-overlay-title="Raise volume." allow-when-locked=true { spawn "change-volume" "up" "5"; }
   Mod+Ctrl+K           cooldown-ms=100 allow-when-locked=true                                      { spawn "change-volume" "up" "5"; }
