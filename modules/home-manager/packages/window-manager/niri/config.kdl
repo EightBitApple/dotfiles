@@ -38,6 +38,7 @@ output "DP-1" {
 }
 
 layout {
+  background-color "transparent"
   gaps 10
   preset-column-widths {
     proportion 0.5
@@ -91,6 +92,19 @@ window-rule {
 window-rule {
   match app-id="^wofi$"
   default-floating-position x=0 y=10
+}
+
+// Make the wallpaper stationary, rather than moving with workspaces.
+layer-rule {
+  match namespace="^wallpaper$"
+  place-within-backdrop true
+}
+
+// Optionally, disable the workspace shadows in the overview.
+overview {
+  workspace-shadow {
+    off
+  }
 }
 
 binds {
