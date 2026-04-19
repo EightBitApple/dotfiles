@@ -28,6 +28,11 @@ input {
   }
 }
 
+cursor {
+  hide-when-typing
+  hide-after-inactive-ms 3000
+}
+
 animations {
   slowdown 0.5
 }
