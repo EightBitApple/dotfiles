@@ -6,6 +6,7 @@
     ./change-brightness.nix
     ./change-volume.nix
     ./change-wallpaper.nix
+    ./display-mode.nix
     ./idle-toggle.nix
     ./image-edit.nix
     ./nix-shell.nix

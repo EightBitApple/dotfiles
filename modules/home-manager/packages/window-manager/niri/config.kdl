@@ -128,9 +128,9 @@ binds {
   Mod+BackSpace       repeat=false hotkey-overlay-title="System actions."              { spawn "sysact"; }
   Mod+Shift+Backspace repeat=false hotkey-overlay-title="Lock session."                { spawn "gtklock"; }
 
-  Mod+Alt+W repeat=false hotkey-overlay-title="Set refresh rate: 75Hz" { spawn "bash" "-c" "niri msg output DP-1 mode 1920x1080@74.924 & notify-send -t 2000 -h string:x-canonical-private-synchronous:refresh 'Refresh Rate' '75Hz'"; }
-  Mod+Alt+S repeat=false hotkey-overlay-title="Set refresh rate: 60Hz" { spawn "bash" "-c" "niri msg output DP-1 mode 1920x1080@60.000 & notify-send -t 2000 -h string:x-canonical-private-synchronous:refresh 'Refresh Rate' '60Hz'"; }
-  Mod+Alt+A repeat=false hotkey-overlay-title="Set refresh rate: 50Hz" { spawn "bash" "-c" "niri msg output DP-1 mode 1920x1080@50.000 & notify-send -t 2000 -h string:x-canonical-private-synchronous:refresh 'Refresh Rate' '50Hz'"; }
+  Mod+Alt+W repeat=false hotkey-overlay-title="Set refresh rate: 75Hz" { spawn "bash" "-c" "display-mode DP-1 1920x1080 74.924"; }
+  Mod+Alt+S repeat=false hotkey-overlay-title="Set refresh rate: 60Hz" { spawn "bash" "-c" "display-mode DP-1 1920x1080 60"; }
+  Mod+Alt+A repeat=false hotkey-overlay-title="Set refresh rate: 50Hz" { spawn "bash" "-c" "display-mode DP-1 1920x1080 50"; }
 
   Mod+Shift+B repeat=false { spawn "bt-toggle"; }
   Mod+Ctrl+B  repeat=false { spawn "bt-disconnect"; }
