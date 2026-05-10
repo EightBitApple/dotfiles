@@ -3,5 +3,6 @@
     ./custom-pkgs
     ./hotfixes
     ./hotfixes/openldap.nix
+    ./patches
   ];
 }
