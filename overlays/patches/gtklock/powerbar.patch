@@ -1,0 +1,22 @@
+diff --git a/source.c b/source.c
+index 5695d42..7cba9d3 100644
+--- a/source.c
++++ b/source.c
+@@ -26,7 +26,7 @@ const guint module_minor_version = 0;
+ 
+ static int self_id;
+ 
+-static gboolean show_labels = FALSE;
++static gboolean show_labels = TRUE;
+ static gboolean linked_buttons = FALSE;
+ static gchar *reboot_command = "systemctl reboot";
+ static gchar *poweroff_command = "systemctl -i poweroff";
+@@ -95,7 +95,7 @@ static void setup_powerbar(struct Window *ctx) {
+ 	}
+ 
+ 	if(suspend_command && suspend_command[0] != '\0') {
+-		POWERBAR(ctx)->suspend_button = gtk_button_new_from_icon_name("weather-clear-night-symbolic", GTK_ICON_SIZE_BUTTON);
++		POWERBAR(ctx)->suspend_button = gtk_button_new_from_icon_name("system-suspend-symbolic", GTK_ICON_SIZE_BUTTON);
+ 		gtk_widget_set_name(POWERBAR(ctx)->suspend_button, "suspend-button");
+ 		//gtk_widget_set_tooltip_text(POWERBAR(ctx)->suspend_button, "Suspend");
+ 		gtk_button_set_always_show_image(GTK_BUTTON(POWERBAR(ctx)->suspend_button), TRUE);
