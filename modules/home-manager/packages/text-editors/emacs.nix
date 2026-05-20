@@ -29,6 +29,10 @@
     gnumake
     nodejs
     languagetool
+    ty
+    python314Packages.flake8
+    python314Packages.pep8
+    python314Packages.autopep8
 
     # java lsp
     jdk
