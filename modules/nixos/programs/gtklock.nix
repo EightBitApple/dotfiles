@@ -1,16 +1,38 @@
 { pkgs, ... }:
 
+let
+  batTooltip = pkgs.writeShellApplication {
+    name = "bat-tooltip";
+    runtimeInputs = [ pkgs.jq ];
+    text = ''
+      battery-status | jq -r '.tooltip'
+    '';
+  };
+in
+
 {
   programs.gtklock = {
     enable = true;
 
-    config.main = {
-      follow-focus = true;
-      idle-hide = true;
-      idle-timeout = 10;
+    config = {
+      main = {
+        follow-focus = true;
+        idle-hide = true;
+        idle-timeout = 10;
+      };
+      runshell = {
+        command = "bash -c ${batTooltip}/bin/bat-tooltip";
+        refresh = 15;
+        runshell-position = "bottom-center";
+        justify = "center";
+        margin-bottom = 20;
+      };
     };
 
-    modules = with pkgs; [ gtklock-powerbar-module ];
+    modules = with pkgs; [
+      gtklock-powerbar-module
+      myPackages.gtklock-runshell-module
+    ];
 
     style =
       let
@@ -50,6 +72,12 @@
         #date-label {
           font-size: 48px;
           margin-bottom: 150px;
+        }
+
+        #runshell {
+          font-size: 14px;
+          color: white;
+          text-shadow: 1px 1px 2px black;
         }
 
         #input-label, #error-label {
