@@ -29,7 +29,7 @@
           background-color: @text_color
         }
 
-        #clock-label, #date-label, #input-field {
+        #clock-label, #date-label {
           font-weight: 300;
           font-size: 72px;
           color: @text_color_white;
@@ -58,10 +58,6 @@
 
         #input-field {
           font-size: 16px;
-          border-radius: 8px;
-          color: @text_color;
-
-          ${readStyle "select"}
         }
       '';
   };

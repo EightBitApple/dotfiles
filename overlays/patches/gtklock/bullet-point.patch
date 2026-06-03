@@ -6,7 +6,7 @@ index b5859cb..86a5cf5 100644
  	w->input_label = GTK_WIDGET(gtk_builder_get_object(builder, "input-label"));
  
  	w->input_field = GTK_WIDGET(gtk_builder_get_object(builder, "input-field"));
-+	gtk_entry_set_invisible_char(GTK_ENTRY(w->input_field), 8226); // U+2022 (•) in decimal.
++	gtk_entry_set_invisible_char(GTK_ENTRY(w->input_field), 9679); // U+25CF (●) in decimal.
  	g_signal_connect(w->input_field, "button-press-event", G_CALLBACK(entry_button_press), NULL);
  
  	w->message_revealer = GTK_WIDGET(gtk_builder_get_object(builder, "message-revealer"));
