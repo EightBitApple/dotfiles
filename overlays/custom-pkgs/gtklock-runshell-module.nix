@@ -17,7 +17,7 @@ stdenv.mkDerivation (finalAttrs: {
     owner = "wef";
     repo = "${finalAttrs.pname}";
     tag = "${finalAttrs.version}";
-    hash = "sha256-VhgsgVqNipJ9CfxM/P4cXUZY1fhiY57cgqtWhCh4bwQ=";
+    hash = "sha256-aVB8e+kk/jNxIJsHdeNxvNqqrV9ThcO9nHtj/gJ6/is=";
   };
 
   nativeBuildInputs = [
