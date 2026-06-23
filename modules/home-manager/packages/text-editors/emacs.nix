@@ -49,5 +49,8 @@
 
     # dap-gdb
     gdb
+
+    # font
+    symbola
   ];
 }

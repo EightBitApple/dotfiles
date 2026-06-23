@@ -16,6 +16,7 @@
     ./packages/terminals.nix
     ./packages/text-editors/emacs.nix
     ./packages/text-editors/neovim.nix
+    ./packages/unfree.nix
     ./packages/utilities/bottles.nix
     ./packages/utilities/browsers.nix
     ./packages/utilities/development/direnv.nix
