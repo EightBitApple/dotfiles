@@ -75,9 +75,11 @@ in
         }
 
         #runshell {
-          font-size: 14px;
-          color: white;
-          text-shadow: 1px 1px 2px black;
+          padding: 10px;
+          font-size: 15px;
+          color: black;
+          text-shadow: 0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 5px #fff,0 0 5px
+          #fff,0 0 5px #fff,0 0 5px #fff,0 0 5px #fff;
         }
 
         #input-label, #error-label {
