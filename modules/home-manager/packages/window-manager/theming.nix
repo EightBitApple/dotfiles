@@ -20,6 +20,7 @@
   qt.enable = true;
 
   home.pointerCursor = {
+    enable = true;
     name = "ModernXP";
     package = pkgs.myPackages.modern-xp-cursor-theme;
     size = userSettings.windowManager.cursorSize;
