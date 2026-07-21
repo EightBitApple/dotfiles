@@ -4,7 +4,6 @@
     ./hardware/brillo.nix
     ./hardware/intel-hwdec.nix
     ./hardware/microcode-updates.nix
-    ./kernel/drivers/realtek-88xxau.nix
     ./kernel/hid/apple-hid.nix
     ./kernel/latest.nix
     ./kernel/memory/zram.nix
